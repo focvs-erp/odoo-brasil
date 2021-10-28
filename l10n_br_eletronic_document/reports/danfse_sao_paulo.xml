@@ -286,7 +286,7 @@
                     <br />
                     <strong>R$0,00</strong>
                 </div>
-                <!-- <div class="col-3" style="text-align:center;">
+                <div class="col-3" style="text-align:center;">
                     Base de Cálculo (R$):
                     <br />
                     <t t-if="doc.company_id.l10n_br_tax_regime != 'simples'">
@@ -296,7 +296,7 @@
                     <t t-if="doc.company_id.l10n_br_tax_regime == 'simples'">
                         <strong>*</strong>
                     </t>
-                </div> -->
+                </div>
                 <div class="col-2" style="text-align:center;">
                     Alíquota (%):
                     <br />
@@ -307,7 +307,7 @@
                         <strong>*</strong>
                     </t>
                 </div>
-                <!-- <div class="col-2" style="text-align:center;">
+                <div class="col-2" style="text-align:center;">
                     Valor do ISS (R$):
                     <br />
                     <t t-if="doc.company_id.l10n_br_tax_regime != 'simples'">
@@ -317,7 +317,7 @@
                     <t t-if="doc.company_id.l10n_br_tax_regime == 'simples'">
                         <strong>*</strong>
                     </t>
-                </div> -->
+                </div>
                 <div class="col-2" style="text-align:center;">
                     Crédito (R$):
                     <br />
