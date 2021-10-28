@@ -106,7 +106,48 @@
                                 </div>
                             </div>
                         </t>
+                        <!-- AX4B - LICENSE HOLDER -->
+                        <div class="w-100"/>
+                        <div style="text-align:center">
+                            <label class="col-form-label">Responsible for billing</label>
+                        </div>
+                        <div class="w-100"/>
+                        <div t-attf-class="form-group #{error.get('name_responsible') and 'o_has_error' or ''} col-lg-12 div_name">
+                            <label class="col-form-label" for="name_responsible">Name</label>
+                            <input type="text" name="name_responsible" t-attf-class="form-control #{error.get('name_responsible') and 'is-invalid' or ''}" t-att-value="'name_responsible' in checkout and checkout['name_responsible']" />
+                        </div>
+                        <div class="w-100"/>
+                        <div t-attf-class="form-group #{error.get('email_responsible') and 'o_has_errorr' or ''} col-lg-6" id="div_email">
+                            <label class="col-form-label" for="email">Email</label>
+                            <input type="email" name="email_responsible" t-attf-class="form-control #{error.get('email_responsible') and 'is-invalid' or ''}" t-att-value="'email' in checkout and checkout['email_responsible']"/>
+                        </div>
+                        <div t-attf-class="form-group #{error.get('phone_responsible') and 'o_has_error' or ''} col-lg-6" id="div_phone_responsible">
+                            <label class="col-form-label" for="phone_responsible">Phone</label>
+                            <input type="tel" name="phone_responsible" t-attf-class="form-control #{error.get('phone') and 'is-invalid' or ''}" t-att-value="'phone_responsible' in checkout and checkout['phone_responsible']" />
+                        </div>
+                        <div t-attf-class="col-lg-12">
+                            <input type="checkbox" id='is_licence_holder_input' name="is_licence_holder_input"/>
+                            <label class="col-form-label font-weight-normal label-optional" for="is_licence_holder">Is the above contact responsible for the license?</label>
+                        </div>
+
+                        <!-- <div class="w-100"/> 
+                        <div class="form-row" id='licence_holder_div'>
+                            <div t-attf-class="form-group #{error.get('name') and 'o_has_error' or ''} col-lg-12 div_name">
+                                <label class="col-form-label" for="name_responsible_for_billing">Name</label>
+                                <input type="text" id='name_responsible_for_billing' name="name_responsible_for_billing" t-attf-class="form-control #{error.get('name_responsible_for_billing') and 'is-invalid' or ''}" t-att-value="'name_responsible_for_billing' in checkout and checkout['name_responsible_for_billing']" />
+                            </div>
+                            <div class="w-100"/>
+                            <div t-attf-class="form-group #{error.get('email') and 'o_has_errorr' or ''} col-lg-6" id="div_email">
+                                <label class="col-form-label" for="email">Email</label>
+                                <input type="email" name="email" t-attf-class="form-control #{error.get('email') and 'is-invalid' or ''}" t-att-value="'email' in checkout and checkout['email']"/>
+                            </div>
+                            <div t-attf-class="form-group #{error.get('phone') and 'o_has_error' or ''} col-lg-6" id="div_phone">
+                                <label class="col-form-label" for="phone_responsible_for_billing">Phone</label>
+                                <input type="tel" name="phone_responsible_for_billing" t-attf-class="form-control #{error.get('phone_responsible_for_billing') and 'is-invalid' or ''}" t-att-value="'phone_responsible_for_billing' in checkout and checkout['phone_responsible_for_billing']" />
+                            </div>
+                        </div> -->
                     </div>
+
                     <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
                     <input type="hidden" name="submitted" value="1"/>
                     <input type="hidden" name="partner_id" t-att-value="partner_id or '0'"/>
