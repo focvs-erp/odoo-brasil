@@ -18,7 +18,7 @@ class L10nBrWebsiteSale(main.WebsiteSale):
             "l10n_br_number",
             "l10n_br_district",
             "state_id",
-            "city_id",
+            "city_id"
         ]
 
     def _get_mandatory_shipping_fields(self):
@@ -29,7 +29,7 @@ class L10nBrWebsiteSale(main.WebsiteSale):
             "l10n_br_number",
             "l10n_br_district",
             "state_id",
-            "city_id",
+            "city_id"
         ]
 
     @http.route(
@@ -126,13 +126,45 @@ class L10nBrWebsiteSale(main.WebsiteSale):
         # new_values["email_responsible"] = values.get("email_responsible", None)
         # new_values["phone_responsible"] = values.get("phone_responsible", None)
         # new_values["is_licence_holder_input"] = values.get("is_licence_holder_input", None)
+        # new_values["name_responsible"] = values.get("name_responsible_for_billing", None)
+        # new_values["email_responsible"] = values.get("email_responsible_for_billing", None)
+        # new_values["phone_responsible"] = values.get("phone_responsible_for_billing", None)
         # AX4B - LICENSE HOLDER
         return new_values, errors, error_msg
+    
+    # AX4B - LICENSE HOLDER
+    def _create_partner_contact(self, partner_id, all_values):
+        Partner = request.env["res.partner"]
+
+        partner_responsible = {
+                'name': all_values.get('name_responsible'),
+                'email': all_values.get('email_responsible'),
+                'phone': all_values.get('phone_responsible'),
+                'parent_id': partner_id.id,
+                'type': 'responsible' if 'is_licence_holder_input' in all_values and all_values['is_licence_holder_input'] else 'contact'
+            }
+        Partner.sudo().create(partner_responsible)
+            
+        if 'is_licence_holder_input' in all_values and not all_values['is_licence_holder_input']:
+            partner_responsible = {
+                'name': all_values.get('name_responsible_for_billing'),
+                'email': all_values.get('email_responsible_for_billing'),
+                'phone': all_values.get('phone_responsible_for_billing'),
+                'parent_id': partner_id.id,
+                'type': 'responsible'
+            }
+            Partner.sudo().create(partner_responsible)
+    # AX4B - LICENSE HOLDER
 
     def _checkout_form_save(self, mode, checkout, all_values):
         Partner = request.env["res.partner"]
         if mode[0] == "new":
             partner_id = Partner.sudo().create(checkout)
+            
+            # AX4B - LICENSE HOLDER
+            self._create_partner_contact(partner_id, all_values)
+            # AX4B - LICENSE HOLDER
+
         elif mode[0] == "edit":
             partner_id = int(all_values.get("partner_id", 0))
             if partner_id:
@@ -154,18 +186,6 @@ class L10nBrWebsiteSale(main.WebsiteSale):
                     return Forbidden()
 
                 Partner.browse(partner_id).sudo().write(checkout)
-        # AX4B - LICENSE HOLDER
-        # TODO: Resolver/Validar - Erro query SQL
-        if 'is_licence_holder_input' in all_values and all_values['is_licence_holder_input']:
-            partner_responsible = {
-                'nome': all_values.pop('name_responsible'),
-                'email': all_values.pop('email_responsible'),
-                'phone': all_values.pop('phone_responsible'),
-                'parent_id': partner_id.id,
-                'type': 'responsible'
-            }
-            Partner.sudo().create(partner_responsible)
-        # AX4B - LICENSE HOLDER
         
         return partner_id
 

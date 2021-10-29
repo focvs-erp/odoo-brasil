@@ -17,7 +17,7 @@ odoo.define('br_website_sale.address', function (require) {
             'change #id_country': 'onChangeIdCountry',
             'change #select_state_id': 'onChangeSelectState',
             'change #input_zip': 'onChangeZip',
-
+            'change #is_licence_holder_input': 'onChangeIsLicenseHolderInput',
         },
 
         init: function (parent, options) {
@@ -140,6 +140,7 @@ odoo.define('br_website_sale.address', function (require) {
             $('select[name="city_id"]').attr('disabled', disabled);
         },
 
+
         onChangeZip: function(ev) {
             var self = this;
             var vals = {zip: $(ev.target).val()};
@@ -162,6 +163,17 @@ odoo.define('br_website_sale.address', function (require) {
                     }
                 }, () => self.disable_address_fields(false)
             );
+        },
+
+        onChangeIsLicenseHolderInput: function() {
+            var checkBox = document.getElementById("is_licence_holder_input");
+            var licence_holder_data = document.getElementById("licence_holder_div");
+    
+            if (checkBox.checked) {
+                licence_holder_data.style.display = "none";
+            } else {
+                licence_holder_data.style.display = "contents";
+            }
         },
     });
 
