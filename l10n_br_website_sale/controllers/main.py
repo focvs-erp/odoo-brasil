@@ -122,9 +122,10 @@ class L10nBrWebsiteSale(main.WebsiteSale):
         new_values["l10n_br_district"] = values.get("l10n_br_district", None)
         
         # AX4B - LICENSE HOLDER
-        new_values["name_responsible"] = values.get("name_responsible", None)
-        new_values["email_responsible"] = values.get("email_responsible", None)
-        new_values["phone_responsible"] = values.get("phone_responsible", None)
+        # new_values["name_responsible"] = values.get("name_responsible", None)
+        # new_values["email_responsible"] = values.get("email_responsible", None)
+        # new_values["phone_responsible"] = values.get("phone_responsible", None)
+        # new_values["is_licence_holder_input"] = values.get("is_licence_holder_input", None)
         # AX4B - LICENSE HOLDER
         return new_values, errors, error_msg
 
@@ -153,6 +154,19 @@ class L10nBrWebsiteSale(main.WebsiteSale):
                     return Forbidden()
 
                 Partner.browse(partner_id).sudo().write(checkout)
+        # AX4B - LICENSE HOLDER
+        # TODO: Resolver/Validar - Erro query SQL
+        if 'is_licence_holder_input' in all_values and all_values['is_licence_holder_input']:
+            partner_responsible = {
+                'nome': all_values.pop('name_responsible'),
+                'email': all_values.pop('email_responsible'),
+                'phone': all_values.pop('phone_responsible'),
+                'parent_id': partner_id.id,
+                'type': 'responsible'
+            }
+            Partner.sudo().create(partner_responsible)
+        # AX4B - LICENSE HOLDER
+        
         return partner_id
 
     @http.route()
