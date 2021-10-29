@@ -120,6 +120,12 @@ class L10nBrWebsiteSale(main.WebsiteSale):
         new_values["l10n_br_number"] = values.get("l10n_br_number", None)
         new_values["street2"] = values.get("street2", None)
         new_values["l10n_br_district"] = values.get("l10n_br_district", None)
+        
+        # AX4B - LICENSE HOLDER
+        new_values["name_responsible"] = values.get("name_responsible", None)
+        new_values["email_responsible"] = values.get("email_responsible", None)
+        new_values["phone_responsible"] = values.get("phone_responsible", None)
+        # AX4B - LICENSE HOLDER
         return new_values, errors, error_msg
 
     def _checkout_form_save(self, mode, checkout, all_values):
