@@ -119,7 +119,7 @@
                         <div class="w-100"/>
                         <div t-attf-class="form-group #{error.get('email_responsible') and 'o_has_errorr' or ''} col-lg-6" id="div_email">
                             <label class="col-form-label" for="email">Email</label>
-                            <input type="email" name="email_responsible" t-attf-class="form-control #{error.get('email_responsible') and 'is-invalid' or ''}" t-att-value="'email' in checkout and checkout['email_responsible']"/>
+                            <input type="email" name="email_responsible" t-attf-class="form-control #{error.get('email_responsible') and 'is-invalid' or ''}" t-att-value="'email_responsible' in checkout and checkout['email_responsible']"/>
                         </div>
                         <div t-attf-class="form-group #{error.get('phone_responsible') and 'o_has_error' or ''} col-lg-6" id="div_phone_responsible">
                             <label class="col-form-label" for="phone_responsible">Phone</label>
@@ -132,17 +132,17 @@
                         <div class="w-100"/> 
                         <div class="form-row" id='licence_holder_div'>
                             <div t-attf-class="form-group #{error.get('name') and 'o_has_error' or ''} col-lg-12 div_name">
-                                <label class="col-form-label" for="name_responsible_for_license">Name</label>
-                                <input type="text" id='name_responsible_for_license' name="name_responsible_for_license" t-attf-class="form-control #{error.get('name_responsible_for_license') and 'is-invalid' or ''}" t-att-value="'name_responsible_for_license' in checkout and checkout['name_responsible_for_license']" />
+                                <label class="col-form-label" for="name_responsible_for_billing">Name</label>
+                                <input type="text" id='name_responsible_for_billing' name="name_responsible_for_billing" t-attf-class="form-control #{error.get('name_responsible_for_billing') and 'is-invalid' or ''}" t-att-value="'name_responsible_for_billing' in checkout and checkout['name_responsible_for_billing']" />
                             </div>
                             <div class="w-100"/>
-                            <div t-attf-class="form-group #{error.get('email_responsible_for_license') and 'o_has_errorr' or ''} col-lg-6" id="div_email">
+                            <div t-attf-class="form-group #{error.get('email_responsible_for_billing') and 'o_has_errorr' or ''} col-lg-6" id="div_email">
                                 <label class="col-form-label" for="email">Email</label>
-                                <input type="email" name="email_responsible_for_license" t-attf-class="form-control #{error.get('email_responsible_for_license') and 'is-invalid' or ''}" t-att-value="'email_responsible_for_license' in checkout and checkout['email_responsible_for_license']"/>
+                                <input type="email" name="email_responsible_for_billing" t-attf-class="form-control #{error.get('email_responsible_for_billing') and 'is-invalid' or ''}" t-att-value="'email_responsible_for_billing' in checkout and checkout['email_responsible_for_billing']"/>
                             </div>
                             <div t-attf-class="form-group #{error.get('phone') and 'o_has_error' or ''} col-lg-6" id="div_phone">
-                                <label class="col-form-label" for="phone_responsible_for_license">Phone</label>
-                                <input type="tel" name="phone_responsible_for_license" t-attf-class="form-control #{error.get('phone_responsible_for_license') and 'is-invalid' or ''}" t-att-value="'phone_responsible_for_license' in checkout and checkout['phone_responsible_for_license']" />
+                                <label class="col-form-label" for="phone_responsible_for_billing">Phone</label>
+                                <input type="tel" name="phone_responsible_for_billing" t-attf-class="form-control #{error.get('phone_responsible_for_billing') and 'is-invalid' or ''}" t-att-value="'phone_responsible_for_billing' in checkout and checkout['phone_responsible_for_billing']" />
                             </div>
                         </div>
                         <!-- AX4B - LICENSE HOLDER -->

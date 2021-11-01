@@ -1,3 +1,4 @@
+from collections import defaultdict
 import re
 import base64
 import logging
@@ -29,6 +30,17 @@ class ResPartner(models.Model):
     l10n_br_inscr_est = fields.Char('Inscr. Estadual', size=20)
     l10n_br_inscr_mun = fields.Char('Inscr. Municipal', size=20)
     l10n_br_suframa = fields.Char('Suframa', size=20)
+
+     # AX4B - License Holder
+    # name_responsible = fields.Char('Name', size=60)
+    # email_responsible = fields.Char('E-mail')
+    # phone_responsible = fields.Char('Phone', size=60)
+    # is_licence_holder_input = fields.Boolean('Is Licence Holder?', default=False)
+    # name_responsible_for_billing = fields.Char('Name', size=60)
+    # email_responsible_for_billing = fields.Char('E-mail', size=60)
+    # phone_responsible_for_billing = fields.Char('Phone', size=60)
+    # AX4B - License Holder
+
 
     _sql_constraints = [
         ('res_partner_l10n_br_cnpj_cpf_uniq', 'unique (l10n_br_cnpj_cpf)',
@@ -139,4 +151,3 @@ class ResPartner(models.Model):
                 raise UserError(msg)
         else:
             raise UserError(_('Fill the State and CNPJ fields to search'))
-            

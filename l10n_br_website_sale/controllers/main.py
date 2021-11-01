@@ -121,6 +121,16 @@ class L10nBrWebsiteSale(main.WebsiteSale):
         new_values["street2"] = values.get("street2", None)
         new_values["l10n_br_district"] = values.get("l10n_br_district", None)
         
+        # AX4B - LICENSE HOLDER
+        # new_values["name_responsible"] = values.get("name_responsible", None)
+        # new_values["email_responsible"] = values.get("email_responsible", None)
+        # new_values["phone_responsible"] = values.get("phone_responsible", None)
+        # new_values["is_licence_holder_input"] = True if values.get("is_licence_holder_input", None) else False
+        # new_values["name_responsible_for_billing"] = values.get("name_responsible_for_billing", None)
+        # new_values["email_responsible_for_billing"] = values.get("email_responsible_for_billing", None)
+        # new_values["phone_responsible_for_billing"] = values.get("phone_responsible_for_billing", None)
+        # AX4B - LICENSE HOLDER
+        
         return new_values, errors, error_msg
     
     # AX4B - LICENSE HOLDER
@@ -128,19 +138,19 @@ class L10nBrWebsiteSale(main.WebsiteSale):
         Partner = request.env["res.partner"]
 
         partner_responsible = {
-                'name': all_values.get('name_responsible'),
-                'email': all_values.get('email_responsible'),
-                'phone': all_values.get('phone_responsible'),
-                'parent_id': partner_id.id,
-                'type': 'responsible' if 'is_licence_holder_input' in all_values and all_values['is_licence_holder_input'] else 'contact'
-            }
+            'name': all_values.get('name_responsible'),
+            'email': all_values.get('email_responsible'),
+            'phone': all_values.get('phone_responsible'),
+            'parent_id': partner_id.id,
+            'type': 'responsible' if 'is_licence_holder_input' in all_values and all_values['is_licence_holder_input'] else 'contact'
+        }
         Partner.sudo().create(partner_responsible)
             
-        if not all_values.get('is_licence_holder_input', 0):
+        if not all_values.get('is_licence_holder_input', None):
             partner_responsible = {
-                'name': all_values.get('name_responsible_for_license'),
-                'email': all_values.get('email_responsible_for_license'),
-                'phone': all_values.get('phone_responsible_for_license'),
+                'name': all_values.get('name_responsible_for_billing'),
+                'email': all_values.get('email_responsible_for_billing'),
+                'phone': all_values.get('phone_responsible_for_billing'),
                 'parent_id': partner_id.id,
                 'type': 'responsible'
             }
