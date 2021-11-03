@@ -142,7 +142,7 @@ class L10nBrWebsiteSale(main.WebsiteSale):
             'email': all_values.get('email_responsible'),
             'phone': all_values.get('phone_responsible'),
             'parent_id': partner_id.id,
-            'type': 'responsible' if 'is_licence_holder_input' in all_values and all_values['is_licence_holder_input'] else 'contact'
+            'type': 'responsible' if all_values.get('is_licence_holder_input', None) else 'contact'
         }
         Partner.sudo().create(partner_responsible)
             
