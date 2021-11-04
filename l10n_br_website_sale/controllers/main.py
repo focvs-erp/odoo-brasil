@@ -160,28 +160,24 @@ class L10nBrWebsiteSale(main.WebsiteSale):
     # AX4B - LICENSE HOLDER
     def _write_partner_contact(self, partner_id, all_values):
         Partner = request.env["res.partner"]
+        partner_record = Partner.browse(partner_id).sudo()
 
         partner_responsible = {
             'name': all_values.get('name_responsible'),
             'email': all_values.get('email_responsible'),
             'phone': all_values.get('phone_responsible'),
         }
-        partner_record = Partner.browse(partner_id).sudo()
-        self._cr.execute('''UPDATE purchase_order_line SET nota_empenho = %(nota)s WHERE order_id = %(orderId)s''',
-            {
-                'nota': str(self.x_studio_many2one_field_7SWI9.id),
-                'orderId': str(self.ids[0])
-            })  
-        # Partner.browse(partner_record.child_ids[0]).sudo().update(partner_responsible)
+        Partner.browse(partner_record.child_ids[0].id).sudo().write(partner_responsible)
             
         if not all_values.get('is_licence_holder_input', None):
+      
             partner_responsible = {
                 'name': all_values.get('name_responsible_for_billing'),
                 'email': all_values.get('email_responsible_for_billing'),
                 'phone': all_values.get('phone_responsible_for_billing'),
+
             }
-            partner_record = Partner.browse(partner_id).sudo()
-            Partner.browse(partner_record.child_ids[1]).sudo().update(partner_responsible)
+            Partner.browse(partner_record.child_ids[1].id).sudo().write(partner_responsible)
 
     # AX4B - LICENSE HOLDER
 
