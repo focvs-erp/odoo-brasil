@@ -1,5 +1,5 @@
 import re
-from odoo import http
+from odoo import http, tools, _
 from odoo.http import request
 from werkzeug.exceptions import Forbidden
 import odoo.addons.website_sale.controllers.main as main
@@ -73,6 +73,7 @@ class L10nBrWebsiteSale(main.WebsiteSale):
         cnpj_cpf = data.get("l10n_br_cnpj_cpf", "0")
         email = data.get("email", False)
 
+
         # TODO Validar campos
         # if cnpj_cpf and len(cnpj_cpf) == 18:
         #     # if not validate_cnpj(cnpj_cpf):
@@ -99,6 +100,17 @@ class L10nBrWebsiteSale(main.WebsiteSale):
             if existe > 0:
                 errors["email"] = u"invalid"
                 error_msg.append(("E-mail já cadastrado"))
+        
+        # AX4B - LICENSE HOLDER
+        if data.get('email_responsible') and not tools.single_email_re.match(data.get('email_responsible')):
+            errors["email_responsible"] = u"invalid"
+            error_msg.append(_('Invalid Email! Please enter a valid email address.'))
+        
+        if data.get('email_responsible_for_billing') and not tools.single_email_re.match(data.get('email_responsible')):
+            errors["email_responsible_for_billing"] = u"invalid"
+            error_msg.append(_('Invalid Email! Please enter a valid email address.'))
+        # AX4B - LICENSE HOLDER    
+
         return errors, error_msg
 
     def values_postprocess(self, order, mode, values, errors, error_msg):
@@ -142,7 +154,10 @@ class L10nBrWebsiteSale(main.WebsiteSale):
             'email': all_values.get('email_responsible'),
             'phone': all_values.get('phone_responsible'),
             'parent_id': partner_id.id,
-            'type': 'responsible' if all_values.get('is_licence_holder_input', None) else 'contact'
+            'type': 'responsible' if all_values.get('is_licence_holder_input', None) else 'contact',
+            'website_contact': True,
+            'reponsible_billing': True,
+            'reponsible_license': True if all_values.get('is_licence_holder_input', None) else False
         }
         Partner.sudo().create(partner_responsible)
             
@@ -152,7 +167,9 @@ class L10nBrWebsiteSale(main.WebsiteSale):
                 'email': all_values.get('email_responsible_for_billing'),
                 'phone': all_values.get('phone_responsible_for_billing'),
                 'parent_id': partner_id.id,
-                'type': 'responsible'
+                'type': 'responsible',
+                'website_contact': True,
+                'reponsible_license': True
             }
             Partner.sudo().create(partner_responsible)
     # AX4B - LICENSE HOLDER
@@ -167,7 +184,7 @@ class L10nBrWebsiteSale(main.WebsiteSale):
             'email': all_values.get('email_responsible'),
             'phone': all_values.get('phone_responsible'),
         }
-        Partner.browse(partner_record.child_ids[0].id).sudo().write(partner_responsible)
+        Partner.browse(partner_record.child_ids[1].id).sudo().write(partner_responsible)
             
         if not all_values.get('is_licence_holder_input', None):
       
@@ -175,9 +192,8 @@ class L10nBrWebsiteSale(main.WebsiteSale):
                 'name': all_values.get('name_responsible_for_billing'),
                 'email': all_values.get('email_responsible_for_billing'),
                 'phone': all_values.get('phone_responsible_for_billing'),
-
             }
-            Partner.browse(partner_record.child_ids[1].id).sudo().write(partner_responsible)
+            Partner.browse(partner_record.child_ids[0].id).sudo().write(partner_responsible)
 
     # AX4B - LICENSE HOLDER
 

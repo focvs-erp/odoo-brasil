@@ -43,6 +43,10 @@ odoo.define('br_website_sale.address', function (require) {
             };
 
             $('input[name="phone"]').mask(SPMaskBehavior, spOptions);
+            // AX4B - License Holder
+            $('input[name="phone_responsible"]').mask(SPMaskBehavior, spOptions);
+            $('input[name="phone_responsible_for_billing"]').mask(SPMaskBehavior, spOptions);
+            // AX4B - License Holder
             this.set_detault_state_city();
             return this._super.apply(this, arguments);
         },

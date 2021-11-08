@@ -31,7 +31,10 @@ class ResPartner(models.Model):
     l10n_br_inscr_mun = fields.Char('Inscr. Municipal', size=20)
     l10n_br_suframa = fields.Char('Suframa', size=20)
 
-     # AX4B - License Holder
+    # AX4B - License Holder
+    website_contact = fields.Boolean('Website contact', default=False)
+    reponsible_billing = fields.Boolean('Responsible for biling', default=False)
+    reponsible_license = fields.Boolean('Responsible for license', default=False)
     # name_responsible = fields.Char('Name', size=60)
     # email_responsible = fields.Char('E-mail')
     # phone_responsible = fields.Char('Phone', size=60)
