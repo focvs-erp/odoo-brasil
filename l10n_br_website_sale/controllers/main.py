@@ -158,9 +158,9 @@ class L10nBrWebsiteSale(main.WebsiteSale):
                 'reponsible_billing': True,
                 'reponsible_license': True if all_values.get('is_licence_holder_input', None) or not all_values.get('is_licence_holder_input', False) and not self._verify_partner_resposible_license_fields(all_values) else False
             }
-            partner_responsible['type'] = 'responsible' if partner_responsible.get('reponsible_license', None) else 'contact',
+            partner_responsible['type'] = 'responsible' if partner_responsible.get('reponsible_license', False) else 'contact'
             Partner.sudo().create(partner_responsible)
-            
+
         if not all_values.get('is_licence_holder_input', None):
             if self._verify_partner_resposible_license_fields(all_values):
                 partner_responsible = {
@@ -195,7 +195,7 @@ class L10nBrWebsiteSale(main.WebsiteSale):
             'email': all_values.get('email_responsible'),
             'phone': all_values.get('phone_responsible'),
         }
-        Partner.browse(partner_record.child_ids[1].id).sudo().write(partner_responsible)
+        Partner.browse(partner_record.child_ids[0].id).sudo().write(partner_responsible)
             
         if not all_values.get('is_licence_holder_input', None):
       
@@ -204,7 +204,7 @@ class L10nBrWebsiteSale(main.WebsiteSale):
                 'email': all_values.get('email_responsible_for_billing'),
                 'phone': all_values.get('phone_responsible_for_billing'),
             }
-            Partner.browse(partner_record.child_ids[0].id).sudo().write(partner_responsible)
+            Partner.browse(partner_record.child_ids[1].id).sudo().write(partner_responsible)
 
     # AX4B - LICENSE HOLDER
 
