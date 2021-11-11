@@ -195,7 +195,15 @@ class L10nBrWebsiteSale(main.WebsiteSale):
         if self._verify_partner_resposible_fields(all_values):
             respo_billing = Partner.search([("responsible_billing", "=", True), ('parent_id', '=', partner_id)])
             if respo_billing.exists():
-                respo_billing.write(partner_responsible)
+                if all_values.get('is_licence_holder_input', False):
+                    Partner.search([("responsible_billing", "=", False), ("responsible_license", "=", True), ('parent_id', '=', partner_id)]).unlink()
+                    partner_responsible.update(
+                    {'responsible_license': True})
+                    respo_billing.write(partner_responsible)
+
+                else:
+                    respo_billing.write(partner_responsible)
+
             
             else:
                 partner_responsible.update(
@@ -219,23 +227,24 @@ class L10nBrWebsiteSale(main.WebsiteSale):
             if self._verify_partner_resposible_license_fields(all_values):
 
                 respo_license = Partner.search([("responsible_license", "=", True), ('parent_id', '=', partner_id)])
+                
                 if respo_license.exists() and respo_license[0].responsible_billing == False:
                     respo_license.write(partner_responsible)
-                    return
 
-                elif respo_license.exists() and respo_license[0].responsible_billing == True:
-                    respo_license.write({'type': 'contact','responsible_license': False})
-                
-                partner_responsible.update(
-                    {'parent_id': partner_id.id},
-                    {'type': 'responsible'},
-                    {'website_contact': True},
-                    {'responsible_billing': False},
-                    {'responsible_license': True}
-                    )
-                Partner.create(partner_responsible)
+                else:
+                    if respo_license.exists() and respo_license[0].responsible_billing == True:
+                        respo_license.write({'type': 'contact','responsible_license': False})
+                    
+                    partner_responsible.update(
+                        {'parent_id': partner_id.id},
+                        {'type': 'responsible'},
+                        {'website_contact': True},
+                        {'responsible_billing': False},
+                        {'responsible_license': True}
+                        )
+                    Partner.create(partner_responsible)
             else:
-                Partner.search([("responsible_license", "=", True), ('parent_id', '=', partner_id)]).unlink()
+                Partner.search([("responsible_license", "=", True), ("responsible_billing", "=", False), ('parent_id', '=', partner_id)]).unlink()
             
             
     # AX4B - LICENSE HOLDER
