@@ -33,15 +33,15 @@ class ResPartner(models.Model):
 
     # AX4B - License Holder
     website_contact = fields.Boolean('Website contact', default=False)
-    reponsible_billing = fields.Boolean('Responsible for biling', default=False)
-    reponsible_license = fields.Boolean('Responsible for license', default=False)
+    responsible_billing = fields.Boolean('Responsible for biling', default=False)
+    responsible_license = fields.Boolean('Responsible for license', default=False)
     # name_responsible = fields.Char('Name', size=60)
     # email_responsible = fields.Char('E-mail')
     # phone_responsible = fields.Char('Phone', size=60)
     # is_licence_holder_input = fields.Boolean('Is Licence Holder?', default=False)
-    # name_responsible_for_billing = fields.Char('Name', size=60)
-    # email_responsible_for_billing = fields.Char('E-mail', size=60)
-    # phone_responsible_for_billing = fields.Char('Phone', size=60)
+    # name_responsible_for_license = fields.Char('Name', size=60)
+    # email_responsible_for_license = fields.Char('E-mail', size=60)
+    # phone_responsible_for_license = fields.Char('Phone', size=60)
     # AX4B - License Holder
 
 

@@ -106,8 +106,8 @@ class L10nBrWebsiteSale(main.WebsiteSale):
             errors["email_responsible"] = u"invalid"
             error_msg.append(_('Invalid email! Please enter a valid invoice owner\'s email address. '))
         
-        if data.get('email_responsible_for_billing', False) and not tools.single_email_re.match(data.get('email_responsible_for_billing')):
-            errors["email_responsible_for_billing"] = u"invalid"
+        if data.get('email_responsible_for_license', False) and not tools.single_email_re.match(data.get('email_responsible_for_license')):
+            errors["email_responsible_for_license"] = u"invalid"
             error_msg.append(_('Invalid email! Please enter a valid license holder email address.'))
         # AX4B - LICENSE HOLDER    
 
@@ -138,9 +138,9 @@ class L10nBrWebsiteSale(main.WebsiteSale):
         # new_values["email_responsible"] = values.get("email_responsible", None)
         # new_values["phone_responsible"] = values.get("phone_responsible", None)
         # new_values["is_licence_holder_input"] = True if values.get("is_licence_holder_input", None) else False
-        # new_values["name_responsible_for_billing"] = values.get("name_responsible_for_billing", None)
-        # new_values["email_responsible_for_billing"] = values.get("email_responsible_for_billing", None)
-        # new_values["phone_responsible_for_billing"] = values.get("phone_responsible_for_billing", None)
+        # new_values["name_responsible_for_license"] = values.get("name_responsible_for_license", None)
+        # new_values["email_responsible_for_license"] = values.get("email_responsible_for_license", None)
+        # new_values["phone_responsible_for_license"] = values.get("phone_responsible_for_license", None)
         # AX4B - LICENSE HOLDER
         
         return new_values, errors, error_msg
@@ -155,57 +155,56 @@ class L10nBrWebsiteSale(main.WebsiteSale):
                 'phone': all_values.get('phone_responsible'),
                 'parent_id': partner_id.id,
                 'website_contact': True,
-                'reponsible_billing': True,
-                'reponsible_license': True if all_values.get('is_licence_holder_input', None) or not all_values.get('is_licence_holder_input', False) and not self._verify_partner_resposible_license_fields(all_values) else False
+                'responsible_billing': True,
+                'responsible_license': True if all_values.get('is_licence_holder_input', None) or not all_values.get('is_licence_holder_input', False) and not self._verify_partner_resposible_license_fields(all_values) else False
             }
-            partner_responsible['type'] = 'responsible' if partner_responsible.get('reponsible_license', False) else 'contact'
+            partner_responsible['type'] = 'responsible' if partner_responsible.get('responsible_license', False) else 'contact'
             Partner.sudo().create(partner_responsible)
 
         if not all_values.get('is_licence_holder_input', None):
             if self._verify_partner_resposible_license_fields(all_values):
                 partner_responsible = {
-                    'name': all_values.get('name_responsible_for_billing'),
-                    'email': all_values.get('email_responsible_for_billing'),
-                    'phone': all_values.get('phone_responsible_for_billing'),
+                    'name': all_values.get('name_responsible_for_license'),
+                    'email': all_values.get('email_responsible_for_license'),
+                    'phone': all_values.get('phone_responsible_for_license'),
                     'parent_id': partner_id.id,
                     'type': 'responsible',
                     'website_contact': True,
-                    'reponsible_billing': True if not self._verify_partner_resposible_fields(all_values) else False,
-                    'reponsible_license': True
+                    'responsible_billing': True if not self._verify_partner_resposible_fields(all_values) else False,
+                    'responsible_license': True
                 }
 
                 Partner.sudo().create(partner_responsible)
 
     def _verify_partner_resposible_fields(self, all_values):
-        return any([all_values.get('email_responsible', False), all_values.get('phone_responsible', False)])
+        return any([all_values.get('name_responsible'), all_values.get('email_responsible', False), all_values.get('phone_responsible', False)])
 
     def _verify_partner_resposible_license_fields(self, all_values):
-        return any([all_values.get('email_responsible_for_billing', False), all_values.get('phone_responsible_for_billing', False)])
-
-    
-    # AX4B - LICENSE HOLDER
+        return any([all_values.get('name_responsible_for_license'), all_values.get('email_responsible_for_license', False), all_values.get('phone_responsible_for_license', False)])
 
     # AX4B - LICENSE HOLDER
     def _write_partner_contact(self, partner_id, all_values):
-        Partner = request.env["res.partner"]
-        partner_record = Partner.browse(partner_id).sudo()
+        Partner = request.env["res.partner"].sudo()
 
         partner_responsible = {
             'name': all_values.get('name_responsible'),
             'email': all_values.get('email_responsible'),
             'phone': all_values.get('phone_responsible'),
         }
-        Partner.browse(partner_record.child_ids[0].id).sudo().write(partner_responsible)
+        Partner.search([("responsible_billing", "=", True), ('parent_id', '=', partner_id)]).write(partner_responsible)
             
-        if not all_values.get('is_licence_holder_input', None):
+        if not all_values.get('is_licence_holder_input', False):
       
             partner_responsible = {
-                'name': all_values.get('name_responsible_for_billing'),
-                'email': all_values.get('email_responsible_for_billing'),
-                'phone': all_values.get('phone_responsible_for_billing'),
+                'name': all_values.get('name_responsible_for_license'),
+                'email': all_values.get('email_responsible_for_license'),
+                'phone': all_values.get('phone_responsible_for_license'),
             }
-            Partner.browse(partner_record.child_ids[1].id).sudo().write(partner_responsible)
-
+            responsible = Partner.search([("responsible_license", "=", True), ('parent_id', '=', partner_id)])
+            if responsible.exists():
+                responsible.write(partner_responsible)
+            
+            
     # AX4B - LICENSE HOLDER
 
     def _checkout_form_save(self, mode, checkout, all_values):
