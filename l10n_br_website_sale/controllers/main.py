@@ -100,17 +100,16 @@ class L10nBrWebsiteSale(main.WebsiteSale):
             if existe > 0:
                 errors["email"] = u"invalid"
                 error_msg.append(("E-mail já cadastrado"))
-        
+
         # AX4B - LICENSE HOLDER
         if data.get('email_responsible', False) and not tools.single_email_re.match(data.get('email_responsible')):
             errors["email_responsible"] = u"invalid"
             error_msg.append(_('Invalid email! Please enter a valid invoice owner\'s email address. '))
-        
+
         if data.get('email_responsible_for_license', False) and not tools.single_email_re.match(data.get('email_responsible_for_license')):
             errors["email_responsible_for_license"] = u"invalid"
             error_msg.append(_('Invalid email! Please enter a valid license holder email address.'))
         # AX4B - LICENSE HOLDER    
-
         return errors, error_msg
 
     def values_postprocess(self, order, mode, values, errors, error_msg):
@@ -132,18 +131,9 @@ class L10nBrWebsiteSale(main.WebsiteSale):
         new_values["l10n_br_number"] = values.get("l10n_br_number", None)
         new_values["street2"] = values.get("street2", None)
         new_values["l10n_br_district"] = values.get("l10n_br_district", None)
-        
-        # AX4B - LICENSE HOLDER
-        # new_values["name_responsible"] = values.get("name_responsible", None)
-        # new_values["email_responsible"] = values.get("email_responsible", None)
-        # new_values["phone_responsible"] = values.get("phone_responsible", None)
-        # new_values["is_licence_holder_input"] = True if values.get("is_licence_holder_input", None) else False
-        # new_values["name_responsible_for_license"] = values.get("name_responsible_for_license", None)
-        # new_values["email_responsible_for_license"] = values.get("email_responsible_for_license", None)
-        # new_values["phone_responsible_for_license"] = values.get("phone_responsible_for_license", None)
-        # AX4B - LICENSE HOLDER
-        
+
         return new_values, errors, error_msg
+
     # AX4B - LICENSE HOLDER
     def _create_partner_contact(self, partner_id, all_values):
         Partner = request.env["res.partner"]
@@ -203,21 +193,17 @@ class L10nBrWebsiteSale(main.WebsiteSale):
 
                 else:
                     respo_billing.write(partner_responsible)
-
-            
             else:
-                partner_responsible.update(
-                    {'parent_id': partner_id.id},
-                    {'type': 'responsible'},
-                    {'website_contact': True},
-                    {'responsible_billing': True},
-                    {'responsible_license': True if all_values.get('is_licence_holder_input', None) or not all_values.get('is_licence_holder_input', False) and not self._verify_partner_resposible_license_fields(all_values) else False}
+                partner_responsible.update({
+                    'parent_id': partner_id,
+                    'type': 'responsible',
+                    'website_contact': True,
+                    'responsible_billing': True,
+                    'responsible_license': True if all_values.get('is_licence_holder_input', None) or not all_values.get('is_licence_holder_input', False) and not self._verify_partner_resposible_license_fields(all_values) else False
+                    }
                     )
                 Partner.create(partner_responsible)
 
-        
-        # Partner.search([("responsible_billing", "=", True), ('parent_id', '=', partner_id)]).write(partner_responsible)
-            
         if not all_values.get('is_licence_holder_input', False):
             partner_responsible = {
                 'name': all_values.get('name_responsible_for_license', False),
@@ -227,33 +213,31 @@ class L10nBrWebsiteSale(main.WebsiteSale):
             if self._verify_partner_resposible_license_fields(all_values):
 
                 respo_license = Partner.search([("responsible_license", "=", True), ('parent_id', '=', partner_id)])
-                
+
                 if respo_license.exists() and respo_license[0].responsible_billing == False:
                     respo_license.write(partner_responsible)
 
                 else:
                     if respo_license.exists() and respo_license[0].responsible_billing == True:
                         respo_license.write({'type': 'contact','responsible_license': False})
-                    
-                    partner_responsible.update(
-                        {'parent_id': partner_id.id},
-                        {'type': 'responsible'},
-                        {'website_contact': True},
-                        {'responsible_billing': False},
-                        {'responsible_license': True}
-                        )
+
+                    partner_responsible.update({
+                        'parent_id': partner_id,
+                        'type': 'responsible',
+                        'website_contact': True,
+                        'responsible_billing': False,
+                        'responsible_license': True
+                    })
                     Partner.create(partner_responsible)
             else:
                 Partner.search([("responsible_license", "=", True), ("responsible_billing", "=", False), ('parent_id', '=', partner_id)]).unlink()
-            
-            
-    # AX4B - LICENSE HOLDER
 
+    # AX4B - LICENSE HOLDER
     def _checkout_form_save(self, mode, checkout, all_values):
         Partner = request.env["res.partner"]
         if mode[0] == "new":
             partner_id = Partner.sudo().create(checkout)
-            
+
             # AX4B - LICENSE HOLDER
             self._create_partner_contact(partner_id, all_values)
             # AX4B - LICENSE HOLDER
@@ -282,9 +266,6 @@ class L10nBrWebsiteSale(main.WebsiteSale):
 
                 self._write_partner_contact(partner_id, all_values)
 
-
-
-        
         return partner_id
 
     @http.route()
