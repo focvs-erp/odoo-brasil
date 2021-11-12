@@ -3,6 +3,7 @@ from odoo import http, tools, _
 from odoo.http import request
 from werkzeug.exceptions import Forbidden
 import odoo.addons.website_sale.controllers.main as main
+from typing import Dict, List
 
 # from odoo.addons.br_base.tools.fiscal import validate_cnpj, validate_cpf
 from odoo.addons.portal.controllers.portal import CustomerPortal
@@ -136,9 +137,9 @@ class L10nBrWebsiteSale(main.WebsiteSale):
 
     # AX4B - LICENSE HOLDER
     def _create_partner_contact(self, partner_id, all_values):
-        Partner = request.env["res.partner"]
+        Partner = request.env["res.partner"].sudo()
 
-        if self._verify_partner_resposible_fields(all_values):
+        if self._verify_who_is_resposible(all_values, ['name_responsible','email_responsible','phone_responsible']):
             partner_responsible = {
                 'name': all_values.get('name_responsible'),
                 'email': all_values.get('email_responsible'),
@@ -146,13 +147,19 @@ class L10nBrWebsiteSale(main.WebsiteSale):
                 'parent_id': partner_id.id,
                 'website_contact': True,
                 'responsible_billing': True,
-                'responsible_license': True if all_values.get('is_licence_holder_input', None) or not all_values.get('is_licence_holder_input', False) and not self._verify_partner_resposible_license_fields(all_values) else False
+                'responsible_license': True if all_values.get('is_licence_holder_input', None) or not all_values.get('is_licence_holder_input', False) and not self._verify_who_is_resposible(all_values, [
+                    'name_responsible_for_license', 
+                    'email_responsible_for_license',
+                    'phone_responsible_for_license']) else False
             }
             partner_responsible['type'] = 'responsible' if partner_responsible.get('responsible_license', False) else 'contact'
-            Partner.sudo().create(partner_responsible)
+            Partner.create(partner_responsible)
 
         if not all_values.get('is_licence_holder_input', None):
-            if self._verify_partner_resposible_license_fields(all_values):
+            if self._verify_who_is_resposible(all_values, [
+                'name_responsible_for_license', 
+                'email_responsible_for_license',
+                'phone_responsible_for_license']):
                 partner_responsible = {
                     'name': all_values.get('name_responsible_for_license'),
                     'email': all_values.get('email_responsible_for_license'),
@@ -160,17 +167,21 @@ class L10nBrWebsiteSale(main.WebsiteSale):
                     'parent_id': partner_id.id,
                     'type': 'responsible',
                     'website_contact': True,
-                    'responsible_billing': True if not self._verify_partner_resposible_fields(all_values) else False,
+                    'responsible_billing': True if not self._verify_who_is_resposible(all_values, ['name_responsible','email_responsible','phone_responsible']) else False,
                     'responsible_license': True
                 }
 
-                Partner.sudo().create(partner_responsible)
+                Partner.create(partner_responsible)
 
-    def _verify_partner_resposible_fields(self, all_values):
-        return any([all_values.get('name_responsible', False), all_values.get('email_responsible', False), all_values.get('phone_responsible', False)])
+    # def _verify_partner_resposible_fields(self, all_values):
+    #     return any([all_values.get('name_responsible', False), all_values.get('email_responsible', False), all_values.get('phone_responsible', False)])
 
-    def _verify_partner_resposible_license_fields(self, all_values):
-        return any([all_values.get('name_responsible_for_license', False), all_values.get('email_responsible_for_license', False), all_values.get('phone_responsible_for_license', False)])
+    # def _verify_partner_resposible_license_fields(self, all_values):
+    #     return any([all_values.get('name_responsible_for_license', False), all_values.get('email_responsible_for_license', False), all_values.get('phone_responsible_for_license', False)])
+        
+    def _verify_who_is_resposible(self, all_values: Dict, attr_list: List) -> bool:
+        return any([{x: all_values[x] for x in attr_list}.values()])
+
 
     # AX4B - LICENSE HOLDER
     def _write_partner_contact(self, partner_id, all_values):
@@ -182,13 +193,12 @@ class L10nBrWebsiteSale(main.WebsiteSale):
             'phone': all_values.get('phone_responsible', False),
         }
 
-        if self._verify_partner_resposible_fields(all_values):
+        if self._verify_who_is_resposible(all_values, ['name_responsible','email_responsible','phone_responsible']):
             respo_billing = Partner.search([("responsible_billing", "=", True), ('parent_id', '=', partner_id)])
             if respo_billing.exists():
                 if all_values.get('is_licence_holder_input', False):
                     Partner.search([("responsible_billing", "=", False), ("responsible_license", "=", True), ('parent_id', '=', partner_id)]).unlink()
-                    partner_responsible.update(
-                    {'responsible_license': True})
+                    partner_responsible.update({'responsible_license': True, 'type': 'responsible'})
                     respo_billing.write(partner_responsible)
 
                 else:
@@ -199,7 +209,10 @@ class L10nBrWebsiteSale(main.WebsiteSale):
                     'type': 'responsible',
                     'website_contact': True,
                     'responsible_billing': True,
-                    'responsible_license': True if all_values.get('is_licence_holder_input', None) or not all_values.get('is_licence_holder_input', False) and not self._verify_partner_resposible_license_fields(all_values) else False
+                    'responsible_license': True if all_values.get('is_licence_holder_input', None) or not all_values.get('is_licence_holder_input', False) and not self._verify_who_is_resposible(all_values, [
+                        'name_responsible_for_license', 
+                        'email_responsible_for_license', 
+                        'phone_responsible_for_license']) else False
                     }
                     )
                 Partner.create(partner_responsible)
@@ -210,7 +223,10 @@ class L10nBrWebsiteSale(main.WebsiteSale):
                 'email': all_values.get('email_responsible_for_license', False),
                 'phone': all_values.get('phone_responsible_for_license', False),
             }
-            if self._verify_partner_resposible_license_fields(all_values):
+            if self._verify_who_is_resposible(all_values, [
+                'name_responsible_for_license', 
+                'email_responsible_for_license',
+                'phone_responsible_for_license']):
 
                 respo_license = Partner.search([("responsible_license", "=", True), ('parent_id', '=', partner_id)])
 
