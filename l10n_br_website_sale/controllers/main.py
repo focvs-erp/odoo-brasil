@@ -173,14 +173,8 @@ class L10nBrWebsiteSale(main.WebsiteSale):
 
                 Partner.create(partner_responsible)
 
-    # def _verify_partner_resposible_fields(self, all_values):
-    #     return any([all_values.get('name_responsible', False), all_values.get('email_responsible', False), all_values.get('phone_responsible', False)])
-
-    # def _verify_partner_resposible_license_fields(self, all_values):
-    #     return any([all_values.get('name_responsible_for_license', False), all_values.get('email_responsible_for_license', False), all_values.get('phone_responsible_for_license', False)])
-        
     def _verify_who_is_resposible(self, all_values: Dict, attr_list: List) -> bool:
-        return any([{x: all_values[x] for x in attr_list}.values()])
+        return any({x: all_values.get(x, False) for x in attr_list}.values())
 
 
     # AX4B - LICENSE HOLDER
