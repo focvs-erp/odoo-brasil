@@ -93,11 +93,7 @@ odoo.define('br_website_sale.address', function (require) {
         },
 
         onChangeCnpjCpf: function() {
-            if(this.$el.find("#radioCompany")[0].checked == 'company') {
-                this.cnpj_cpf_mask(true);
-            } else {
-                this.cnpj_cpf_mask(false);
-            }
+            this.cnpj_cpf_mask(this.$el.find("#radioCompany")[0].checked);
         },
 
         onChangeIdCountry: function(ev) {
