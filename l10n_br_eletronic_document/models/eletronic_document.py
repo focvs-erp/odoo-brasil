@@ -211,8 +211,12 @@ class EletronicDocument(models.Model):
     fiscal_position_id = fields.Many2one(
         'account.fiscal.position', string=u'Posição Fiscal',
         readonly=True, states=STATE)
-    natureza_operacao = fields.Char(
+    
+    # AX4B - Relacionando o campo Natureza da Operação com Posição Fiscal
+    natureza_operacao = fields.Char(related='fiscal_position_id.name',
         string='Natureza da Operação', size=60, readonly=True, states=STATE)
+    # AX4B - Relacionando o campo Natureza da Operação com Posição Fiscal
+    
     # eletronic_event_ids = fields.One2many(
     #     'invoice.eletronic.event', 'invoice_eletronic_id', string=u"Eventos",
     #     readonly=True, states=STATE)
