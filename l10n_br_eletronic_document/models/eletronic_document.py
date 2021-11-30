@@ -1004,6 +1004,24 @@ style="max-width:100px;height:100px;margin:0px 0px;"src="/report/barcode/\
         due_date = datetime.strftime(due_date, format)
         return due_date
 
+    # AX4B - Enviar NF em lote
+    def invoice_transmission(self):
+        """
+        Função para fazer o envio de todas as NF selecionada na tree view
+        
+        Apenas NF com state em Draft, Edit e Error podem ser reenviadas
+        """
+        for invoice in self:
+            if invoice.state in ['draft', 'edit', 'error']:
+                try:
+                    invoice.action_send_eletronic_invoice()
+                except Exception as e:
+                    invoice.log_exception(e)
+                    invoice.notify_user()
+                    _logger.error(_(
+                        'Error sending electronic document', exc_info=True))
+    # AX4B - Enviar NF em lote
+
 
 class EletronicDocumentLine(models.Model):
     _name = 'eletronic.document.line'

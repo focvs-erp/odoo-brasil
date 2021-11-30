@@ -255,6 +255,11 @@
             <field name="model">eletronic.document</field>
             <field name="arch" type="xml">
                 <tree string="Documentos Eletrônicos">
+                    <!--  AX4B - Botão para enviar NF -->
+                    <header>
+                        <button name="invoice_transmission" string="Invoice Transmission" type="object" class="btn-primary"/>
+                    </header>
+                    <!--  AX4B - Botão para enviar NF -->
                     <field name="partner_id"/>
                     <field name="move_id"/>
                     <field name="numero"/>
@@ -263,6 +268,10 @@
                     <field name="data_agendada" />
                     <field name="schedule_user_id" />
                     <field name="state" />
+                    <!--  AX4B - Novas colunas para mensagem da NF -->
+                    <field name="codigo_retorno" />
+                    <field name="mensagem_retorno" />
+                    <!--  AX4B - Novas colunas para mensagem da NF -->
                 </tree>
             </field>
         </record>

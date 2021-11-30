@@ -1,0 +1,4416 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_br_eletronic_document
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0-20211015\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-11-30 13:32+0000\n"
+"PO-Revision-Date: 2021-11-30 13:32+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__icms_aliquota_diferimento
+msgid "% Diferimento"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__icms_aliquota_fcp_uf_dest
+msgid "% FCP"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__icms_aliquota_interestadual
+msgid "% ICMS Inter"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__icms_aliquota_uf_dest
+msgid "% ICMS destino"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__icms_st_aliquota_mva
+msgid "% MVA"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__icms_aliquota_inter_part
+msgid "% Partilha"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__icms_aliquota_reducao_base
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__icms_st_aliquota_reducao_base
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__ipi_reducao_bc
+msgid "% Redução Base"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__icms_aliquota_st_retido
+msgid "% ST Retido"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__icms_aliquota_credito
+msgid "% de Crédito"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.actions.report,print_report_name:l10n_br_eletronic_document.report_br_nfse_danfe_bh
+msgid "'%s - NF - %s' % (object.numero, object.partner_id.name)"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.actions.report,print_report_name:l10n_br_eletronic_document.report_br_nfse_danfpse
+msgid "'%s - NF - %s' % (object.numero, object.partner_id.name_get()[0][1])"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.actions.report,print_report_name:l10n_br_eletronic_document.report_br_nfse_danfe
+msgid "'%s - NF - %s.pdf' % (object.numero, object.partner_id.name)"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.actions.report,print_report_name:l10n_br_eletronic_document.report_br_nfe_danfe
+msgid "'%s - NFe - %s' % (object.numero, object.partner_id.name)"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template_bh_body
+msgid "(-) Deduções:"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template_bh_body
+msgid "(-) Desconto Incondicionado:"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template_bh_body
+msgid "(-) Descontos:"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template_bh_body
+msgid "(-) ISS Retido na Fonte:"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template_bh_body
+msgid "(-) Retenções Federais:"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template
+msgid "(1) Esta NFS-e foi emitida com respaldo na Lei nº 14.097/2005;"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template
+msgid "(2) Esta NFS-e substitui o RPS Nº"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template
+msgid "(3) Data de vencimento do ISS desta NFS-e:"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template_bh_body
+msgid "(=) Base de Cálculo:"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template_bh_body
+msgid "(=) Valor do ISS:"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template_bh_body
+msgid "(x) Alíquota:"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template
+msgid "/ IBPT"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__modalidade_frete__0
+msgid "0 - Contratação do Frete por conta do Remetente (CIF)"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__icms_tipo_base__0
+msgid "0 - Margem Valor Agregado (%)"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__origem__0
+msgid "0 - Nacional"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__indicador_total__0
+msgid "0 - Não"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__icms_st_tipo_base__0
+msgid "0- Preço tabelado ou máximo  sugerido"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__ipi_cst__00
+msgid "00 - Entrada com Recuperação de Crédito"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__icms_cst__00
+msgid "00 - Tributada Integralmente"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__ipi_cst__01
+msgid "01 - Entrada Tributável com Alíquota Zero"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__cofins_cst__01
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__pis_cst__01
+msgid "01 - Operação Tributável com Alíquota Básica"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__ipi_cst__02
+msgid "02 - Entrada Isenta"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__cofins_cst__02
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__pis_cst__02
+msgid "02 - Operação Tributável com Alíquota Diferenciada"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__ipi_cst__03
+msgid "03 - Entrada Não-Tributada"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__cofins_cst__03
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__pis_cst__03
+msgid "03 - Operação Tributável com Alíquota por Unidade de Medida de Produto"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__ipi_cst__04
+msgid "04 - Entrada Imune"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__cofins_cst__04
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__pis_cst__04
+msgid "04 - Operação Tributável Monofásica - Revenda a Alíquota Zero"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__ipi_cst__05
+msgid "05 - Entrada com Suspensão"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__cofins_cst__05
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__pis_cst__05
+msgid "05 - Operação Tributável por Substituição Tributária"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__cofins_cst__06
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__pis_cst__06
+msgid "06 - Operação Tributável a Alíquota Zero"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__cofins_cst__07
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__pis_cst__07
+msgid "07 - Operação Isenta da Contribuição"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__cofins_cst__08
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__pis_cst__08
+msgid "08 - Operação sem Incidência da Contribuição"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__cofins_cst__09
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__pis_cst__09
+msgid "09 - Operação com Suspensão da Contribuiçã"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__modalidade_frete__1
+msgid "1 - Contratação do Frete por conta do Destinatário (FOB)"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__ind_ie_dest__1
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__res_partner__l10n_br_indicador_ie_dest__1
+msgid "1 - Contribuinte ICMS"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__tipo_emissao__1
+msgid "1 - Emissão normal"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__origem__1
+msgid "1 - Estrangeira - Importação direta"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__nfe_import_declaration__type_import__1
+msgid "1 - Importação por conta própria"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__icms_st_tipo_base__1
+msgid "1 - Lista Negativa (valor)"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__nfe_import_declaration__type_transportation__1
+msgid "1 - Marítima"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__finalidade_emissao__1
+msgid "1 - Normal"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__ind_dest__1
+msgid "1 - Operação Interna"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__icms_tipo_base__1
+msgid "1 - Pauta (Valor)"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__indicador_total__1
+msgid "1 - Sim"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__nfe_import_declaration__type_transportation__10
+msgid "10 - Entrada / Saída ficta"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__icms_cst__10
+msgid "10 - Tributada e com cobrança do ICMS por substituição tributária"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__icms_cst__101
+msgid "101 - Tributada pelo Simples Nacional com permissão de crédito"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__icms_cst__102
+msgid "102 - Tributada pelo Simples Nacional sem permissão de crédito"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__icms_cst__103
+msgid "103 -Isenção do ICMS no Simples Nacional para faixa de receita bruta"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__finalidade_emissao__2
+msgid "2 - Complementar"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__tipo_emissao__2
+msgid ""
+"2 - Contingência FS-IA, com impressão do DANFE em formulário          de "
+"segurança"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__modalidade_frete__2
+msgid "2 - Contratação do Frete por conta de Terceiros"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__ind_ie_dest__2
+msgid "2 - Contribuinte Isento de Cadastro"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__res_partner__l10n_br_indicador_ie_dest__2
+msgid ""
+"2 - Contribuinte isento de Inscrição no cadastro de                 "
+"Contribuintes do ICMS"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__origem__2
+msgid "2 - Estrangeira - Adquirida no mercado interno"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__nfe_import_declaration__type_transportation__2
+msgid "2 - Fluvial"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__nfe_import_declaration__type_import__2
+msgid "2 - Importação por conta e ordem"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__icms_st_tipo_base__2
+msgid "2 - Lista Positiva (valor)"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__ind_dest__2
+msgid "2 - Operação Interestadual"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__icms_tipo_base__2
+msgid "2 - Preço Tabelado Máx. (valor)"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__icms_cst__20
+msgid "20 - Com redução de base de cálculo"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__icms_cst__201
+msgid ""
+"201 - Tributada pelo Simples Nacional com permissão de crédito e com "
+"cobrança do ICMS por substituição tributária"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__icms_cst__202
+msgid ""
+"202 - Tributada pelo Simples Nacional sem permissão de crédito e com "
+"cobrança do ICMS por substituição tributária"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__icms_cst__203
+msgid ""
+"203 - Isenção do ICMS no Simples Nacional para faixa de receita bruta e com "
+"cobrança do ICMS por substituição tributária"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__finalidade_emissao__3
+msgid "3 - Ajuste"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__tipo_emissao__3
+msgid "3 - Contingência SCAN"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__nfe_import_declaration__type_import__3
+msgid "3 - Importação por encomenda"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__nfe_import_declaration__type_transportation__3
+msgid "3 - Lacustre"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__icms_st_tipo_base__3
+msgid "3 - Lista Neutra (valor)"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__origem__3
+msgid ""
+"3 - Nacional, mercadoria ou bem com Conteúdo de Importação superior a 40% e "
+"inferior ou igual a 70%"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__ind_dest__3
+msgid "3 - Operação com exterior"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__modalidade_frete__3
+msgid "3 - Transporte Próprio por conta do Remetente"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__icms_tipo_base__3
+msgid "3 - Valor da operação"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__icms_cst__30
+msgid ""
+"30 - Isenta ou não tributada e com cobrança do ICMS por substituição "
+"tributária"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__icms_cst__300
+msgid "300 - Imune"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__nfe_import_declaration__type_transportation__4
+msgid "4 - Aérea"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__tipo_emissao__4
+msgid "4 - Contingência DPEC"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__finalidade_emissao__4
+msgid "4 - Devolução"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__icms_st_tipo_base__4
+msgid "4 - Margem Valor Agregado (%)"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__origem__4
+msgid ""
+"4 - Nacional, cuja produção tenha sido feita em conformidade com os "
+"processos produtivos básicos de que tratam as legislações citadas nos "
+"Ajustes"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__modalidade_frete__4
+msgid "4 - Transporte Próprio por conta do Destinatário"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__icms_cst__40
+msgid "40 - Isenta"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__icms_cst__400
+msgid "400 - Não tributada pelo Simples Nacional"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__icms_cst__41
+msgid "41 - Não tributada"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__ipi_cst__49
+msgid "49 - Outras Entradas"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__cofins_cst__49
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__pis_cst__49
+msgid "49 - Outras Operações de Saída"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__tipo_emissao__5
+msgid ""
+"5 - Contingência FS-DA, com impressão do DANFE em          formulário de "
+"segurança"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__origem__5
+msgid ""
+"5 - Nacional, mercadoria ou bem com Conteúdo de Importação inferior ou igual"
+" a 40%"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__icms_st_tipo_base__5
+msgid "5 - Pauta (valor)"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__nfe_import_declaration__type_transportation__5
+msgid "5 - Postal"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__cofins_cst__50
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__pis_cst__50
+msgid ""
+"50 - Operação com Direito a Crédito - Vinculada Exclusivamente a Receita "
+"Tributada no Mercado Interno"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__ipi_cst__50
+msgid "50 - Saída Tributada"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__icms_cst__50
+msgid "50 - Suspensão"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__icms_cst__500
+msgid ""
+"500 - ICMS cobrado anteriormente por substituição tributária (substituído) "
+"ou por antecipação"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__icms_cst__51
+msgid "51 - Diferimento"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__cofins_cst__51
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__pis_cst__51
+msgid ""
+"51 - Operação com Direito a Crédito - Vinculada Exclusivamente a Receita "
+"Não-Tributada no Mercado Interno"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__ipi_cst__51
+msgid "51 - Saída Tributável com Alíquota Zero"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__cofins_cst__52
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__pis_cst__52
+msgid ""
+"52 - Operação com Direito a Crédito - Vinculada Exclusivamente a Receita de "
+"Exportação"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__ipi_cst__52
+msgid "52 - Saída Isenta"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__cofins_cst__53
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__pis_cst__53
+msgid ""
+"53 - Operação com Direito a Crédito - Vinculada a Receitas Tributadas e Não-"
+"Tributadas no Mercado Interno"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__ipi_cst__53
+msgid "53 - Saída Não-Tributada"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__cofins_cst__54
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__pis_cst__54
+msgid ""
+"54 - Operação com Direito a Crédito - Vinculada a Receitas Tributadas no "
+"Mercado Interno e de Exportação"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__ipi_cst__54
+msgid "54 - Saída Imune"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__model__nfe
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__invoice_eletronic_inutilized__modelo__55
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__wizard_inutilization_nfe_numeration__modelo__55
+msgid "55 - NFe"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__cofins_cst__55
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__pis_cst__55
+msgid ""
+"55 - Operação com Direito a Crédito - Vinculada a Receitas Não Tributadas no"
+" Mercado Interno e de Exportação"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__ipi_cst__55
+msgid "55 - Saída com Suspensão"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__cofins_cst__56
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__pis_cst__56
+msgid ""
+"56 - Operação com Direito a Crédito - Vinculada a Receitas Tributadas e Não-"
+"Tributadas no Mercado Interno e de Exportação"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__tipo_emissao__6
+msgid "6 - Contingência SVC-AN"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__origem__6
+msgid ""
+"6 - Estrangeira - Importação direta, sem similar nacional, constante em "
+"lista da CAMEX e gás natural"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__nfe_import_declaration__type_transportation__6
+msgid "6 - Ferroviária"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__cofins_cst__60
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__pis_cst__60
+msgid ""
+"60 - Crédito Presumido - Operação de Aquisição Vinculada Exclusivamente a "
+"Receita Tributada no Mercado Interno"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__icms_cst__60
+msgid "60 - ICMS cobrado anteriormente por substituição tributária"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__cofins_cst__61
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__pis_cst__61
+msgid ""
+"61 - Crédito Presumido - Operação de Aquisição Vinculada Exclusivamente a "
+"Receita Não-Tributada no Mercado Interno"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__cofins_cst__62
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__pis_cst__62
+msgid ""
+"62 - Crédito Presumido - Operação de Aquisição Vinculada Exclusivamente a "
+"Receita de Exportação"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__cofins_cst__63
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__pis_cst__63
+msgid ""
+"63 - Crédito Presumido - Operação de Aquisição Vinculada a Receitas "
+"Tributadas e Não-Tributadas no Mercado Interno"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__cofins_cst__64
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__pis_cst__64
+msgid ""
+"64 - Crédito Presumido - Operação de Aquisição Vinculada a Receitas "
+"Tributadas no Mercado Interno e de Exportação"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__cofins_cst__65
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__pis_cst__65
+msgid ""
+"65 - Crédito Presumido - Operação de Aquisição Vinculada a Receitas Não-"
+"Tributadas no Mercado Interno e de Exportação"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__model__nfce
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__invoice_eletronic_inutilized__modelo__65
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__wizard_inutilization_nfe_numeration__modelo__65
+msgid "65 - NFCe"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__cofins_cst__66
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__pis_cst__66
+msgid ""
+"66 - Crédito Presumido - Operação de Aquisição Vinculada a Receitas "
+"Tributadas e Não-Tributadas no Mercado Interno e de Exportação"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__cofins_cst__67
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__pis_cst__67
+msgid "67 - Crédito Presumido - Outras Operações"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__tipo_emissao__7
+msgid "7 - Contingência SVC-RS"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__origem__7
+msgid ""
+"7 - Estrangeira - Adquirida no mercado interno, sem similar nacional, "
+"constante lista CAMEX e gás natural"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__nfe_import_declaration__type_transportation__7
+msgid "7 - Rodoviária"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__icms_cst__70
+msgid ""
+"70 - Com redução de base de cálculo e cobrança do ICMS por substituição "
+"tributária"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__cofins_cst__70
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__pis_cst__70
+msgid "70 - Operação de Aquisição sem Direito a Crédito"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__cofins_cst__71
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__pis_cst__71
+msgid "71 - Operação de Aquisição com Isenção"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__cofins_cst__72
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__pis_cst__72
+msgid "72 - Operação de Aquisição com Suspensão"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__cofins_cst__73
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__pis_cst__73
+msgid "73 - Operação de Aquisição a Alíquota Zero"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__cofins_cst__74
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__pis_cst__74
+msgid "74 - Operação de Aquisição sem Incidência da Contribuição"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__cofins_cst__75
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__pis_cst__75
+msgid "75 - Operação de Aquisição por Substituição Tributária"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__nfe_import_declaration__type_transportation__8
+msgid "8 - Conduto / Rede Transmissão"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__origem__8
+msgid ""
+"8 - Nacional, mercadoria ou bem com Conteúdo de Importação superior a 70%"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__tipo_emissao__9
+msgid "9 - Contingência off-line da NFC-e"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__nfe_import_declaration__type_transportation__9
+msgid "9 - Meios Próprios"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__ind_ie_dest__9
+msgid "9 - Não Contribuinte"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__res_partner__l10n_br_indicador_ie_dest__9
+msgid ""
+"9 - Não Contribuinte, que pode ou não possuir Inscrição                 "
+"Estadual no Cadastro de Contribuintes do ICMS"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__modalidade_frete__9
+msgid "9 - Sem Ocorrência de Transporte"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__icms_cst__90
+msgid "90 - Outras"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__icms_cst__900
+msgid "900 - Outros"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__cofins_cst__98
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__pis_cst__98
+msgid "98 - Outras Operações de Entrada"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__cofins_cst__99
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__pis_cst__99
+msgid "99 - Outras Operações"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__ipi_cst__99
+msgid "99 - Outras Saídas"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template
+msgid "<b>Outras informações</b>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_form
+msgid "<b>Situação: </b>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_form
+msgid ""
+"<br/>\n"
+"                                <b>Mensagem: </b>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfpse_report_template
+msgid ""
+"<br/>\n"
+"                            <strong style=\"padding:5px\">Autorização:</strong>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfpse_report_template
+msgid ""
+"<br/>\n"
+"                            <strong style=\"padding:5px\">Código de Verificação:</strong>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfpse_report_template
+msgid ""
+"<br/>\n"
+"                            <strong style=\"padding:5px\">Emissão:</strong>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfpse_report_template
+msgid ""
+"<br/>\n"
+"                        CMC:"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfpse_report_template
+msgid ""
+"<br/>\n"
+"                        CNPJ:"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfpse_report_template
+msgid ""
+"<br/>\n"
+"                        Telefone:"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfpse_report_template
+msgid ""
+"<span class=\"mini-rotulo\" style=\"padding:5px\">Razão "
+"Social/Nome</span><br/>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfpse_report_template
+msgid "<span class=\"mini-rotulo\">Bairro/Distrito</span><br/>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfpse_report_template
+msgid "<span class=\"mini-rotulo\">CEP</span><br/>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfpse_report_template
+msgid "<span class=\"mini-rotulo\">CFPS</span><br/>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfpse_report_template
+msgid "<span class=\"mini-rotulo\">CMC</span><br/>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfpse_report_template
+msgid "<span class=\"mini-rotulo\">CNPJ/CPF</span><br/>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfpse_report_template
+msgid "<span class=\"mini-rotulo\">Endereço</span><br/>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfpse_report_template
+msgid "<span class=\"mini-rotulo\">Município</span><br/>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfpse_report_template
+msgid "<span class=\"mini-rotulo\">País</span><br/>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfpse_report_template
+msgid "<span class=\"mini-rotulo\">UF</span><br/>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfpse_report_template
+msgid "<span class=\"mini-titulo\">Cálculo do Imposto</span>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfpse_report_template
+msgid "<span class=\"mini-titulo\">Dados adicionais</span>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfpse_report_template
+msgid "<span class=\"mini-titulo\">Dados do Tomador</span>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfpse_report_template
+msgid "<span class=\"mini-titulo\">Dados do(s) serviço(s)</span>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.res_config_settings_email
+msgid "<span class=\"o_form_label\">Modelo de e-mail NFe</span>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.res_config_settings_email
+msgid "<span class=\"o_form_label\">Sequência NFe para serviços</span>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.res_config_settings_email
+msgid "<span class=\"o_form_label\">Sequência NFe</span>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template_bh_body
+msgid ""
+"<span style=\"font-size:10px;\">Código de verificação</span>\n"
+"                    <br/>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template_bh_body
+msgid ""
+"<span style=\"font-size:10px;\">Data e Hora de Emissão</span>\n"
+"                    <br/>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template_bh_body
+msgid ""
+"<span style=\"font-size:10px;\">Número da Nota</span>\n"
+"                        <br/>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template
+msgid ""
+"<span style=\"font-size:8px;\">Código de verificação</span>\n"
+"                            <br/>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template
+msgid ""
+"<span style=\"font-size:9px;\">Data de Emissão</span>\n"
+"                        <br/>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template
+msgid ""
+"<span style=\"font-size:9px;\">Número NFSe</span>\n"
+"                            <br/>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template
+msgid ""
+"<span style=\"font-size:9px;\">Número RPS</span>\n"
+"                            <br/>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_account_move_form
+msgid "<span> NFEs</span>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template_bh_body
+msgid "<span>3106200 / Belo Horizonte</span>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template_bh_body
+msgid "<span>Não informado</span>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template_bh_body
+msgid "<span>R$ 0,00</span>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template_bh_body
+msgid "<span>Tributação no município</span>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template_bh_body
+msgid ""
+"<strong style=\"font-size:20px;\">NFS-e  - NOTA FISCAL ELETRÔNICA DE SERVIÇOS</strong><br/>\n"
+"                        <strong style=\"font-size:20px;\">- NOTA BH -</strong><br/>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template
+msgid ""
+"<strong style=\"font-size:20px;\">NOTA FISCAL ELETRÔNICA DE SERVIÇOS - NFSe</strong><br/>\n"
+"                        RPS Nº"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template_bh_body
+msgid ""
+"<strong style=\"font-size:20px;\">RECIBO PROVISÓRIO DE SERVIÇOS - RPS\n"
+"                        </strong>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfpse_report_template
+msgid ""
+"<strong style=\"padding:5px\">Documento Auxiliar de Prestação de Serviço Eletrônica</strong> <br/>\n"
+"                            <strong style=\"padding:5px\">Número:</strong>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template
+msgid "<strong>CEP: </strong>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfpse_report_template
+msgid "<strong>DANFPS-E</strong><br/>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template_bh_body
+msgid "<strong>DISCRIMINAÇÃO DOS SERVIÇOS</strong>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template
+msgid ""
+"<strong>INTERMEDIÁRIO DE SERVIÇOS</strong>\n"
+"                        <br/>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template_bh_body
+msgid "<strong>PRESTADOR DE SERVIÇOS</strong>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template_bh_body
+msgid ""
+"<strong>Prefeitura de Belo Horizonte - Secretaria Municipal de Fazenda</strong><br/>\n"
+"                    <span>Rua Espírito Santo, 605 - 3º andar - Centro - CEP: 30160-919 - Belo Horizonte MG.</span><br/>\n"
+"                    <span>Dúvidas: SIGESP</span>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_wizard_cancel_nfe
+msgid "<strong>Regras para cancelamento !</strong>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template_bh_body
+msgid "<strong>TOMADOR DE SERVIÇOS</strong>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template
+msgid "<strong>VALOR TOTAL DA NOTA = </strong>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_form
+msgid "A NFe está em ambiente de homologação"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: code:addons/l10n_br_eletronic_document/models/nfe.py:0
+#, python-format
+msgid "A NFe não está validada"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfpse_report_template
+msgid ""
+"A VALIDADE E AUTENTICIDADE DESTE DOCUMENTO AUXILIAR DA NOTA FISCAL DE PRESTAÇÃO DE SERVIÇO ELETRÔNICA <br/>\n"
+"                        PODERÃO SER COMPROVADAS MEDIANTE CONSULTA À PÁGINA DA SECRETARIA MUNICIPAL DA FAZENDA -SMF NA <br/>\n"
+"                        INTERNET, NO ENDEREÇO portal.pmf.sc.gov.br/sites/notaeletronica, EM VERIFICAR AUTENTICIDADE &gt;&gt;&gt; PRODUÇÃO, <br/>\n"
+"                        INFORMANDO O CÓDIGO DE VERIFICAÇÃO:"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_company__l10n_br_nfe_sinc
+msgid "Aceita envio síncrono"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_import_declaration_line__name
+msgid "Adição"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_nfe_import_declaration_form
+msgid "Adições"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__schedule_user_id
+msgid "Agendado por"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.nfe_cfop_search
+msgid "Agrupar Por..."
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_search
+msgid "Agrupar por..."
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfpse_report_template
+msgid "Aliq."
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__cofins_aliquota
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__icms_aliquota
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__icms_st_aliquota
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__ipi_aliquota
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__irrf_aliquota
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__iss_aliquota
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__pis_aliquota
+msgid "Alíquota"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template
+msgid ""
+"Alíquota (%):\n"
+"                    <br/>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__csll_aliquota
+msgid "Alíquota CSLL"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__ii_aliquota
+msgid "Alíquota II"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__inss_aliquota
+msgid "Alíquota INSS"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__irpj_aliquota
+msgid "Alíquota IRPJ"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__ambiente
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_company__l10n_br_tipo_ambiente
+msgid "Ambiente"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_export_nfe__zip_file
+msgid "Arquivo"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.ui.menu,name:l10n_br_eletronic_document.menu_eletronic_doc_base
+msgid "Automação de Notas Eletrônicas"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_reboque__balsa
+msgid "Balsa"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__csll_base_calculo
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__csll_base_calculo
+msgid "Base CSLL"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__icms_bc_st_retido
+msgid "Base Calc. ST Ret."
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__valor_bc_icms
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__icms_bc_uf_dest
+msgid "Base ICMS"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__inss_base_calculo
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__inss_base_calculo
+msgid "Base INSS"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__irpj_base_calculo
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__irpj_base_calculo
+msgid "Base IRPJ"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__irrf_base_calculo
+msgid "Base IRRF"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__cofins_base_calculo
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__iss_base_calculo
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__pis_base_calculo
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__cofins_base_calculo
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__ii_base_calculo
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__irrf_base_calculo
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__iss_base_calculo
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__pis_base_calculo
+msgid "Base de Cálculo"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template
+msgid ""
+"Base de Cálculo (R$):\n"
+"                    <br/>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfpse_report_template
+msgid ""
+"Base de Cálculo de ISSQN Subst.:\n"
+"                    <br/>\n"
+"                    <strong>R$ 0,00</strong>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfpse_report_template
+msgid ""
+"Base de Cálculo de ISSQN:\n"
+"                    <br/>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__icms_base_calculo
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__icms_st_base_calculo
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__ipi_base_calculo
+msgid "Base de cálculo"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__metodo_pagamento__15
+msgid "Boleto Bancário"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfpse_report_template
+msgid "CEP:"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__cest
+msgid "CEST"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.actions.act_window,name:l10n_br_eletronic_document.br_account_cfop_action
+#: model:ir.model,name:l10n_br_eletronic_document.model_nfe_cfop
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_account_fiscal_position__l10n_br_cfop_id
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__cfop
+#: model:ir.ui.menu,name:l10n_br_eletronic_document.br_account_cfop_menu
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.nfe_cfop_form
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.nfe_cfop_search
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.nfe_cfop_tree
+msgid "CFOP"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_cfop__child_ids
+msgid "CFOP Filhos"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_cfop__parent_id
+msgid "CFOP Pai"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,help:l10n_br_eletronic_document.field_account_fiscal_position__l10n_br_cfop_id
+msgid "CFOP da nota fiscal."
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.actions.act_window,name:l10n_br_eletronic_document.action_br_account_cnae_form
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__codigo_cnae
+#: model:ir.ui.menu,name:l10n_br_eletronic_document.menu_action_cnae_form
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_account_cnae_form
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_account_cnae_tree
+msgid "CNAE"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_account_cnae__parent_id
+msgid "CNAE Pai"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_company__l10n_br_cnae_main_id
+msgid "CNAE Primário"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_company__l10n_br_cnae_secondary_ids
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_br_nfse_floripa_res_company_form
+msgid "CNAE Secundários"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_account_cnae__child_ids
+msgid "CNAEs Filhos"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_import_declaration__thirdparty_cnpj
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__nfe_related_document__cpfcnpj_type__cnpj
+msgid "CNPJ"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__partner_cpf_cnpj
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_related_document__cnpj_cpf
+msgid "CNPJ/CPF"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: code:addons/l10n_br_eletronic_document/models/base_account.py:0
+#, python-format
+msgid "CNPJ/CPF do documento relacionado é invalido!"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template_bh_body
+msgid "CNPJ:"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_line_form
+msgid "COFINS"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template
+msgid "COFINS("
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__nfe_related_document__cpfcnpj_type__cpf
+msgid "CPF"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template
+msgid ""
+"CPF/CNPJ:\n"
+"                        <strong> ---- </strong>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_br_nfse_floripa_res_company_form
+msgid "CRST"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_line_form
+msgid "CSLL"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template
+msgid "CSLL("
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfpse_report_template
+msgid "CST"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__cst_danfe
+msgid "CST Danfe"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__nfe_related_document__document_type__cte
+msgid "CT-e"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_company__l10n_br_cabecalho_danfe
+msgid "Cabeçalho Danfe"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model,name:l10n_br_eletronic_document.model_account_cnae
+msgid "Cadastro de CNAE"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.ui.menu,name:l10n_br_eletronic_document.menu_br_account_fiscal_manager
+msgid "Cadastros"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__state__cancel
+msgid "Cancelado"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model,name:l10n_br_eletronic_document.model_wizard_cancel_nfe
+msgid "Cancelamento NF-e"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: code:addons/l10n_br_eletronic_document/models/nfe.py:0
+#, python-format
+msgid "Cancelamento NFe"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_wizard_cancel_nfe
+msgid "Cancelamento de NFe"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_form
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_wizard_cancel_nfe
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_wizard_carta_correcao_nfe
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_wizard_export_nfe
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_wizard_inutilize_nfe
+msgid "Cancelar"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: code:addons/l10n_br_eletronic_document/models/eletronic_document.py:0
+#: code:addons/l10n_br_eletronic_document/wizard/carta_correcao_eletronica.py:0
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_form
+#, python-format
+msgid "Carta de Correção"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_wizard_carta_correcao_nfe
+msgid "Carta de Correção Eletrônica"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model,name:l10n_br_eletronic_document.model_carta_correcao_eletronica_evento
+#: model:ir.model,name:l10n_br_eletronic_document.model_wizard_carta_correcao_eletronica
+msgid "Carta de correção eletrônica"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__cartas_correcao_ids
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_form
+msgid "Cartas de Correção"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__metodo_pagamento__03
+msgid "Cartão de Crédito"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__metodo_pagamento__04
+msgid "Cartão de Débito"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,help:l10n_br_eletronic_document.field_res_partner__l10n_br_indicador_ie_dest
+#: model:ir.model.fields,help:l10n_br_eletronic_document.field_res_users__l10n_br_indicador_ie_dest
+msgid ""
+"Caso não preencher este campo vai usar a         regra:\n"
+"9 - para pessoa física\n"
+"1 - para pessoa jurídica com IE         cadastrada\n"
+"2 - para pessoa jurídica sem IE cadastrada ou 9         caso o estado de destino for AM, BA, CE, GO, MG, MS, MT, PE, RN, SP"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.ui.menu,name:l10n_br_eletronic_document.menu_action_fiscal_category_form
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_product_fiscal_category_form
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_product_fiscal_category_tree
+msgid "Categoria Fiscal"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__chave_nfe_danfe
+msgid "Chave Formatado"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__chave_nfe
+msgid "Chave NFe"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_related_document__access_key
+msgid "Chave de Acesso"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__metodo_pagamento__02
+msgid "Cheque"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__classe_enquadramento_ipi
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__codigo_enquadramento_ipi
+msgid "Classe Enquadramento"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_company__l10n_br_client_id
+msgid "Client Id"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_company__l10n_br_client_secret
+msgid "Client Secret"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_form
+msgid "Cobrança"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template_bh_body
+msgid "Cod/Município da incidência do ISSQN:"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_inutilization_nfe_numeration__numeration_start
+msgid "Começo da Numeração"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__commercial_partner_id
+msgid "Commercial Entity"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model,name:l10n_br_eletronic_document.model_res_company
+msgid "Companies"
+msgstr "Empresas"
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__company_id
+msgid "Company"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__currency_id
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__currency_id
+msgid "Company Currency"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_form
+msgid "Compras"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__indicador_total
+msgid "Compõe Total da Nota?"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__payment_term_id
+msgid "Condição pagamento"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model,name:l10n_br_eletronic_document.model_res_config_settings
+msgid "Config Settings"
+msgstr "Definições de Configuração"
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_form
+msgid "Confirma o cancelamento do documento?"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_form
+msgid "Consultar Situação"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__ind_final
+msgid "Consumidor Final"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model,name:l10n_br_eletronic_document.model_res_partner
+msgid "Contact"
+msgstr "Contato"
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_company__l10n_br_accountant_id
+msgid "Contador"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__contrato_compra
+msgid "Contrato Compra"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_carta_correcao_eletronica_evento__correcao
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_carta_correcao_eletronica__correcao
+msgid "Correção"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_account_cnae__create_uid
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_carta_correcao_eletronica_evento__create_uid
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__create_uid
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__create_uid
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_invoice_eletronic_inutilized__create_uid
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_cfop__create_uid
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_duplicata__create_uid
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_fiscal_observation__create_uid
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_import_declaration__create_uid
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_import_declaration_line__create_uid
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_reboque__create_uid
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_related_document__create_uid
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_volume__create_uid
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_company_iest__create_uid
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_cancel_nfe__create_uid
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_carta_correcao_eletronica__create_uid
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_export_nfe__create_uid
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_inutilization_nfe_numeration__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_account_cnae__create_date
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_carta_correcao_eletronica_evento__create_date
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__create_date
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__create_date
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_invoice_eletronic_inutilized__create_date
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_cfop__create_date
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_duplicata__create_date
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_fiscal_observation__create_date
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_import_declaration__create_date
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_import_declaration_line__create_date
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_reboque__create_date
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_related_document__create_date
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_volume__create_date
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_company_iest__create_date
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_cancel_nfe__create_date
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_carta_correcao_eletronica__create_date
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_export_nfe__create_date
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_inutilization_nfe_numeration__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_account_move_form
+msgid "Criar nota fiscal"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.actions.server,name:l10n_br_eletronic_document.ir_cron_nfe_check_ir_actions_server
+#: model:ir.cron,cron_name:l10n_br_eletronic_document.ir_cron_nfe_check
+#: model:ir.cron,name:l10n_br_eletronic_document.ir_cron_nfe_check
+msgid "Cron Check NFe"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.actions.server,name:l10n_br_eletronic_document.ir_cron_nfe_send_ir_actions_server
+#: model:ir.cron,cron_name:l10n_br_eletronic_document.ir_cron_nfe_send
+#: model:ir.cron,name:l10n_br_eletronic_document.ir_cron_nfe_send
+msgid "Cron Enviar NFe"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template
+msgid ""
+"Crédito (R$):\n"
+"                    <br/>\n"
+"                    <strong>0,00</strong>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__metodo_pagamento__05
+msgid "Crédito Loja"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__nfe_related_document__document_type__cf
+msgid "Cupom Fiscal"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfpse_report_template
+msgid "Cód Atividade"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__cod_regime_tributario
+msgid "Cód. Regime Trib."
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_account_cnae__code
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_invoice_eletronic_inutilized__code
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_cfop__code
+msgid "Código"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,help:l10n_br_eletronic_document.field_eletronic_document_line__cest
+msgid "Código Especificador da Substituição Tributária"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__codigo_servico_municipio
+msgid "Código NFSe"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__codigo_retorno
+msgid "Código Retorno"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_company__l10n_br_csc
+msgid "Código de Segurança do Contribuinte"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_company__l10n_br_csrt
+msgid "Código de Segurança do Responsavel Técnico"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template_bh_body
+msgid "Código de Tributação do Município (CTISS)"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_carta_correcao_eletronica_evento__tipo_evento
+msgid "Código do Evento"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_import_declaration__exporting_code
+msgid "Código do Exportador"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_import_declaration_line__manufacturer_code
+msgid "Código do Fabricante"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__item_lista_servico
+msgid "Código do serviço"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template
+msgid ""
+"Código do serviço:\n"
+"                    <br/>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfpse_report_template
+msgid ""
+"DANFPS-E: DOCUMENTO AUXILIAR DA NOTA FISCAL DE PRESTAÇÃO DE SERVIÇOES ELETRÔNICA <br/>\n"
+"                        SIGNATÁRIO: MUNICÍPIO DE FLORIANÓPOLIS <br/>\n"
+"                        CARIMBO DO TEMPO: PREFEITURA MUNICIPAL DE FLORIANÓPOLIS <br/>\n"
+"                        DATA DO CARIMBO:"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_import_declaration_line__import_declaration_id
+msgid "DI"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_line_form
+msgid "Dados do produto"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_related_document__date
+msgid "Data"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__data_entrada_saida
+msgid "Data Entrega"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_export_nfe__end_date
+msgid "Data Final"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_export_nfe__start_date
+msgid "Data Inicial"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_duplicata__data_vencimento
+msgid "Data Vencimento"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__data_agendada
+msgid "Data agendada"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_search
+msgid "Data de Emissão"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_import_declaration__date_release
+msgid "Data de Liberação"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_import_declaration__date_registration
+msgid "Data de Registro"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__data_autorizacao
+msgid "Data de autorização"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_carta_correcao_eletronica_evento__datahora_evento
+msgid "Data do Evento"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__data_emissao
+msgid "Data emissão"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,help:l10n_br_eletronic_document.field_eletronic_document__data_entrada_saida
+msgid "Data para saída/entrada das mercadorias"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model,name:l10n_br_eletronic_document.model_nfe_import_declaration
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__import_declaration_ids
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_line_form
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_nfe_import_declaration_form
+msgid "Declaração de Importação"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__state__denied
+msgid "Denegado"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__fatura_desconto
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__desconto
+msgid "Desconto"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_account_cnae__name
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_cfop__description
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_fiscal_observation__name
+msgid "Descrição"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__codigo_servico_paulistana_nome
+msgid "Descrição código NFSe Paulistana"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfpse_report_template
+msgid "Descrição da Atividade"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.nfe_cfop_form
+msgid "Descrição do CFOP"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__ii_valor_despesas
+msgid "Despesas Aduaneiras"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_line_form
+msgid "Detalhes do COFINS"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_line_form
+msgid "Detalhes do ICMS"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_line_form
+msgid "Detalhes do IPI"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_line_form
+msgid "Detalhes do Imposto de Importação"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_line_form
+msgid "Detalhes do PIS"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__tem_difal
+msgid "Difal?"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__metodo_pagamento__01
+msgid "Dinheiro"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__discriminacao_servicos
+msgid "Discriminacao Servicos"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_account_cnae__display_name
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_account_fiscal_position__display_name
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_account_move__display_name
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_account_move_line__display_name
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_carta_correcao_eletronica_evento__display_name
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__display_name
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__display_name
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_invoice_eletronic_inutilized__display_name
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_ir_actions_report__display_name
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_cfop__display_name
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_duplicata__display_name
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_fiscal_observation__display_name
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_import_declaration__display_name
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_import_declaration_line__display_name
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_reboque__display_name
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_related_document__display_name
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_volume__display_name
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_company__display_name
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_company_iest__display_name
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_partner__display_name
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_cancel_nfe__display_name
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_carta_correcao_eletronica__display_name
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_export_nfe__display_name
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_inutilization_nfe_numeration__display_name
+msgid "Display Name"
+msgstr "Nome exibido"
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_form
+msgid "Doc. Relacionados"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__eletronic_document_id
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_cancel_nfe__edoc_id
+msgid "Documento"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_form
+msgid "Documento Eletronico"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_carta_correcao_eletronica_evento__eletronic_document_id
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_related_document__eletronic_document_id
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_carta_correcao_eletronica__eletronic_doc_id
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_form
+msgid "Documento Eletrônico"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: code:addons/l10n_br_eletronic_document/models/eletronic_document.py:0
+#, python-format
+msgid "Documento Eletrônico enviado - Proibido excluir"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_tree
+msgid "Documentos Eletrônicos"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__related_document_ids
+msgid "Documentos Fiscais Relacionados"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model,name:l10n_br_eletronic_document.model_nfe_related_document
+msgid "Documentos Relacionados"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__duplicata_ids
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_form
+msgid "Duplicatas"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfpse_report_template
+msgid ""
+"E O NÚMERO DE INSCRIÇÃO DO EMITENTE NO CADASTRO <br/>\n"
+"                        MUNICIPAL DE CONTRIBUINTES - CMC:"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template_bh_body
+msgid "E-mail:"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_duplicata__currency_id
+msgid "EDoc Currency"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__invoice_eletronic_inutilized__state__edit
+msgid "Editando"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__state__edit
+msgid "Editar"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model,name:l10n_br_eletronic_document.model_eletronic_document_line
+msgid "Eletronic document line (NFE, NFSe)"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model,name:l10n_br_eletronic_document.model_eletronic_document
+msgid "Eletronic documents (NFE, NFSe)"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__state__processing
+msgid "Em processamento"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__email_sent
+msgid "Email enviado"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__account_move__l10n_br_edoc_policy__directly
+msgid "Emitir agora"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__account_move__l10n_br_edoc_policy__after_payment
+msgid "Emitir após pagamento"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__company_id
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_company_iest__company_id
+msgid "Empresa"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template_bh_body
+msgid "Endereço:"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__tipo_operacao__entrada
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__nfe_cfop__type__input
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.nfe_cfop_search
+msgid "Entrada"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__partner_shipping_id
+msgid "Entrega"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__state__done
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__invoice_eletronic_inutilized__state__done
+msgid "Enviado"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.invoice_eletronic_inutilized_form
+msgid "Enviar"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_form
+msgid "Enviar Agora"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_wizard_cancel_nfe
+msgid "Enviar Cancelamento"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_wizard_carta_correcao_nfe
+msgid "Enviar Carta de Correção"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.actions.server,name:l10n_br_eletronic_document.ir_cron_nfe_send_email_ir_actions_server
+#: model:ir.cron,cron_name:l10n_br_eletronic_document.ir_cron_nfe_send_email
+#: model:ir.cron,name:l10n_br_eletronic_document.ir_cron_nfe_send_email
+msgid "Enviar NFe por Email"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_br_nfse_floripa_res_company_form
+msgid "Envio"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__state__error
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__invoice_eletronic_inutilized__state__error
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__wizard_cancel_nfe__state__error
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__wizard_carta_correcao_eletronica__state__error
+msgid "Erro"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: code:addons/l10n_br_eletronic_document/models/eletronic_document.py:0
+#, python-format
+msgid "Error sending electronic document"
+msgstr "Erro no envio de documento eletrônico"
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_fiscal_position_form
+msgid ""
+"Escolha a CFOP para emissão de nota fiscal. <br/>\n"
+"                *O primeiro dígito será trocado conforme a operação (estadual ou interna)"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_volume__especie
+msgid "Espécie"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_import_declaration__state_id
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_import_declaration__thirdparty_state_id
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_related_document__state_id
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_company_iest__state_id
+msgid "Estado"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__cert_state
+msgid "Estado do Certificado"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model,name:l10n_br_eletronic_document.model_wizard_export_nfe
+msgid "Exporta NF-e"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_wizard_export_nfe
+msgid "Exportar"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.actions.act_window,name:l10n_br_eletronic_document.action_export_nfe_wizard
+#: model:ir.ui.menu,name:l10n_br_eletronic_document.menu_nfe_export
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_wizard_export_nfe
+msgid "Exportar NFe"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_form
+msgid "Exportação"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_form
+msgid "Exportação/Compras"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__move_id
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__numero_fatura
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_import_declaration__move_id
+msgid "Fatura"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_related_document__move_related_id
+msgid "Fatura Referenciada"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_inutilization_nfe_numeration__numeration_end
+msgid "Fim da Numeração"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__finalidade_emissao
+msgid "Finalidade"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,help:l10n_br_eletronic_document.field_eletronic_document__finalidade_emissao
+msgid "Finalidade da emissão de NFe"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.actions.act_window,name:l10n_br_eletronic_document.action_br_account_fiscal_category
+msgid "Fiscal Category"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model,name:l10n_br_eletronic_document.model_account_fiscal_position
+msgid "Fiscal Position"
+msgstr "Posição Fiscal"
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_br_nfse_floripa_res_company_form
+msgid "Florianópolis"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__message_channel_ids
+msgid "Followers (Channels)"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,help:l10n_br_eletronic_document.field_eletronic_document__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__metodo_pagamento
+msgid "Forma de Pagamento"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__frete
+msgid "Frete"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_br_nfse_floripa_res_company_form
+msgid "Geral"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_form
+msgid "Habilitar Edição"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__ambiente__homologacao
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__res_company__l10n_br_tipo_ambiente__homologacao
+msgid "Homologação"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_line_form
+msgid "ICMS"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__valor_icms_deson
+msgid "ICMS Desoneração"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__valor_icms_uf_dest
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__icms_uf_dest
+msgid "ICMS Destino"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__valor_icms_uf_remet
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__icms_uf_remet
+msgid "ICMS Remetente"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__icms_st_retido
+msgid "ICMS ST Ret."
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__icms_substituto
+msgid "ICMS Substituto"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_account_cnae__id
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_account_fiscal_position__id
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_account_move__id
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_account_move_line__id
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_carta_correcao_eletronica_evento__id
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_carta_correcao_eletronica_evento__id_cce
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__id
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__id
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_invoice_eletronic_inutilized__id
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_ir_actions_report__id
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_cfop__id
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_duplicata__id
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_fiscal_observation__id
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_import_declaration__id
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_import_declaration_line__id
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_reboque__id
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_related_document__id
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_volume__id
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_company__id
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_company_iest__id
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_config_settings__id
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_partner__id
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_cancel_nfe__id
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_carta_correcao_eletronica__id
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_export_nfe__id
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_inutilization_nfe_numeration__id
+msgid "ID"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__iest
+msgid "IE Subst. Tributário"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_line_form
+msgid "II"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_line_form
+msgid "INSS"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template
+msgid "INSS("
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__ii_valor_iof
+msgid "IOF"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_line_form
+msgid "IPI"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template
+msgid "IR("
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_line_form
+msgid "IRPJ"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_line_form
+msgid "IRRF"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_line_form
+msgid "ISS"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,help:l10n_br_eletronic_document.field_eletronic_document__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__identifier
+msgid "Identificador"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_br_nfse_floripa_res_company_form
+msgid "Identificador do CRST"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_company__l10n_br_id_token_csc
+msgid "Identificador do CSC"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_company__l10n_br_id_token_csrt
+msgid "Identificador do Responsavel Técnico"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_form
+msgid "Identificação"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,help:l10n_br_eletronic_document.field_eletronic_document__message_needaction
+#: model:ir.model.fields,help:l10n_br_eletronic_document.field_eletronic_document__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,help:l10n_br_eletronic_document.field_eletronic_document__message_has_error
+#: model:ir.model.fields,help:l10n_br_eletronic_document.field_eletronic_document__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__ii_valor
+msgid "Imposto de Importação"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_form
+msgid "Impostos"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.actions.report,name:l10n_br_eletronic_document.report_br_nfe_danfe
+msgid "Impressão de Danfe"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,help:l10n_br_eletronic_document.field_eletronic_document__ind_final
+msgid "Indica operação com Consumidor final."
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__ind_dest
+msgid "Indicador Destinatário"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_partner__l10n_br_indicador_ie_dest
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_users__l10n_br_indicador_ie_dest
+msgid "Indicador IE"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__ind_ie_dest
+msgid "Indicador IE Dest."
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,help:l10n_br_eletronic_document.field_eletronic_document__ind_ie_dest
+msgid "Indicador da IE do desinatário"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__ind_pres
+msgid "Indicador de Presença"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,help:l10n_br_eletronic_document.field_eletronic_document__ind_pres
+msgid ""
+"Indicador de presença do comprador no\n"
+"estabelecimento comercial no momento\n"
+"da operação."
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__informacao_adicional
+msgid "Informação Adicional"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__informacoes_complementares
+msgid "Informações complementares"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_br_nfse_floripa_res_company_form
+msgid "Informações contábeis"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__informacoes_legais
+msgid "Informações legais"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_form
+msgid "Informações técnicas"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_related_document__inscr_est
+msgid "Inscr. Estadual/RG"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_company_iest__name
+msgid "Inscrição Estadual"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: code:addons/l10n_br_eletronic_document/models/base_account.py:0
+#, python-format
+msgid "Inscrição Estadual do documento fiscal inválida!"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model,name:l10n_br_eletronic_document.model_res_company_iest
+msgid "Inscrição Estadual do substituto tributário"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template_bh_body
+msgid "Inscrição Municipal:"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_company__l10n_br_iest_ids
+msgid "Inscrições Estaduais ST"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_wizard_inutilize_nfe
+msgid "Inutilizar"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.actions.act_window,name:l10n_br_eletronic_document.action_inutilize_nfe_wizard
+#: model:ir.ui.menu,name:l10n_br_eletronic_document.menu_nfe_inutilization
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_wizard_inutilize_nfe
+msgid "Inutilizar Numeração NFe"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model,name:l10n_br_eletronic_document.model_wizard_inutilization_nfe_numeration
+msgid "Inutilização numeração NF-e"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_tree
+msgid "Invoice Transmission"
+msgstr "Transmissão de NF"
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_line_form
+msgid "Item Documento"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__item_pedido_compra
+msgid "Item de compra"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,help:l10n_br_eletronic_document.field_eletronic_document_line__item_pedido_compra
+msgid "Item do pedido de compra do cliente"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_form
+msgid "Itens"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model,name:l10n_br_eletronic_document.model_account_move
+msgid "Journal Entry"
+msgstr "Lançamento de Diário"
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model,name:l10n_br_eletronic_document.model_account_move_line
+msgid "Journal Item"
+msgstr "Item de Diário"
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_invoice_eletronic_inutilized__justificativa
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_cancel_nfe__justificativa
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_inutilization_nfe_numeration__justificativa
+msgid "Justificativa"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: code:addons/l10n_br_eletronic_document/wizard/cancel_nfe.py:0
+#, python-format
+msgid "Justificativa deve ter mais de 15 caracteres"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.constraint,message:l10n_br_eletronic_document.constraint_nfe_cfop_nfe_cfop_code_uniq
+msgid "Já existe um CFOP com esse código !"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_account_cnae____last_update
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_account_fiscal_position____last_update
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_account_move____last_update
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_account_move_line____last_update
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_carta_correcao_eletronica_evento____last_update
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document____last_update
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line____last_update
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_invoice_eletronic_inutilized____last_update
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_ir_actions_report____last_update
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_cfop____last_update
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_duplicata____last_update
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_fiscal_observation____last_update
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_import_declaration____last_update
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_import_declaration_line____last_update
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_reboque____last_update
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_related_document____last_update
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_volume____last_update
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_company____last_update
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_company_iest____last_update
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_config_settings____last_update
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_partner____last_update
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_cancel_nfe____last_update
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_carta_correcao_eletronica____last_update
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_export_nfe____last_update
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_inutilization_nfe_numeration____last_update
+msgid "Last Modified on"
+msgstr "Última modificação em"
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_account_cnae__write_uid
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_carta_correcao_eletronica_evento__write_uid
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__write_uid
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__write_uid
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_invoice_eletronic_inutilized__write_uid
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_cfop__write_uid
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_duplicata__write_uid
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_fiscal_observation__write_uid
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_import_declaration__write_uid
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_import_declaration_line__write_uid
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_reboque__write_uid
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_related_document__write_uid
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_volume__write_uid
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_company_iest__write_uid
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_cancel_nfe__write_uid
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_carta_correcao_eletronica__write_uid
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_export_nfe__write_uid
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_inutilization_nfe_numeration__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_account_cnae__write_date
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_carta_correcao_eletronica_evento__write_date
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__write_date
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__write_date
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_invoice_eletronic_inutilized__write_date
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_cfop__write_date
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_duplicata__write_date
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_fiscal_observation__write_date
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_import_declaration__write_date
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_import_declaration_line__write_date
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_reboque__write_date
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_related_document__write_date
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_volume__write_date
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_company_iest__write_date
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_cancel_nfe__write_date
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_carta_correcao_eletronica__write_date
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_export_nfe__write_date
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_inutilization_nfe_numeration__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model,name:l10n_br_eletronic_document.model_nfe_import_declaration_line
+msgid "Linha da declaração de importação"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_import_declaration__eletronic_document_line_id
+msgid "Linha de Documento Eletrônico"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__document_line_ids
+msgid "Linhas"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_import_declaration__line_ids
+msgid "Linhas da DI"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_import_declaration__location
+msgid "Local"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__local_despacho
+msgid "Local de Despacho"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__local_embarque
+msgid "Local de Embarque"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template_bh_body
+msgid "Logo Nota BH"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template_bh_body
+msgid "Logo Prefeitura BH"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template
+msgid "Logo Prefeitura Campinas"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__res_company__l10n_br_tax_regime__presumido
+msgid "Lucro Presumido"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__res_company__l10n_br_tax_regime__real
+msgid "Lucro Real"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__account_move__l10n_br_edoc_policy__manually
+msgid "Manualmente"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_volume__marca
+msgid "Marca"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_carta_correcao_eletronica_evento__message
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_fiscal_observation__message
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_cancel_nfe__message
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_carta_correcao_eletronica__message
+msgid "Mensagem"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__mensagem_retorno
+msgid "Mensagem Retorno"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.nfe_fiscal_observation_form
+msgid "Mensagem a ser destacada no documento eletrônico"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model,name:l10n_br_eletronic_document.model_nfe_fiscal_observation
+msgid "Mensagen Documento Eletrônico"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__icms_tipo_base
+msgid "Modalidade BC do ICMS"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__modalidade_frete
+msgid "Modalidade do frete"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__model
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_invoice_eletronic_inutilized__modelo
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_inutilization_nfe_numeration__modelo
+msgid "Modelo"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__res_company__l10n_br_cabecalho_danfe__horizontal
+msgid "Modelo Horizontal"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__res_company__l10n_br_cabecalho_danfe__vertical
+msgid "Modelo Vertical"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.res_config_settings_email
+msgid "Modelo a ser utilizado no envio de NFe automatizado"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: code:addons/l10n_br_eletronic_document/models/eletronic_document.py:0
+#, python-format
+msgid "Modelo de email padrão não configurado"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_invoice_eletronic_inutilized__motive
+msgid "Motivo"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__icms_motivo_desoneracao
+msgid "Motivo Desoneração"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: code:addons/l10n_br_eletronic_document/wizard/carta_correcao_eletronica.py:0
+#, python-format
+msgid "Motivo de Correção deve ter mais de 15 caracteres"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: code:addons/l10n_br_eletronic_document/wizard/carta_correcao_eletronica.py:0
+#, python-format
+msgid "Motivo de Correção deve ter menos de 1000 caracteres"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template
+msgid ""
+"Município de Prestação do Serviço:\n"
+"                    <br/>\n"
+"                    <strong>-</strong>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template_bh_body
+msgid "Município:"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,help:l10n_br_eletronic_document.field_wizard_inutilization_nfe_numeration__justificativa
+msgid ""
+"Mínimo: 15 caracteres;\n"
+"Máximo: 255 caracteres."
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__ncm
+msgid "NCM"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__nfe_related_document__document_type__nf
+msgid "NF"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__nfe_related_document__document_type__nfrural
+msgid "NF Produtor"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__nfe_related_document__document_type__nfe
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_br_nfse_floripa_res_company_form
+msgid "NF-e"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model,name:l10n_br_eletronic_document.model_nfe_duplicata
+msgid "NF-e Duplicata"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model,name:l10n_br_eletronic_document.model_nfe_reboque
+msgid "NF-e Reboque"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model,name:l10n_br_eletronic_document.model_nfe_volume
+msgid "NF-e Volume"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model,name:l10n_br_eletronic_document.model_invoice_eletronic_inutilized
+msgid "NF-e inutilizada"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_br_nfse_floripa_res_company_form
+msgid "NF-e/NFC-e"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_br_nfse_floripa_res_company_form
+msgid "NFC-e"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__ind_pres__4
+msgid "NFC-e em operação com entrega em domicílio"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__model__nfse
+msgid "NFS-e - Nota Fiscal de Servico"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.actions.report,name:l10n_br_eletronic_document.report_br_nfse_danfpse
+msgid "NFS-e Florianópolis"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_duplicata__eletronic_document_id
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_reboque__eletronic_document_id
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_volume__eletronic_document_id
+msgid "NFe"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template
+msgid "NOTA CANCELADA"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__name
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__name
+msgid "Name"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__natureza_operacao
+msgid "Natureza da Operação"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template_bh_body
+msgid "Natureza da Operação:"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_invoice_eletronic_inutilized__name
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_cfop__name
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_export_nfe__zip_file_name
+msgid "Nome"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_cfop__small_name
+msgid "Nome Reduzido"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__xml_to_send_name
+msgid "Nome xml a ser enviado"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template_bh_body
+msgid "Nome/Razão Social:"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template
+msgid ""
+"Nome/Razão Social:\n"
+"                        <strong> ---- </strong>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__account_cnae__internal_type__normal
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__nfe_cfop__internal_type__normal
+msgid "Normal"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_account_bank_statement_line__l10n_br_edoc_policy
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_account_move__l10n_br_edoc_policy
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_account_payment__l10n_br_edoc_policy
+msgid "Nota Eletrônica"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__nota_empenho
+msgid "Nota de Empenho"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.actions.report,name:l10n_br_eletronic_document.report_br_nfse_danfe_bh
+msgid "Nota de Serviço - Belo Horizonte"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.actions.report,name:l10n_br_eletronic_document.report_br_nfse_danfe
+msgid "Nota de Serviço - Paulistana"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.actions.act_window,name:l10n_br_eletronic_document.action_view_eletronic_document
+#: model:ir.ui.menu,name:l10n_br_eletronic_document.menu_action_view_eletronic_document
+msgid "Notas Fiscais"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_search
+msgid "Notas com problemas"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,help:l10n_br_eletronic_document.field_eletronic_document__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,help:l10n_br_eletronic_document.field_eletronic_document__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,help:l10n_br_eletronic_document.field_eletronic_document__message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_volume__numeracao
+msgid "Numeração"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__numero_nfe
+msgid "Numero Formatado NFe"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__ind_final__0
+msgid "Não"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_wizard_carta_correcao_nfe
+msgid ""
+"Não devem ser alterados dados que influenciem nos valores das notas, como "
+"base de cálculo, valores de impostos, etc..."
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__ind_pres__0
+msgid "Não se aplica"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__numero
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_related_document__internal_number
+msgid "Número"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_company__l10n_br_aedf
+msgid "Número AEDF"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_import_declaration_line__drawback_number
+msgid "Número Drawback"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_duplicata__numero_duplicata
+msgid "Número Duplicata"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_invoice_eletronic_inutilized__numeration_end
+msgid "Número Final"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_invoice_eletronic_inutilized__numeration_start
+msgid "Número Inicial"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template
+msgid ""
+"Número Inscrição da Obra:\n"
+"                    <br/>\n"
+"                    <strong>-</strong>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__numero_rps
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template_bh_body
+msgid "Número RPS"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_import_declaration__name
+msgid "Número da DI"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__numero_controle
+msgid "Número de Controle"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,help:l10n_br_eletronic_document.field_res_company__l10n_br_aedf
+msgid "Número de autorização para emissão de NFSe"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_wizard_cancel_nfe
+msgid ""
+"Número mínimo de 15 caracteres e máximo de 255 caracteres na justificativa"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_form
+msgid "O certificado digital da empresa está vencida!"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_wizard_cancel_nfe
+msgid ""
+"O destinatário não pode ter realizado a Ciência da Emissão, passo necessário"
+" para o download do arquivo XML da nota fiscal."
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_wizard_cancel_nfe
+msgid ""
+"O fato gerador não pode ter ocorrido. O cancelamento, portanto, só é válido "
+"se for registrado antes da saída da mercadoria do estabelecimento"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__nfe_fiscal_observation__tipo__observacao
+msgid "Observação"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__nfe_fiscal_observation__tipo__fiscal
+msgid "Observação Fiscal"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_form
+msgid "Observações"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.nfe_fiscal_observation_form
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.nfe_fiscal_observation_tree
+msgid "Observações Fiscais"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__ind_pres__3
+msgid "Operação não presencial, Teleatendimento"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__ind_pres__9
+msgid "Operação não presencial, outros"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__ind_pres__2
+msgid "Operação não presencial, pela Internet"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__ind_pres__1
+msgid "Operação presencial"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__ind_pres__5
+msgid "Operação presencial, fora do estabelecimento"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__origem
+msgid "Origem Mercadoria"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__outras_despesas
+msgid "Outras despesas"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__metodo_pagamento__99
+msgid "Outros"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__nfse_pdf
+msgid "PDF da NFe"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__nfse_pdf_name
+msgid "PDF da NFe name"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_line_form
+msgid "PIS"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template
+msgid "PIS("
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_search
+msgid "Parceiro"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__partner_id
+msgid "Partner"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__pedido_compra
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__pedido_compra
+msgid "Pedido Compra"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_volume__peso_bruto
+msgid "Peso Bruto"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_volume__peso_liquido
+msgid "Peso Líquido"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_reboque__placa_veiculo
+msgid "Placa"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__placa_veiculo
+msgid "Placa do Veículo"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__fiscal_position_id
+msgid "Posição Fiscal"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template
+msgid ""
+"Prefeitura do Município de São Paulo\n"
+"                    <br/>\n"
+"                    Secretaria Municipal de Finanças\n"
+"                    <br/>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__preco_unitario
+msgid "Preço Unitário"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__product_id
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__tipo_produto__product
+msgid "Produto"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__ambiente__producao
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__res_company__l10n_br_tipo_ambiente__producao
+msgid "Produção"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_carta_correcao_eletronica_evento__protocolo
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__protocolo_nfe
+msgid "Protocolo"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,help:l10n_br_eletronic_document.field_eletronic_document__protocolo_nfe
+msgid "Protocolo de autorização da NFe"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__state__draft
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__invoice_eletronic_inutilized__state__draft
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__wizard_cancel_nfe__state__drat
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__wizard_carta_correcao_eletronica__state__drat
+msgid "Provisório"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__qrcode_url
+msgid "QR-Code URL"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__qrcode_hash
+msgid "QR-Code hash"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfpse_report_template
+msgid "Qtde"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_volume__quantidade_volumes
+msgid "Qtde. Volumes"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__quantidade
+msgid "Quantidade"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__rntc
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_reboque__rntc
+msgid "RNTC"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__reboque_ids
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_form
+msgid "Reboques"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__recibo_nfe
+msgid "Recibo NFe"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_form
+msgid "Reenviar Email"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__cod_regime_tributario__3
+msgid "Regime Normal"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_company__l10n_br_tax_regime
+msgid "Regime tributário"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,help:l10n_br_eletronic_document.field_eletronic_document__rntc
+#: model:ir.model.fields,help:l10n_br_eletronic_document.field_nfe_reboque__rntc
+msgid "Registro Nacional de Transportador de Carga"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_form
+msgid "Repetir"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model,name:l10n_br_eletronic_document.model_ir_actions_report
+msgid "Report Action"
+msgstr "Reportar Ação"
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_company__l10n_br_responsavel_tecnico_id
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_br_nfse_floripa_res_company_form
+msgid "Responsável Técnico"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_wizard_cancel_nfe
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_wizard_carta_correcao_nfe
+msgid "Resultado Envio"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__csll_valor_retencao
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__csll_valor_retencao
+msgid "Retenção CSLL"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__inss_valor_retencao
+msgid "Retenção INSS"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__irpj_valor_retencao
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__irpj_valor_retencao
+msgid "Retenção IRPJ"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__irrf_valor_retencao
+msgid "Retenção IRRF"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_form
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_line_form
+msgid "Retenções"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__salvar_xml_enviado
+msgid "Salvar Xml Enviado?"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__tipo_operacao__saida
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__nfe_cfop__type__output
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.nfe_cfop_search
+msgid "Saída"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,help:l10n_br_eletronic_document.field_eletronic_document_line__pedido_compra
+msgid "Se setado aqui sobrescreve o pedido de compra da fatura"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__seguro
+msgid "Seguro"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__metodo_pagamento__90
+msgid "Sem pagamento"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_company__l10n_br_user_password
+msgid "Senha Acesso"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_carta_correcao_eletronica_evento__sequencial_evento
+msgid "Sequencial do Evento"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_fiscal_observation__sequence
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_import_declaration_line__sequence
+msgid "Sequência"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_carta_correcao_eletronica__sequential
+msgid "Sequência Evento"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_company__l10n_br_nfe_sequence
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_config_settings__l10n_br_nfe_sequence
+msgid "Sequência Numeracao NFe"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_company__l10n_br_nfe_service_sequence
+msgid "Sequência Numeracao NFe de Servico"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_config_settings__l10n_br_nfe_service_sequence
+msgid "Sequência Numeracao NFe de Serviço"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.res_config_settings_email
+msgid ""
+"Sequência que irá gerar a numeração para NFe de serviços, \n"
+"                            verique o último número emitido"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.res_config_settings_email
+msgid ""
+"Sequência que irá gerar a numeração para NFe, \n"
+"                            verique o último número emitido"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__sequencial_evento
+msgid "Sequêncial Evento"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__tipo_produto__service
+msgid "Serviço"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__ind_final__1
+msgid "Sim"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__cod_regime_tributario__2
+msgid "Simples - Excesso de receita"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__cod_regime_tributario__1
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__res_company__l10n_br_tax_regime__simples
+msgid "Simples Nacional"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_cancel_nfe__state
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_carta_correcao_eletronica__state
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_search
+msgid "Situação"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__cofins_cst
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__icms_cst
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__pis_cst
+msgid "Situação Tributária"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__ipi_cst
+msgid "Situação tributária"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__state
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__state
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_invoice_eletronic_inutilized__state
+msgid "State"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,help:l10n_br_eletronic_document.field_eletronic_document__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template_bh_body
+msgid "Subitem Lista de Serviços LC 116/03 / Descrição:"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_line_form
+msgid "Substituição Tributária ICMS"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_invoice_eletronic_inutilized__serie
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_related_document__serie
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_inutilization_nfe_numeration__serie
+msgid "Série"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template
+msgid "Série API, emitido em"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__serie_documento
+msgid "Série Documento"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.actions.act_window,name:l10n_br_eletronic_document.action_invoice_eletronic_inutilized
+#: model:ir.ui.menu,name:l10n_br_eletronic_document.menu_invoice_eletronic_inutilized
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.invoice_eletronic_inutilized_form
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.invoice_eletronic_inutilized_tree
+msgid "Séries Inutilizadas"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template_bh_body
+msgid "Telefone:"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_company__l10n_br_nfe_email_template
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_config_settings__l10n_br_nfe_email_template
+msgid "Template de Email para NFe"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_cfop__type
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_fiscal_observation__tipo
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.nfe_cfop_search
+msgid "Tipo"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__icms_st_tipo_base
+msgid "Tipo Base ICMS ST"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_related_document__cpfcnpj_type
+msgid "Tipo Doc."
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_related_document__document_type
+msgid "Tipo Documento"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_account_cnae__internal_type
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_cfop__internal_type
+msgid "Tipo Interno"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__tipo_produto
+msgid "Tipo Produto"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__tipo_emissao
+msgid "Tipo de Emissão"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_import_declaration__type_import
+msgid "Tipo de Importação"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_search
+msgid "Tipo de Nota"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__tipo_operacao
+msgid "Tipo de Operação"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.actions.act_window,name:l10n_br_eletronic_document.action_br_account_service_type_form
+#: model:ir.ui.menu,name:l10n_br_eletronic_document.menu_action_service_type_form
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_account_service_type_form
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_account_service_type_tree
+msgid "Tipo de Serviço"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_br_nfse_floripa_res_company_form
+msgid "Token Integração NFSe Focus"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_company__l10n_br_nfse_token_acess
+msgid "Token de Acesso API"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_form
+msgid "Totais"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_form
+msgid "Totais de Serviço"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_tree
+msgid "Total"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__valor_bc_icmsst
+msgid "Total Base ST"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__valor_desconto
+msgid "Total Desconto"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__valor_despesas
+msgid "Total Despesas"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__valor_frete
+msgid "Total Frete"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__valor_icms_fcp_uf_dest
+msgid "Total ICMS FCP"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__valor_ii
+msgid "Total II"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__valor_ipi
+msgid "Total IPI"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_account_bank_statement_line__total_edocs
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_account_move__total_edocs
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_account_payment__total_edocs
+msgid "Total NFe"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__valor_icmsst
+msgid "Total ST"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__valor_seguro
+msgid "Total Seguro"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__valor_servicos
+msgid "Total Serviços"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,help:l10n_br_eletronic_document.field_eletronic_document__valor_bc_icmsst
+msgid "Total da base de cálculo do ICMS ST"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__valor_icms
+msgid "Total do ICMS"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,help:l10n_br_eletronic_document.field_eletronic_document__valor_icms_fcp_uf_dest
+msgid ""
+"Total total do ICMS relativo Fundo de Combate à Pobreza (FCP)         da UF "
+"de destino"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__transportadora_id
+msgid "Transportadora"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_import_declaration__type_transportation
+msgid "Transporte Internacional"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_form
+msgid "Transportes"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__valor_estimado_tributos
+msgid "Tributos Estimados"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__troco
+msgid "Troco"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,help:l10n_br_eletronic_document.field_eletronic_document__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__uf_saida_pais_id
+msgid "UF Saída do País"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_reboque__uf_veiculo
+msgid "UF Veículo"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__uf_veiculo
+msgid "UF da Placa"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template_bh_body
+msgid "UF:"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__nfse_url
+msgid "URL da NFe"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__unidade_medida
+msgid "Un. Medida Xml"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__uom_id
+msgid "Unidade Medida"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.nfe_fiscal_observation_form
+msgid "Utilize ${invoice.origin} para campos dinâmicos"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template
+msgid ""
+"VL. Total Deduções (R$):\n"
+"                    <br/>\n"
+"                    <strong>R$0,00</strong>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_reboque__vagao
+msgid "Vagão"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__metodo_pagamento__10
+msgid "Vale Alimentação"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__metodo_pagamento__13
+msgid "Vale Combustível"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__metodo_pagamento__12
+msgid "Vale Presente"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__metodo_pagamento__11
+msgid "Vale Refeição"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_import_declaration_line__amount_discount
+msgid "Valor"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template
+msgid ""
+"Valor Aproximado dos Tributos / Fonte\n"
+"                    <br/>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__valor_bruto
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__valor_bruto
+msgid "Valor Bruto"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__cofins_valor
+msgid "Valor COFINS"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__csll_valor
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__csll_valor
+msgid "Valor CSLL"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__icms_valor_desonerado
+msgid "Valor Desonerado"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__icms_valor_diferido
+msgid "Valor Diferido"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_duplicata__valor
+msgid "Valor Duplicata"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__tributos_estimados
+msgid "Valor Estimado Tributos"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__icms_fcp_uf_dest
+msgid "Valor FCP"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__valor_final
+msgid "Valor Final"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__inss_valor_retencao
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__inss_valor
+msgid "Valor INSS"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__irpj_valor
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__irpj_valor
+msgid "Valor IRPJ"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__irrf_valor_retencao
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__irrf_valor
+msgid "Valor IRRF"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__iss_valor
+msgid "Valor ISS"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__fatura_liquido
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__valor_liquido
+msgid "Valor Líquido"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template_bh_body
+msgid "Valor Líquido:"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__fatura_bruto
+msgid "Valor Original"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__pis_valor
+msgid "Valor PIS"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__valor_produtos
+msgid "Valor Produtos"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__iss_valor_retencao
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__iss_valor_retencao
+msgid "Valor Retenção"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__cofins_valor_retencao
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__pis_valor_retencao
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__cofins_valor_retencao
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__pis_valor_retencao
+msgid "Valor Retido"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__cofins_valor
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__icms_st_valor
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__icms_valor
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__ipi_valor
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__iss_valor
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__pis_valor
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfpse_report_template
+msgid "Valor Total"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfpse_report_template
+msgid "Valor Unitário"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_import_declaration__afrmm_value
+msgid "Valor da AFRMM"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__icms_valor_credito
+msgid "Valor de Cŕedito"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template
+msgid ""
+"Valor do ISS (R$):\n"
+"                    <br/>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfpse_report_template
+msgid ""
+"Valor do ISSQN Subst.:\n"
+"                    <br/>\n"
+"                    <strong>R$ 0,00</strong>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfpse_report_template
+msgid ""
+"Valor do ISSQN:\n"
+"                    <br/>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template_bh_body
+msgid "Valor dos serviços:"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__valor_pago
+msgid "Valor pago"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,help:l10n_br_eletronic_document.field_eletronic_document__valor_icms_uf_dest
+msgid "Valor total do ICMS Interestadual para a UF de destino"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,help:l10n_br_eletronic_document.field_eletronic_document__valor_icms_uf_remet
+msgid "Valor total do ICMS Interestadual para a UF do Remetente"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfpse_report_template
+msgid ""
+"Valor total dos Serviços:\n"
+"                    <br/>"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: code:addons/l10n_br_eletronic_document/models/eletronic_document.py:0
+#, python-format
+msgid "Verifique a notas fiscal - emissão com problemas"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_account_cnae__version
+msgid "Versão"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__account_cnae__internal_type__view
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__nfe_cfop__internal_type__view
+msgid "Visualização"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__volume_ids
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_form
+msgid "Volumes"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,help:l10n_br_eletronic_document.field_eletronic_document__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_invoice_eletronic_inutilized__sent_xml
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_invoice_eletronic_inutilized__sent_xml_name
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_cancel_nfe__sent_xml
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_cancel_nfe__sent_xml_name
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_carta_correcao_eletronica__sent_xml
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_carta_correcao_eletronica__sent_xml_name
+msgid "Xml Envio"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_invoice_eletronic_inutilized__received_xml
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_invoice_eletronic_inutilized__received_xml_name
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_cancel_nfe__received_xml
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_cancel_nfe__received_xml_name
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_carta_correcao_eletronica__received_xml
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_carta_correcao_eletronica__received_xml_name
+msgid "Xml Recebimento"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__xml_to_send
+msgid "Xml a Enviar"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__nfe_processada
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__nfe_processada_name
+msgid "Xml da NFe"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__wizard_export_nfe__state__done
+msgid "done"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__wizard_export_nfe__state__init
+msgid "init"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_export_nfe__state
+msgid "state"
+msgstr ""
