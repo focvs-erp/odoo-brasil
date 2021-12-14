@@ -1,11 +1,14 @@
 import re
 import logging
 import datetime
+import json
+import requests
 
 from odoo import api, fields, models
 from odoo.http import request
 from odoo.exceptions import UserError
 from werkzeug import urls
+from requests.auth import HTTPBasicAuth
 
 _logger = logging.getLogger(__name__)
 odoo_request = request
@@ -15,6 +18,8 @@ try:
 except ImportError:
     _logger.exception("Não é possível importar iugu")
 
+with open('extras_addons/odoo-brasil/payment_trustcode/models/appsettings.json') as file:
+	appsettings = json.load(file)
 
 class IuguBoleto(models.Model):
     _inherit = "payment.acquirer"
@@ -48,7 +53,7 @@ class IuguBoleto(models.Model):
 
         invoice_data = {
             "email": partner_id.email,
-            "due_date": today.strftime("%d/%m/%Y"),
+            "due_date": today.strftime('%Y-%m-%d'),
             "return_url": urls.url_join(base_url, "/payment/process"),
             "notification_url": urls.url_join(  # ngrok_url
                 base_url, "/iugu/notificacao/"
@@ -66,9 +71,7 @@ class IuguBoleto(models.Model):
             },
         }
 
-        iugu.config(token=self.iugu_api_key)
-        invoice = iugu.Invoice()
-        result = invoice.create(invoice_data)
+        result = self.create(invoice_data)          
         if "errors" in result:
             if isinstance(result["errors"], str):
                 msg = result['errors']
@@ -95,6 +98,30 @@ class IuguBoleto(models.Model):
             "secure_url": url
         }
 
+    def create(self, data):
+        return self.base_request(self.make_url(['invoices']), "POST", data)
+
+    def make_url(self, paths):
+        url = appsettings['iugu']['URL']
+        for path in paths:           
+            url = url + '/' + path
+        return url
+
+    def headers(self):
+        return {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        }
+
+    def base_request(self, url, method, data={}):
+        try:
+            response = requests.request(method, url,
+                                        auth=HTTPBasicAuth(self.iugu_api_key, ''),
+                                        data=json.dumps(data),
+                                        headers=self.headers())
+            return json.loads(response.content.decode('utf-8'))
+        except Exception as error:
+            raise
 
 class TransactionIugu(models.Model):
     _inherit = "payment.transaction"
