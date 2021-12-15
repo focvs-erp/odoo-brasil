@@ -18,7 +18,7 @@ try:
 except ImportError:
     _logger.exception("Não é possível importar iugu")
 
-with open('extras_addons/odoo-brasil/payment_trustcode/models/appsettings.json') as file:
+with open('/mnt/extras_addons/odoo-brasil/payment_trustcode/models/appsettings.json') as file:
 	appsettings = json.load(file)
 
 class IuguBoleto(models.Model):
