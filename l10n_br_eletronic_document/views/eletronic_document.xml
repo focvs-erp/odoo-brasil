@@ -37,7 +37,11 @@
                     <sheet string="Documento Eletronico">
                         <group>
                             <group>
-                                <field name="model"/>
+                                <!-- AX4B - AXFISC_11 - ICMS (Tabela de Modelo de Documento) -->
+                                <field name="document_template_id"/>
+                                <field name="code_related"/>
+                                <field name="model" invisible="1"/>
+                                <!-- AX4B - AXFISC_11 - ICMS (Tabela de Modelo de Documento) -->
                                 <field name="move_id"/>
                                 <field name="partner_id"/>
                                 <field name="partner_shipping_id"/>

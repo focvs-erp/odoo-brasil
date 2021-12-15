@@ -13,6 +13,7 @@
         'l10n_br_account',
         'l10n_br_base',
         'l10n_br_base_address',
+        'ax4b_invoice'
     ],
     'data': [
         'data/nfe.cfop.csv',
