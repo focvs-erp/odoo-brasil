@@ -172,13 +172,11 @@ class EletronicDocument(models.Model):
         [('entrada', 'Entrada'),
          ('saida', 'Saída')],
         string=u'Tipo de Operação', readonly=True, states=STATE)
-
-    # AX4B - AXFISC_11 - ICMS (Tabela de Modelo de Documento)
-    document_template_id = fields.Many2one('account.document_template', string='Modelo')
-    model = fields.Char(related="document_template_id.model_code")
-    code_related = fields.Char(related="document_template_id.code", string='Código')
-    # AX4B - AXFISC_11 - ICMS (Tabela de Modelo de Documento)
-
+    model = fields.Selection(
+        [('nfe', '55 - NFe'),
+         ('nfce', '65 - NFCe'),
+         ('nfse', 'NFS-e - Nota Fiscal de Servico')],
+        string=u'Modelo', readonly=True, states=STATE)
     # serie = fields.Many2one(
     #     'br_account.document.serie', string=u'Série',
     #     readonly=True, states=STATE)
