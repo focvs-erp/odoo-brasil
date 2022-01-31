@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="payment_trustcode_assets_backend" name="Payment Credit Card" inherit_id="web.assets_frontend">
+		<xpath expr="." position="inside">
+			<script type="text/javascript" src="/payment_trustcode/static/src/js/main.js">
+			</script>
+		</xpath>
+	</template>
+</odoo>

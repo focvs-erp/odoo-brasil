@@ -1,29 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <template id="credit_card_iugu">
-        <t t-call="website.layout">
-        <t t-set="title">Users</t>
-        <div class="oe_structure">
-            <form string="Embedded Webpage" version="7.0" edit="false" create="false"> 
-            <div class="container">
-                <br/>
-               <center>
-                   
-                <iframe 
-                    t-att-src="request.session.get('secure_url')" 
-                    marginwidth="0" 
-                    marginheight="0"
-                    scrolling="no" 
-                    frameborder="no" 
-                    sandbox="allow-scripts allow-forms"
-                    style="height: 1200px; width: 100%; border-width:0px;"> 
-                </iframe>
+	<template id="credit_card_iugu">
+		<t t-call="website.layout">
+			<t t-set="title">
+				Users
+			</t>
+			<div class="oe_structure">
+				<form string="Embedded Webpage" version="7.0" edit="false" create="false">
+					<div class="container">
+						<br />
+						<center>
+							<iframe id="payment-iugu"
+                                t-att-src="request.session.get('secure_url')"
+                                marginwidth="0" 
+                                marginheight="0" 
+                                scrolling="no" 
+                                frameborder="no"
+                                style="height: 1200px; width: 100%; border-width:0px;">
+							</iframe>
+						</center>
+                        <!-- <object 
+                            t-att-data="request.session.get('secure_url')"
+                            width="800"
+                            height="800"
+                            type="text/html">
+                        </object> -->
 
-               </center>
-            
-            </div>
-        </form>
-        </div>
-        </t>
-    </template>
+                        <!-- <embed 
+                                type="text/html" 
+                                t-att-src="request.session.get('secure_url')" 
+                                width="800" 
+                                height="500" 
+                            /> -->
+
+					</div>
+				</form>
+                <!-- <script type="text/javascript">
+                    $(function() {
+                        if ('app' !== $('body').attr('id')) {
+                          window.top.location.href = 'www.google.com.br';
+                        }
+                      });
+                </script> -->
+			</div>
+		</t>
+	</template>
 </odoo>

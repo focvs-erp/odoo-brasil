@@ -23,7 +23,7 @@ class IuguController(http.Controller):
         post = post
         request.session['secure_url'] = post.get('secure_url')
         if 'secure_url' in post:
-            return redirect('/payment/teste')
+            return redirect('/payment/payment-iugu')
 
     # @http.route(
     #     '/iugu/checkout/redirect', type='http',
@@ -31,8 +31,8 @@ class IuguController(http.Controller):
     # def iugu_checkout_redirect(self, **post):
     #     post = post
     #     if 'secure_url' in post:
-    #         return http.request.render('payment_trustcode')
+    #         return redirect(post['secure_url'])
         
-    @http.route('/payment/teste', auth='public', website=True)
+    @http.route('/payment/payment-iugu', auth='public', website=True)
     def index(self, **kw):
         return http.request.render("payment_trustcode.credit_card_iugu")

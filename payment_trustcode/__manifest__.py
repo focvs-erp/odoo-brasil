@@ -13,6 +13,7 @@
         'views/payment_views.xml',
         'views/iugu.xml',
         'views/credit_card_view.xml',
+        'views/static_template.xml',
         'data/iugu.xml',
     ],
     'application': True,
