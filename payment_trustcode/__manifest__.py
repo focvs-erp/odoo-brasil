@@ -12,6 +12,7 @@
     'data': [
         'views/payment_views.xml',
         'views/iugu.xml',
+        'views/credit_card_view.xml',
         'data/iugu.xml',
     ],
     'application': True,

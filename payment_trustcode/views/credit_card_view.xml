@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="credit_card_iugu">
+        <t t-call="website.layout">
+        <t t-set="title">Users</t>
+        <div class="oe_structure">
+            <form string="Embedded Webpage" version="7.0" edit="false" create="false"> 
+            <div class="container">
+
+               
+               
+               <center>
+               
+                <iframe src="https://faturas.iugu.com/22f9e7b6-9c3b-4534-80f3-7556503a7d99-a3ee" 
+                marginwidth="0" 
+                marginheight="0"
+                scrolling="no" 
+                frameborder="no"  
+                style="height: 1200px; width: 100%; border-width:0px;"> 
+               
+                </iframe>
+               
+               </center>
+               
+                
+            </div>
+        </form>
+        </div>
+        </t>
+    </template>
+</odoo>
