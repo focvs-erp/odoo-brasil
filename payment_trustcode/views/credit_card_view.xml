@@ -6,6 +6,7 @@
         <div class="oe_structure">
             <form string="Embedded Webpage" version="7.0" edit="false" create="false"> 
             <div class="container">
+                <br/>
                <center>
                    
                 <iframe 
@@ -13,7 +14,8 @@
                     marginwidth="0" 
                     marginheight="0"
                     scrolling="no" 
-                    frameborder="no"  
+                    frameborder="no" 
+                    sandbox="allow-scripts allow-forms"
                     style="height: 1200px; width: 100%; border-width:0px;"> 
                 </iframe>
 
