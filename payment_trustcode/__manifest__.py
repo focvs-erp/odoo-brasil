@@ -17,4 +17,5 @@
         'data/iugu.xml',
     ],
     'application': True,
+    'sequence': 10
 }
