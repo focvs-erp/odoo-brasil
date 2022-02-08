@@ -12,7 +12,6 @@
 						<br />
 
 						<!-- <center> -->
-                            <base parent="_target" />
 							<iframe id="payment-iugu"
                                 t-att-src="request.session.get('secure_url')"
                                 marginwidth="0" 
