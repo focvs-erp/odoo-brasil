@@ -18,8 +18,7 @@ odoo.define("payment_trustcode.Customize", function (require) {
             
             if (timeleft <= 0) {
                 clearInterval(downloadTimer);
-                // window.location.href = span.text();
-                console.log('Redirected')
+                window.location.href = span.text();
             } else {
                 countdown.innerHTML = 'Você será redirecionado em... ' + timeleft;
             }
