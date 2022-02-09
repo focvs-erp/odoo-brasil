@@ -33,11 +33,11 @@ class IuguController(http.Controller):
         # no template dentro do iframe
         if 'secure_url' in post:
             request.session['secure_url'] = post.get('secure_url')
-            return redirect('/payment/payment-iugu') # 1
+            return redirect('/payment/redirect-iugu') # 1
         
-    @http.route('/payment/payment-iugu', auth='public', website=True) # 1
+    @http.route('/payment/redirect-iugu', auth='public', website=True) # 1
     def index(self, **kw):
         # View responsável por renderizar o iframe contendo a fatura.
         # url informada no request.session acima que será renderizada 
         # dentro do src do iframe
-        return http.request.render("payment_trustcode.credit_card_iugu")
+        return http.request.render("payment_trustcode.redirect_message")

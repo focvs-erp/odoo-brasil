@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-	<template id="payment_common" name="Payment Credit Card" inherit_id="web.assets_common">
+	<!-- <template id="payment_common" name="Payment Credit Card" inherit_id="web.assets_common"> -->
+	<template id="assets_frontend" name="Payment Credit Card" inherit_id="web.assets_frontend">
 		<xpath expr="." position="inside">
 			<script type="text/javascript" src="/payment_trustcode/static/src/js/main.js" />
 		</xpath>
