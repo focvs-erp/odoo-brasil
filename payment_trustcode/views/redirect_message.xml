@@ -8,12 +8,12 @@
 					<div class="container">
 						<div id="message" class="text-center text-danger mt-5">
 							<h2>Você está sendo redirecionado para uma pagina criptografada e segura da Iugu. onde poderá finalizar o seu pagamento com cartão de crédito.</h2>
-							<p class="mt-3"><span t-esc="request.session.get('secure_url')"/></p>
+							<p class="mt-3"><span id="span_id" t-esc="request.session.get('secure_url')"/></p>
 							<div class="spinner-border text-danger mt-2" role="status">
 								<span class="sr-only">Loading...</span>
 							</div>
 							<div class="mt-3">
-								Redirecionamento em ... <span class="badge badge-danger">4</span>
+								<p id="countdown"></p>
 							</div>
 						</div>
 					</div>
