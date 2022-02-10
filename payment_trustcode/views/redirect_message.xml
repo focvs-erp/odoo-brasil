@@ -15,7 +15,7 @@
                             </div>
 
                             <div class="mt-5">
-                                <p class="mt-3"><span id="payment_span" t-esc="request.session.get('secure_url')"/></p>
+                                <p class="mt-3 d-none"><span id="payment_span" t-esc="request.session.get('secure_url')"/></p>
                                 <p id="payment_countdown">Você será redirecionado em... 4</p>
                             </div>
 
