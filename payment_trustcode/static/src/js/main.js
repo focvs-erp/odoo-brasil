@@ -10,14 +10,15 @@ odoo.define("payment_trustcode.Customize", function (require) {
     // Verifica se o elemento existe e então
     // redirecionamento para a tela de pagamento da Iugu
     if (span.length) {
-
+        // Pega o id do element onde será mostrado o contador
         var countdown = document.getElementById('payment_countdown')
-        var timeleft = 3;
+        var timeleft = 3; // Tempo do contador de 3 segundos
 
         var downloadTimer = setInterval(function () {
             
             if (timeleft <= 0) {
                 clearInterval(downloadTimer);
+                // Redioreciona para faturamento quando o contador finalizar
                 window.location.href = span.text();
             } else {
                 countdown.innerHTML = 'Você será redirecionado em... ' + timeleft;

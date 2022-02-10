@@ -5,17 +5,22 @@
 			<div class="oe_structure">
 				<form string="Embedded Webpage">
 					<div class="container">
+
 						<div id="message" class="text-center text-danger mt-5">
+							
 							<h2>Você está sendo redirecionado para uma pagina externa criptografada e segura da Iugu, onde poderá finalizar o pagamento com cartão de crédito. não se preocupe, seus dados estão seguros.</h2>
 							
 							<div class="spinner-border text-danger mt-2" role="status">
 								<span class="sr-only">Loading...</span>
 							</div>
+
 							<div class="mt-5">
 								<p class="mt-3"><span id="payment_span" t-esc="request.session.get('secure_url')"/></p>
 								<p id="payment_countdown">Você será redirecionado em... 4</p>
 							</div>
+
 						</div>
+
 					</div>
 				</form>
 			</div>
