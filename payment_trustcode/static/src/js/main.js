@@ -5,16 +5,16 @@ odoo.define("payment_trustcode.Customize", function (require) {
 
     // Pega o id do span onde está definido a url de
     // redirecionamento para pagamento.
-    var span = $("#payment_span");
+    let span = $("#payment_span");
 
     // Verifica se o elemento existe e então
     // redirecionamento para a tela de pagamento da Iugu
     if (span.length) {
         // Pega o id do element onde será mostrado o contador
-        var countdown = document.getElementById('payment_countdown')
-        var timeleft = 3; // Tempo do contador de 3 segundos
+        let countdown = document.getElementById('payment_countdown')
+        let timeleft = 3; // Tempo do contador de 3 segundos
 
-        var downloadTimer = setInterval(function () {
+        let downloadTimer = setInterval(function () {
             
             if (timeleft <= 0) {
                 clearInterval(downloadTimer);
