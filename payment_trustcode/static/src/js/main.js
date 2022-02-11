@@ -12,7 +12,7 @@ odoo.define("payment_trustcode.Customize", function (require) {
     if (span.length) {
         // Pega o id do element onde será mostrado o contador
         let countdown = document.getElementById('payment_countdown')
-        let timeleft = 3; // Tempo do contador de 3 segundos
+        let timeleft = 2; // Tempo do contador de 3 segundos
 
         let downloadTimer = setInterval(function () {
             
