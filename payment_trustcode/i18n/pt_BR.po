@@ -1,0 +1,126 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* payment_trustcode
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0-20211010\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-11 17:54+0000\n"
+"PO-Revision-Date: 2022-02-11 17:54+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: payment_trustcode
+#: model_terms:ir.ui.view,arch_db:payment_trustcode.redirect_message
+msgid "<span class=\"sr-only\">Loading...</span>"
+msgstr ""
+
+#. module: payment_trustcode
+#: model:ir.model.fields,field_description:payment_trustcode.field_payment_acquirer__display_name
+#: model:ir.model.fields,field_description:payment_trustcode.field_payment_transaction__display_name
+#: model:ir.model.fields,field_description:payment_trustcode.field_sale_order__display_name
+msgid "Display Name"
+msgstr "Nome de Exibição"
+
+#. module: payment_trustcode
+#: model_terms:ir.ui.view,arch_db:payment_trustcode.redirect_message
+msgid "Embedded Webpage"
+msgstr ""
+
+#. module: payment_trustcode
+#: model:ir.model.fields,field_description:payment_trustcode.field_payment_transaction__invoice_url
+msgid "Fatura IUGU"
+msgstr ""
+
+#. module: payment_trustcode
+#: model:ir.model.fields,field_description:payment_trustcode.field_payment_acquirer__id
+#: model:ir.model.fields,field_description:payment_trustcode.field_payment_transaction__id
+#: model:ir.model.fields,field_description:payment_trustcode.field_sale_order__id
+msgid "ID"
+msgstr ""
+
+#. module: payment_trustcode
+#: model:ir.model.fields.selection,name:payment_trustcode.selection__payment_acquirer__provider__iugu
+#: model:payment.acquirer,name:payment_trustcode.payment_acquirer_iugu
+msgid "Iugu"
+msgstr "Pague com Cartão de Credito (IUGU)"
+
+#. module: payment_trustcode
+#: model:ir.model.fields,field_description:payment_trustcode.field_payment_acquirer__iugu_api_key
+msgid "Iugu Api Token"
+msgstr ""
+
+#. module: payment_trustcode
+#: model:ir.model.fields,field_description:payment_trustcode.field_payment_acquirer____last_update
+#: model:ir.model.fields,field_description:payment_trustcode.field_payment_transaction____last_update
+#: model:ir.model.fields,field_description:payment_trustcode.field_sale_order____last_update
+msgid "Last Modified on"
+msgstr "Última modificação em"
+
+#. module: payment_trustcode
+#: model:ir.model,name:payment_trustcode.model_payment_acquirer
+msgid "Payment Acquirer"
+msgstr "Método de Pagamento"
+
+#. module: payment_trustcode
+#: model:ir.model,name:payment_trustcode.model_payment_transaction
+msgid "Payment Transaction"
+msgstr "Transação do Pagamento"
+
+#. module: payment_trustcode
+#: model:ir.model.fields,field_description:payment_trustcode.field_payment_acquirer__provider
+msgid "Provider"
+msgstr "Fornecedor"
+
+#. module: payment_trustcode
+#: model_terms:ir.ui.view,arch_db:payment_trustcode.redirect_message
+msgid "Redirect in... 3"
+msgstr ""
+
+#. module: payment_trustcode
+#: model:ir.model,name:payment_trustcode.model_sale_order
+msgid "Sales Order"
+msgstr "Pedido de venda"
+
+#. module: payment_trustcode
+#: model_terms:payment.acquirer,auth_msg:payment_trustcode.payment_acquirer_iugu
+msgid "Seu pagamento foi autorizado."
+msgstr ""
+
+#. module: payment_trustcode
+#: model_terms:payment.acquirer,cancel_msg:payment_trustcode.payment_acquirer_iugu
+msgid "Seu pagamento foi cancelado."
+msgstr ""
+
+#. module: payment_trustcode
+#: model_terms:payment.acquirer,pending_msg:payment_trustcode.payment_acquirer_iugu
+msgid ""
+"Seu pagamento foi processado com sucesso, mas está aguardando por aprovação."
+msgstr ""
+
+#. module: payment_trustcode
+#: model_terms:payment.acquirer,done_msg:payment_trustcode.payment_acquirer_iugu
+msgid "Seu pagamento foi processado com sucesso. Obrigado!"
+msgstr ""
+
+#. module: payment_trustcode
+#: model:ir.model.fields,field_description:payment_trustcode.field_payment_acquirer__return_url
+msgid "Url de Retorno"
+msgstr ""
+
+#. module: payment_trustcode
+#: model_terms:payment.acquirer,pre_msg:payment_trustcode.payment_acquirer_iugu
+msgid ""
+"Você vai ser redirecionado ao site da IUGU para capturar os dados de "
+"pagamento."
+msgstr ""
+
+#. module: payment_trustcode
+#: model_terms:ir.ui.view,arch_db:payment_trustcode.redirect_message
+msgid "You will be redirected in a few moments to the IUGU payment platform."
+msgstr "Você será redirecionado em instantes para plataforma de pagamento da IUGU."
