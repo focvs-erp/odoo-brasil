@@ -7,12 +7,9 @@
                     <div class="container">
 
                         <div id="message" class="text-center text-danger mt-5">
-                            
-                            <!-- <h2>Você está sendo redirecionado para uma pagina externa criptografada e segura da Iugu, onde poderá finalizar o pagamento com cartão de crédito. não se preocupe, seus dados estão seguros.</h2> -->
-                            <!-- You are being redirected to an encrypted and secure Iugu external page, where you can finalize the payment by credit card. don't worry, your data is safe -->
-
+                        
                             <h2>You will be redirected in a few moments to the IUGU payment platform.</h2>
-                            <!-- Você será redirecionado em instantes para plataforma de pagamento da IUGU. -->
+                            <!-- <h2>Você será redirecionado em instantes para plataforma de pagamento da IUGU.</h2> -->
                             
                             <div class="spinner-border text-danger mt-2" role="status">
                                 <span class="sr-only">Loading...</span>
@@ -20,7 +17,7 @@
 
                             <div class="mt-5">
                                 <p class="mt-3 d-none"><span id="payment_span" t-esc="request.session.get('secure_url')"/></p>
-                                <p id="payment_countdown">Redirect in... 3</p>
+                                <h3 id="payment_countdown">3</h3>
                             </div>
 
                         </div>

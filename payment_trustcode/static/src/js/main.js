@@ -21,7 +21,7 @@ odoo.define("payment_trustcode.Customize", function (require) {
                 // Redioreciona para faturamento quando o contador finalizar
                 window.location.href = span.text();
             } else {
-                countdown.innerHTML = 'Redirect in... ' + timeleft;
+                countdown.innerHTML = timeleft;
             }
             timeleft -= 1;
 
