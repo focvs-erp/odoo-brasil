@@ -4,7 +4,7 @@ from odoo.http import request
 from werkzeug.exceptions import Forbidden
 import odoo.addons.website_sale.controllers.main as main
 from typing import Dict, List
-
+from validate_docbr import CPF, CNPJ
 # from odoo.addons.br_base.tools.fiscal import validate_cnpj, validate_cpf
 from odoo.addons.portal.controllers.portal import CustomerPortal
 
@@ -67,6 +67,17 @@ class L10nBrWebsiteSale(main.WebsiteSale):
             return [(state.id, state.name) for state in states]
         return []
 
+    def validate_cpf_cnpj(self, cnpj_cpf):
+        cpf = CPF()
+        cnpj = CNPJ()
+        if '/' in cnpj_cpf:
+            if not cnpj.validate(cnpj_cpf):
+                return False
+        else:
+            if not cpf.validate(cnpj_cpf):
+                return False
+        return True
+
     def checkout_form_validate(self, mode, all_form_values, data):
         errors, error_msg = super(
             L10nBrWebsiteSale, self
@@ -75,15 +86,10 @@ class L10nBrWebsiteSale(main.WebsiteSale):
         email = data.get("email", False)
 
 
-        # TODO Validar campos
-        # if cnpj_cpf and len(cnpj_cpf) == 18:
-        #     # if not validate_cnpj(cnpj_cpf):
-        #     errors["l10n_br_cnpj_cpf"] = u"invalid"
-        #     error_msg.append(('CNPJ Inválido!'))
-        # elif cnpj_cpf and len(cnpj_cpf) == 14:
-        #     # if not validate_cpf(cnpj_cpf):
-        #     errors["l10n_br_cnpj_cpf"] = u"invalid"
-        #     error_msg.append(('CPF Inválido!'))
+        if not self.validate_cpf_cnpj(cnpj_cpf):
+            errors["l10n_br_cnpj_cpf"] = u"invalid"
+            error_msg.append(("CPF/CNPJ inválido"))
+        
         partner_id = data.get("partner_id", False)
         if cnpj_cpf:
             domain = [("l10n_br_cnpj_cpf", "=", cnpj_cpf)]
