@@ -92,6 +92,10 @@ class IuguBoleto(models.Model):
         })
 
         url = result.get("secure_url")
+
+        order = self.env['sale.order'].search([('name','=', values['reference'].split("-")[0])])
+        order.write({'invoice_code': result.get("id")})
+
         return {
             "checkout_url": urls.url_join(
                 base_url, "/iugu/checkout/redirect"),
