@@ -93,8 +93,10 @@ class IuguBoleto(models.Model):
 
         url = result.get("secure_url")
 
+        # AX4B - ECM_0009 - Confirmar o pedido de compras
         order = self.env['sale.order'].search([('name','=', values['reference'].split("-")[0])])
         order.write({'invoice_code': result.get("id")})
+        # AX4B - ECM_0009 - Confirmar o pedido de compras
 
         return {
             "checkout_url": urls.url_join(
