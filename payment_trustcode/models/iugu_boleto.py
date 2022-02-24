@@ -54,7 +54,8 @@ class IuguBoleto(models.Model):
         invoice_data = {
             "email": partner_id.email,
             "due_date": today.strftime('%Y-%m-%d'),
-            "return_url": urls.url_join(base_url, "/payment/process"),
+            # "return_url": urls.url_join(base_url, "/payment/process"),
+            "return_url": urls.url_join(base_url, "/shop/confirmation"),
             "notification_url": urls.url_join(  # ngrok_url
                 base_url, "/iugu/notificacao/"
             ),
