@@ -87,7 +87,6 @@ class L10nBrWebsiteSale(main.WebsiteSale):
         estado = data.get("state_id", False)
         nome = data.get("name", '')
 
-
         if not self.validate_cpf_cnpj(cnpj_cpf):
             errors["l10n_br_cnpj_cpf"] = u"invalid"
             error_msg.append(("CPF/CNPJ inválido"))
@@ -98,8 +97,7 @@ class L10nBrWebsiteSale(main.WebsiteSale):
 
         if not estado:
             errors["state_id"] = u"invalid"
-            error_msg.append(("Estado precisa ser preenchido"))
-
+      
         partner_id = data.get("partner_id", False)
         if cnpj_cpf:
             domain = [("l10n_br_cnpj_cpf", "=", cnpj_cpf)]
