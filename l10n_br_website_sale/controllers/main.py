@@ -84,12 +84,22 @@ class L10nBrWebsiteSale(main.WebsiteSale):
         ).checkout_form_validate(mode, all_form_values, data)
         cnpj_cpf = data.get("l10n_br_cnpj_cpf", "0")
         email = data.get("email", False)
+        estado = data.get("state_id", False)
+        nome = data.get("name", '')
 
 
         if not self.validate_cpf_cnpj(cnpj_cpf):
             errors["l10n_br_cnpj_cpf"] = u"invalid"
             error_msg.append(("CPF/CNPJ inválido"))
         
+        # if nome == '':
+        #     errors["name"] = u"invalid"
+        #     error_msg.append(("Nome precisa ser preenchido"))
+
+        if not estado:
+            errors["state_id"] = u"invalid"
+            error_msg.append(("Estado precisa ser preenchido"))
+
         partner_id = data.get("partner_id", False)
         if cnpj_cpf:
             domain = [("l10n_br_cnpj_cpf", "=", cnpj_cpf)]
@@ -292,10 +302,10 @@ class L10nBrWebsiteSale(main.WebsiteSale):
             partner_id = result.qcontext["partner_id"]
         if partner_id > 0:
             partner_id = request.env["res.partner"].sudo().browse(partner_id)
-            result.qcontext["city"] = partner_id.city_id.id
-            result.qcontext["state"] = partner_id.state_id.id
+            result.qcontext["city"] = partner_id.city_id
+            result.qcontext["state"] = partner_id.state_id
         if "city_id" in kw and kw["city_id"]:
-            result.qcontext["city"] = kw["city_id"]
+            result.qcontext["city"] = request.env['res.city'].browse(kw["city_id"])
         return result
 
     @http.route(
@@ -306,7 +316,7 @@ class L10nBrWebsiteSale(main.WebsiteSale):
         website=True,
     )
     def search_zip_json(self, zip):
-        if len(zip) >= 8:
+        if zip and len(zip) >= 8:
             cep = re.sub("[^0-9]", "", zip)
             vals = (
                 request.env["res.partner"].sudo().search_address_by_zip(cep)
