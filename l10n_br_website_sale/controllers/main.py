@@ -91,10 +91,6 @@ class L10nBrWebsiteSale(main.WebsiteSale):
             errors["l10n_br_cnpj_cpf"] = u"invalid"
             error_msg.append(("CPF/CNPJ inválido"))
         
-        # if nome == '':
-        #     errors["name"] = u"invalid"
-        #     error_msg.append(("Nome precisa ser preenchido"))
-
         if not estado:
             errors["state_id"] = u"invalid"
       
