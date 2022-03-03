@@ -85,17 +85,11 @@ class L10nBrWebsiteSale(main.WebsiteSale):
         cnpj_cpf = data.get("l10n_br_cnpj_cpf", "0")
         email = data.get("email", False)
         estado = data.get("state_id", False)
-        nome = data.get("name", '')
-
 
         if not self.validate_cpf_cnpj(cnpj_cpf):
             errors["l10n_br_cnpj_cpf"] = u"invalid"
             error_msg.append(("CPF/CNPJ inválido"))
         
-        # if nome == '':
-        #     errors["name"] = u"invalid"
-        #     error_msg.append(("Nome precisa ser preenchido"))
-
         if not estado:
             errors["state_id"] = u"invalid"
             error_msg.append(("Estado precisa ser preenchido"))
