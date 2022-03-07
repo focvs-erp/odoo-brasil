@@ -345,6 +345,7 @@ class BrWebsiteMyAccount(CustomerPortal):
 
     @http.route(["/my/account"], type="http", auth="user", website=True)
     def account(self, redirect=None, **post):
+        self.MANDATORY_BILLING_FIELDS.append("name_responsible")
         if "zip" in post:
             post["zipcode"] = post.pop("zip")
         return super(BrWebsiteMyAccount, self).account(
