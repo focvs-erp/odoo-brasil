@@ -134,11 +134,11 @@
                                     </t>
 
                                     <div t-attf-class="col-lg-12">
-                                        <input type="checkbox" id='is_licence_holder_input' name="is_licence_holder_input" t-att-value="false"/>
+                                        <input type="checkbox" id='checkbox_responsible_license' name="checkbox_responsible_license" checked="checked"/>
                                         <label class="col-form-label font-weight-normal label-optional" for="is_licence_holder">Is the above contact responsible for the license?</label>
                                     </div>
 
-                                    <t t-if="not is_licence_holder_input">
+                                    <t t-if="not checkbox_responsible_license">
                                         <t t-if="len(partner.child_ids) > 1">
                                             <div t-attf-class="form-group #{error.get('email_responsible_for_license') and 'o_has_error' or ''} col-lg-12">
                                                  <label class="col-form-label" for="name_responsible_for_license">Name</label>
