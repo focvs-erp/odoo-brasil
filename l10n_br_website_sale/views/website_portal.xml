@@ -134,9 +134,11 @@
                                     </t>
 
                                     <div t-attf-class="col-lg-12">
-                                        <input type="checkbox" id='checkbox_responsible_license' name="checkbox_responsible_license" checked="checked"/>
+                                        <input type="checkbox" t-attf-name="checkbox_responsible_license" t-attf-id="checkbox_responsible_license" checked="checked"/>
                                         <label class="col-form-label font-weight-normal label-optional" for="is_licence_holder">Is the above contact responsible for the license?</label>
                                     </div>
+                                    
+                                    <!-- <t t-set="partner_license" t-value="partner.responsible_license"/> -->
 
                                     <t t-if="not checkbox_responsible_license">
                                         <t t-if="len(partner.child_ids) > 1">
@@ -169,6 +171,9 @@
                                                  <input type="tel" name="phone_responsible_for_license" t-attf-class="form-control #{error.get('phone_responsible_for_license') and 'is-invalid' or ''}" t-att-value="''" />
                                              </div>
                                          </t>
+                                    </t>
+                                    <t t-else="">
+
                                     </t>
                                     
                                     
