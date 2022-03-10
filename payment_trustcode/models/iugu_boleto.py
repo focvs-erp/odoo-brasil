@@ -43,11 +43,27 @@ class IuguBoleto(models.Model):
 
         partner_id = values.get('billing_partner')
 
-        items = [{
-            "description": 'Fatura Ref: %s' % values.get('reference'),
-            "quantity": 1,
-            "price_cents":  int(values.get('amount') * 100),
+        ## trocar items para pedidos
+        # items = [{
+        #     "description": 'Fatura Ref: %s' % values.get('reference'),
+        #     "quantity": 1,
+        #     "price_cents":  int(values.get('amount') * 100),
+        # }]
+        
+        # AX4B - ECM_0009 - Confirmar o pedido de compras
+        items = []
+        order = self.env['sale.order'].search([('name','=', values['reference'].split("-")[0])])
+        for line in order.order_line:
+            items.append({
+                "description": line.product_id.name,
+                "quantity": line.product_id.cart_qty,
+                "price_cents": int(line.product_id.list_price * 100)
+            })
+        custom_variables = [{
+            "name": "Pedido",
+            "value": order.display_name
         }]
+        # AX4B - ECM_0009 - Confirmar o pedido de compras
 
         today = datetime.date.today()
 
@@ -59,6 +75,11 @@ class IuguBoleto(models.Model):
                 base_url, "/iugu/notificacao/"
             ),
             "items": items,
+
+            # AX4B - ECM_0009 - Confirmar o pedido de compras
+            "custom_variables": custom_variables,
+            # AX4B - ECM_0009 - Confirmar o pedido de compras
+
             "payer": {
                 "name": partner_id.name,
                 "cpf_cnpj": partner_id.l10n_br_cnpj_cpf,
@@ -92,12 +113,9 @@ class IuguBoleto(models.Model):
         })
 
         url = result.get("secure_url")
-
         # AX4B - ECM_0009 - Confirmar o pedido de compras
-        order = self.env['sale.order'].search([('name','=', values['reference'].split("-")[0])])
         order.write({'invoice_code': result.get("id")})
         # AX4B - ECM_0009 - Confirmar o pedido de compras
-
         return {
             "checkout_url": urls.url_join(
                 base_url, "/iugu/checkout/redirect"),
