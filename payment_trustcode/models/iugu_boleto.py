@@ -39,30 +39,11 @@ class IuguBoleto(models.Model):
         base_url = (
             self.env["ir.config_parameter"].sudo().get_param("web.base.url")
         )
-        # ngrok_url = 'http://b2a48696.ngrok.io'
 
         partner_id = values.get('billing_partner')
-
-        ## trocar items para pedidos
-        # items = [{
-        #     "description": 'Fatura Ref: %s' % values.get('reference'),
-        #     "quantity": 1,
-        #     "price_cents":  int(values.get('amount') * 100),
-        # }]
         
         # AX4B - ECM_0009 - Confirmar o pedido de compras
-        items = []
         order = self.env['sale.order'].search([('name','=', values['reference'].split("-")[0])])
-        for line in order.order_line:
-            items.append({
-                "description": line.product_id.name,
-                "quantity": line.product_id.cart_qty,
-                "price_cents": int(line.product_id.list_price * 100)
-            })
-        custom_variables = [{
-            "name": "Pedido",
-            "value": order.display_name
-        }]
         # AX4B - ECM_0009 - Confirmar o pedido de compras
 
         today = datetime.date.today()
@@ -74,10 +55,9 @@ class IuguBoleto(models.Model):
             "notification_url": urls.url_join(  # ngrok_url
                 base_url, "/iugu/notificacao/"
             ),
-            "items": items,
-
             # AX4B - ECM_0009 - Confirmar o pedido de compras
-            "custom_variables": custom_variables,
+            "items": self.get_items(order),
+            "custom_variables": self.get_custom_variables(order),
             # AX4B - ECM_0009 - Confirmar o pedido de compras
 
             "payer": {
@@ -121,6 +101,28 @@ class IuguBoleto(models.Model):
                 base_url, "/iugu/checkout/redirect"),
             "secure_url": url
         }
+
+    # AX4B - ECM_0009 - Confirmar o pedido de compras
+    def get_items(self, order):
+        items = []
+        for product in order.order_line.product_id:
+            items.append({
+                "description": product.name,
+                "quantity": product.cart_qty,
+                "price_cents": int(product.list_price * 100)
+            })
+        return items
+
+    def get_custom_variables(self, order):
+        custom_variables = [{
+            "name": "Valor Total",
+            "value": "R$ {0:.2f}".format(order.amount_total).replace('.',',')
+        },{
+            "name": "Pedido",
+            "value": order.display_name
+        }]
+        return custom_variables
+    # AX4B - ECM_0009 - Confirmar o pedido de compras
 
     def create(self, data):
         return self.base_request(self.make_url(['invoices']), "POST", data)
