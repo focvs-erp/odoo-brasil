@@ -101,13 +101,12 @@
                                         <option value="">Cidade...</option>
                                     </select>
                                 </div>
-                                    <t t-if="len(partner.child_ids) == 0">
-                                        <div class="w-100"/>
+                                <div class="w-100"/>
                                         <div style="text-align:center">
                                             <label class="col-form-label">Responsible for billing</label>
                                         </div>
                                         <div class="w-100"/>
-
+                                    <t t-if="len(partner.child_ids) == 0">
                                         <div t-attf-class="form-group #{error.get('name_responsible') and 'o_has_error' or ''} col-lg-12 div_name">
                                             <label class="col-form-label" for="name_responsible">Name</label>
                                             <input type="text" name="name_responsible" t-attf-class="form-control #{error.get('name_responsible') and 'is-invalid' or ''}" t-att-value="''" />

@@ -113,6 +113,7 @@ msgstr "E-mail inválido! Por favor digite um e-mail válido para o Responsável
 
 #. module: l10n_br_website_sale
 #: model_terms:ir.ui.view,arch_db:l10n_br_website_sale.br_website_sale_address
+#: model_terms:ir.ui.view,arch_db:l10n_br_website_sale.br_website_portal_my_account
 msgid "Is the above contact responsible for the license?"
 msgstr "O contato acima é o responsável pela licença?"
 
@@ -153,6 +154,7 @@ msgstr "Telefone"
 
 #. module: l10n_br_website_sale
 #: model_terms:ir.ui.view,arch_db:l10n_br_website_sale.br_website_sale_address
+#: model_terms:ir.ui.view,arch_db:l10n_br_website_sale.br_website_portal_my_account
 msgid "Responsible for billing"
 msgstr "Responsável pela Fatura"
 
