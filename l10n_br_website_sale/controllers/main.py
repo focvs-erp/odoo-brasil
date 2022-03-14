@@ -327,31 +327,3 @@ class L10nBrWebsiteSale(main.WebsiteSale):
                 }
 
         return {"sucesso": False}
-
-
-class BrWebsiteMyAccount(CustomerPortal):
-
-    MANDATORY_BILLING_FIELDS = [
-        "name",
-        "phone",
-        "email",
-        "street",
-        "l10n_br_cnpj_cpf",
-        "l10n_br_number",
-        "l10n_br_district",
-        "zipcode",
-        "company_type",
-        "city_id",
-        "state_id",
-        "country_id",
-    ]
-    OPTIONAL_BILLING_FIELDS = ["street2"]
-
-    @http.route(["/my/account"], type="http", auth="user", website=True)
-    def account(self, redirect=None, **post):
-        if "zip" in post:
-            post["zipcode"] = post.pop("zip")
-        return super(BrWebsiteMyAccount, self).account(
-            redirect=redirect, **post
-        )
-
