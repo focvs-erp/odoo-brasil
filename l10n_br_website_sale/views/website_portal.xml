@@ -173,7 +173,7 @@
                                                 <label class="col-form-label" for="phone_responsible_for_license">Phone</label>
                                                 <input type="tel" name="phone_responsible_for_license" t-attf-class="form-control #{error.get('phone_responsible_for_license') and 'is-invalid' or ''}" t-att-value="''" />
                                             </div>
-                                        </div>
+                                        </div> 
                                     </t>
                                     <t t-elif="len(partner.child_ids) == 2">
                                         <div t-attf-class="form-group #{error.get('name_responsible') and 'o_has_error' or ''} col-lg-12 div_name">
