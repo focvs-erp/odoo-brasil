@@ -7,7 +7,6 @@ from typing import Dict, List
 from validate_docbr import CPF, CNPJ
 # from odoo.addons.br_base.tools.fiscal import validate_cnpj, validate_cpf
 from odoo.addons.portal.controllers.portal import CustomerPortal
-from . import write_partner
 
 
 class L10nBrWebsiteSale(main.WebsiteSale):
