@@ -20,11 +20,12 @@ odoo.define('br_website_portal_my_account.address', function (require) {
         onChangeCheckboxResponsibleLicense: function() {
             var checkBox = document.getElementById("checkbox_responsible_license");
             var licence_holder_data = document.getElementById("lincese_checkbox_div");
-    
-            if (checkBox.checked) {
-                licence_holder_data.style.display = "none";
-            } else {
-                licence_holder_data.style.display = "contents";
+            if (checkBox){
+                if (checkBox.checked) {
+                    licence_holder_data.style.display = "none";
+                } else {
+                    licence_holder_data.style.display = "contents";
+                }
             }
         },
     });

@@ -168,11 +168,12 @@ odoo.define('br_website_sale.address', function (require) {
         onChangeIsLicenseHolderInput: function() {
             var checkBox = document.getElementById("is_licence_holder_input");
             var licence_holder_data = document.getElementById("licence_holder_div");
-    
-            if (checkBox.checked) {
-                licence_holder_data.style.display = "none";
-            } else {
-                licence_holder_data.style.display = "contents";
+            if (checkBox){
+                if (checkBox.checked) {
+                    licence_holder_data.style.display = "none";
+                } else {
+                    licence_holder_data.style.display = "contents";
+                }
             }
         },
     });
