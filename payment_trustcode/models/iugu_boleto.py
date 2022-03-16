@@ -105,11 +105,11 @@ class IuguBoleto(models.Model):
     # AX4B - ECM_0009 - Confirmar o pedido de compras
     def get_items(self, order):
         items = []
-        for product in order.order_line.product_id:
+        for line in order.order_line:
             items.append({
-                "description": product.name,
-                "quantity": product.cart_qty,
-                "price_cents": int(product.list_price * 100)
+                "description": line.product_id.name,
+                "quantity": int(line.product_uom_qty),
+                "price_cents": int(line.product_id.list_price * 100)
             })
         return items
 
