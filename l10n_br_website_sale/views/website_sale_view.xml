@@ -107,7 +107,7 @@
                             </div>
                         </t>
                         <!-- AX4B - LICENSE HOLDER -->
-                        <t t-if="mode[0] == 'new'">
+                        <t t-if="mode[0] == 'new'"> 
                             <div class="w-100"/>
                             <div style="text-align:center">
                                 <label class="col-form-label">Responsible for billing</label>
