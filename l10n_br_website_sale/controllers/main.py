@@ -215,7 +215,7 @@ class L10nBrWebsiteSale(main.WebsiteSale):
 
                 Partner.browse(partner_id).sudo().write(checkout)
 
-                request.env['res.partner'].write_partner_contact(partner_id, all_values, 'is_licence_holder_input')
+                request.env['res.partner'].write_partner_contact(partner_id, all_values, 'checkbox_responsible_license')
 
         return partner_id
 

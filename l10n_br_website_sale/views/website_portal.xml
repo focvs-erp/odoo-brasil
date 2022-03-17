@@ -101,7 +101,7 @@
                                         <option value="">Cidade...</option>
                                     </select>
                                 </div>
-                                <div class="w-100"/>
+                                    <div class="w-100"/>
                                         <div style="text-align:center">
                                             <label class="col-form-label">Responsible for billing</label>
                                         </div>

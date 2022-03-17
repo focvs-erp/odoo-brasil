@@ -30,11 +30,12 @@ class ResPartner(models.Model):
                     respo_billing.write(partner_responsible)
 
                 else:
+                    partner_responsible.update({'type': 'contact'})
                     respo_billing.write(partner_responsible)
             else:
                 partner_responsible.update({
                     'parent_id': partner_id,
-                    'type': 'responsible',
+                    'type': 'contact',
                     'website_contact': True,
                     'responsible_billing': True,
                     'responsible_license': True if all_values.get(checkbox, None) or not all_values.get(checkbox, False) and not self._verify_who_is_resposible(all_values, [
