@@ -3,6 +3,7 @@
 from odoo import models, fields, api
 from odoo.http import request
 from typing import Dict, List
+import re
 
 
 class ResPartner(models.Model):
@@ -115,3 +116,15 @@ class ResPartner(models.Model):
         for adr_type in adr_pref:
             result[adr_type] = result.get(adr_type) or default
         return result
+
+    def validate_zip(self, zip): 
+        zip= re.sub('[^0-9]', '', zip) 
+        return True if zip and len(zip) >= 8 and zip.isnumeric() else False                        
+       
+
+    def validate_number(self,number): 
+        return True if number and number.isnumeric() else False 
+
+    def validate_phone(self,phone):
+        phone= re.sub('[^0-9]', '', phone)
+        return True if phone and len(phone) >=10 and phone.isnumeric() else False

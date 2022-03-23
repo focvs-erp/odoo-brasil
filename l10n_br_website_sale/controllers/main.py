@@ -86,6 +86,18 @@ class L10nBrWebsiteSale(main.WebsiteSale):
         email = data.get("email", False)
         estado = data.get("state_id", False)
         nome = data.get("name", '')
+        partner=request.env["res.partner"].sudo()
+
+        if not partner.validate_zip(data.get("zip", '')):        
+            errors["zip"] = u"invalid"
+            error_msg.append (("CEP inválido"))
+        if not partner.validate_number(data.get("l10n_br_number", '')):        
+            errors["l10n_br_number"] = u"invalid"
+            error_msg.append (("Número inválido"))
+        if not partner.validate_phone(data.get("phone", '')):        
+            errors["phone"] = u"invalid"
+            error_msg.append (("Telefone inválido"))
+        
 
         if not self.validate_cpf_cnpj(cnpj_cpf):
             errors["l10n_br_cnpj_cpf"] = u"invalid"
