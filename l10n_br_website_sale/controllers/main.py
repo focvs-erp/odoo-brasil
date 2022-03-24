@@ -85,9 +85,16 @@ class L10nBrWebsiteSale(main.WebsiteSale):
         if not partner.validate_number(data.get("l10n_br_number", '')):        
             errors["l10n_br_number"] = u"invalid"
             error_msg.append(_("Invalid number"))
-        if not partner.validate_phone(data.get("phone", '')):        
+        if not partner.validate_phone(data.get("phone", ''),False):        
             errors["phone"] = u"invalid"
             error_msg.append(_("Invalid phone"))
+        if not partner.validate_phone(data.get("phone_responsible", ''),True):        
+            errors["phone_responsibile"] = u"invalid"
+            error_msg.append(_("Invalid responsible phone"))
+        if not partner.validate_phone(data.get("phone_responsible_for_license", ''),True):        
+            errors["phone_responsibile_for_license"] = u"invalid"
+            error_msg.append(_("Invalid responsible for license phone"))
+        
         # AX4B - M_ECM_0013 - Validação dos campos ao criar cliente
 
         if not partner.validate_cpf_cnpj(cnpj_cpf):

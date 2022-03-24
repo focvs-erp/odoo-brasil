@@ -126,9 +126,15 @@ class ResPartner(models.Model):
     def validate_number(self,number): 
         return True if number and number.isnumeric() else False 
 
-    def validate_phone(self,phone):
+    def validate_phone(self,phone,responsible):
         phone= re.sub('[^0-9]', '', phone)
-        return True if phone and len(phone) >=10 and phone.isnumeric() else False
+        if responsible:
+            if phone!='':
+                return True if len(phone) >=10 and phone.isnumeric() else False
+            else: 
+                return True
+        else:          
+            return True if phone and len(phone) >=10 and phone.isnumeric() else False
 
     def validate_cpf_cnpj(self, cnpj_cpf):
         cpf = CPF()
