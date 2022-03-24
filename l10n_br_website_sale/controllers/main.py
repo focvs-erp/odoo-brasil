@@ -4,7 +4,6 @@ from odoo.http import request
 from werkzeug.exceptions import Forbidden
 import odoo.addons.website_sale.controllers.main as main
 from typing import Dict, List
-from validate_docbr import CPF, CNPJ
 # from odoo.addons.br_base.tools.fiscal import validate_cnpj, validate_cpf
 from odoo.addons.portal.controllers.portal import CustomerPortal
 
@@ -67,16 +66,6 @@ class L10nBrWebsiteSale(main.WebsiteSale):
             return [(state.id, state.name) for state in states]
         return []
 
-    def validate_cpf_cnpj(self, cnpj_cpf):
-        cpf = CPF()
-        cnpj = CNPJ()
-        if '/' in cnpj_cpf:
-            if not cnpj.validate(cnpj_cpf):
-                return False
-        else:
-            if not cpf.validate(cnpj_cpf):
-                return False
-        return True
 
     def checkout_form_validate(self, mode, all_form_values, data):
         errors, error_msg = super(
@@ -86,22 +75,24 @@ class L10nBrWebsiteSale(main.WebsiteSale):
         email = data.get("email", False)
         estado = data.get("state_id", False)
         nome = data.get("name", '')
+
+        # AX4B - M_ECM_0013 - Validação dos campos ao criar cliente
         partner=request.env["res.partner"].sudo()
 
         if not partner.validate_zip(data.get("zip", '')):        
             errors["zip"] = u"invalid"
-            error_msg.append (("CEP inválido"))
+            error_msg.append(_("Invalid zip code"))
         if not partner.validate_number(data.get("l10n_br_number", '')):        
             errors["l10n_br_number"] = u"invalid"
-            error_msg.append (("Número inválido"))
+            error_msg.append(_("Invalid number"))
         if not partner.validate_phone(data.get("phone", '')):        
             errors["phone"] = u"invalid"
-            error_msg.append (("Telefone inválido"))
-        
+            error_msg.append(_("Invalid phone"))
+        # AX4B - M_ECM_0013 - Validação dos campos ao criar cliente
 
-        if not self.validate_cpf_cnpj(cnpj_cpf):
+        if not partner.validate_cpf_cnpj(cnpj_cpf):
             errors["l10n_br_cnpj_cpf"] = u"invalid"
-            error_msg.append(("CPF/CNPJ inválido"))
+            error_msg.append(_("Invalid CPF/CNPJ"))
         
         if not estado:
             errors["state_id"] = u"invalid"
