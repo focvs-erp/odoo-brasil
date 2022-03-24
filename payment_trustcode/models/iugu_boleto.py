@@ -1,14 +1,14 @@
-import re
-import logging
 import datetime
 import json
-import requests
+import logging
+import re
 
+import requests
 from odoo import api, fields, models
-from odoo.http import request
 from odoo.exceptions import UserError
-from werkzeug import urls
+from odoo.http import request
 from requests.auth import HTTPBasicAuth
+from werkzeug import urls
 
 _logger = logging.getLogger(__name__)
 odoo_request = request
@@ -19,7 +19,8 @@ except ImportError:
     _logger.exception("Não é possível importar iugu")
 
 with open('/mnt/extras_addons/odoo-brasil/payment_trustcode/models/appsettings.json') as file:
-	appsettings = json.load(file)
+    appsettings = json.load(file)
+
 
 class IuguBoleto(models.Model):
     _inherit = "payment.acquirer"
@@ -28,7 +29,8 @@ class IuguBoleto(models.Model):
         base_url = self.env["ir.config_parameter"].get_param("web.base.url")
         return "%s%s" % (base_url, "/payment/process")
 
-    provider = fields.Selection(selection_add=[("iugu", "Iugu")], ondelete = { 'iugu' : 'set default' })
+    provider = fields.Selection(selection_add=[("iugu", "Iugu")], ondelete={
+                                'iugu': 'set default'})
     iugu_api_key = fields.Char("Iugu Api Token")
     return_url = fields.Char(
         string="Url de Retorno", default=_default_return_url, size=300
@@ -41,12 +43,16 @@ class IuguBoleto(models.Model):
         )
 
         partner_id = values.get('billing_partner')
-        
+
         # AX4B - ECM_0009 - Confirmar o pedido de compras
-        order = self.env['sale.order'].search([('name','=', values['reference'].split("-")[0])])
+        order = self.env['sale.order'].search(
+            [('name', '=', values['reference'].split("-")[0])])
         # AX4B - ECM_0009 - Confirmar o pedido de compras
 
         today = datetime.date.today()
+
+        # AX4B - M_ECM_0003 - Correção Pagamento com Desconto
+        items = self.get_items(order)
 
         invoice_data = {
             "email": partner_id.email,
@@ -56,8 +62,9 @@ class IuguBoleto(models.Model):
                 base_url, "/iugu/notificacao/"
             ),
             # AX4B - ECM_0009 - Confirmar o pedido de compras
-            "items": self.get_items(order),
-            "custom_variables": self.get_custom_variables(order),
+            "items": items[0],
+            "custom_variables": self.get_custom_variables(order, items[1]),
+            "discount_cents": (items[1] * 100),
             # AX4B - ECM_0009 - Confirmar o pedido de compras
 
             "payer": {
@@ -72,7 +79,7 @@ class IuguBoleto(models.Model):
             },
         }
 
-        result = self.create(invoice_data)          
+        result = self.create(invoice_data)
         if "errors" in result:
             if isinstance(result["errors"], str):
                 msg = result['errors']
@@ -105,21 +112,28 @@ class IuguBoleto(models.Model):
     # AX4B - ECM_0009 - Confirmar o pedido de compras
     def get_items(self, order):
         items = []
+        cupom = 0
         for line in order.order_line:
-            items.append({
-                "description": line.product_id.name,
-                "quantity": int(line.product_uom_qty),
-                "price_cents": int(line.product_id.list_price * 100)
-            })
-        return items
+            if line.price_unit >= 0:
+                items.append({
+                    "description": line.product_id.name,
+                    "quantity": int(line.product_uom_qty),
+                    "price_cents": int(line.price_unit * 100)
+                })
+            else:
+                cupom += line.price_unit * -1
+        return items, cupom
 
-    def get_custom_variables(self, order):
+    def get_custom_variables(self, order, desconto):
         custom_variables = [{
             "name": "Valor Total",
-            "value": "R$ {0:.2f}".format(order.amount_total).replace('.',',')
-        },{
+            "value": "R$ {0:.2f}".format(order.amount_total).replace('.', ',')
+        }, {
             "name": "Pedido",
             "value": order.display_name
+        }, {
+            "name": "Desconto",
+            "value": "R$ {0:.2f}".format(desconto).replace('.', ',')
         }]
         return custom_variables
     # AX4B - ECM_0009 - Confirmar o pedido de compras
@@ -129,7 +143,7 @@ class IuguBoleto(models.Model):
 
     def make_url(self, paths):
         url = appsettings['iugu']['URL']
-        for path in paths:           
+        for path in paths:
             url = url + '/' + path
         return url
 
@@ -142,12 +156,14 @@ class IuguBoleto(models.Model):
     def base_request(self, url, method, data={}):
         try:
             response = requests.request(method, url,
-                                        auth=HTTPBasicAuth(self.iugu_api_key, ''),
+                                        auth=HTTPBasicAuth(
+                                            self.iugu_api_key, ''),
                                         data=json.dumps(data),
                                         headers=self.headers())
             return json.loads(response.content.decode('utf-8'))
         except Exception as error:
             raise
+
 
 class TransactionIugu(models.Model):
     _inherit = "payment.transaction"
