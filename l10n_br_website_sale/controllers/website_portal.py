@@ -47,7 +47,7 @@ class BrWebsiteMyAccount(CustomerPortal):
     def details_form_validate(self, data):
         error = dict()
         error_message = []
-        partner=request.env["res.partner"].sudo()
+        partner = request.env["res.partner"].sudo()
 
         # Validation
         for field_name in self.MANDATORY_BILLING_FIELDS:
@@ -60,17 +60,17 @@ class BrWebsiteMyAccount(CustomerPortal):
         if not partner.validate_number(data.get("l10n_br_number", '')):        
             error["l10n_br_number"] = u"invalid"
             error_message.append(_("Invalid number"))
-        if not partner.validate_phone(data.get("phone", ''), False):        
+        if not partner.validate_phone(data.get("phone", '')):        
             error["phone"] = u"invalid"
             error_message.append(_("Invalid phone"))
         if not partner.validate_cpf_cnpj(data.get("l10n_br_cnpj_cpf", "0")):
             error["l10n_br_cnpj_cpf"] = u"invalid"
             error_message.append(_("Invalid CPF/CNPJ"))
         
-        if not partner.validate_phone(data.get("phone_responsible", ''), True):        
+        if not partner.validate_phone(data.get("phone_responsible", ''), False):        
             error["phone_responsible"] = u"invalid"
             error_message.append(_("Invalid responsible phone"))
-        if not partner.validate_phone(data.get("phone_responsible_for_license", ''), True):        
+        if not partner.validate_phone(data.get("phone_responsible_for_license", ''), False):        
             error["phone_responsible_for_license"] = u"invalid"
             error_message.append(_("Invalid responsible for license phone"))
         del data['phone_responsible']

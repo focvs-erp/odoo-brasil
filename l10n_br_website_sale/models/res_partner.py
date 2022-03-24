@@ -120,21 +120,21 @@ class ResPartner(models.Model):
 
     # AX4B - M_ECM_0013 - Validação dos campos ao criar cliente
     def validate_zip(self, zip): 
-        zip= re.sub('[^0-9]', '', zip) 
+        zip = re.sub('[^0-9]', '', zip) 
         return True if zip and len(zip) >= 8 and zip.isnumeric() else False
        
     def validate_number(self,number): 
-        return True if number and number.isnumeric() else False 
+        return True if number and number.isnumeric() else False
 
-    def validate_phone(self,phone,responsible):
-        phone= re.sub('[^0-9]', '', phone)
-        if responsible:
-            if phone!='':
+    def validate_phone(self,phone,check_existence=True):
+        phone = re.sub('[^0-9]', '', phone)
+        if check_existence:
+            return True if phone and len(phone) >=10 and phone.isnumeric() else False
+        else:          
+            if phone != '':
                 return True if len(phone) >=10 and phone.isnumeric() else False
             else: 
                 return True
-        else:          
-            return True if phone and len(phone) >=10 and phone.isnumeric() else False
 
     def validate_cpf_cnpj(self, cnpj_cpf):
         cpf = CPF()
