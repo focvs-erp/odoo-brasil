@@ -5,9 +5,12 @@ from odoo.exceptions import ValidationError
 
 class BrWebsiteMyAccount(CustomerPortal):
     def update_client(self, post):
-        responsible = ['name_responsible', 'email_responsible', 'phone_responsible', 
+        # responsible = ['name_responsible', 'email_responsible', 'phone_responsible', 
+        # 'name_responsible_for_license', 'email_responsible_for_license',
+        #  'phone_responsible_for_license', 'checkbox_responsible_license']
+        responsible = ['name_responsible', 'email_responsible', 
         'name_responsible_for_license', 'email_responsible_for_license',
-         'phone_responsible_for_license', 'checkbox_responsible_license']
+        'checkbox_responsible_license']
 
         if len(post) != 0:
             partner = request.env['res.users'].search([('id', '=', request.uid)]).partner_id.id
@@ -66,6 +69,18 @@ class BrWebsiteMyAccount(CustomerPortal):
         if not partner.validate_cpf_cnpj(data.get("l10n_br_cnpj_cpf", "0")):
             error["l10n_br_cnpj_cpf"] = u"invalid"
             error_message.append(_("Invalid CPF/CNPJ"))
+        
+        ## validar os telefones e depois tirar do data
+        if not partner.validate_phone(data.get("phone_responsible", '')):        
+            error["phone"] = u"invalid"
+            error_message.append(_("Invalid responsible phone"))
+        if not partner.validate_phone(data.get("phone_responsible_for_license", '')):        
+            error["phone"] = u"invalid"
+            error_message.append(_("Invalid responsible for license phone"))
+        del data['phone_responsible']
+        del data['phone_responsible_for_license']
+        ##
+
 
         # email validation
         if data.get('email') and not tools.single_email_re.match(data.get('email')):
