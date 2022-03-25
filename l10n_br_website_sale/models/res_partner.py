@@ -3,6 +3,8 @@
 from odoo import models, fields, api
 from odoo.http import request
 from typing import Dict, List
+import re
+from validate_docbr import CPF, CNPJ
 
 
 class ResPartner(models.Model):
@@ -115,3 +117,33 @@ class ResPartner(models.Model):
         for adr_type in adr_pref:
             result[adr_type] = result.get(adr_type) or default
         return result
+
+    # AX4B - M_ECM_0013 - Validação dos campos ao criar cliente
+    def validate_zip(self, zip): 
+        zip = re.sub('[^0-9]', '', zip) 
+        return True if zip and len(zip) >= 8 and zip.isnumeric() else False
+       
+    def validate_number(self,number): 
+        return True if number and number.isnumeric() else False
+
+    def validate_phone(self,phone,check_existence=True):
+        phone = re.sub('[^0-9]', '', phone)
+        if check_existence:
+            return True if phone and len(phone) >=10 and phone.isnumeric() else False
+        else:          
+            if phone != '':
+                return True if len(phone) >=10 and phone.isnumeric() else False
+            else: 
+                return True
+
+    def validate_cpf_cnpj(self, cnpj_cpf):
+        cpf = CPF()
+        cnpj = CNPJ()
+        if '/' in cnpj_cpf:
+            if not cnpj.validate(cnpj_cpf):
+                return False
+        else:
+            if not cpf.validate(cnpj_cpf):
+                return False
+        return True
+    # AX4B - M_ECM_0013 - Validação dos campos ao criar cliente
