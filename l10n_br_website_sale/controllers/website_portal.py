@@ -54,7 +54,7 @@ class BrWebsiteMyAccount(CustomerPortal):
                 error[field_name] = 'missing'
 
         if not partner.validate_zip(data.get("zipcode", '')):        
-            error["zip"] = u"invalid"
+            error["zipcode"] = u"invalid"
             error_message.append(_("Invalid zip code"))
         if not partner.validate_number(data.get("l10n_br_number", '')):        
             error["l10n_br_number"] = u"invalid"
