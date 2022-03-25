@@ -7,7 +7,7 @@ class BrWebsiteMyAccount(CustomerPortal):
     def update_client(self, post):
         responsible = ['name_responsible', 'email_responsible', 
         'name_responsible_for_license', 'email_responsible_for_license',
-        'checkbox_responsible_license']
+        'checkbox_responsible_license', 'phone_responsible', 'phone_responsible_for_license']
 
         if len(post) != 0:
             partner = request.env['res.users'].search([('id', '=', request.uid)]).partner_id.id
@@ -36,7 +36,6 @@ class BrWebsiteMyAccount(CustomerPortal):
 
     @http.route(["/my/account"], type="http", auth="user", website=True)
     def account(self, redirect=None, **post):
-        self.update_client(post)
         if "zip" in post:
             post["zipcode"] = post.pop("zip")
         return super(BrWebsiteMyAccount, self).account(
@@ -73,8 +72,8 @@ class BrWebsiteMyAccount(CustomerPortal):
         if not partner.validate_phone(data.get("phone_responsible_for_license", ''), False):        
             error["phone_responsible_for_license"] = u"invalid"
             error_message.append(_("Invalid responsible for license phone"))
-        del data['phone_responsible']
-        del data['phone_responsible_for_license']
+        
+        self.update_client(data)
 
         # email validation
         if data.get('email') and not tools.single_email_re.match(data.get('email')):
