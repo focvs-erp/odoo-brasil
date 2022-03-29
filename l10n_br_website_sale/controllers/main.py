@@ -250,12 +250,12 @@ class L10nBrWebsiteSale(main.WebsiteSale):
                     and partner_id != order.partner_id.id
                 ):
                     return Forbidden()
-                
-                checkout.pop('child_ids')
 
                 Partner.browse(partner_id).sudo().write(checkout)
-
-                request.env['res.partner'].write_partner_contact(partner_id, all_values, 'checkbox_responsible_license'== False)
+                
+                request.env['res.partner'].write_partner_contact(partner_id, all_values)
+                
+                
 
         return partner_id
 
@@ -271,8 +271,9 @@ class L10nBrWebsiteSale(main.WebsiteSale):
             result.qcontext["state"] = partner_id.state_id
         if "city_id" in kw and kw["city_id"]:
             result.qcontext["city"] = request.env['res.city'].browse(kw["city_id"])
+
         
-        result.qcontext["child_ids"] = self.get_child_ids(partner_id if 'child_ids' in result.qcontext['checkout'] else kw)
+        result.qcontext["child_ids"] = self.get_child_ids(partner_id if 'checkout' in result.qcontext and 'child_ids' in result.qcontext['checkout'] else kw)
 
         return result
         
