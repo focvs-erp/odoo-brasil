@@ -35,7 +35,7 @@ class ResPartner(models.Model):
             else:
                 partner_responsible.update({
                     'parent_id': partner_id,
-                    'type': 'contact',
+                    'type': 'responsible',
                     'website_contact': True,
                     'responsible_billing': True,
                     'responsible_license': True if all_values.get('checkbox_responsible_license', None) or not all_values.get('checkbox_responsible_license', False) and not self._verify_who_is_resposible(all_values, [
