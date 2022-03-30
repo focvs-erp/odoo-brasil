@@ -132,7 +132,7 @@
                                     </div>
 
                                     <div t-attf-class="col-lg-12">
-                                        <input type="checkbox" name="checkbox_responsible_license" id="checkbox_responsible_license" t-att-checked="true if len(child_ids) == 1 else ''"/>
+                                        <input type="checkbox" name="checkbox_responsible_license" id="checkbox_responsible_license" t-att-checked="true if len(child_ids) == 1 else false"/>
                                         <label class="col-form-label font-weight-normal label-optional" for="is_licence_holder">Is the above contact responsible for the license?</label>
                                     </div>
                                              
