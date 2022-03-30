@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 14.0-20211015\n"
+"Project-Id-Version: Odoo Server 14.0-20211010\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-08 20:48+0000\n"
-"PO-Revision-Date: 2021-11-08 20:48+0000\n"
+"POT-Creation-Date: 2022-03-30 21:17+0000\n"
+"PO-Revision-Date: 2022-03-30 21:17+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -63,10 +63,20 @@ msgid "Complemento"
 msgstr ""
 
 #. module: l10n_br_website_sale
+#: model:ir.model,name:l10n_br_website_sale.model_res_partner
+msgid "Contact"
+msgstr "Contato"
+
+#. module: l10n_br_website_sale
 #: model_terms:ir.ui.view,arch_db:l10n_br_website_sale.br_website_portal_my_account
 #: model_terms:ir.ui.view,arch_db:l10n_br_website_sale.br_website_sale_address
 msgid "Country..."
-msgstr ""
+msgstr "País..."
+
+#. module: l10n_br_website_sale
+#: model:ir.model.fields,field_description:l10n_br_website_sale.field_res_partner__display_name
+msgid "Display Name"
+msgstr "Nome exibido"
 
 #. module: l10n_br_website_sale
 #: model_terms:ir.ui.view,arch_db:l10n_br_website_sale.br_website_portal_my_account
@@ -100,28 +110,42 @@ msgid "Estado..."
 msgstr ""
 
 #. module: l10n_br_website_sale
+#: model:ir.model.fields,field_description:l10n_br_website_sale.field_res_partner__id
+msgid "ID"
+msgstr ""
+
+#. module: l10n_br_website_sale
 #: code:addons/l10n_br_website_sale/controllers/main.py:0
 #, python-format
 msgid "Invalid email! Please enter a valid invoice owner's email address. "
-msgstr "E-mail inválido! Por favor digite um e-mail válido para o Responsável pela Fatura"
+msgstr ""
+"E-mail inválido! Por favor digite um e-mail válido para o Responsável pela "
+"Fatura"
 
 #. module: l10n_br_website_sale
 #: code:addons/l10n_br_website_sale/controllers/main.py:0
 #, python-format
 msgid "Invalid email! Please enter a valid license holder email address."
-msgstr "E-mail inválido! Por favor digite um e-mail válido para o Responsável pela Licença"
+msgstr ""
+"E-mail inválido! Por favor digite um e-mail válido para o Responsável pela "
+"Licença"
 
 #. module: l10n_br_website_sale
-#: model_terms:ir.ui.view,arch_db:l10n_br_website_sale.br_website_sale_address
 #: model_terms:ir.ui.view,arch_db:l10n_br_website_sale.br_website_portal_my_account
+#: model_terms:ir.ui.view,arch_db:l10n_br_website_sale.br_website_sale_address
 msgid "Is the above contact responsible for the license?"
 msgstr "O contato acima é o responsável pela licença?"
+
+#. module: l10n_br_website_sale
+#: model:ir.model.fields,field_description:l10n_br_website_sale.field_res_partner____last_update
+msgid "Last Modified on"
+msgstr "Última modificação em"
 
 #. module: l10n_br_website_sale
 #: model_terms:ir.ui.view,arch_db:l10n_br_website_sale.br_website_portal_my_account
 #: model_terms:ir.ui.view,arch_db:l10n_br_website_sale.br_website_sale_address
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #. module: l10n_br_website_sale
 #: model_terms:ir.ui.view,arch_db:l10n_br_website_sale.br_website_portal_my_account
@@ -148,13 +172,20 @@ msgid "Pessoa Jurídica"
 msgstr ""
 
 #. module: l10n_br_website_sale
+#: model_terms:ir.ui.view,arch_db:l10n_br_website_sale.br_website_portal_my_account
 #: model_terms:ir.ui.view,arch_db:l10n_br_website_sale.br_website_sale_address
 msgid "Phone"
 msgstr "Telefone"
 
 #. module: l10n_br_website_sale
-#: model_terms:ir.ui.view,arch_db:l10n_br_website_sale.br_website_sale_address
 #: model_terms:ir.ui.view,arch_db:l10n_br_website_sale.br_website_portal_my_account
+#: model_terms:ir.ui.view,arch_db:l10n_br_website_sale.br_website_sale_address
+msgid "Responsible for License"
+msgstr "Responsável pela Licença"
+
+#. module: l10n_br_website_sale
+#: model_terms:ir.ui.view,arch_db:l10n_br_website_sale.br_website_portal_my_account
+#: model_terms:ir.ui.view,arch_db:l10n_br_website_sale.br_website_sale_address
 msgid "Responsible for billing"
 msgstr "Responsável pela Fatura"
 
