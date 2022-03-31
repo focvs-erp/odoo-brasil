@@ -136,7 +136,13 @@
                                         <label class="col-form-label font-weight-normal label-optional" for="is_licence_holder">Is the above contact responsible for the license?</label>
                                     </div>
                                              
+                                    
                                     <div class="form-row" id='lincese_checkbox_div'>
+                                        
+                                        <div style="text-align:center">
+                                            <label class="col-form-label">Responsible for License</label>
+                                        </div>
+
                                         <div t-attf-class="form-group #{error.get('email_responsible_for_license') and 'o_has_error' or ''} col-lg-12">
                                             <label class="col-form-label" for="name_responsible_for_license">Name</label>
                                             <input type="text" name="name_responsible_for_license" t-attf-class="form-control #{error.get('name_responsible_for_license') and 'is-invalid' or ''}" t-att-value="'' if len(child_ids) == 0 else (child_ids[1].get('name', '') if len(child_ids) >= 2 else '')" />
