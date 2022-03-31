@@ -107,163 +107,60 @@
                             </div>
                         </t>
                         <!-- AX4B - LICENSE HOLDER -->
-                        <t t-if="mode[0] == 'new'">
-                            <div class="w-100"/>
-                            <div style="text-align:center">
-                                <label class="col-form-label">Responsible for billing</label>
-                            </div>
-                            <div class="w-100"/>
-                            <div t-attf-class="form-group #{error.get('name_responsible') and 'o_has_error' or ''} col-lg-12 div_name">
-                                <label class="col-form-label" for="name_responsible">Name</label>
-                                <input type="text" name="name_responsible" t-attf-class="form-control #{error.get('name_responsible') and 'is-invalid' or ''}" t-att-value="'child_ids' in checkout and checkout['child_ids'][0]['name']" />
-                            </div>
-                            <div class="w-100"/>
-                            <div t-attf-class="form-group #{error.get('email_responsible') and 'o_has_errorr' or ''} col-lg-6" id="div_email">
-                                <label class="col-form-label" for="email">Email</label>
-                                <input type="email" name="email_responsible" t-attf-class="form-control #{error.get('email_responsible') and 'is-invalid' or ''}" t-att-value="'email_responsible' in checkout and checkout['email_responsible']"/>
-                            </div>
-                            <div t-attf-class="form-group #{error.get('phone_responsible') and 'o_has_error' or ''} col-lg-6" id="div_phone_responsible">
-                                <label class="col-form-label" for="phone_responsible">Phone</label>
-                                <input type="tel" name="phone_responsible" t-attf-class="form-control #{error.get('phone_responsible') and 'is-invalid' or ''}" t-att-value="'phone_responsible' in checkout and checkout['phone_responsible']" />
-                            </div>
-                            <div t-attf-class="col-lg-12">
-                                <input type="checkbox" id='is_licence_holder_input' name="is_licence_holder_input"/>
-                                <label class="col-form-label font-weight-normal label-optional" for="is_licence_holder">Is the above contact responsible for the license?</label>
-                            </div>
-                            <div class="w-100"/> 
-                            <div class="form-row" id='licence_holder_div'>
-                                <div t-attf-class="form-group #{error.get('name') and 'o_has_error' or ''} col-lg-12 div_name">
-                                    <label class="col-form-label" for="name_responsible_for_license">Name</label>
-                                    <input type="text" id='name_responsible_for_license' name="name_responsible_for_license" t-attf-class="form-control #{error.get('name_responsible_for_license') and 'is-invalid' or ''}" t-att-value="'name_responsible_for_license' in checkout and checkout['name_responsible_for_license']" />
-                                </div>
-                                <div class="w-100"/>
-                                <div t-attf-class="form-group #{error.get('email_responsible_for_license') and 'o_has_errorr' or ''} col-lg-6" id="div_email">
-                                    <label class="col-form-label" for="email">Email</label>
-                                    <input type="email" name="email_responsible_for_license" t-attf-class="form-control #{error.get('email_responsible_for_license') and 'is-invalid' or ''}" t-att-value="'email_responsible_for_license' in checkout and checkout['email_responsible_for_license']"/>
-                                </div>
-                                <div t-attf-class="form-group #{error.get('phone') and 'o_has_error' or ''} col-lg-6" id="div_phone">
-                                    <label class="col-form-label" for="phone_responsible_for_license">Phone</label>
-                                    <input type="tel" name="phone_responsible_for_license" t-attf-class="form-control #{error.get('phone_responsible_for_license') and 'is-invalid' or ''}" t-att-value="'phone_responsible_for_license' in checkout and checkout['phone_responsible_for_license']" />
-                                </div>
-                            </div>
-                        </t>
                         <t t-if="mode[0] == 'edit'">
-                            <t t-if="'child_ids' in checkout">
-                                <t t-set="partner_childs" t-value="list(filter(lambda child: child['website_contact'], checkout['child_ids']))"/>
+                
+                            <div class="w-100"/>
+
+                                <div style="text-align:center">
+                                    <label class="col-form-label">Responsible for billing</label>
+                                </div>
+
                                 <div class="w-100"/>
-                                        <div style="text-align:center">
-                                            <label class="col-form-label">Responsible for billing</label>
-                                        </div>
+                                
+                                    <div t-attf-class="form-group #{error.get('name_responsible') and 'o_has_error' or ''} col-lg-12 div_name">
+                                        <label class="col-form-label" for="name_responsible">Name</label>
+                                        <input type="text" name="name_responsible" t-attf-class="form-control #{error.get('name_responsible') and 'is-invalid' or ''}" t-att-value="'' if len(child_ids) == 0 else child_ids[0].get('name', '')" />
+                                    </div>
                                     <div class="w-100"/>
-                                    <t t-if="len(partner_childs) == 0">
-                                        <div t-attf-class="form-group #{error.get('name_responsible') and 'o_has_error' or ''} col-lg-12 div_name">
-                                            <label class="col-form-label" for="name_responsible">Name</label>
-                                            <input type="text" name="name_responsible" t-attf-class="form-control #{error.get('name_responsible') and 'is-invalid' or ''}" t-att-value="''" />
-                                        </div>
-                                        <div class="w-100"/>
-                                        <div t-attf-class="form-group #{error.get('email_responsible') and 'o_has_errorr' or ''} col-lg-6" id="div_email">
-                                            <label class="col-form-label" for="email">Email</label>
-                                            <input type="email" name="email_responsible" t-attf-class="form-control #{error.get('email_responsible') and 'is-invalid' or ''}" t-att-value="''"/>
-                                        </div>
-                                        <div t-attf-class="form-group #{error.get('phone_responsible') and 'o_has_error' or ''} col-lg-6" id="div_phone_responsible">
-                                            <label class="col-form-label" for="phone_responsible">Phone</label>
-                                            <input type="tel" name="phone_responsible" t-attf-class="form-control #{error.get('phone_responsible') and 'is-invalid' or ''}" t-att-value="''" />
+                                    <div t-attf-class="form-group #{error.get('email_responsible') and 'o_has_errorr' or ''} col-lg-6" id="div_email">
+                                        <label class="col-form-label" for="email">Email</label>
+                                        <input type="email" name="email_responsible" t-attf-class="form-control #{error.get('email_responsible') and 'is-invalid' or ''}" t-att-value="'' if len(child_ids) == 0 else child_ids[0].get('email', '')"/>
+                                    </div>
+                                    <div t-attf-class="form-group #{error.get('phone_responsible') and 'o_has_error' or ''} col-lg-6" id="div_phone_responsible">
+                                        <label class="col-form-label" for="phone_responsible">Phone</label>
+                                        <input type="tel" name="phone_responsible" t-attf-class="form-control #{error.get('phone_responsible') and 'is-invalid' or ''}" t-att-value="'' if len(child_ids) == 0 else child_ids[0].get('phone', '')" />
+                                    </div>
+
+                                    <div t-attf-class="col-lg-12">
+                                        <input type="checkbox" name="checkbox_responsible_license" id="checkbox_responsible_license" t-att-checked="true if len(child_ids) == 1 else false"/>
+                                        <label class="col-form-label font-weight-normal label-optional" for="is_licence_holder">Is the above contact responsible for the license?</label>
+                                    </div>
+                                             
+                                    
+                                    <div class="form-row" id='lincese_checkbox_div'>
+                                        
+                                        <div style="text-align:center">
+                                            <label class="col-form-label">Responsible for License</label>
                                         </div>
 
-                                        <div t-attf-class="col-lg-12">
-                                            <input type="checkbox" name="checkbox_responsible_license" id="checkbox_responsible_license"/>
-                                            <label class="col-form-label font-weight-normal label-optional" for="is_licence_holder">Is the above contact responsible for the license?</label>
-                                        </div>
-                                        <div class="form-row" id='lincese_checkbox_div'>
-                                            <div t-attf-class="form-group #{error.get('email_responsible_for_license') and 'o_has_error' or ''} col-lg-12">
-                                                <label class="col-form-label" for="name_responsible_for_license">Name</label>
-                                                <input type="text" name="name_responsible_for_license" t-attf-class="form-control #{error.get('name_responsible_for_license') and 'is-invalid' or ''}" t-att-value="''" />
-                                            </div>
-                                            <div class="w-100"/>
-                                            <div t-attf-class="form-group #{error.get('email_responsible_for_license') and 'o_has_errorr' or ''} col-lg-6">
-                                                <label class="col-form-label" for="email">Email</label>
-                                                <input type="email" name="email_responsible_for_license" t-attf-class="form-control #{error.get('email_responsible_for_license') and 'is-invalid' or ''}" t-att-value="''"/>
-                                            </div>
-                                            <div t-attf-class="form-group #{error.get('email_responsible_for_license') and 'o_has_error' or ''} col-lg-6">
-                                                <label class="col-form-label" for="phone_responsible_for_license">Phone</label>
-                                                <input type="tel" name="phone_responsible_for_license" t-attf-class="form-control #{error.get('phone_responsible_for_license') and 'is-invalid' or ''}" t-att-value="''" />
-                                            </div>
-                                        </div>
-                                    </t>
-                                    <t t-elif="len(partner_childs) == 1">
-                                        <div t-attf-class="form-group #{error.get('name_responsible') and 'o_has_error' or ''} col-lg-12 div_name">
-                                            <label class="col-form-label" for="name_responsible">Name</label>
-                                            <input type="text" name="name_responsible" t-attf-class="form-control #{error.get('name_responsible') and 'is-invalid' or ''}" t-att-value="partner_childs[0].name" />
+                                        <div t-attf-class="form-group #{error.get('email_responsible_for_license') and 'o_has_error' or ''} col-lg-12">
+                                            <label class="col-form-label" for="name_responsible_for_license">Name</label>
+                                            <input type="text" name="name_responsible_for_license" t-attf-class="form-control #{error.get('name_responsible_for_license') and 'is-invalid' or ''}" t-att-value="'' if len(child_ids) == 0 else (child_ids[1].get('name', '') if len(child_ids) >= 2 else '')" />
                                         </div>
                                         <div class="w-100"/>
-                                        <div t-attf-class="form-group #{error.get('email_responsible') and 'o_has_errorr' or ''} col-lg-6" id="div_email">
+                                        <div t-attf-class="form-group #{error.get('email_responsible_for_license') and 'o_has_errorr' or ''} col-lg-6">
                                             <label class="col-form-label" for="email">Email</label>
-                                            <input type="email" name="email_responsible" t-attf-class="form-control #{error.get('email_responsible') and 'is-invalid' or ''}" t-att-value="partner_childs[0].email"/>
+                                            <input type="email" name="email_responsible_for_license" t-attf-class="form-control #{error.get('email_responsible_for_license') and 'is-invalid' or ''}" t-att-value="'' if len(child_ids) == 0 else (child_ids[1].get('email', '') if len(child_ids) >= 2 else '')"/>
                                         </div>
-                                        <div t-attf-class="form-group #{error.get('phone_responsible') and 'o_has_error' or ''} col-lg-6" id="div_phone_responsible">
-                                            <label class="col-form-label" for="phone_responsible">Phone</label>
-                                            <input type="tel" name="phone_responsible" t-attf-class="form-control #{error.get('phone_responsible') and 'is-invalid' or ''}" t-att-value="partner_childs[0].phone" />
+                                        <div t-attf-class="form-group #{error.get('email_responsible_for_license') and 'o_has_error' or ''} col-lg-6">
+                                            <label class="col-form-label" for="phone_responsible_for_license">Phone</label>
+                                            <input type="tel" name="phone_responsible_for_license" t-attf-class="form-control #{error.get('phone_responsible_for_license') and 'is-invalid' or ''}" t-att-value="'' if len(child_ids) == 0 else (child_ids[1].get('phone', '') if len(child_ids) >= 2 else '')" />
                                         </div>
-                                        <div t-attf-class="col-lg-12">
-                                            <input type="checkbox" name="checkbox_responsible_license" id="checkbox_responsible_license" checked="checked"/>
-                                            <label class="col-form-label font-weight-normal label-optional" for="is_licence_holder">Is the above contact responsible for the license?</label>
-                                        </div>
-                                        <div class="form-row" id='lincese_checkbox_div'>
-                                            <div t-attf-class="form-group #{error.get('email_responsible_for_license') and 'o_has_error' or ''} col-lg-12">
-                                                <label class="col-form-label" for="name_responsible_for_license">Name</label>
-                                                <input type="text" name="name_responsible_for_license" t-attf-class="form-control #{error.get('name_responsible_for_license') and 'is-invalid' or ''}" t-att-value="''" />
-                                            </div>
-                                            <div class="w-100"/>
-                                            <div t-attf-class="form-group #{error.get('email_responsible_for_license') and 'o_has_errorr' or ''} col-lg-6">
-                                                <label class="col-form-label" for="email">Email</label>
-                                                <input type="email" name="email_responsible_for_license" t-attf-class="form-control #{error.get('email_responsible_for_license') and 'is-invalid' or ''}" t-att-value="''"/>
-                                            </div>
-                                            <div t-attf-class="form-group #{error.get('email_responsible_for_license') and 'o_has_error' or ''} col-lg-6">
-                                                <label class="col-form-label" for="phone_responsible_for_license">Phone</label>
-                                                <input type="tel" name="phone_responsible_for_license" t-attf-class="form-control #{error.get('phone_responsible_for_license') and 'is-invalid' or ''}" t-att-value="''" />
-                                            </div>
-                                        </div> 
-                                    </t>
-                                    <t t-elif="len(partner_childs) == 2">
-                                        <div t-attf-class="form-group #{error.get('name_responsible') and 'o_has_error' or ''} col-lg-12 div_name">
-                                            <label class="col-form-label" for="name_responsible">Name</label>
-                                            <input type="text" name="name_responsible" t-attf-class="form-control #{error.get('name_responsible') and 'is-invalid' or ''}" t-att-value="partner_childs[0].name" />
-                                        </div>
-                                        <div class="w-100"/>
-                                        <div t-attf-class="form-group #{error.get('email_responsible') and 'o_has_errorr' or ''} col-lg-6" id="div_email">
-                                            <label class="col-form-label" for="email">Email</label>
-                                            <input type="email" name="email_responsible" t-attf-class="form-control #{error.get('email_responsible') and 'is-invalid' or ''}" t-att-value="partner_childs[0].email"/>
-                                        </div>
-                                        <div t-attf-class="form-group #{error.get('phone_responsible') and 'o_has_error' or ''} col-lg-6" id="div_phone_responsible">
-                                            <label class="col-form-label" for="phone_responsible">Phone</label>
-                                            <input type="tel" name="phone_responsible" t-attf-class="form-control #{error.get('phone_responsible') and 'is-invalid' or ''}" t-att-value="partner_childs[0].phone" />
-                                        </div>
-
-                                        <div t-attf-class="col-lg-12">
-                                            <input type="checkbox" name="checkbox_responsible_license" id="checkbox_responsible_license"/>
-                                            <label class="col-form-label font-weight-normal label-optional" for="is_licence_holder">Is the above contact responsible for the license?</label>
-                                        </div>
-
-                                        <div class="form-row" id='lincese_checkbox_div'>
-                                            <div t-attf-class="form-group #{error.get('email_responsible_for_license') and 'o_has_error' or ''} col-lg-12">
-                                                <label class="col-form-label" for="name_responsible_for_license">Name</label>
-                                                <input type="text" name="name_responsible_for_license" t-attf-class="form-control #{error.get('name_responsible_for_license') and 'is-invalid' or ''}" t-att-value="partner_childs[1].name" />
-                                            </div>
-                                            <div class="w-100"/>
-                                            <div t-attf-class="form-group #{error.get('email_responsible_for_license') and 'o_has_errorr' or ''} col-lg-6">
-                                                <label class="col-form-label" for="email">Email</label>
-                                                <input type="email" name="email_responsible_for_license" t-attf-class="form-control #{error.get('email_responsible_for_license') and 'is-invalid' or ''}" t-att-value="partner_childs[1].email"/>
-                                            </div>
-                                            <div t-attf-class="form-group #{error.get('email_responsible_for_license') and 'o_has_error' or ''} col-lg-6">
-                                                <label class="col-form-label" for="phone_responsible_for_license">Phone</label>
-                                                <input type="tel" name="phone_responsible_for_license" t-attf-class="form-control #{error.get('phone_responsible_for_license') and 'is-invalid' or ''}" t-att-value="partner_childs[1].phone" />
-                                            </div>
-                                        </div>
-                                    </t>
-                            </t>
+                                    </div> 
                         </t>
+                       
                         <!-- AX4B - LICENSE HOLDER -->
-                    </div>
+                    </div> 
 
                     <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
                     <input type="hidden" name="submitted" value="1"/>

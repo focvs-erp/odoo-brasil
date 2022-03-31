@@ -14,7 +14,7 @@ class ResPartner(models.Model):
         return any({x: all_values.get(x, False) for x in attr_list}.values())
 
     # AX4B - LICENSE HOLDER
-    def write_partner_contact(self, partner_id, all_values, checkbox):
+    def write_partner_contact(self, partner_id, all_values):
         Partner = request.env["res.partner"].sudo()
 
         partner_responsible = {
@@ -25,30 +25,31 @@ class ResPartner(models.Model):
 
         if self._verify_who_is_resposible(all_values, ['name_responsible','email_responsible','phone_responsible']):
             respo_billing = Partner.search([("responsible_billing", "=", True), ('parent_id', '=', partner_id)])
+            is_responsible_license = self.is_responsible_license(all_values)
+
             if respo_billing.exists():
-                if all_values.get(checkbox, False):
+                if all_values.get('checkbox_responsible_license', False):
                     Partner.search([("responsible_billing", "=", False), ("responsible_license", "=", True), ('parent_id', '=', partner_id)]).unlink()
-                    partner_responsible.update({'responsible_license': True, 'type': 'responsible'})
-                    respo_billing.write(partner_responsible)
 
                 else:
                     partner_responsible.update({'type': 'contact'})
-                    respo_billing.write(partner_responsible)
+                
+                if is_responsible_license:
+                    partner_responsible.update({'responsible_license': True, 'type': 'responsible'})
+                
+                respo_billing.write(partner_responsible)
             else:
                 partner_responsible.update({
                     'parent_id': partner_id,
-                    'type': 'contact',
+                    'type': 'contact' if not is_responsible_license else 'responsible',
                     'website_contact': True,
                     'responsible_billing': True,
-                    'responsible_license': True if all_values.get(checkbox, None) or not all_values.get(checkbox, False) and not self._verify_who_is_resposible(all_values, [
-                        'name_responsible_for_license', 
-                        'email_responsible_for_license', 
-                        'phone_responsible_for_license']) else False
+                    'responsible_license': is_responsible_license
                     }
                     )
                 Partner.create(partner_responsible)
 
-        if not all_values.get(checkbox, False):
+        if not all_values.get('checkbox_responsible_license', False):
             partner_responsible = {
                 'name': all_values.get('name_responsible_for_license', False),
                 'email': all_values.get('email_responsible_for_license', False),
@@ -78,6 +79,12 @@ class ResPartner(models.Model):
                     Partner.create(partner_responsible)
             else:
                 Partner.search([("responsible_license", "=", True), ("responsible_billing", "=", False), ('parent_id', '=', partner_id)]).unlink()
+
+    def is_responsible_license(self, all_values):
+        return True if all_values.get('checkbox_responsible_license', None) or not all_values.get('checkbox_responsible_license', False) and not self._verify_who_is_resposible(all_values, [
+                        'name_responsible_for_license', 
+                        'email_responsible_for_license', 
+                        'phone_responsible_for_license']) else False
 
     def address_get(self, adr_pref=None):
 

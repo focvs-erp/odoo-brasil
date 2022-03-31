@@ -11,7 +11,7 @@ class BrWebsiteMyAccount(CustomerPortal):
 
         if len(post) != 0:
             partner = request.env['res.users'].search([('id', '=', request.uid)]).partner_id.id
-            request.env['res.partner'].write_partner_contact(partner, post, 'checkbox_responsible_license')
+            request.env['res.partner'].write_partner_contact(partner, post)
             
             for i in responsible:
                 if i in post:

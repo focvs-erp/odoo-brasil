@@ -9,6 +9,7 @@ from odoo.addons.portal.controllers.portal import CustomerPortal
 
 
 class L10nBrWebsiteSale(main.WebsiteSale):
+
     def _get_mandatory_billing_fields(self):
         res = super(L10nBrWebsiteSale, self)._get_mandatory_billing_fields()
         res.remove("city")
@@ -155,6 +156,44 @@ class L10nBrWebsiteSale(main.WebsiteSale):
 
         return new_values, errors, error_msg
 
+    def get_child_ids(self, vals):
+        if 'child_ids' in vals:
+            return self.build_child_ids_partner(vals)
+        else:
+            return self.build_child_ids_kw(vals)
+
+    
+    def build_child_ids_partner(self, values):
+        child_ids = []
+        for child in filter(lambda ch : ch['website_contact'], values['child_ids']):
+            child_ids.append({
+                'name': child.name,
+                'phone':child.phone,
+                'email':child.email,
+                'website_contact': True
+            })
+
+        return child_ids
+
+    def build_child_ids_kw(self, values):
+        child_ids = []
+        child_ids.append({
+            'name': values.get('name_responsible', ''),
+            'phone':values.get('phone_responsible', ''),
+            'email':values.get('email_responsible', ''),
+            'website_contact': True
+        })
+        if values.get('checkbox_responsible_license', '') != 'on':
+            child_ids.append({
+                'name': values.get('name_responsible_for_license', ''),
+                'phone':values.get('phone_responsible_for_license', ''),
+                'email':values.get('email_responsible_for_license',''),
+                'website_contact': True
+            })
+
+        return child_ids
+
+
     # AX4B - LICENSE HOLDER
     def _create_partner_contact(self, partner_id, all_values):
         Partner = request.env["res.partner"].sudo()
@@ -224,8 +263,10 @@ class L10nBrWebsiteSale(main.WebsiteSale):
                     return Forbidden()
 
                 Partner.browse(partner_id).sudo().write(checkout)
-
-                request.env['res.partner'].write_partner_contact(partner_id, all_values, 'checkbox_responsible_license')
+                
+                request.env['res.partner'].write_partner_contact(partner_id, all_values)
+                
+                
 
         return partner_id
 
@@ -241,7 +282,12 @@ class L10nBrWebsiteSale(main.WebsiteSale):
             result.qcontext["state"] = partner_id.state_id
         if "city_id" in kw and kw["city_id"]:
             result.qcontext["city"] = request.env['res.city'].browse(kw["city_id"])
+
+        
+        result.qcontext["child_ids"] = self.get_child_ids(partner_id if 'checkout' in result.qcontext and 'child_ids' in result.qcontext['checkout'] else kw)
+
         return result
+        
 
     @http.route(
         ["/shop/zip_search"],

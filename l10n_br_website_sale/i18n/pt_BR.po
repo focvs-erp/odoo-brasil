@@ -79,7 +79,12 @@ msgstr "Contato"
 #: model_terms:ir.ui.view,arch_db:l10n_br_website_sale.br_website_portal_my_account
 #: model_terms:ir.ui.view,arch_db:l10n_br_website_sale.br_website_sale_address
 msgid "Country..."
-msgstr ""
+msgstr "País..."
+
+#. module: l10n_br_website_sale
+#: model:ir.model.fields,field_description:l10n_br_website_sale.field_res_partner__display_name
+msgid "Display Name"
+msgstr "Nome exibido"
 
 #. module: l10n_br_website_sale
 #: model:ir.model.fields,field_description:l10n_br_website_sale.field_res_partner__display_name
@@ -232,6 +237,12 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:l10n_br_website_sale.br_website_sale_address
 msgid "Phone"
 msgstr "Telefone"
+
+#. module: l10n_br_website_sale
+#: model_terms:ir.ui.view,arch_db:l10n_br_website_sale.br_website_portal_my_account
+#: model_terms:ir.ui.view,arch_db:l10n_br_website_sale.br_website_sale_address
+msgid "Responsible for License"
+msgstr "Responsável pela Licença"
 
 #. module: l10n_br_website_sale
 #: model_terms:ir.ui.view,arch_db:l10n_br_website_sale.br_website_portal_my_account
