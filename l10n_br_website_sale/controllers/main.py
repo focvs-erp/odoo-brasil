@@ -173,12 +173,13 @@ class L10nBrWebsiteSale(main.WebsiteSale):
             'email':values.get('email_responsible', ''),
             'website_contact': True
         })
-        child_ids.append({
-            'name': values.get('name_responsible_for_license', ''),
-            'phone':values.get('phone_responsible_for_license', ''),
-            'email':values.get('email_responsible_for_license',''),
-            'website_contact': True
-        })
+        if values.get('checkbox_responsible_license', '') != 'on':
+            child_ids.append({
+                'name': values.get('name_responsible_for_license', ''),
+                'phone':values.get('phone_responsible_for_license', ''),
+                'email':values.get('email_responsible_for_license',''),
+                'website_contact': True
+            })
 
         return child_ids
 
