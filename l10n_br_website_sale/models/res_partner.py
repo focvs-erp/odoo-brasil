@@ -28,8 +28,6 @@ class ResPartner(models.Model):
             if respo_billing.exists():
                 if all_values.get('checkbox_responsible_license', False):
                     Partner.search([("responsible_billing", "=", False), ("responsible_license", "=", True), ('parent_id', '=', partner_id)]).unlink()
-                    # partner_responsible.update({'responsible_license': True, 'type': 'responsible'})
-                    # respo_billing.write(partner_responsible)
 
                 else:
                     partner_responsible.update({'type': 'contact'})
@@ -41,14 +39,9 @@ class ResPartner(models.Model):
             else:
                 partner_responsible.update({
                     'parent_id': partner_id,
-                    # 'type': 'contact',
                     'type': 'contact' if not is_responsible_license else 'responsible',
                     'website_contact': True,
                     'responsible_billing': True,
-                    # 'responsible_license': True if all_values.get('checkbox_responsible_license', None) or not all_values.get('checkbox_responsible_license', False) and not self._verify_who_is_resposible(all_values, [
-                    #     'name_responsible_for_license', 
-                    #     'email_responsible_for_license', 
-                    #     'phone_responsible_for_license']) else False
                     'responsible_license': is_responsible_license
                     }
                     )
