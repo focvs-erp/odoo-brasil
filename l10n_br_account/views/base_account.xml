@@ -3,7 +3,7 @@
     <record id="view_account_ncm_form" model="ir.ui.view">
         <field name="model">account.ncm</field>
         <field name="arch" type="xml">
-            <form string="Classificações Fiscais (NCM)">
+            <form string="Classificações Fiscais (NCM) / TIPI">
                 <sheet>
                     <div class="oe_button_box" name="button_box">
                         <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
@@ -31,6 +31,9 @@
                         <group name="ipi" string="IPI">
                             <field name="classe_enquadramento" />
                             <field name="codigo_enquadramento" />
+                            <!-- AX4B - Tabela Tipi -->
+                            <field name="name_aliquot" />
+                            <field name="percent_aliquot" />
                         </group>
                     </group>
                 </sheet>
@@ -41,7 +44,7 @@
     <record id="view_account_ncm_tree" model="ir.ui.view">
         <field name="model">account.ncm</field>
         <field name="arch" type="xml">
-            <tree string="Classificações Fiscais (NCM)">
+            <tree string="Classificações Fiscais (NCM) / TIPI">
                 <field name="code"/>
                 <field name="category"/>
                 <field name="name"/>
@@ -49,6 +52,9 @@
                 <field name="federal_importado" />
                 <field name="estadual_imposto" />
                 <field name="municipal_imposto" />
+                <!-- AX4B - Tabela Tipi -->
+                <field name="name_aliquot" />
+                <field name="percent_aliquot" />
             </tree>
         </field>
     </record>
@@ -64,7 +70,7 @@
     </record>
 
     <record id="action_account_ncm" model="ir.actions.act_window">
-        <field name="name">Classificações Fiscais (NCM)</field>
+        <field name="name">Classificações Fiscais (NCM) / TIPI</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">account.ncm</field>
         <field name="view_id" ref="view_account_ncm_tree"/>
@@ -72,7 +78,7 @@
 
     <menuitem id="menu_br_account" name="Brasil" parent="account.menu_finance_configuration" sequence="0"/>
 
-    <menuitem id="menu_account_ncm" name="Classificações Fiscais (NCM)"
+    <menuitem id="menu_account_ncm" name="Classificações Fiscais (NCM) / TIPI"
         parent="menu_br_account" sequence="0" action="action_account_ncm"/>
 
 </odoo>
