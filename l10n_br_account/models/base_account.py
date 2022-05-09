@@ -67,6 +67,7 @@ class AccountNcm(models.Model):
     #AX4B - Tabela Tipi
     name_aliquot = fields.Char(string="Name Aliquot")
     percent_aliquot = fields.Char(string="Aliquot %")
+    #AX4B - Tabela Tipi
 
     active = fields.Boolean(default=True, string='Ativo')
 
