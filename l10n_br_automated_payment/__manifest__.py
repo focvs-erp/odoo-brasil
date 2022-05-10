@@ -4,7 +4,7 @@
 
 {
     'name': 'Integração Iugu',
-    'version': '13.0.1.0.0',
+    'version': '13.0.1.0.1',
     'category': 'Finance',
     'sequence': 5,
     'author': 'Trustcode',
@@ -27,6 +27,8 @@
     },
     'data': [
         'data/verify_transaction_cron.xml',
+        'data/mail_template_data.xml',
+        'data/bank_slip_cron.xml',
         'security/ir.model.access.csv',
         'views/res_company.xml',
         'views/account_move.xml',

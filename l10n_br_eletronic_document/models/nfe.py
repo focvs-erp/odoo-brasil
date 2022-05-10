@@ -228,6 +228,8 @@ class EletronicDocument(models.Model):
             'indTot': item.indicador_total,
             'cfop': item.cfop,
             'CEST': re.sub('[^0-9]', '', item.cest or ''),
+            'cBenef': item.codigo_beneficio or '',
+            'EXTIPI': item.extipi or '',
             'xPed': (item.pedido_compra or invoice.pedido_compra or '')[:15],
             'nItemPed': item.item_pedido_compra or '',
         }
@@ -327,6 +329,14 @@ class EletronicDocument(models.Model):
                     'vBCSTRet': "%.02f" % item.icms_bc_st_retido,
                     'pST': "%.02f" % item.icms_aliquota_st_retido,
                     'vICMSSTRet': "%.02f" % item.icms_st_retido,
+                    # TODO Implementar o FCP vBCFCP
+                    'vBCFCP': '',
+                    'pFCP': '',
+                    'vFCP': '',
+                    # TODO Implementar o calculo de ICMS diferido
+                    'vICMSOp': "%.02f" % item.icms_valor_original_operacao,
+                    'pDif': "%.02f" % item.icms_aliquota_diferimento,
+                    'vICMSDif': "%.02f" % item.icms_valor_diferido,
                 },
                 'IPI': {
                     'clEnq': item.classe_enquadramento_ipi or '',
@@ -541,8 +551,7 @@ class EletronicDocument(models.Model):
             'vPIS': "%.02f" % self.pis_valor,
             'vCOFINS': "%.02f" % self.cofins_valor,
             'vOutro': "%.02f" % self.valor_despesas,
-            'vNF': "%.02f" % sum(self.document_line_ids.mapped(
-                "valor_liquido")),
+            'vNF': "%.02f" % self.valor_final,
             'vFCPUFDest': "%.02f" % self.valor_icms_fcp_uf_dest,
             'vICMSUFDest': "%.02f" % self.valor_icms_uf_dest,
             'vICMSUFRemet': "%.02f" % self.valor_icms_uf_remet,
@@ -854,11 +863,6 @@ class EletronicDocument(models.Model):
             if self.codigo_retorno in ('302', '205'):
                 self.write({'state': 'denied'})
 
-        # self.env['invoice.eletronic.event'].create({
-        #     'code': self.codigo_retorno,
-        #     'name': self.mensagem_retorno,
-        #     'eletronic_document_id': self.id,
-        # })
         self._create_attachment('nfe-envio', self, resposta['sent_xml'])
         self._create_attachment('nfe-ret', self, resposta['received_xml'])
         recibo_xml = resposta['received_xml']
@@ -903,6 +907,30 @@ class EletronicDocument(models.Model):
                 })
         else:
             raise UserError(_('A NFe não está validada'))
+
+    def _create_response_cancel(self, code, motive, response, justificativa):
+        message = "%s - %s" % (code, motive)
+        wiz = self.env['wizard.cancel.nfe'].create({
+            'edoc_id': self.id,
+            'justificativa': justificativa,
+            'state': 'error',
+            'message': message,
+            'sent_xml': base64.b64encode(
+                response['sent_xml'].encode('utf-8')),
+            'sent_xml_name': 'cancelamento-envio.xml',
+            'received_xml': base64.b64encode(
+                response['received_xml'].encode('utf-8')),
+            'received_xml_name': 'cancelamento-retorno.xml',
+        })
+        return {
+            'name': _('Cancelamento NFe'),
+            'type': 'ir.actions.act_window',
+            'res_model': 'wizard.cancel.nfe',
+            'res_id': wiz.id,
+            'view_type': 'form',
+            'view_mode': 'form',
+            'target': 'new',
+        }
 
     def action_cancel_document(self, context=None, justificativa=None):
         if self.model not in ('nfe', 'nfce'):
@@ -974,14 +1002,8 @@ class EletronicDocument(models.Model):
             if code == 573:  # Duplicidade, já cancelado
                 return self.action_get_status()
 
-            return self._create_response_cancel(
-                code, motive, resp, justificativa)
+            return self._create_response_cancel(code, motive, resp, justificativa)
 
-        # self.env['invoice.eletronic.event'].create({
-        #     'code': self.codigo_retorno,
-        #     'name': self.mensagem_retorno,
-        #     'eletronic_document_id': self.id,
-        # })
         self._create_attachment('canc', self, resp['sent_xml'])
         self._create_attachment('canc-ret', self, resp['received_xml'])
         nfe_processada = base64.decodestring(self.nfe_processada)
@@ -1015,11 +1037,6 @@ class EletronicDocument(models.Model):
             resp['received_xml'] = etree.tostring(
                 retorno_consulta, encoding=str)
 
-            # self.env['invoice.eletronic.event'].create({
-            #     'code': self.codigo_retorno,
-            #     'name': self.mensagem_retorno,
-            #     'eletronic_document_id': self.id,
-            # })
             self._create_attachment('canc', self, resp['sent_xml'])
             self._create_attachment('canc-ret', self, resp['received_xml'])
             nfe_processada = base64.decodestring(self.nfe_processada)

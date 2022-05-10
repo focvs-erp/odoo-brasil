@@ -13,15 +13,17 @@
     'website': 'http://www.trustcode.com.br',
     'contributors': [
         'Danimar Ribeiro <danimaribeiro@gmail.com>',
+        'Jonatas Biazus <jonatasbiazusct@gmail.com>',
     ],
     'depends': [
         'account',
     ],
     'data': [
-        'data/account_group.xml',
         'data/br_chart_data.xml',
+        'data/account_group_template.xml',
         'data/account.account.template.csv',
         'data/account_tax_template_data.xml',
+
     ],
     'active': True,
 }

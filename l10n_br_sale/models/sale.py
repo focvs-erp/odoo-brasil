@@ -30,13 +30,6 @@ class SaleOrder(models.Model):
         states=STATES,
     )
 
-    def _prepare_invoice(self):
-        values = super(SaleOrder, self)._prepare_invoice()
-
-        if self.carrier_id and self.carrier_id.partner_id:
-            values["carrier_partner_id"] = self.carrier_id.partner_id
-        return values
-
     def compute_lines_partition(self, line_type):
         if line_type not in ("delivery", "expense", "insurance"):
             return
@@ -45,15 +38,22 @@ class SaleOrder(models.Model):
             for line in self.order_line
             if not line.is_delivery_expense_or_insurance()
         )
-        for line in self.order_line.filtered(
+        filtered_lines = self.order_line.filtered(
             lambda x: not x.is_delivery_expense_or_insurance()
-        ):
-            field_name = "l10n_br_{}_amount".format(line_type)
-            line[field_name] = compute_partition_amount(
-                self[field_name],
-                line.price_unit * line.product_uom_qty,
-                total,
-            )
+        )
+        field_name = "l10n_br_{}_amount".format(line_type)
+        balance = self[field_name]
+        for line in filtered_lines:
+            if line == filtered_lines[-1]:
+                amount = balance
+            else:
+                amount = compute_partition_amount(
+                    self[field_name],
+                    line.price_unit * line.product_uom_qty,
+                    total,
+                )
+            line.update({field_name: amount})
+            balance -= amount
 
     def handle_delivery_expense_insurance_lines(self, line_type):
         if line_type not in ("expense", "insurance"):
@@ -141,6 +141,21 @@ class SaleOrder(models.Model):
     def _inverse_l10n_br_insurance_amount(self):
         for item in self:
             item.handle_delivery_expense_insurance_lines("insurance")
+
+    def _prepare_invoice(self):
+        vals = super(SaleOrder, self)._prepare_invoice()
+        picking_ids = self.env['stock.picking'].search([
+            ('origin', '=', self.name),
+            ('state', '=', 'done'),
+        ])
+        quantidade_volumes = sum(len(picking.package_ids) for picking in picking_ids)
+        vals['quantidade_volumes'] = quantidade_volumes
+
+        if self.carrier_id and self.carrier_id.partner_id:
+            vals["carrier_partner_id"] = self.carrier_id.partner_id
+        if self.fiscal_position_id:
+            vals["l10n_br_edoc_policy"] = self.fiscal_position_id.edoc_policy
+        return vals
 
 
 class SaleOrderLine(models.Model):

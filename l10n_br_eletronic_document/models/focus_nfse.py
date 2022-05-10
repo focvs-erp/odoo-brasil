@@ -1,7 +1,9 @@
+import re
 import json
 import base64
 import requests
 import logging
+import re
 from urllib.parse import urlparse
 
 
@@ -25,6 +27,12 @@ def _convert_values(vals):
         "valor_servicos": vals["valor_servico"],
         "discriminacao": vals["discriminacao"],
     }
+
+    # Tratar codigo_servico quando muncipio for campinas
+    if vals['emissor']['codigo_municipio'] == '3509502':
+        vals['servico']['item_lista_servico'] = re.sub(
+            '[^0-9]', '', vals["itens_servico"][0]["codigo_servico_municipio"])
+
     vals["natureza_operacao"] = "1"
     vals["prestador"] = vals["emissor"]
     if len(vals["tomador"]["cnpj_cpf"]) == 14:
@@ -96,7 +104,7 @@ def check_nfse_api(token, ambiente, nfe_reference):
             "code": 201,
             "entity": {
                 "protocolo_nfe": response["codigo_verificacao"],
-                "numero_nfe": int(response["numero"][4:]),
+                "numero_nfe": int(re.sub("[^0-9]", "", response["numero"])),
             },
             "pdf": pdf,
             "xml": xml,
