@@ -13,7 +13,7 @@
         'l10n_br_account',
         'l10n_br_base',
         'l10n_br_base_address',
-        'ax4b_invoice'
+        'ax4b_invoice',
         'l10n_br_automated_payment',
     ],
     'data': [
