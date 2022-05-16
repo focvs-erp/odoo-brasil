@@ -32,7 +32,6 @@
                             <field name="classe_enquadramento" />
                             <field name="codigo_enquadramento" />
                             <!-- AX4B - Tabela Tipi -->
-                            <field name="name_aliquot" />
                             <field name="percent_aliquot" />
                             <!-- AX4B - Tabela Tipi -->
                         </group>
@@ -54,7 +53,6 @@
                 <field name="estadual_imposto" />
                 <field name="municipal_imposto" />
                 <!-- AX4B - Tabela Tipi -->
-                <field name="name_aliquot" />
                 <field name="percent_aliquot" />
                 <!-- AX4B - Tabela Tipi -->
             </tree>

@@ -65,8 +65,7 @@ class AccountNcm(models.Model):
     codigo_enquadramento = fields.Char(
         string="Cód. Enquadramento", size=3, default='999')
     #AX4B - Tabela Tipi
-    name_aliquot = fields.Char(string="Name Aliquot")
-    percent_aliquot = fields.Char(string="Aliquot %")
+    percent_aliquot = fields.Char(string="Aliquot")
     #AX4B - Tabela Tipi
 
     active = fields.Boolean(default=True, string='Ativo')
