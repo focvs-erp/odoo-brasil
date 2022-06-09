@@ -25,7 +25,7 @@ class IuguController(http.Controller):
     #         return redirect(post['secure_url'])
 
     @http.route(
-        '/iugu/checkout/redirect', type='http', csrf=False,
+        '/iugu/checkout/redirect', type='http', csrf=False, cors='*',
         auth='none', methods=['GET', 'POST'])
     def iugu_checkout_redirect(self, **post):
         post = post
