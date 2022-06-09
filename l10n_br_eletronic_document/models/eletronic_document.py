@@ -1046,7 +1046,7 @@ class EletronicDocumentLine(models.Model):
         [('product', 'Produto'),
          ('service', 'Serviço')],
         string="Tipo Produto", readonly=True, states=STATE)
-    cfop = fields.Char('CFOP', size=5, readonly=True, states=STATE)
+    cfop = fields.Char('CFOP', size=4, readonly=True, states=STATE)
     ncm = fields.Char('NCM', size=10, readonly=True, states=STATE)
     unidade_medida = fields.Char('Un. Medida Xml', size=10, readonly=True, states=STATE)
 
@@ -1065,7 +1065,7 @@ class EletronicDocumentLine(models.Model):
         'uom.uom', string='Unidade Medida', readonly=True, states=STATE)
     quantidade = fields.Float(
         string='Quantidade', readonly=True, states=STATE,
-        digits='Product Unit of Measure')
+        digits='Product Unit of Measure', default=1)
     preco_unitario = fields.Monetary(
         string='Preço Unitário', digits='Product Price',
         readonly=True, states=STATE)
@@ -1089,6 +1089,25 @@ class EletronicDocumentLine(models.Model):
     outras_despesas = fields.Monetary(
         string='Outras despesas', digits='Account',
         readonly=True, states=STATE)
+
+    # -------- Ax4b ------------
+    account_asset_ids = fields.One2many(
+        comodel_name='account.asset',
+        inverse_name='eletronic_document_line_id', 
+        string="Assets")
+
+    check_cfop_entry = fields.Boolean(compute='_get_cfop_entry', store=True)
+
+    @api.depends('cfop')
+    def _get_cfop_entry(self) -> None:
+        for r in self:
+            if isinstance(r.cfop, str):
+                if r.cfop[:1] in ['1','2','3'] and len(r.cfop) == 4: 
+                    r.check_cfop_entry = True
+                else:
+                    r.check_cfop_entry = False
+    # -------- Ax4b ------------
+
 
     def _compute_tributos_estimados(self):
         for item in self:

@@ -8,10 +8,11 @@
                   <page string="Dados do produto">
                       <group>
                           <group>
+                              <field name="check_cfop_entry" invisible="1"/>
                               <field name="eletronic_document_id" invisible="1" />
                               <field name="state" invisible="1"/>
-                              <field name="product_id" />
-                              <field name="uom_id" />
+                              <field name="product_id" required='1'/>
+                              <field name="uom_id" required='1'/>
                               <field name="unidade_medida" />
                               <field name="quantidade" />
                               <field name="preco_unitario" />
@@ -23,14 +24,18 @@
                               <field name="valor_liquido" />
                           </group>
                           <group>
-                              <field name="tipo_produto" />
-                              <field name="cfop" />
+                              <field name="tipo_produto" required='1'/>
+                              <field name="cfop" required='1' />
                               <field name="ncm" />
                               <field name="tributos_estimados" />
                               <field name="indicador_total" />
                               <field name="pedido_compra" />
                               <field name="item_pedido_compra" />
                           </group>
+      
+                      </group>
+                      <group string="Assets" attrs="{'invisible': [('check_cfop_entry', '!=', True), ('tipo_produto', '!=', 'product')]}">
+                        <field name="account_asset_ids" colspan="4" nolabel="1" />
                       </group>
                       <label for="name"/>
                       <field name="name"/>
