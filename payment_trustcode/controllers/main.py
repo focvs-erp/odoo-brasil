@@ -25,7 +25,7 @@ class IuguController(http.Controller):
     #         return redirect(post['secure_url'])
 
     @http.route(
-        '/iugu/checkout/redirect', type='http', csrf=False, cors='*', website=True,
+        '/iugu/checkout/redirect', type='http', website=True,
         auth='none', methods=['GET', 'POST'])
     def iugu_checkout_redirect(self, **post):
         post = post
@@ -35,7 +35,7 @@ class IuguController(http.Controller):
             request.session['secure_url'] = post.get('secure_url')
             return redirect('/payment/redirect-iugu') # 1
         
-    @http.route('/payment/redirect-iugu', auth='public', website=True) # 1
+    @http.route('/payment/redirect-iugu', auth='public',type='http' ,website=True) # 1
     def index(self, **kw):
         # View responsável por renderizar o iframe contendo a fatura.
         # url informada no request.session acima que será renderizada 
