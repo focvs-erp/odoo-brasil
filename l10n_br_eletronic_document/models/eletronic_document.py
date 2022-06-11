@@ -1,5 +1,6 @@
 import re
 import json
+from typing import Tuple
 import requests
 import base64
 import copy
@@ -1132,15 +1133,18 @@ class EletronicDocumentLine(models.Model):
             else:
                 self.check_cfop_entry = False
 
+    def get_updated_or_delete_assets(self, vals):
+        return list((filter(
+            lambda item: isinstance(item[1], int), vals.get('account_asset_ids', []))))
+
     def change_asset_type_in_assets(self, vals):
-        # Filtra o vals e traz apenas os ids.
-        ids = map(lambda item: item[1], (filter(
-            lambda item: isinstance(item[1], int), vals['account_asset_ids'])))
-        # Traz is ids apenas dos ativos que não pussuem o asset_type não preenchidos
-        assets = self.env['account.asset'].browse(ids).filtered(lambda p: not p.asset_type)
-        if assets:
-            assets.write({'asset_type': 'purchase'})
-            self.env.cr.commit()
+        added_assets = map(lambda item: item[2], (filter(
+            lambda item: isinstance(item[1], str), vals.get('account_asset_ids', []))))
+        # assets = list((filter(
+        #     lambda item: isinstance(item[1], int), vals.get('account_asset_ids', []))))
+
+        # return [(0, 0, {**asset, **dict(asset_type='purchase')}) for asset in added_assets] + assets
+        return [(0, 0, {**asset, **dict(asset_type='purchase')}) for asset in added_assets]
 
     def verify_asset_qty_lt_item_qty(self, vals) -> None:
         if len(vals) > self.quantidade:
@@ -1148,14 +1152,16 @@ class EletronicDocumentLine(models.Model):
                 _('The number of assets is greater than product quantity, please remove it!'))
 
     def write(self, vals: dict):
-        self.verify_asset_qty_lt_item_qty(vals=vals)
-        self.change_asset_type_in_assets(vals)
+        # self.verify_asset_qty_lt_item_qty(vals)
+        vals['account_asset_ids'] = [
+            *self.change_asset_type_in_assets(vals), *self.get_updated_or_delete_assets(vals)]
         return super().write(vals)
 
     @api.model
     def create(self, vals: dict):
-        self.verify_asset_qty_lt_item_qty(vals=vals)
-        self.change_asset_type_in_assets(vals)
+        # self.verify_asset_qty_lt_item_qty(vals=vals)
+        vals['account_asset_ids'] = [
+            *self.change_asset_type_in_assets(vals), *self.get_updated_or_delete_assets(vals)]
         return super().create(vals)
     # -------- Ax4b ------------
 
