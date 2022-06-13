@@ -20,7 +20,6 @@ from odoo.addons.l10n_br_account.models.cst import (
 
 _logger = logging.getLogger(__name__)
 
-
 STATE = {'draft': [('readonly', False)]}
 
 
@@ -1125,10 +1124,10 @@ class EletronicDocumentLine(models.Model):
     check_cfop_entry = fields.Boolean(
         compute='_get_cfop_entry', store=True)
 
-    @api.depends('cfop')
+    @api.depends('cfop', 'tipo_produto')
     def _get_cfop_entry(self) -> None:
         if isinstance(self.cfop, str):
-            if self.cfop[:1] in ['1', '2', '3']:
+            if self.cfop[:1] in ['1', '2', '3'] and self.tipo_produto == 'product':
                 self.check_cfop_entry = True
             else:
                 self.check_cfop_entry = False
@@ -1137,17 +1136,14 @@ class EletronicDocumentLine(models.Model):
         """Identifica os patrimônio que foram deletados
             Tambem usado para pegar quantos foram deletados para realizar validar a quantidade.
         """
-        return list(filter(lambda p: p[0] == 2,
-                           (filter(lambda item: isinstance(item[1], int),
-                                   vals.get('account_asset_ids', [])))))
+        return list((filter(lambda p: p[0] == 2, vals.get('account_asset_ids', []))))
 
     def get_updated_or_deleted_assets(self, vals):
         '''
         Func responsavel por permitir que o fluxo 
         continue quando obj for deletado ou atualizado.
         '''
-        return list((filter(
-            lambda item: isinstance(item[1], int), vals.get('account_asset_ids', []))))
+        return list((filter(lambda item: isinstance(item[1], int), vals.get('account_asset_ids', []))))
 
     def change_asset_type_in_assets(self, vals):
         '''
@@ -1159,35 +1155,34 @@ class EletronicDocumentLine(models.Model):
         return [(0, 0, {**asset, **dict(asset_type='purchase')})
                 for asset in added_assets]
 
-    def sum_updated_created_or_default_assets_vals(self, vals):
+    def get_updated_created_or_default_assets_vals(self, vals):
         """
             Envia para o vals para create ou write para realizar continuar 
             o fluxo, atualizando deletando ou criando o patrimônio
         """
         return self.change_asset_type_in_assets(vals) + self.get_updated_or_deleted_assets(vals)
 
-    def verify_asset_qty_lt_item_qty(self, vals) -> None:
-        """
-        Se for adicionado ou atualizado algo, asset_line_total irá trazer o total
-        """
-        asset_line_total = (len(self.change_asset_type_in_assets(
+    def get_total_assets_calculated(self, vals):
+        return (len(self.change_asset_type_in_assets(
             vals)) + len(self.account_asset_ids)) - len(self.get_deleted_assets(vals))
 
-        if (vals.get('quantidade') if vals.get('quantidade') else self.quantidade) < asset_line_total:
+    def verify_asset_qty_lt_item_qty(self, vals) -> None:
+        """
+            Se for adicionado ou atualizado algo, asset_line_total irá trazer o total
+        """
+        if (vals.get('quantidade') if vals.get('quantidade') else self.quantidade) < self.get_total_assets_calculated(vals):
             raise UserError(
                 _('The number of assets is greater than product quantity, please remove it!'))
 
     def write(self, vals: dict):
         self.verify_asset_qty_lt_item_qty(vals)
-        vals['account_asset_ids'] = self.sum_updated_created_or_default_assets_vals(
-            vals)
+        vals['account_asset_ids'] = self.get_updated_created_or_default_assets_vals(vals)
         return super().write(vals)
 
     @api.model
     def create(self, vals: dict):
-        self.verify_asset_qty_lt_item_qty(vals=vals)
-        vals['account_asset_ids'] = self.sum_updated_created_or_default_assets_vals(
-            vals)
+        self.verify_asset_qty_lt_item_qty(vals)
+        vals['account_asset_ids'] = self.get_updated_created_or_default_assets_vals(vals)
         return super().create(vals)
     # -------- Ax4b ------------
 
