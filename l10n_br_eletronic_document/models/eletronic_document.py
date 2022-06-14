@@ -8,9 +8,10 @@ import time
 import logging
 from datetime import date, datetime, timedelta
 from dateutil.relativedelta import relativedelta
+from typing import List, Tuple, Dict, TypeVar, AnyStr
 
 from odoo import api, fields, models, _
-from odoo.exceptions import UserError
+from odoo.exceptions import UserError, ValidationError
 from odoo.tools import safe_eval
 
 from .focus_nfse import check_nfse_api
@@ -1045,6 +1046,12 @@ style="max-width:100px;height:100px;margin:0px 0px;"src="/report/barcode/\
                         'Error sending electronic document', exc_info=True))
     # AX4B - Enviar NF em lote
 
+    def unlink(self):
+        # Previnir deletar a NF se houver patrimônio cadastrado na linha do item.
+        if len(self.env['eletronic.document.line'].search([('eletronic_document_id', '=', self.id)]).account_asset_ids) > 0:
+            raise UserError(_('Can not delete this fiscal note while the product item has assets associated!'))
+        return super().unlink()
+
 
 class EletronicDocumentLine(models.Model):
     _name = 'eletronic.document.line'
@@ -1115,7 +1122,9 @@ class EletronicDocumentLine(models.Model):
         string='Outras despesas', digits='Account',
         readonly=True, states=STATE)
 
-    # -------- Ax4b ------------
+    #########################################
+    # ------------- Ax4b -------------------
+
     account_asset_ids = fields.One2many(
         comodel_name='account.asset',
         inverse_name='eletronic_document_line_id',
@@ -1126,53 +1135,36 @@ class EletronicDocumentLine(models.Model):
 
     @api.depends('cfop', 'tipo_produto')
     def _get_cfop_entry(self) -> None:
-        if isinstance(self.cfop, str):
-            if self.cfop[:1] in ['1', '2', '3'] and self.tipo_produto == 'product':
-                self.check_cfop_entry = True
-            else:
-                self.check_cfop_entry = False
+        for r in self:
+            if isinstance(r.cfop, str):
+                if r.cfop[:1] in ['1', '2', '3'] and r.tipo_produto == 'product':
+                    r.check_cfop_entry = True
+                else:
+                    r.check_cfop_entry = False
 
-    def get_deleted_assets(self, vals):
-        """Identifica os patrimônio que foram deletados
-            Tambem usado para pegar quantos foram deletados para realizar validar a quantidade.
-        """
+    def get_deleted_assets(self, vals) -> list:
         return list((filter(lambda p: p[0] == 2, vals.get('account_asset_ids', []))))
 
-    def get_updated_or_deleted_assets(self, vals):
-        '''
-        Func responsavel por permitir que o fluxo 
-        continue quando obj for deletado ou atualizado.
-        '''
+    def get_updated_or_deleted_assets(self, vals) -> list:
         return list((filter(lambda item: isinstance(item[1], int), vals.get('account_asset_ids', []))))
 
-    def change_asset_type_in_assets(self, vals):
-        '''
-        Pega o item(s) virtual do patrimônio adicionado adiciona o attr asset_type=purchase 
-        e então retorna para ser salvo no vals
-        '''
+    def change_asset_type_in_assets(self, vals) -> List[Tuple]:
         added_assets = map(lambda item: item[2], (filter(
             lambda item: isinstance(item[1], str), vals.get('account_asset_ids', []))))
         return [(0, 0, {**asset, **dict(asset_type='purchase')})
                 for asset in added_assets]
 
-    def get_updated_created_or_default_assets_vals(self, vals):
-        """
-            Envia para o vals para create ou write para realizar continuar 
-            o fluxo, atualizando deletando ou criando o patrimônio
-        """
+    def get_updated_created_or_default_assets_vals(self, vals) -> list:
         return self.change_asset_type_in_assets(vals) + self.get_updated_or_deleted_assets(vals)
 
-    def get_total_assets_calculated(self, vals):
+    def get_total_assets_calculated(self, vals) -> int:
         return (len(self.change_asset_type_in_assets(
             vals)) + len(self.account_asset_ids)) - len(self.get_deleted_assets(vals))
 
     def verify_asset_qty_lt_item_qty(self, vals) -> None:
-        """
-            Se for adicionado ou atualizado algo, asset_line_total irá trazer o total
-        """
         if (vals.get('quantidade') if vals.get('quantidade') else self.quantidade) < self.get_total_assets_calculated(vals):
             raise UserError(
-                _('The number of assets is greater than product quantity, please remove it!'))
+                _('The number of assets is greater than product quantity, please remove the assets or increase the item quantity'))
 
     def write(self, vals: dict):
         self.verify_asset_qty_lt_item_qty(vals)
@@ -1184,7 +1176,16 @@ class EletronicDocumentLine(models.Model):
         self.verify_asset_qty_lt_item_qty(vals)
         vals['account_asset_ids'] = self.get_updated_created_or_default_assets_vals(vals)
         return super().create(vals)
-    # -------- Ax4b ------------
+
+    @api.constrains('quantidade')
+    def _check_quantidade(self):
+        # Valida se a quantidade do item é maior que 1
+        for r in self:
+            if r.quantidade < 1:
+                raise ValidationError('Product quantity can not be less than 1.')
+
+    # --------------- Ax4b ------------------
+    #########################################
 
     def _compute_tributos_estimados(self):
         for item in self:
