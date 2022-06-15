@@ -36,7 +36,6 @@
 
                         </group>
                         <!-- Ax4b # Inicio Adição do patrimonio na linha do item. -->
-                        <!-- <group string="Assets"> -->
                             <group string="Assets" attrs="{'invisible': [('check_cfop_entry', '=', False)]}">
                             <field 
                                 name="account_asset_ids" 
