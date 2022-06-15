@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 14.0-20211015\n"
+"Project-Id-Version: Odoo Server 14.0+e-20220426\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-30 13:32+0000\n"
-"PO-Revision-Date: 2021-11-30 13:32+0000\n"
+"POT-Creation-Date: 2022-06-15 14:32+0000\n"
+"PO-Revision-Date: 2022-06-15 14:32+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -1198,6 +1198,7 @@ msgid "A NFe está em ambiente de homologação"
 msgstr ""
 
 #. module: l10n_br_eletronic_document
+#: code:addons/ax4b_odoo_brasil/l10n_br_eletronic_document/models/nfe.py:0
 #: code:addons/l10n_br_eletronic_document/models/nfe.py:0
 #, python-format
 msgid "A NFe não está validada"
@@ -1319,6 +1320,12 @@ msgstr ""
 #. module: l10n_br_eletronic_document
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_export_nfe__zip_file
 msgid "Arquivo"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__account_asset_ids
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_line_form
+msgid "Assets"
 msgstr ""
 
 #. module: l10n_br_eletronic_document
@@ -1496,6 +1503,7 @@ msgid "CNPJ/CPF"
 msgstr ""
 
 #. module: l10n_br_eletronic_document
+#: code:addons/ax4b_odoo_brasil/l10n_br_eletronic_document/models/base_account.py:0
 #: code:addons/l10n_br_eletronic_document/models/base_account.py:0
 #, python-format
 msgid "CNPJ/CPF do documento relacionado é invalido!"
@@ -1575,6 +1583,15 @@ msgid "Cadastros"
 msgstr ""
 
 #. module: l10n_br_eletronic_document
+#: code:addons/ax4b_odoo_brasil/l10n_br_eletronic_document/models/eletronic_document.py:0
+#: code:addons/l10n_br_eletronic_document/models/eletronic_document.py:0
+#, python-format
+msgid ""
+"Can not delete this fiscal note while the product item has assets "
+"associated!"
+msgstr "Nota fiscal não pode ser excluida devido a ter patrimônio vinculado ao item"
+
+#. module: l10n_br_eletronic_document
 #: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document__state__cancel
 msgid "Cancelado"
 msgstr ""
@@ -1585,6 +1602,7 @@ msgid "Cancelamento NF-e"
 msgstr ""
 
 #. module: l10n_br_eletronic_document
+#: code:addons/ax4b_odoo_brasil/l10n_br_eletronic_document/models/nfe.py:0
 #: code:addons/l10n_br_eletronic_document/models/nfe.py:0
 #, python-format
 msgid "Cancelamento NFe"
@@ -1605,6 +1623,8 @@ msgid "Cancelar"
 msgstr ""
 
 #. module: l10n_br_eletronic_document
+#: code:addons/ax4b_odoo_brasil/l10n_br_eletronic_document/models/eletronic_document.py:0
+#: code:addons/ax4b_odoo_brasil/l10n_br_eletronic_document/wizard/carta_correcao_eletronica.py:0
 #: code:addons/l10n_br_eletronic_document/models/eletronic_document.py:0
 #: code:addons/l10n_br_eletronic_document/wizard/carta_correcao_eletronica.py:0
 #: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_form
@@ -1669,6 +1689,11 @@ msgstr ""
 #. module: l10n_br_eletronic_document
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_related_document__access_key
 msgid "Chave de Acesso"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__check_cfop_entry
+msgid "Check Cfop Entry"
 msgstr ""
 
 #. module: l10n_br_eletronic_document
@@ -2163,6 +2188,7 @@ msgid "Documento Eletrônico"
 msgstr ""
 
 #. module: l10n_br_eletronic_document
+#: code:addons/ax4b_odoo_brasil/l10n_br_eletronic_document/models/eletronic_document.py:0
 #: code:addons/l10n_br_eletronic_document/models/eletronic_document.py:0
 #, python-format
 msgid "Documento Eletrônico enviado - Proibido excluir"
@@ -2318,6 +2344,7 @@ msgid "Erro"
 msgstr ""
 
 #. module: l10n_br_eletronic_document
+#: code:addons/ax4b_odoo_brasil/l10n_br_eletronic_document/models/eletronic_document.py:0
 #: code:addons/l10n_br_eletronic_document/models/eletronic_document.py:0
 #, python-format
 msgid "Error sending electronic document"
@@ -2712,6 +2739,7 @@ msgid "Inscrição Estadual"
 msgstr ""
 
 #. module: l10n_br_eletronic_document
+#: code:addons/ax4b_odoo_brasil/l10n_br_eletronic_document/models/base_account.py:0
 #: code:addons/l10n_br_eletronic_document/models/base_account.py:0
 #, python-format
 msgid "Inscrição Estadual do documento fiscal inválida!"
@@ -2798,6 +2826,7 @@ msgid "Justificativa"
 msgstr ""
 
 #. module: l10n_br_eletronic_document
+#: code:addons/ax4b_odoo_brasil/l10n_br_eletronic_document/wizard/cancel_nfe.py:0
 #: code:addons/l10n_br_eletronic_document/wizard/cancel_nfe.py:0
 #, python-format
 msgid "Justificativa deve ter mais de 15 caracteres"
@@ -3022,6 +3051,7 @@ msgid "Modelo a ser utilizado no envio de NFe automatizado"
 msgstr ""
 
 #. module: l10n_br_eletronic_document
+#: code:addons/ax4b_odoo_brasil/l10n_br_eletronic_document/models/eletronic_document.py:0
 #: code:addons/l10n_br_eletronic_document/models/eletronic_document.py:0
 #, python-format
 msgid "Modelo de email padrão não configurado"
@@ -3038,12 +3068,14 @@ msgid "Motivo Desoneração"
 msgstr ""
 
 #. module: l10n_br_eletronic_document
+#: code:addons/ax4b_odoo_brasil/l10n_br_eletronic_document/wizard/carta_correcao_eletronica.py:0
 #: code:addons/l10n_br_eletronic_document/wizard/carta_correcao_eletronica.py:0
 #, python-format
 msgid "Motivo de Correção deve ter mais de 15 caracteres"
 msgstr ""
 
 #. module: l10n_br_eletronic_document
+#: code:addons/ax4b_odoo_brasil/l10n_br_eletronic_document/wizard/carta_correcao_eletronica.py:0
 #: code:addons/l10n_br_eletronic_document/wizard/carta_correcao_eletronica.py:0
 #, python-format
 msgid "Motivo de Correção deve ter menos de 1000 caracteres"
@@ -3155,7 +3187,6 @@ msgstr ""
 
 #. module: l10n_br_eletronic_document
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__name
-#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__name
 msgid "Name"
 msgstr ""
 
@@ -3527,6 +3558,19 @@ msgid "Preço Unitário"
 msgstr ""
 
 #. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__name
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__product_name
+msgid "Product Name"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: code:addons/ax4b_odoo_brasil/l10n_br_eletronic_document/models/eletronic_document.py:0
+#: code:addons/l10n_br_eletronic_document/models/eletronic_document.py:0
+#, python-format
+msgid "Product quantity can not be less than 1."
+msgstr "Quantidade de item não pode ser menor que 1."
+
+#. module: l10n_br_eletronic_document
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document_line__product_id
 #: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__eletronic_document_line__tipo_produto__product
 msgid "Produto"
@@ -3864,6 +3908,15 @@ msgstr ""
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_config_settings__l10n_br_nfe_email_template
 msgid "Template de Email para NFe"
 msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: code:addons/ax4b_odoo_brasil/l10n_br_eletronic_document/models/eletronic_document.py:0
+#: code:addons/l10n_br_eletronic_document/models/eletronic_document.py:0
+#, python-format
+msgid ""
+"The number of assets is greater than product quantity, please remove the "
+"assets or increase the item quantity"
+msgstr "O número de patrimônio é maior do que a quantiadde de produto, por favor, remova-o ou aumente quantidade!"
 
 #. module: l10n_br_eletronic_document
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_cfop__type
@@ -4337,6 +4390,7 @@ msgid ""
 msgstr ""
 
 #. module: l10n_br_eletronic_document
+#: code:addons/ax4b_odoo_brasil/l10n_br_eletronic_document/models/eletronic_document.py:0
 #: code:addons/l10n_br_eletronic_document/models/eletronic_document.py:0
 #, python-format
 msgid "Verifique a notas fiscal - emissão com problemas"

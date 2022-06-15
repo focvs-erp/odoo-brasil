@@ -1186,7 +1186,7 @@ class EletronicDocumentLine(models.Model):
         # Valida se a quantidade do item é maior que 1
         for r in self:
             if r.quantidade < 1:
-                raise ValidationError('Product quantity can not be less than 1.')
+                raise ValidationError(_('Product quantity can not be less than 1.'))
 
     # --------------- Ax4b ------------------
     #########################################
