@@ -1,0 +1,23 @@
+<odoo>
+    <record model="ir.ui.view" id="icms_book_report">
+        <field name="model">wizard.icms_book</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Icms Book">
+                <group>
+                    <group>
+                        <field name="date_start" required="1" />
+                        <field name="date_end" required="1" />
+                    </group>
+                </group>
+                <footer>
+                    <button name="get_report" string="Generate Book" type="object" class="oe_highlight" />
+                    <button string="Cancel" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <act_window name="Icms Book" id="action_icms_book_report" res_model="wizard.icms_book" view_mode="form" target="new" />
+    <menuitem name="Generate Icms Book" action="action_icms_book_report" id="menu_icms_book" parent="account.account_account_menu" />
+</odoo>

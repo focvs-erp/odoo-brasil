@@ -23,6 +23,7 @@
         'data/nfe_cron.xml',
         'security/ir.model.access.csv',
         'security/eletronic_security.xml',
+        
         'views/res_company.xml',
         'views/account_move.xml',
         'views/eletronic_document.xml',
@@ -33,10 +34,13 @@
         'views/fiscal_position.xml',
         'views/account_config_settings.xml',
         'views/res_partner.xml',
+
         'wizard/cancel_nfe.xml',
         'wizard/carta_correcao_eletronica.xml',
         'wizard/export_nfe.xml',
         'wizard/inutilize_nfe_numeration.xml',
+        'wizard/icms_book.xml',
+
         'reports/danfse_sao_paulo.xml',
         'reports/danfse_florianopolis.xml',
         'reports/danfse_bh.xml',
