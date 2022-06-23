@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="l10n_br_eletronic_document.icms_book">
+        <div class="container-fluid">
+            <t t-set="full_width" t-value="True" />
+            <t t-call="web.html_container">
+                <t t-call="web.basic_layout">
+                    
+                    <h3>Hello</h3>
+
+                </t>
+            </t>
+        </div>
+    </template>
+
+    <report id="icms_book_report" model="wizard.icms_book" string="Icms Book Report" report_type="qweb-html" name="l10n_br_eletronic_document.icms_book" />
+</odoo>

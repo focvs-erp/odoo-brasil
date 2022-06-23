@@ -4,12 +4,16 @@
         <field name="type">form</field>
         <field name="arch" type="xml">
             <form string="Icms Book">
-                <group>
+                <sheet>
                     <group>
-                        <field name="date_start" required="1" />
-                        <field name="date_end" required="1" />
+                        <group>
+                            <field name="date_start" required="1" />
+                        </group>
+                        <group>
+                            <field name="date_end" required="1" />
+                        </group>
                     </group>
-                </group>
+                </sheet>
                 <footer>
                     <button name="get_report" string="Generate Book" type="object" class="oe_highlight" />
                     <button string="Cancel" special="cancel" />

@@ -19,4 +19,4 @@ class IcmsBook(models.TransientModel):
             },
         }
 
-        return self.env.ref('ax4b_fiscal.report_id').report_action(self, data=data)
+        return self.env.ref('l10n_br_eletronic_document.icms_book_report').report_action(self, data=data)

@@ -23,7 +23,7 @@
         'data/nfe_cron.xml',
         'security/ir.model.access.csv',
         'security/eletronic_security.xml',
-        
+
         'views/res_company.xml',
         'views/account_move.xml',
         'views/eletronic_document.xml',
@@ -45,5 +45,6 @@
         'reports/danfse_florianopolis.xml',
         'reports/danfse_bh.xml',
         'reports/danfe_report.xml',
+        'reports/icms_book.xml',
     ],
 }
