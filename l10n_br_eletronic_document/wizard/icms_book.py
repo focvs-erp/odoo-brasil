@@ -2,13 +2,14 @@
 
 from datetime import date, datetime
 from odoo import api, fields, models
+from traitlets import default
 
 
 class IcmsBook(models.TransientModel):
     _name = 'wizard.icms_book'
 
-    date_start = fields.Date(string="Date Start")
-    date_end = fields.Date(string="Date End")
+    date_start = fields.Date(string="Date Start", default=date(2021, 1, 1))
+    date_end = fields.Date(string="Date End", default=date(2021, 12, 31))
 
     def get_report(self):
         data = {

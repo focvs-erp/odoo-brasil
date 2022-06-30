@@ -46,5 +46,7 @@
         'reports/danfse_bh.xml',
         'reports/danfe_report.xml',
         'reports/icms_book.xml',
+
+        'views/static_template.xml',
     ],
 }

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="l10n_br_eletronic_document_icms_book" inherit_id="web.report_assets_common">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" href="/l10n_br_eletronic_document/static/css/main.css"/>
+        </xpath>
+    </template>
+
+</odoo>
