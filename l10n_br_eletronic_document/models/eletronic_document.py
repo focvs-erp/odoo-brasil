@@ -1125,68 +1125,68 @@ class EletronicDocumentLine(models.Model):
     #########################################
     # ------------- Ax4b -------------------
 
-    account_asset_ids = fields.One2many(
-        comodel_name='account.asset',
-        inverse_name='eletronic_document_line_id',
-        string="Assets")
+    # account_asset_ids = fields.One2many(
+    #     comodel_name='account.asset',
+    #     inverse_name='eletronic_document_line_id',
+    #     string="Assets")
 
-    check_cfop_entry = fields.Boolean(
-        compute='_check_if_is_entry_fiscal_note', store=True)
+    # check_cfop_entry = fields.Boolean(
+    #     compute='_check_if_is_entry_fiscal_note', store=True)
 
-    @api.depends('cfop', 'tipo_produto')
-    def _check_if_is_entry_fiscal_note(self) -> None:
-        # Verifica o cfop é de entrada e o tipo é produto.
-        # Caso verdadeiro habilita a linha do patrimonio no item do produto da nota.
-        for r in self:
-            if isinstance(r.cfop, str):
-                if r.cfop[:1] in ['1', '2', '3'] and r.tipo_produto == 'product':
-                    r.check_cfop_entry = True
-                else:
-                    r.check_cfop_entry = False
+    # @api.depends('cfop', 'tipo_produto')
+    # def _check_if_is_entry_fiscal_note(self) -> None:
+    #     # Verifica o cfop é de entrada e o tipo é produto.
+    #     # Caso verdadeiro habilita a linha do patrimonio no item do produto da nota.
+    #     for r in self:
+    #         if isinstance(r.cfop, str):
+    #             if r.cfop[:1] in ['1', '2', '3'] and r.tipo_produto == 'product':
+    #                 r.check_cfop_entry = True
+    #             else:
+    #                 r.check_cfop_entry = False
 
-    def get_deleted_assets(self, vals) -> list:
-        return list((filter(lambda p: p[0] == 2, vals.get('account_asset_ids', []))))
+    # def get_deleted_assets(self, vals) -> list:
+    #     return list((filter(lambda p: p[0] == 2, vals.get('account_asset_ids', []))))
 
-    def get_updated_or_deleted_assets(self, vals) -> list:
-        return list((filter(lambda item: isinstance(item[1], int), vals.get('account_asset_ids', []))))
+    # def get_updated_or_deleted_assets(self, vals) -> list:
+    #     return list((filter(lambda item: isinstance(item[1], int), vals.get('account_asset_ids', []))))
 
-    def change_asset_type_in_assets_and_create(self, vals) -> List[Tuple]:
-        # Pega os ativos que estão sendo criados e adiciona o attributo asset_type=purchase
-        # Isso mostrará o ativo na lista de patrimônios.
-        added_assets = map(lambda item: item[2], (filter(
-            lambda item: isinstance(item[1], str), vals.get('account_asset_ids', []))))
-        return [(0, 0, {**asset, **dict(asset_type='purchase')})
-                for asset in added_assets]
+    # def change_asset_type_in_assets_and_create(self, vals) -> List[Tuple]:
+    #     # Pega os ativos que estão sendo criados e adiciona o attributo asset_type=purchase
+    #     # Isso mostrará o ativo na lista de patrimônios.
+    #     added_assets = map(lambda item: item[2], (filter(
+    #         lambda item: isinstance(item[1], str), vals.get('account_asset_ids', []))))
+    #     return [(0, 0, {**asset, **dict(asset_type='purchase')})
+    #             for asset in added_assets]
 
-    def get_updated_created_or_default_assets_vals(self, vals) -> list:
-        return self.change_asset_type_in_assets_and_create(vals) + self.get_updated_or_deleted_assets(vals)
+    # def get_updated_created_or_default_assets_vals(self, vals) -> list:
+    #     return self.change_asset_type_in_assets_and_create(vals) + self.get_updated_or_deleted_assets(vals)
 
-    def get_total_assets(self, vals) -> int:
-        return (len(self.change_asset_type_in_assets_and_create(
-            vals)) + len(self.account_asset_ids)) - len(self.get_deleted_assets(vals))
+    # def get_total_assets(self, vals) -> int:
+    #     return (len(self.change_asset_type_in_assets_and_create(
+    #         vals)) + len(self.account_asset_ids)) - len(self.get_deleted_assets(vals))
 
-    def verify_asset_qty_lt_item_qty(self, vals) -> None:
-        if (vals.get('quantidade') if vals.get('quantidade') else self.quantidade) < self.get_total_assets(vals):
-            raise UserError(
-                _('The number of assets is greater than product quantity, please remove the assets or increase the item quantity'))
+    # def verify_asset_qty_lt_item_qty(self, vals) -> None:
+    #     if (vals.get('quantidade') if vals.get('quantidade') else self.quantidade) < self.get_total_assets(vals):
+    #         raise UserError(
+    #             _('The number of assets is greater than product quantity, please remove the assets or increase the item quantity'))
 
-    def write(self, vals: dict):
-        self.verify_asset_qty_lt_item_qty(vals)
-        vals['account_asset_ids'] = self.get_updated_created_or_default_assets_vals(vals)
-        return super().write(vals)
+    # def write(self, vals: dict):
+    #     self.verify_asset_qty_lt_item_qty(vals)
+    #     vals['account_asset_ids'] = self.get_updated_created_or_default_assets_vals(vals)
+    #     return super().write(vals)
 
-    @api.model
-    def create(self, vals: dict):
-        self.verify_asset_qty_lt_item_qty(vals)
-        vals['account_asset_ids'] = self.get_updated_created_or_default_assets_vals(vals)
-        return super().create(vals)
+    # @api.model
+    # def create(self, vals: dict):
+    #     self.verify_asset_qty_lt_item_qty(vals)
+    #     vals['account_asset_ids'] = self.get_updated_created_or_default_assets_vals(vals)
+    #     return super().create(vals)
 
-    @api.constrains('quantidade')
-    def _check_quantidade(self):
-        # Valida se a quantidade do item é maior que 1
-        for r in self:
-            if r.quantidade < 1:
-                raise ValidationError(_('Product quantity can not be less than 1.'))
+    # @api.constrains('quantidade')
+    # def _check_quantidade(self):
+    #     # Valida se a quantidade do item é maior que 1
+    #     for r in self:
+    #         if r.quantidade < 1:
+    #             raise ValidationError(_('Product quantity can not be less than 1.'))
 
     # --------------- Ax4b ------------------
     #########################################
