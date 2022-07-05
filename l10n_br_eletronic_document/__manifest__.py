@@ -13,9 +13,6 @@
         'l10n_br_account',
         'l10n_br_base',
         'l10n_br_base_address',
-        # 'account',
-        # 'account_asset',
-        # 'ax4b_patrimony',
     ],
     'data': [
         'data/nfe.cfop.csv',
@@ -27,7 +24,6 @@
         'views/res_company.xml',
         'views/account_move.xml',
         'views/eletronic_document.xml',
-        # 'views/eletronic_document_line.xml',
         'views/nfe.xml',
         'views/nfe_inutilization.xml',
         'views/base_account.xml',
