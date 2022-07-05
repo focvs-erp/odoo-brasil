@@ -24,6 +24,7 @@
         'views/res_company.xml',
         'views/account_move.xml',
         'views/eletronic_document.xml',
+        'views/eletronic_document_line.xml',
         'views/nfe.xml',
         'views/nfe_inutilization.xml',
         'views/base_account.xml',
