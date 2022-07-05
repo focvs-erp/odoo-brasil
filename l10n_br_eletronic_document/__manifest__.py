@@ -15,7 +15,7 @@
         'l10n_br_base_address',
         # 'account',
         # 'account_asset',
-        'ax4b_patrimony',
+        # 'ax4b_patrimony',
     ],
     'data': [
         'data/nfe.cfop.csv',
