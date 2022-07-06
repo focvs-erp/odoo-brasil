@@ -14,34 +14,46 @@
                             <h3 class="text-center">Livro de Registro de Apuração do ICMS - RAICMS - Modelo P9</h3>
                             <div class="d-flex justify-content-between">
                                 <div>
-                                    <span>Empresa: <span t-esc="docs.company_id.name"></span></span>
+                                    <span>
+                                        Empresa:
+                                        <b>
+                                            <span t-esc="docs.company_id.name"></span>
+                                        </b>
+                                    </span>
                                     <br />
-                                    <span>Inscrição Estadual: <span t-esc="docs.company_id.l10n_br_inscr_est"></span></span>
+                                    <span>
+                                        Insc. Estadual:
+                                        <span t-esc="docs.company_id.l10n_br_inscr_est"></span>
+                                    </span>
                                     <br />
-                                    <span>CNPJ: <span t-esc="docs.company_id.l10n_br_cnpj_cpf"></span></span>
+                                    <span>
+                                        CNPJ:
+                                        <span t-esc="docs.company_id.l10n_br_cnpj_cpf"></span>
+                                    </span>
                                 </div>
                                 <div>
-                                    <br />
-                                    <br />
-                                    <span>Mês ou Período/Ano: <span t-esc="date_start"></span> à <span t-esc="date_end"></span></span>
+                                    <span>
+                                        Mês ou Período/Ano:
+                                        <span t-esc="date_start"></span>
+                                        à
+                                        <span t-esc="date_end"></span>
+                                    </span>
                                     <br />
                                 </div>
                                 <div>
-                                    <br />
-                                    <span>Livro: 001</span>
-                                    <br />
-                                    <span>Folha: 00101992</span>
+                                    Folha: <span t-esc="book_sequence"></span>
                                 </div>
                             </div>
 
                         </header>
 
-                        <br />
+                        <!-- ###################################### -->
                         <!-- ###################################### -->
                         <!-- NOTA FISCAIS DE ENTRADA, CFOPS 1,2,3 -->
                         <!-- ###################################### -->
+                        <!-- ###################################### -->
                         <table class="table table-bordered table-sm">
-                            <thead>
+                            <thead class="">
                                 <tr>
                                     <th colspan="7" class="text-center bg-dark text-light">Entradas</th>
                                 </tr>
@@ -63,101 +75,76 @@
                                     <th colspan="1">Outras</th>
                                 </tr>
                             </thead>
+
                             <tbody>
                                 <!-- ###################################### -->
                                 <!-- REALIZADA A SOMATÓRIA POR CFOP, EX: 1102, 1404... -->
                                 <!-- ###################################### -->
-                                <tr>
-                                    <td colspan="2">2.101</td>
-                                    <td>R$88.402,69</td>
-                                    <td>R$4,40</td>
-                                    <td>R$972,58</td>
-                                    <td>R$682,85</td>
-                                    <td>R$27.009,25</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2">3.402</td>
-                                    <td>R$71.477,71</td>
-                                    <td>R$93.299,19</td>
-                                    <td>R$14,79</td>
-                                    <td>R$18.568,90</td>
-                                    <td>R$57,46</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2">2.102</td>
-                                    <td>R$4.395,97</td>
-                                    <td>R$75,90</td>
-                                    <td>R$3.087,72</td>
-                                    <td>R$78.601,04</td>
-                                    <td>R$69,61</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2">3.101</td>
-                                    <td>R$93,78</td>
-                                    <td>R$3,34</td>
-                                    <td>R$3.621,83</td>
-                                    <td>R$55,17</td>
-                                    <td>R$4.859,21</td>
-                                </tr>
+                                <t t-foreach="entry_notes_by_cfop" t-as="entry">
+                                    <tr>
+                                        <td colspan="2" t-esc="entry"></td>
+                                        <td t-esc="entry_notes_by_cfop[entry]['valor_bruto']" t-options="{'widget': 'float', 'precision': 2}" />
+                                        <td t-esc="entry_notes_by_cfop[entry]['icms_base_calculo']" t-options="{'widget': 'float', 'precision': 2}" />
+                                        <td t-esc="entry_notes_by_cfop[entry]['icms_valor']" t-options="{'widget': 'float', 'precision': 2}" />
+                                        <td t-esc="entry_notes_by_cfop[entry]['isento']" t-options="{'widget': 'float', 'precision': 2}" />
+                                        <td t-esc="entry_notes_by_cfop[entry]['outros']" t-options="{'widget': 'float', 'precision': 2}" />
+                                    </tr>
+                                </t>
                             </tbody>
                             <!-- ###################################### -->
                             <!-- REALIZA A SOMATÓRIA POR TIPO DE CFOP. EX: 1000 -->
                             <!-- ###################################### -->
                             <tbody>
                                 <tr>
-                                    <th colspan="3" class="text-center">Subtotais de Entrada</th>
+                                    <th colspan="3" class="text-center bg-dark text-light">Subtotais de Entrada</th>
                                 </tr>
-                                <tr>
-                                    <td>1.000</td>
-                                    <td>Do Estado</td>
-                                    <td>R$93.617,59</td>
-                                    <td>R$39.695,06</td>
-                                    <td>R$84.545,43</td>
-                                    <td>R$2.087,62</td>
-                                    <td>R$3.960,45</td>
-                                </tr>
-                                <tr>
-                                    <td>2.000</td>
-                                    <td>De Outros Estados</td>
-                                    <td>R$7.278,13</td>
-                                    <td>R$5.984,81</td>
-                                    <td>R$36,63</td>
-                                    <td>R$38,84</td>
-                                    <td>R$31.080,32</td>
-                                </tr>
-                                <tr>
-                                    <td>3.000</td>
-                                    <td>Do Exterior</td>
-                                    <td>R$5.868,68</td>
-                                    <td>R$724,69</td>
-                                    <td>R$86,90</td>
-                                    <td>R$38,68</td>
-                                    <td>R$543,21</td>
-                                </tr>
+                                <t-foreach t-foreach="grouped_by_cfop_type_entry_notes" t-as="entries">
+                                    <tr>
+                                        <td>
+                                            <span t-esc="entries"></span>000</td>
+                                        <t t-if="entries == '1'">
+                                            <td>Do Estado</td>
+                                        </t>
+                                        <t t-elif="entries == '2'">
+                                            <td>De outros Estados</td>
+                                        </t>
+                                        <t t-elif="entries == '3'">
+                                            <td>Do Exterior</td>
+                                        </t>
+                                        <td t-esc="grouped_by_cfop_type_entry_notes[entries]['valor_bruto']" t-options="{'widget': 'float', 'precision': 2}" />
+                                        <td t-esc="grouped_by_cfop_type_entry_notes[entries]['icms_base_calculo']" t-options="{'widget': 'float', 'precision': 2}" />
+                                        <td t-esc="grouped_by_cfop_type_entry_notes[entries]['icms_valor']" t-options="{'widget': 'float', 'precision': 2}" />
+                                        <td t-esc="grouped_by_cfop_type_entry_notes[entries]['isento']" t-options="{'widget': 'float', 'precision': 2}" />
+                                        <td t-esc="grouped_by_cfop_type_entry_notes[entries]['outros']" t-options="{'widget': 'float', 'precision': 2}" />
+                                    </tr>
+                                </t-foreach>
                             </tbody>
                             <!-- ###################################### -->
                             <!-- REALIZA A SOMATÓRIA GERAL -->
                             <!-- ###################################### -->
                             <tbody>
                                 <tr>
-                                    <td colspan="2" class="text-center">Totais</td>
-                                    <td>R$206.000.000,00</td>
-                                    <td>R$206.000.000,00</td>
-                                    <td>R$206.000.000,00</td>
-                                    <td>R$206.000.000,00</td>
-                                    <td>R$206.000.000,00</td>
+                                    <td colspan="2" class="text-center bg-dark text-light">Totais</td>
+                                    <td t-esc="total_entry_notes['valor_bruto']" t-options="{'widget': 'float', 'precision': 2}"/>
+                                    <td t-esc="total_entry_notes['icms_base_calculo']" t-options="{'widget': 'float', 'precision': 2}"/>
+                                    <td t-esc="total_entry_notes['icms_valor']" t-options="{'widget': 'float', 'precision': 2}"/>
+                                    <td t-esc="total_entry_notes['isento']" t-options="{'widget': 'float', 'precision': 2}"/>
+                                    <td t-esc="total_entry_notes['outros']" t-options="{'widget': 'float', 'precision': 2}"/>
                                 </tr>
                             </tbody>
-
                         </table>
+
                         <br />
+                        <!-- ###################################### -->
                         <!-- ###################################### -->
                         <!-- NOTA FISCAIS DE SAIDAS, CFOPS 5,6,7 -->
                         <!-- ###################################### -->
+                        <!-- ###################################### -->
+
                         <table class="table table-bordered table-sm">
-                            <thead>
+                            <thead class="">
                                 <tr>
-                                    <th colspan="7" class="text-center bg-dark text-light">Saidas</th>
+                                    <th colspan="7" class="text-center bg-dark text-light">Saídas</th>
                                 </tr>
                                 <tr>
                                     <th colspan="2">Codificação</th>
@@ -182,89 +169,60 @@
                                 <!-- ###################################### -->
                                 <!-- REALIZADA A SOMATÓRIA POR CFOP, EX: 5102, 5404... -->
                                 <!-- ###################################### -->
-                                <tr>
-                                    <td colspan="2">5.102</td>
-                                    <td>R$445,39</td>
-                                    <td>R$1,20</td>
-                                    <td>R$166,34</td>
-                                    <td>R$5.111,80</td>
-                                    <td>R$2,79</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2">7.402</td>
-                                    <td>R$9,75</td>
-                                    <td>R$83.509,86</td>
-                                    <td>R$9,49</td>
-                                    <td>R$8.129,85</td>
-                                    <td>R$544,97</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2">6.101</td>
-                                    <td>R$94,93</td>
-                                    <td>R$744,34</td>
-                                    <td>R$2,24</td>
-                                    <td>R$5,93</td>
-                                    <td>R$334,80</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2">5.101</td>
-                                    <td>R$3.064,41</td>
-                                    <td>R$70,12</td>
-                                    <td>R$932,27</td>
-                                    <td>R$82,45</td>
-                                    <td>R$2,22</td>
-                                </tr>
+                                <t t-foreach="exit_notes_by_cfop" t-as="entry">
+                                    <tr>
+                                        <td colspan="2" t-esc="entry"></td>
+                                        <td t-esc="exit_notes_by_cfop[entry]['valor_bruto']" t-options="{'widget': 'float', 'precision': 2}" />
+                                        <td t-esc="exit_notes_by_cfop[entry]['icms_base_calculo']" t-options="{'widget': 'float', 'precision': 2}" />
+                                        <td t-esc="exit_notes_by_cfop[entry]['icms_valor']" t-options="{'widget': 'float', 'precision': 2}" />
+                                        <td t-esc="exit_notes_by_cfop[entry]['isento']" t-options="{'widget': 'float', 'precision': 2}" />
+                                        <td t-esc="exit_notes_by_cfop[entry]['outros']" t-options="{'widget': 'float', 'precision': 2}" />
+                                    </tr>
+                                </t>
                             </tbody>
                             <!-- ###################################### -->
-                            <!-- REALIZA A SOMATÓRIA POR TIPO DE CFOP. EX: 5000 -->
+                            <!-- REALIZA A SOMATÓRIA POR TIPO DE CFOP. EX: 5000, 6000, 7000 -->
                             <!-- ###################################### -->
                             <tbody>
                                 <tr>
-                                    <th colspan="3" class="text-center">Subtotais de Entrada</th>
+                                    <th colspan="3" class="text-center bg-dark text-light">Subtotais de Saída</th>
                                 </tr>
-                                <tr>
-                                    <td>5.000</td>
-                                    <td>Do Estado</td>
-                                    <td>R$88.643,34</td>
-                                    <td>R$71.228,59</td>
-                                    <td>R$805,29</td>
-                                    <td>R$1,02</td>
-                                    <td>R$2.751,18</td>
-                                </tr>
-                                <tr>
-                                    <td>6.000</td>
-                                    <td>De Outros Estados</td>
-                                    <td>R$1.179,04</td>
-                                    <td>R$3.225,12</td>
-                                    <td>R$1,06</td>
-                                    <td>R$66.950,31</td>
-                                    <td>R$5,55</td>
-                                </tr>
-                                <tr>
-                                    <td>7.000</td>
-                                    <td>Do Exterior</td>
-                                    <td>R$37,14</td>
-                                    <td>R$38.175,47</td>
-                                    <td>R$10,03</td>
-                                    <td>R$141,30</td>
-                                    <td>R$348,96</td>
-                                </tr>
+                                <t-foreach t-foreach="grouped_by_cfop_type_exit_notes" t-as="entries">
+                                    <tr>
+                                        <td>
+                                            <span t-esc="entries"></span>000</td>
+                                        <t t-if="entries == '5'">
+                                            <td>Do Estado</td>
+                                        </t>
+                                        <t t-elif="entries == '6'">
+                                            <td>De outros Estados</td>
+                                        </t>
+                                        <t t-elif="entries == '7'">
+                                            <td>Do Exterior</td>
+                                        </t>
+                                        <td t-esc="grouped_by_cfop_type_exit_notes[entries]['valor_bruto']" t-options="{'widget': 'float', 'precision': 2}" />
+                                        <td t-esc="grouped_by_cfop_type_exit_notes[entries]['icms_base_calculo']" t-options="{'widget': 'float', 'precision': 2}" />
+                                        <td t-esc="grouped_by_cfop_type_exit_notes[entries]['icms_valor']" t-options="{'widget': 'float', 'precision': 2}" />
+                                        <td t-esc="grouped_by_cfop_type_exit_notes[entries]['isento']" t-options="{'widget': 'float', 'precision': 2}" />
+                                        <td t-esc="grouped_by_cfop_type_exit_notes[entries]['outros']" t-options="{'widget': 'float', 'precision': 2}" />
+                                    </tr>
+                                </t-foreach>
                             </tbody>
                             <!-- ###################################### -->
                             <!-- REALIZA A SOMATÓRIA GERAL -->
                             <!-- ###################################### -->
                             <tbody>
                                 <tr>
-                                    <td colspan="2" class="text-center">Totais</td>
-                                    <td>R$206.000.000,00</td>
-                                    <td>R$206.000.000,00</td>
-                                    <td>R$206.000.000,00</td>
-                                    <td>R$206.000.000,00</td>
-                                    <td>R$206.000.000,00</td>
+                                    <td colspan="2" class="text-center bg-dark text-light">Totais</td>
+                                    <td t-esc="total_exit_notes['valor_bruto']" t-options="{'widget': 'float', 'precision': 2}"/>
+                                    <td t-esc="total_exit_notes['icms_base_calculo']" t-options="{'widget': 'float', 'precision': 2}" />
+                                    <td t-esc="total_exit_notes['icms_valor']" t-options="{'widget': 'float', 'precision': 2}"/>
+                                    <td t-esc="total_exit_notes['isento']" t-options="{'widget': 'float', 'precision': 2}"/>
+                                    <td t-esc="total_exit_notes['outros']" t-options="{'widget': 'float', 'precision': 2}" />
                                 </tr>
                             </tbody>
-
                         </table>
+
 
                         <br />
 

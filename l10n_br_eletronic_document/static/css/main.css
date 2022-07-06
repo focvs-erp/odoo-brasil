@@ -1,12 +1,21 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
 table th {
+    border: 1px solid black!important;
     text-align: center;
-    font-size: 0.9em;
-    font-weight: 400;
-    text-transform: capitalize;
+    font-size: 0.98em;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: monospace;
 }
 table td {
     text-align: right;
-    font-size: 0.8em;
+    /* font-size: 0.98em; */
+    font-family: monospace;
 }
 
 .header {
@@ -21,3 +30,8 @@ h3 {
 .apuracao_imposto tr > td {
     text-align: left;
 }
+
+table, tr, td {
+    border: 1px dashed black!important;
+}
+
