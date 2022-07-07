@@ -100,15 +100,16 @@
                                 </tr>
                                 <t-foreach t-foreach="grouped_by_cfop_type_entry_notes" t-as="entries">
                                     <tr>
-                                        <td>
-                                            <span t-esc="entries"></span>000</td>
-                                        <t t-if="entries == '1'">
+                                        <td t-esc="entries">
+                                            <!-- <span t-esc="entries"></span>000 -->
+                                        </td>
+                                        <t t-if="entries == '1000'">
                                             <td>Do Estado</td>
                                         </t>
-                                        <t t-elif="entries == '2'">
+                                        <t t-elif="entries == '2000'">
                                             <td>De outros Estados</td>
                                         </t>
-                                        <t t-elif="entries == '3'">
+                                        <t t-elif="entries == '3000'">
                                             <td>Do Exterior</td>
                                         </t>
                                         <td t-esc="grouped_by_cfop_type_entry_notes[entries]['valor_bruto']" t-options="{'widget': 'float', 'precision': 2}" />
@@ -189,15 +190,16 @@
                                 </tr>
                                 <t-foreach t-foreach="grouped_by_cfop_type_exit_notes" t-as="entries">
                                     <tr>
-                                        <td>
-                                            <span t-esc="entries"></span>000</td>
-                                        <t t-if="entries == '5'">
+                                        <td t-esc="entries">
+                                            <!-- <span t-esc="entries"></span>000 -->
+                                        </td>
+                                        <t t-if="entries == '5000'">
                                             <td>Do Estado</td>
                                         </t>
-                                        <t t-elif="entries == '6'">
+                                        <t t-elif="entries == '6000'">
                                             <td>De outros Estados</td>
                                         </t>
-                                        <t t-elif="entries == '7'">
+                                        <t t-elif="entries == '7000'">
                                             <td>Do Exterior</td>
                                         </t>
                                         <td t-esc="grouped_by_cfop_type_exit_notes[entries]['valor_bruto']" t-options="{'widget': 'float', 'precision': 2}" />

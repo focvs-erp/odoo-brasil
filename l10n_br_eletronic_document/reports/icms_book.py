@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
+from email import header
 import locale
 from collections import defaultdict
 from datetime import date
 from itertools import chain, groupby, product
 from operator import attrgetter
-from typing import Dict, List
+from typing import Dict, Iterable, List, Set
 from operator import add
 
 from odoo import api, models
@@ -24,62 +25,44 @@ class ReportIcmsBook(models.AbstractModel):
     _name = 'report.l10n_br_eletronic_document.icms_book'
     _description = 'Livro de Apuração de ICMS'
 
-    def generate_book_sequence(self):
+    def generate_book_sequence(self, sequence_name: str):
         """Função responsavel por criar o sequencial que será usado no livro de apuração do ICMS"""
-        # sequence = self.env['ir.sequence'].search(
-        #     [('code', '=', 'l10n_br_eletronic_document.icms_book_sequence')]).next_by_id()
-        # return sequence
-        return self.env['ir.sequence'].next_by_code('l10n_br_eletronic_document.icms_book_sequence')
+        return self.env['ir.sequence'].next_by_code(sequence_name)
 
-    def filter_lines_in_invoices(self, docs):
-        '''Retorna lista de notas que tem ao menos algum produto cadastrado'''
-        return [invoice for invoice in docs if invoice.document_line_ids.exists()]
-
-    def get_invoices_with_cfop(self, docs: list, book_type: str):
-        '''Valida se o produto está com cfop preenchido'''
-        cfops = {'p1': ['1', '2', '3'], 'p2': ['5', '6', '7']}
-        invoices_with_cfop = []
-
-        for invoice in self.filter_lines_in_invoices(docs):
-            for line in invoice.document_line_ids:
-                if line.cfop and line.cfop[0] in cfops[book_type]:
-                    invoices_with_cfop.append(invoice.id)
-
-        return invoices_with_cfop
+    def get_invoices_by_operation_type(self, docs: List[object], book_type: str) -> Iterable[int]:
+        """
+            Retorna se a nota é de entrada ou de saida.
+            :param: str book_type: Recebe 'entrada' para notas de entrada ou 'saida' para notas de saida.
+        """
+        return docs.filtered(lambda item: item.tipo_operacao == book_type)
 
     def group_values_by_cfop_type(self, by_cfop: Dict[str, Dict[str, float]], headers: List[str]) -> Dict[str, Dict[str, float]]:
-        """Realiza o agrupador do cfop por tipo de entrada"""
+        """Realiza o agrupador do cfop por tipo de cfop, Estado, Fora do estado e Exterior."""
         grouped_by_cfop = defaultdict(lambda: dict.fromkeys(headers, 0.0))
-        for cfop, values in by_cfop.items():
-            grouped_by_cfop[cfop[:1]]["valor_bruto"] += values["valor_bruto"]
-            grouped_by_cfop[cfop[:1]]["icms_valor"] += values["icms_valor"]
-            grouped_by_cfop[cfop[:1]]["outros"] += values["outros"]
-            grouped_by_cfop[cfop[:1]]["isento"] += values["isento"]
-            grouped_by_cfop[cfop[:1]]["icms_base_calculo"] += values["icms_base_calculo"]
+
+        for (cfop, invoice), header in product(by_cfop.items(), headers):
+            grouped_by_cfop[f"{cfop[:1]}000"][header] += invoice.get(
+                header, 0.0)
 
         return dict(grouped_by_cfop)
 
-    def calculte_total(self, by_cfop: Dict[str, Dict[str, float]]) -> Dict[str, float]:
-        """Calcula total geral para os items da nota fiscal"""
+    def calculate_total_for_each_attribute(self, by_cfop: Dict[str, Dict[str, float]], headers: List[str]) -> Dict[str, float]:
+        """Compute total geral para os items da nota fiscal"""
         grouped_by_cfop = defaultdict(float)
 
-        for value in by_cfop.values():
-            grouped_by_cfop["valor_bruto"] += value["valor_bruto"]
-            grouped_by_cfop["icms_base_calculo"] += value["icms_base_calculo"]
-            grouped_by_cfop["icms_valor"] += value["icms_valor"]
-            grouped_by_cfop["outros"] += value["outros"]
-            grouped_by_cfop["isento"] += value["isento"]
+        for invoice, header in product(by_cfop.values(), headers):
+            grouped_by_cfop[header] += invoice.get(header, 0.0)
 
         return dict(grouped_by_cfop)
 
-    def calculate_total_by_cfop(self, invoices: List, headers: List[str]):
+    def calculate_total_by_cfop(self, invoices: List, headers: List[str]) -> Dict[str, Dict[str, float]]:
         """Realiza o calculo do totalizador por cfop com a condição do tipo de imposto por cst"""
         # SE O CST FOR 00, 10, 20, 51, 60, 70 SERÁ SOMADO E IRÁ PARA O CAMPO IMPOSTO CREDITADO "icms_valor"
         # SE O CST FOR 40 OU 41 SERÃO SOMADOS E ADICIONADOS NO CAMPO "isento"
         # SE O CST FOR 90 OU 50 SERÁ SOMADOS E ADICINADOS NO CAMPO "outros"
         grouped_by_cfop = defaultdict(lambda: dict.fromkeys(headers, 0.0))
         invoices_lines = chain.from_iterable(
-            [item.document_line_ids for item in invoices])
+            map(lambda item: item.document_line_ids, invoices))
 
         icms_cst = {
             "icms": ["00", "10", "20", "51", "60", "70"],
@@ -108,30 +91,29 @@ class ReportIcmsBook(models.AbstractModel):
         docs = self.env['eletronic.document'].search(
             ['&', ('data_emissao', '>=', date_start),
              ('data_emissao', '<=', date_end),
-                 ('code_related', '=', '55'),
-                ('company_id', '=', self.env.user.company_id.id),
-                ('numero', '!=', False)],
+             ('code_related', '=', '55'),
+             ('codigo_retorno', '=', '100'),
+             ('company_id', '=', self.env.user.company_id.id),
+             ('numero', '!=', False)],
             order='data_emissao')
 
         entry_notes_by_cfop = self.calculate_total_by_cfop(
-            invoices=docs.browse(set(self.get_invoices_with_cfop(docs=docs, book_type='p1'))), 
-            headers=HEADERS)
+            invoices=self.get_invoices_by_operation_type(docs=docs, book_type='entrada'), headers=HEADERS)
+            
         exit_notes_by_cfop = self.calculate_total_by_cfop(
-            invoices=docs.browse(set(self.get_invoices_with_cfop(docs=docs, book_type='p2'))), 
-            headers=HEADERS)
-
+            invoices=self.get_invoices_by_operation_type(docs=docs, book_type='saida'), headers=HEADERS)
 
         return {
             'docs': docs,
             'date_start': date.fromisoformat(date_start),
             'date_end': date.fromisoformat(date_end),
-            'book_sequence': self.generate_book_sequence() or "X00001",
+            'book_sequence': self.generate_book_sequence(sequence_name='l10n_br_eletronic_document.icms_book_sequence') or "X00001",
             # Entry notes
             'entry_notes_by_cfop': entry_notes_by_cfop,
             'grouped_by_cfop_type_entry_notes': self.group_values_by_cfop_type(by_cfop=entry_notes_by_cfop, headers=HEADERS),
-            'total_entry_notes': self.calculte_total(by_cfop=entry_notes_by_cfop),
+            'total_entry_notes': self.calculate_total_for_each_attribute(by_cfop=entry_notes_by_cfop, headers=HEADERS),
             # Exit notes
             'exit_notes_by_cfop': exit_notes_by_cfop,
             'grouped_by_cfop_type_exit_notes': self.group_values_by_cfop_type(by_cfop=exit_notes_by_cfop, headers=HEADERS),
-            'total_exit_notes': self.calculte_total(by_cfop=exit_notes_by_cfop),
+            'total_exit_notes': self.calculate_total_for_each_attribute(by_cfop=exit_notes_by_cfop, headers=HEADERS),
         }
