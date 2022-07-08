@@ -2139,12 +2139,12 @@ msgstr ""
 #. module: l10n_br_eletronic_document
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_icms_book__date_end
 msgid "Date End"
-msgstr ""
+msgstr "Data Final"
 
 #. module: l10n_br_eletronic_document
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_icms_book__date_start
 msgid "Date Start"
-msgstr ""
+msgstr "Data Inicial"
 
 #. module: l10n_br_eletronic_document
 #: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.icms_book
@@ -2619,7 +2619,7 @@ msgstr ""
 #. module: l10n_br_eletronic_document
 #: model:ir.ui.menu,name:l10n_br_eletronic_document.menu_icms_book
 msgid "Generate Icms Book"
-msgstr ""
+msgstr "Livro de Apuração de ICMS"
 
 #. module: l10n_br_eletronic_document
 #: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_br_nfse_floripa_res_company_form
