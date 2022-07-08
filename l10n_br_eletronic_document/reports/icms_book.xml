@@ -125,7 +125,7 @@
                             <!-- ###################################### -->
                             <tbody>
                                 <tr>
-                                    <td colspan="2" class="text-center bg-dark text-light">Totais</td>
+                                    <td colspan="2" class="text-center bg-dark text-light">TOTAIS</td>
                                     <td t-esc="total_entry_notes['valor_bruto']" t-options="{'widget': 'float', 'precision': 2}"/>
                                     <td t-esc="total_entry_notes['icms_base_calculo']" t-options="{'widget': 'float', 'precision': 2}"/>
                                     <td t-esc="total_entry_notes['icms_valor']" t-options="{'widget': 'float', 'precision': 2}"/>
@@ -215,7 +215,7 @@
                             <!-- ###################################### -->
                             <tbody>
                                 <tr>
-                                    <td colspan="2" class="text-center bg-dark text-light">Totais</td>
+                                    <td colspan="2" class="text-center bg-dark text-light">TOTAIS</td>
                                     <td t-esc="total_exit_notes['valor_bruto']" t-options="{'widget': 'float', 'precision': 2}"/>
                                     <td t-esc="total_exit_notes['icms_base_calculo']" t-options="{'widget': 'float', 'precision': 2}" />
                                     <td t-esc="total_exit_notes['icms_valor']" t-options="{'widget': 'float', 'precision': 2}"/>

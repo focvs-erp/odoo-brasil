@@ -29,28 +29,34 @@ class ReportIcmsBook(models.AbstractModel):
         """Função responsavel por criar o sequencial que será usado no livro de apuração do ICMS"""
         return self.env['ir.sequence'].next_by_code(sequence_name)
 
-    def get_invoices_by_operation_type(self, docs: List[object], book_type: str) -> Iterable[int]:
+    def get_invoices_by_operation_type(self,
+                                       docs: List[object], 
+                                       operation_type: str) -> Iterable[int]:
         """
             Retorna se a nota é de entrada ou de saida.
-            :param: str book_type: Recebe 'entrada' para notas de entrada ou 'saida' para notas de saida.
+            :param: str operation_type: Recebe 'entrada' para notas de entrada ou 'saida' para notas de saida.
         """
-        return docs.filtered(lambda item: item.tipo_operacao == book_type)
+        return docs.filtered(lambda item: item.tipo_operacao == operation_type)
 
-    def group_values_by_cfop_type(self, by_cfop: Dict[str, Dict[str, float]], headers: List[str]) -> Dict[str, Dict[str, float]]:
+    def group_values_by_cfop_type(self,
+                                  invoices: Dict[str, Dict[str, float]],
+                                  headers: List[str]) -> Dict[str, Dict[str, float]]:
         """Realiza o agrupador do cfop por tipo de cfop, Estado, Fora do estado e Exterior."""
         grouped_by_cfop = defaultdict(lambda: dict.fromkeys(headers, 0.0))
 
-        for (cfop, invoice), header in product(by_cfop.items(), headers):
+        for (cfop, invoice), header in product(invoices.items(), headers):
             grouped_by_cfop[f"{cfop[:1]}000"][header] += invoice.get(
                 header, 0.0)
 
         return dict(grouped_by_cfop)
 
-    def calculate_total_for_each_attribute(self, by_cfop: Dict[str, Dict[str, float]], headers: List[str]) -> Dict[str, float]:
-        """Compute total geral para os items da nota fiscal"""
+    def calculate_total_for_each_attribute(self,
+                                           invoices: Dict[str, Dict[str, float]],
+                                           headers: List[str]) -> Dict[str, float]:
+        """Realizada a somatória geral para cada coluna/atributo do relátorio"""
         grouped_by_cfop = defaultdict(float)
 
-        for invoice, header in product(by_cfop.values(), headers):
+        for invoice, header in product(invoices.values(), headers):
             grouped_by_cfop[header] += invoice.get(header, 0.0)
 
         return dict(grouped_by_cfop)
@@ -94,26 +100,26 @@ class ReportIcmsBook(models.AbstractModel):
              ('code_related', '=', '55'),
              ('codigo_retorno', '=', '100'),
              ('company_id', '=', self.env.user.company_id.id),
-             ('numero', '!=', False)],
-            order='data_emissao')
+             ('numero', '!=', False)])
 
         entry_notes_by_cfop = self.calculate_total_by_cfop(
-            invoices=self.get_invoices_by_operation_type(docs=docs, book_type='entrada'), headers=HEADERS)
-            
+            invoices=self.get_invoices_by_operation_type(docs=docs, operation_type='entrada'), headers=HEADERS)
+
         exit_notes_by_cfop = self.calculate_total_by_cfop(
-            invoices=self.get_invoices_by_operation_type(docs=docs, book_type='saida'), headers=HEADERS)
+            invoices=self.get_invoices_by_operation_type(docs=docs, operation_type='saida'), headers=HEADERS)
 
         return {
             'docs': docs,
             'date_start': date.fromisoformat(date_start),
             'date_end': date.fromisoformat(date_end),
-            'book_sequence': self.generate_book_sequence(sequence_name='l10n_br_eletronic_document.icms_book_sequence') or "X00001",
+            'book_sequence': self.generate_book_sequence(
+                sequence_name='l10n_br_eletronic_document.icms_book_sequence') or "X00001",
             # Entry notes
             'entry_notes_by_cfop': entry_notes_by_cfop,
-            'grouped_by_cfop_type_entry_notes': self.group_values_by_cfop_type(by_cfop=entry_notes_by_cfop, headers=HEADERS),
-            'total_entry_notes': self.calculate_total_for_each_attribute(by_cfop=entry_notes_by_cfop, headers=HEADERS),
+            'grouped_by_cfop_type_entry_notes': self.group_values_by_cfop_type(invoices=entry_notes_by_cfop, headers=HEADERS),
+            'total_entry_notes': self.calculate_total_for_each_attribute(invoices=entry_notes_by_cfop, headers=HEADERS),
             # Exit notes
             'exit_notes_by_cfop': exit_notes_by_cfop,
-            'grouped_by_cfop_type_exit_notes': self.group_values_by_cfop_type(by_cfop=exit_notes_by_cfop, headers=HEADERS),
-            'total_exit_notes': self.calculate_total_for_each_attribute(by_cfop=exit_notes_by_cfop, headers=HEADERS),
+            'grouped_by_cfop_type_exit_notes': self.group_values_by_cfop_type(invoices=exit_notes_by_cfop, headers=HEADERS),
+            'total_exit_notes': self.calculate_total_for_each_attribute(invoices=exit_notes_by_cfop, headers=HEADERS),
         }
