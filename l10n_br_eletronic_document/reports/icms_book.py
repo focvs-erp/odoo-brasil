@@ -1,17 +1,13 @@
 # -*- coding: utf-8 -*-
-from email import header
-import locale
 from collections import defaultdict
 from datetime import date
-from itertools import chain, groupby, product
-from operator import attrgetter
-from typing import Dict, Iterable, List, Set
-from operator import add
+from itertools import chain, product
+from typing import Dict, Iterable, List
 
 from odoo import api, models
 from pytz import timezone
 
-TIMEZONE = timezone('America/Sao_Paulo')
+# TIMEZONE = timezone('America/Sao_Paulo')
 HEADERS = [
     "valor_bruto",
     "icms_base_calculo",

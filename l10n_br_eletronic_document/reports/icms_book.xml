@@ -34,9 +34,9 @@
                                 <div>
                                     <span>
                                         Mês ou Período/Ano:
-                                        <span t-esc="date_start"></span>
+                                        <span t-esc="date_start" t-options='{"widget": "date"}'></span>
                                         à
-                                        <span t-esc="date_end"></span>
+                                        <span t-esc="date_end" t-options='{"widget": "date"}'></span>
                                     </span>
                                     <br />
                                 </div>

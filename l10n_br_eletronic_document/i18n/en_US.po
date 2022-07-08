@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0+ec-20220622\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-08 16:58+0000\n"
-"PO-Revision-Date: 2022-07-08 16:58+0000\n"
+"POT-Creation-Date: 2022-07-08 16:57+0000\n"
+"PO-Revision-Date: 2022-07-08 16:57+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -1810,7 +1810,7 @@ msgstr ""
 #. module: l10n_br_eletronic_document
 #: model:ir.model,name:l10n_br_eletronic_document.model_res_company
 msgid "Companies"
-msgstr "Empresas"
+msgstr ""
 
 #. module: l10n_br_eletronic_document
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__company_id
@@ -1841,7 +1841,7 @@ msgstr ""
 #. module: l10n_br_eletronic_document
 #: model:ir.model,name:l10n_br_eletronic_document.model_res_config_settings
 msgid "Config Settings"
-msgstr "Definições de Configuração"
+msgstr ""
 
 #. module: l10n_br_eletronic_document
 #: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_form
@@ -1861,7 +1861,7 @@ msgstr ""
 #. module: l10n_br_eletronic_document
 #: model:ir.model,name:l10n_br_eletronic_document.model_res_partner
 msgid "Contact"
-msgstr "Contato"
+msgstr ""
 
 #. module: l10n_br_eletronic_document
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_company__l10n_br_accountant_id
@@ -2271,7 +2271,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_icms_book__display_name
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_inutilization_nfe_numeration__display_name
 msgid "Display Name"
-msgstr "Nome exibido"
+msgstr ""
 
 #. module: l10n_br_eletronic_document
 #: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.icms_book
@@ -2482,7 +2482,7 @@ msgstr ""
 #: code:addons/l10n_br_eletronic_document/models/eletronic_document.py:0
 #, python-format
 msgid "Error sending electronic document"
-msgstr "Erro no envio de documento eletrônico"
+msgstr ""
 
 #. module: l10n_br_eletronic_document
 #: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_fiscal_position_form
@@ -2574,7 +2574,7 @@ msgstr ""
 #. module: l10n_br_eletronic_document
 #: model:ir.model,name:l10n_br_eletronic_document.model_account_fiscal_position
 msgid "Fiscal Position"
-msgstr "Posição Fiscal"
+msgstr ""
 
 #. module: l10n_br_eletronic_document
 #: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_br_nfse_floripa_res_company_form
@@ -2713,7 +2713,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_icms_book__id
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_inutilization_nfe_numeration__id
 msgid "ID"
-msgstr "Identificação"
+msgstr ""
 
 #. module: l10n_br_eletronic_document
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_carta_correcao_eletronica_evento__id_cce
@@ -2968,7 +2968,7 @@ msgstr ""
 #. module: l10n_br_eletronic_document
 #: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_eletronic_document_tree
 msgid "Invoice Transmission"
-msgstr "Transmissão de NF"
+msgstr ""
 
 #. module: l10n_br_eletronic_document
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__message_is_follower
@@ -3005,12 +3005,12 @@ msgstr ""
 #. module: l10n_br_eletronic_document
 #: model:ir.model,name:l10n_br_eletronic_document.model_account_move
 msgid "Journal Entry"
-msgstr "Lançamento de Diário"
+msgstr ""
 
 #. module: l10n_br_eletronic_document
 #: model:ir.model,name:l10n_br_eletronic_document.model_account_move_line
 msgid "Journal Item"
-msgstr "Item de Diário"
+msgstr ""
 
 #. module: l10n_br_eletronic_document
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_invoice_eletronic_inutilized__justificativa
@@ -3059,7 +3059,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_icms_book____last_update
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_inutilization_nfe_numeration____last_update
 msgid "Last Modified on"
-msgstr "Última modificação em"
+msgstr ""
 
 #. module: l10n_br_eletronic_document
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_account_cnae__write_uid
@@ -3947,7 +3947,7 @@ msgstr ""
 #. module: l10n_br_eletronic_document
 #: model:ir.model,name:l10n_br_eletronic_document.model_ir_actions_report
 msgid "Report Action"
-msgstr "Reportar Ação"
+msgstr ""
 
 #. module: l10n_br_eletronic_document
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__activity_user_id
