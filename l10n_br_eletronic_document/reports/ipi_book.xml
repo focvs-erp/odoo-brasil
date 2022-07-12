@@ -17,18 +17,18 @@
                                     <span>
                                         Empresa:
                                         <b>
-                                            <span t-esc="docs.company_id.name"></span>
+                                            <span t-esc="company.name"></span>
                                         </b>
                                     </span>
                                     <br />
                                     <span>
                                         Insc. Estadual:
-                                        <span t-esc="docs.company_id.l10n_br_inscr_est"></span>
+                                        <span t-esc="company.l10n_br_inscr_est"></span>
                                     </span>
                                     <br />
                                     <span>
                                         CNPJ:
-                                        <span t-esc="docs.company_id.l10n_br_cnpj_cpf"></span>
+                                        <span t-esc="company.l10n_br_cnpj_cpf"></span>
                                     </span>
                                 </div>
                                 <div>
@@ -60,7 +60,7 @@
                                 <tr>
                                     <th colspan="2">Codificação</th>
                                     <th colspan="1" rowspan="3">Valores Contábeis</th>
-                                    <th colspan="4">ICMS - Valores Fiscais</th>
+                                    <th colspan="4">IPI - Valores Fiscais</th>
                                 </tr>
                                 <tr>
                                     <th colspan="1" rowspan="2">Contábil</th>
@@ -85,8 +85,8 @@
                                         <tr>
                                             <td colspan="2" t-esc="entry"></td>
                                             <td t-esc="entry_notes_by_cfop[entry]['valor_bruto']" t-options="{'widget': 'float', 'precision': 2}" />
-                                            <td t-esc="entry_notes_by_cfop[entry]['icms_base_calculo']" t-options="{'widget': 'float', 'precision': 2}" />
-                                            <td t-esc="entry_notes_by_cfop[entry]['icms_valor']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="entry_notes_by_cfop[entry]['ipi_base_calculo']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="entry_notes_by_cfop[entry]['ipi_valor']" t-options="{'widget': 'float', 'precision': 2}" />
                                             <td t-esc="entry_notes_by_cfop[entry]['isento']" t-options="{'widget': 'float', 'precision': 2}" />
                                             <td t-esc="entry_notes_by_cfop[entry]['outros']" t-options="{'widget': 'float', 'precision': 2}" />
                                         </tr>
@@ -118,8 +118,8 @@
                                                 <td>Do Exterior</td>
                                             </t>
                                             <td t-esc="grouped_by_cfop_type_entry_notes[entries]['valor_bruto']" t-options="{'widget': 'float', 'precision': 2}" />
-                                            <td t-esc="grouped_by_cfop_type_entry_notes[entries]['icms_base_calculo']" t-options="{'widget': 'float', 'precision': 2}" />
-                                            <td t-esc="grouped_by_cfop_type_entry_notes[entries]['icms_valor']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="grouped_by_cfop_type_entry_notes[entries]['ipi_base_calculo']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="grouped_by_cfop_type_entry_notes[entries]['ipi_valor']" t-options="{'widget': 'float', 'precision': 2}" />
                                             <td t-esc="grouped_by_cfop_type_entry_notes[entries]['isento']" t-options="{'widget': 'float', 'precision': 2}" />
                                             <td t-esc="grouped_by_cfop_type_entry_notes[entries]['outros']" t-options="{'widget': 'float', 'precision': 2}" />
                                         </tr>
@@ -137,8 +137,8 @@
                                     <tr>
                                         <td colspan="2" class="text-center bg-dark text-light">TOTAIS</td>
                                         <td t-esc="total_entry_notes['valor_bruto']" t-options="{'widget': 'float', 'precision': 2}"/>
-                                        <td t-esc="total_entry_notes['icms_base_calculo']" t-options="{'widget': 'float', 'precision': 2}"/>
-                                        <td t-esc="total_entry_notes['icms_valor']" t-options="{'widget': 'float', 'precision': 2}"/>
+                                        <td t-esc="total_entry_notes['ipi_base_calculo']" t-options="{'widget': 'float', 'precision': 2}"/>
+                                        <td t-esc="total_entry_notes['ipi_valor']" t-options="{'widget': 'float', 'precision': 2}"/>
                                         <td t-esc="total_entry_notes['isento']" t-options="{'widget': 'float', 'precision': 2}"/>
                                         <td t-esc="total_entry_notes['outros']" t-options="{'widget': 'float', 'precision': 2}"/>
                                     </tr>
@@ -164,7 +164,7 @@
                                 <tr>
                                     <th colspan="2">Codificação</th>
                                     <th colspan="1" rowspan="3">Valores Contábeis</th>
-                                    <th colspan="4">ICMS - Valores Fiscais</th>
+                                    <th colspan="4">IPI - Valores Fiscais</th>
                                 </tr>
                                 <tr>
                                     <th colspan="1" rowspan="2">Contábil</th>
@@ -189,8 +189,8 @@
                                         <tr>
                                             <td colspan="2" t-esc="entry"></td>
                                             <td t-esc="exit_notes_by_cfop[entry]['valor_bruto']" t-options="{'widget': 'float', 'precision': 2}" />
-                                            <td t-esc="exit_notes_by_cfop[entry]['icms_base_calculo']" t-options="{'widget': 'float', 'precision': 2}" />
-                                            <td t-esc="exit_notes_by_cfop[entry]['icms_valor']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="exit_notes_by_cfop[entry]['ipi_base_calculo']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="exit_notes_by_cfop[entry]['ipi_valor']" t-options="{'widget': 'float', 'precision': 2}" />
                                             <td t-esc="exit_notes_by_cfop[entry]['isento']" t-options="{'widget': 'float', 'precision': 2}" />
                                             <td t-esc="exit_notes_by_cfop[entry]['outros']" t-options="{'widget': 'float', 'precision': 2}" />
                                         </tr>
@@ -222,8 +222,8 @@
                                                 <td>Do Exterior</td>
                                             </t>
                                             <td t-esc="grouped_by_cfop_type_exit_notes[entries]['valor_bruto']" t-options="{'widget': 'float', 'precision': 2}" />
-                                            <td t-esc="grouped_by_cfop_type_exit_notes[entries]['icms_base_calculo']" t-options="{'widget': 'float', 'precision': 2}" />
-                                            <td t-esc="grouped_by_cfop_type_exit_notes[entries]['icms_valor']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="grouped_by_cfop_type_exit_notes[entries]['ipi_base_calculo']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="grouped_by_cfop_type_exit_notes[entries]['ipi_valor']" t-options="{'widget': 'float', 'precision': 2}" />
                                             <td t-esc="grouped_by_cfop_type_exit_notes[entries]['isento']" t-options="{'widget': 'float', 'precision': 2}" />
                                             <td t-esc="grouped_by_cfop_type_exit_notes[entries]['outros']" t-options="{'widget': 'float', 'precision': 2}" />
                                         </tr>
@@ -241,8 +241,8 @@
                                     <tr>
                                         <td colspan="2" class="text-center bg-dark text-light">TOTAIS</td>
                                         <td t-esc="total_exit_notes['valor_bruto']" t-options="{'widget': 'float', 'precision': 2}"/>
-                                        <td t-esc="total_exit_notes['icms_base_calculo']" t-options="{'widget': 'float', 'precision': 2}" />
-                                        <td t-esc="total_exit_notes['icms_valor']" t-options="{'widget': 'float', 'precision': 2}"/>
+                                        <td t-esc="total_exit_notes['ipi_base_calculo']" t-options="{'widget': 'float', 'precision': 2}" />
+                                        <td t-esc="total_exit_notes['ipi_valor']" t-options="{'widget': 'float', 'precision': 2}"/>
                                         <td t-esc="total_exit_notes['isento']" t-options="{'widget': 'float', 'precision': 2}"/>
                                         <td t-esc="total_exit_notes['outros']" t-options="{'widget': 'float', 'precision': 2}" />
                                     </tr>

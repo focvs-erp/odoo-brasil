@@ -10,8 +10,8 @@ from pytz import timezone
 # TIMEZONE = timezone('America/Sao_Paulo')
 HEADERS = [
     "valor_bruto",
-    "icms_base_calculo",
-    "icms_valor",
+    "ipi_base_calculo",
+    "ipi_valor",
     "isento",
     "outros",
 ]
@@ -66,22 +66,22 @@ class ReportIpiBook(models.AbstractModel):
         invoices_lines = chain.from_iterable(
             map(lambda item: item.document_line_ids, invoices))
 
-        icms_cst = {
-            "icms": ["00", "10", "20", "51", "60", "70"],
-            "outros": ["50", "90"],
-            "isento": ["40", "41"],
+        ipi_cst = {
+            "icms": ["00", "01", "05", "60", "70"],
+            "outros": ["05", "99"],
+            "isento": ["52", "53", "02", "03"],
         }
 
         for invoice in invoices_lines:
-            if invoice.icms_cst in icms_cst["icms"]:
-                grouped_by_cfop[invoice.cfop]["icms_valor"] += invoice.icms_valor
-            elif invoice.icms_cst in icms_cst["outros"]:
+            if invoice.ipi_cst in ipi_cst["icms"]:
+                grouped_by_cfop[invoice.cfop]["ipi_valor"] += invoice.ipi_valor
+            elif invoice.ipi_cst in ipi_cst["outros"]:
                 grouped_by_cfop[invoice.cfop]["outros"] += invoice.valor_bruto
-            elif invoice.icms_cst in icms_cst["isento"]:
+            elif invoice.ipi_cst in ipi_cst["isento"]:
                 grouped_by_cfop[invoice.cfop]["isento"] += invoice.valor_bruto
 
             grouped_by_cfop[invoice.cfop]["valor_bruto"] += invoice.valor_bruto
-            grouped_by_cfop[invoice.cfop]["icms_base_calculo"] += invoice.icms_base_calculo
+            grouped_by_cfop[invoice.cfop]["ipi_base_calculo"] += invoice.ipi_base_calculo
 
         return dict(grouped_by_cfop)
 
@@ -105,7 +105,7 @@ class ReportIpiBook(models.AbstractModel):
             invoices=self.get_invoices_by_operation_type(docs=docs, operation_type='saida'), headers=HEADERS)
 
         return {
-            'docs': docs,
+            'company': self.env.user.company_id,
             'date_start': date.fromisoformat(date_start),
             'date_end': date.fromisoformat(date_end),
             'book_sequence': "X00001",
