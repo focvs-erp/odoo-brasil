@@ -8,7 +8,7 @@
 
                     <div class="container">
                         <!-- ###################################### -->
-                        <!-- CABEÇALHO -->
+                        <!-- ############ CABEÇALHO ###############-->
                         <!-- ###################################### -->
                         <header class=" header border px-3 mt-3">
                             <h3 class="text-center">Livro de Registro de Apuração do ICMS - RAICMS - Modelo P9</h3>
@@ -80,16 +80,22 @@
                                 <!-- ###################################### -->
                                 <!-- REALIZADA A SOMATÓRIA POR CFOP, EX: 1102, 1404... -->
                                 <!-- ###################################### -->
-                                <t t-foreach="entry_notes_by_cfop" t-as="entry">
-                                    <tr>
-                                        <td colspan="2" t-esc="entry"></td>
-                                        <td t-esc="entry_notes_by_cfop[entry]['valor_bruto']" t-options="{'widget': 'float', 'precision': 2}" />
-                                        <td t-esc="entry_notes_by_cfop[entry]['icms_base_calculo']" t-options="{'widget': 'float', 'precision': 2}" />
-                                        <td t-esc="entry_notes_by_cfop[entry]['icms_valor']" t-options="{'widget': 'float', 'precision': 2}" />
-                                        <td t-esc="entry_notes_by_cfop[entry]['isento']" t-options="{'widget': 'float', 'precision': 2}" />
-                                        <td t-esc="entry_notes_by_cfop[entry]['outros']" t-options="{'widget': 'float', 'precision': 2}" />
-                                    </tr>
+                                <t t-if="entry_notes_by_cfop">
+                                    <t t-foreach="entry_notes_by_cfop" t-as="entry">
+                                        <tr>
+                                            <td colspan="2" t-esc="entry"></td>
+                                            <td t-esc="entry_notes_by_cfop[entry]['valor_bruto']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="entry_notes_by_cfop[entry]['icms_base_calculo']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="entry_notes_by_cfop[entry]['icms_valor']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="entry_notes_by_cfop[entry]['isento']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="entry_notes_by_cfop[entry]['outros']" t-options="{'widget': 'float', 'precision': 2}" />
+                                        </tr>
+                                    </t>
                                 </t>
+                                <!-- <t t-else="">
+                                    <h3>Não Existem Informações para Serem Mostradas</h3>
+                                </t> -->
+
                             </tbody>
                             <!-- ###################################### -->
                             <!-- REALIZA A SOMATÓRIA POR TIPO DE CFOP. EX: 1000 -->
@@ -98,40 +104,48 @@
                                 <tr>
                                     <th colspan="3" class="text-center bg-dark text-light">Subtotais de Entrada</th>
                                 </tr>
-                                <t-foreach t-foreach="grouped_by_cfop_type_entry_notes" t-as="entries">
-                                    <tr>
-                                        <td t-esc="entries">
-                                            <!-- <span t-esc="entries"></span>000 -->
-                                        </td>
-                                        <t t-if="entries == '1000'">
-                                            <td>Do Estado</td>
-                                        </t>
-                                        <t t-elif="entries == '2000'">
-                                            <td>De outros Estados</td>
-                                        </t>
-                                        <t t-elif="entries == '3000'">
-                                            <td>Do Exterior</td>
-                                        </t>
-                                        <td t-esc="grouped_by_cfop_type_entry_notes[entries]['valor_bruto']" t-options="{'widget': 'float', 'precision': 2}" />
-                                        <td t-esc="grouped_by_cfop_type_entry_notes[entries]['icms_base_calculo']" t-options="{'widget': 'float', 'precision': 2}" />
-                                        <td t-esc="grouped_by_cfop_type_entry_notes[entries]['icms_valor']" t-options="{'widget': 'float', 'precision': 2}" />
-                                        <td t-esc="grouped_by_cfop_type_entry_notes[entries]['isento']" t-options="{'widget': 'float', 'precision': 2}" />
-                                        <td t-esc="grouped_by_cfop_type_entry_notes[entries]['outros']" t-options="{'widget': 'float', 'precision': 2}" />
-                                    </tr>
-                                </t-foreach>
+                                <t t-if="grouped_by_cfop_type_entry_notes">
+                                    <t-foreach t-foreach="grouped_by_cfop_type_entry_notes" t-as="entries">
+                                        <tr>
+                                            <td t-esc="entries" />
+                                            <t t-if="entries == '1000'">
+                                                <td>Do Estado</td>
+                                            </t>
+                                            <t t-elif="entries == '2000'">
+                                                <td>De outros Estados</td>
+                                            </t>
+                                            <t t-elif="entries == '3000'">
+                                                <td>Do Exterior</td>
+                                            </t>
+                                            <td t-esc="grouped_by_cfop_type_entry_notes[entries]['valor_bruto']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="grouped_by_cfop_type_entry_notes[entries]['icms_base_calculo']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="grouped_by_cfop_type_entry_notes[entries]['icms_valor']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="grouped_by_cfop_type_entry_notes[entries]['isento']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="grouped_by_cfop_type_entry_notes[entries]['outros']" t-options="{'widget': 'float', 'precision': 2}" />
+                                        </tr>
+                                    </t-foreach>
+                                </t>
+                                <!-- <t t-else="">
+                                    <h3>Não Existem Informações para Serem Mostradas</h3>
+                                </t> -->
                             </tbody>
                             <!-- ###################################### -->
                             <!-- REALIZA A SOMATÓRIA GERAL -->
                             <!-- ###################################### -->
                             <tbody>
-                                <tr>
-                                    <td colspan="2" class="text-center bg-dark text-light">TOTAIS</td>
-                                    <td t-esc="total_entry_notes['valor_bruto']" t-options="{'widget': 'float', 'precision': 2}"/>
-                                    <td t-esc="total_entry_notes['icms_base_calculo']" t-options="{'widget': 'float', 'precision': 2}"/>
-                                    <td t-esc="total_entry_notes['icms_valor']" t-options="{'widget': 'float', 'precision': 2}"/>
-                                    <td t-esc="total_entry_notes['isento']" t-options="{'widget': 'float', 'precision': 2}"/>
-                                    <td t-esc="total_entry_notes['outros']" t-options="{'widget': 'float', 'precision': 2}"/>
-                                </tr>
+                                <t t-if="total_entry_notes">
+                                    <tr>
+                                        <td colspan="2" class="text-center bg-dark text-light">TOTAIS</td>
+                                        <td t-esc="total_entry_notes['valor_bruto']" t-options="{'widget': 'float', 'precision': 2}"/>
+                                        <td t-esc="total_entry_notes['icms_base_calculo']" t-options="{'widget': 'float', 'precision': 2}"/>
+                                        <td t-esc="total_entry_notes['icms_valor']" t-options="{'widget': 'float', 'precision': 2}"/>
+                                        <td t-esc="total_entry_notes['isento']" t-options="{'widget': 'float', 'precision': 2}"/>
+                                        <td t-esc="total_entry_notes['outros']" t-options="{'widget': 'float', 'precision': 2}"/>
+                                    </tr>
+                                </t>
+                                <!-- <t t-else="">
+                                    <h3>Não Existem Informações para Serem Mostradas</h3>
+                                </t> -->
                             </tbody>
                         </table>
 
@@ -170,16 +184,21 @@
                                 <!-- ###################################### -->
                                 <!-- REALIZADA A SOMATÓRIA POR CFOP, EX: 5102, 5404... -->
                                 <!-- ###################################### -->
-                                <t t-foreach="exit_notes_by_cfop" t-as="entry">
-                                    <tr>
-                                        <td colspan="2" t-esc="entry"></td>
-                                        <td t-esc="exit_notes_by_cfop[entry]['valor_bruto']" t-options="{'widget': 'float', 'precision': 2}" />
-                                        <td t-esc="exit_notes_by_cfop[entry]['icms_base_calculo']" t-options="{'widget': 'float', 'precision': 2}" />
-                                        <td t-esc="exit_notes_by_cfop[entry]['icms_valor']" t-options="{'widget': 'float', 'precision': 2}" />
-                                        <td t-esc="exit_notes_by_cfop[entry]['isento']" t-options="{'widget': 'float', 'precision': 2}" />
-                                        <td t-esc="exit_notes_by_cfop[entry]['outros']" t-options="{'widget': 'float', 'precision': 2}" />
-                                    </tr>
+                                <t t-if="exit_notes_by_cfop">
+                                    <t t-foreach="exit_notes_by_cfop" t-as="entry">
+                                        <tr>
+                                            <td colspan="2" t-esc="entry"></td>
+                                            <td t-esc="exit_notes_by_cfop[entry]['valor_bruto']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="exit_notes_by_cfop[entry]['icms_base_calculo']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="exit_notes_by_cfop[entry]['icms_valor']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="exit_notes_by_cfop[entry]['isento']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="exit_notes_by_cfop[entry]['outros']" t-options="{'widget': 'float', 'precision': 2}" />
+                                        </tr>
+                                    </t>
                                 </t>
+                                <!-- <t t-else="">
+                                    <h3>Não Existem Informações para Serem Mostradas</h3>
+                                </t> -->
                             </tbody>
                             <!-- ###################################### -->
                             <!-- REALIZA A SOMATÓRIA POR TIPO DE CFOP. EX: 5000, 6000, 7000 -->
@@ -188,40 +207,49 @@
                                 <tr>
                                     <th colspan="3" class="text-center bg-dark text-light">Subtotais de Saída</th>
                                 </tr>
-                                <t-foreach t-foreach="grouped_by_cfop_type_exit_notes" t-as="entries">
-                                    <tr>
-                                        <td t-esc="entries">
-                                            <!-- <span t-esc="entries"></span>000 -->
-                                        </td>
-                                        <t t-if="entries == '5000'">
-                                            <td>Do Estado</td>
-                                        </t>
-                                        <t t-elif="entries == '6000'">
-                                            <td>De outros Estados</td>
-                                        </t>
-                                        <t t-elif="entries == '7000'">
-                                            <td>Do Exterior</td>
-                                        </t>
-                                        <td t-esc="grouped_by_cfop_type_exit_notes[entries]['valor_bruto']" t-options="{'widget': 'float', 'precision': 2}" />
-                                        <td t-esc="grouped_by_cfop_type_exit_notes[entries]['icms_base_calculo']" t-options="{'widget': 'float', 'precision': 2}" />
-                                        <td t-esc="grouped_by_cfop_type_exit_notes[entries]['icms_valor']" t-options="{'widget': 'float', 'precision': 2}" />
-                                        <td t-esc="grouped_by_cfop_type_exit_notes[entries]['isento']" t-options="{'widget': 'float', 'precision': 2}" />
-                                        <td t-esc="grouped_by_cfop_type_exit_notes[entries]['outros']" t-options="{'widget': 'float', 'precision': 2}" />
-                                    </tr>
-                                </t-foreach>
+                                <t t-if="grouped_by_cfop_type_exit_notes">
+                                    <t-foreach t-foreach="grouped_by_cfop_type_exit_notes" t-as="entries">
+                                        <tr>
+                                            <td t-esc="entries">
+                                            </td>
+                                            <t t-if="entries == '5000'">
+                                                <td>Do Estado</td>
+                                            </t>
+                                            <t t-elif="entries == '6000'">
+                                                <td>De outros Estados</td>
+                                            </t>
+                                            <t t-elif="entries == '7000'">
+                                                <td>Do Exterior</td>
+                                            </t>
+                                            <td t-esc="grouped_by_cfop_type_exit_notes[entries]['valor_bruto']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="grouped_by_cfop_type_exit_notes[entries]['icms_base_calculo']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="grouped_by_cfop_type_exit_notes[entries]['icms_valor']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="grouped_by_cfop_type_exit_notes[entries]['isento']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="grouped_by_cfop_type_exit_notes[entries]['outros']" t-options="{'widget': 'float', 'precision': 2}" />
+                                        </tr>
+                                    </t-foreach>
+                                </t>
+                                <!-- <t t-else="">
+                                    <h3>Não Existem Informações para Serem Mostradas</h3>
+                                </t> -->
                             </tbody>
                             <!-- ###################################### -->
                             <!-- REALIZA A SOMATÓRIA GERAL -->
                             <!-- ###################################### -->
                             <tbody>
-                                <tr>
-                                    <td colspan="2" class="text-center bg-dark text-light">TOTAIS</td>
-                                    <td t-esc="total_exit_notes['valor_bruto']" t-options="{'widget': 'float', 'precision': 2}"/>
-                                    <td t-esc="total_exit_notes['icms_base_calculo']" t-options="{'widget': 'float', 'precision': 2}" />
-                                    <td t-esc="total_exit_notes['icms_valor']" t-options="{'widget': 'float', 'precision': 2}"/>
-                                    <td t-esc="total_exit_notes['isento']" t-options="{'widget': 'float', 'precision': 2}"/>
-                                    <td t-esc="total_exit_notes['outros']" t-options="{'widget': 'float', 'precision': 2}" />
-                                </tr>
+                                <t t-if="total_exit_notes">
+                                    <tr>
+                                        <td colspan="2" class="text-center bg-dark text-light">TOTAIS</td>
+                                        <td t-esc="total_exit_notes['valor_bruto']" t-options="{'widget': 'float', 'precision': 2}"/>
+                                        <td t-esc="total_exit_notes['icms_base_calculo']" t-options="{'widget': 'float', 'precision': 2}" />
+                                        <td t-esc="total_exit_notes['icms_valor']" t-options="{'widget': 'float', 'precision': 2}"/>
+                                        <td t-esc="total_exit_notes['isento']" t-options="{'widget': 'float', 'precision': 2}"/>
+                                        <td t-esc="total_exit_notes['outros']" t-options="{'widget': 'float', 'precision': 2}" />
+                                    </tr>
+                                </t>
+                                <!-- <t t-else="">
+                                    <h3>Não Existem Informações para Serem Mostradas</h3>
+                                </t> -->
                             </tbody>
                         </table>
 
