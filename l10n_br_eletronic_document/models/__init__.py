@@ -7,3 +7,4 @@ from . import nfe
 from . import fiscal_position
 from . import res_config_settings
 from . import res_partner
+from . import fiscal_observation
