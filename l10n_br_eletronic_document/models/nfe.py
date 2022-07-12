@@ -1051,7 +1051,5 @@ class EletronicDocument(models.Model):
     #AX4B - FISC_0015 - IMPORTAÇÃO DE CAMPO OBSERVAÇÃO FISCAL NA NOTA FISCAL
     @api.onchange('fiscal_position_id')
     def _onchange_fiscal_position(self):
-        self.informacoes_legais = ''
-        if 'fiscal_position_id':
-            self.informacoes_legais = self.fiscal_position_id.note
+        self.informacoes_legais = self.fiscal_position_id.note
     #AX4B - FISC_0015 - IMPORTAÇÃO DE CAMPO OBSERVAÇÃO FISCAL NA NOTA FISCAL
