@@ -1,5 +1,5 @@
 <odoo>
-    <record model="ir.ui.view" id="icms_book_report">
+    <record model="ir.ui.view" id="view_icms_book_report">
         <field name="model">wizard.icms_book</field>
         <field name="type">form</field>
         <field name="arch" type="xml">

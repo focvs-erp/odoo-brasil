@@ -105,7 +105,7 @@ class ReportIcmsBook(models.AbstractModel):
             invoices=self.get_invoices_by_operation_type(docs=docs, operation_type='saida'), headers=HEADERS)
 
         return {
-            'docs': docs,
+            'company': self.env.user.company_id,
             'date_start': date.fromisoformat(date_start),
             'date_end': date.fromisoformat(date_end),
             'book_sequence': self.generate_book_sequence(
