@@ -3,10 +3,9 @@
 from datetime import date, datetime
 from odoo import api, fields, models
 
-
-class IcmsBook(models.TransientModel):
-    _name = 'wizard.icms_book'
-    _description = "Responsável pelo formulário de consulta do relátorio do icms"
+class IpiBook(models.TransientModel):
+    _name = 'wizard.ipi_book'
+    _description = "Responsável pelo formulário de consulta do relátorio do Ipi"
 
     date_start = fields.Date(string="Date Start")
     date_end = fields.Date(string="Date End")
@@ -20,4 +19,4 @@ class IcmsBook(models.TransientModel):
             },
         }
 
-        return self.env.ref('l10n_br_eletronic_document.icms_book_report').report_action(self, data=data)
+        return self.env.ref('l10n_br_eletronic_document.ipi_book_report').report_action(self, data=data)

@@ -3,3 +3,4 @@
 
 from . import danfe_report
 from . import icms_book
+from . import ipi_book

@@ -42,12 +42,14 @@
         'wizard/export_nfe.xml',
         'wizard/inutilize_nfe_numeration.xml',
         'wizard/icms_book.xml',
+        'wizard/ipi_book.xml',
 
         'reports/danfse_sao_paulo.xml',
         'reports/danfse_florianopolis.xml',
         'reports/danfse_bh.xml',
         'reports/danfe_report.xml',
         'reports/icms_book.xml',
+        'reports/ipi_book.xml',
         'views/static_template.xml',
     ],
 }

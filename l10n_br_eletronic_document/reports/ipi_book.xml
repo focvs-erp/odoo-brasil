@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="l10n_br_eletronic_document.ipi_book">
+        <div class="container-fluid">
+            <t t-set="full_width" t-value="True" />
+            <t t-call="web.html_container">
+                <t t-call="web.basic_layout">
+
+                    <div class="container">
+                        <!-- ###################################### -->
+                        <!-- ############ CABEÇALHO ###############-->
+                        <!-- ###################################### -->
+                        <header class=" header border px-3 mt-3">
+                            <h3 class="text-center">Livro de Registro de Apuração do IPI - Modelo P8</h3>
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <span>
+                                        Empresa:
+                                        <b>
+                                            <span t-esc="docs.company_id.name"></span>
+                                        </b>
+                                    </span>
+                                    <br />
+                                    <span>
+                                        Insc. Estadual:
+                                        <span t-esc="docs.company_id.l10n_br_inscr_est"></span>
+                                    </span>
+                                    <br />
+                                    <span>
+                                        CNPJ:
+                                        <span t-esc="docs.company_id.l10n_br_cnpj_cpf"></span>
+                                    </span>
+                                </div>
+                                <div>
+                                    <span>
+                                        Mês ou Período/Ano:
+                                        <span t-esc="date_start" t-options='{"widget": "date"}'></span>
+                                        à
+                                        <span t-esc="date_end" t-options='{"widget": "date"}'></span>
+                                    </span>
+                                    <br />
+                                </div>
+                                <div>
+                                    Folha: <span t-esc="book_sequence"></span>
+                                </div>
+                            </div>
+
+                        </header>
+
+                        <!-- ###################################### -->
+                        <!-- ###################################### -->
+                        <!-- NOTA FISCAIS DE ENTRADA, CFOPS 1,2,3 -->
+                        <!-- ###################################### -->
+                        <!-- ###################################### -->
+                        <table class="table table-bordered table-sm">
+                            <thead class="">
+                                <tr>
+                                    <th colspan="7" class="text-center bg-dark text-light">Entradas</th>
+                                </tr>
+                                <tr>
+                                    <th colspan="2">Codificação</th>
+                                    <th colspan="1" rowspan="3">Valores Contábeis</th>
+                                    <th colspan="4">ICMS - Valores Fiscais</th>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" rowspan="2">Contábil</th>
+                                    <th colspan="1" rowspan="2">Fiscal</th>
+                                    <th colspan="2">Operações com Crédito de Imposto</th>
+                                    <th colspan="2">Operações sem Crédito de Imposto</th>
+                                </tr>
+                                <tr>
+                                    <th colspan="1">Base de Calculo</th>
+                                    <th colspan="1">Imposto Creditado</th>
+                                    <th colspan="1">Isentas ou não Tributadas</th>
+                                    <th colspan="1">Outras</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <!-- ###################################### -->
+                                <!-- REALIZADA A SOMATÓRIA POR CFOP, EX: 1102, 1404... -->
+                                <!-- ###################################### -->
+                                <t t-if="entry_notes_by_cfop">
+                                    <t t-foreach="entry_notes_by_cfop" t-as="entry">
+                                        <tr>
+                                            <td colspan="2" t-esc="entry"></td>
+                                            <td t-esc="entry_notes_by_cfop[entry]['valor_bruto']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="entry_notes_by_cfop[entry]['icms_base_calculo']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="entry_notes_by_cfop[entry]['icms_valor']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="entry_notes_by_cfop[entry]['isento']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="entry_notes_by_cfop[entry]['outros']" t-options="{'widget': 'float', 'precision': 2}" />
+                                        </tr>
+                                    </t>
+                                </t>
+                                <!-- <t t-else="">
+                                    <h3>Não Existem Informações para Serem Mostradas</h3>
+                                </t> -->
+
+                            </tbody>
+                            <!-- ###################################### -->
+                            <!-- REALIZA A SOMATÓRIA POR TIPO DE CFOP. EX: 1000 -->
+                            <!-- ###################################### -->
+                            <tbody>
+                                <tr>
+                                    <th colspan="3" class="text-center bg-dark text-light">Subtotais de Entrada</th>
+                                </tr>
+                                <t t-if="grouped_by_cfop_type_entry_notes">
+                                    <t-foreach t-foreach="grouped_by_cfop_type_entry_notes" t-as="entries">
+                                        <tr>
+                                            <td t-esc="entries" />
+                                            <t t-if="entries == '1000'">
+                                                <td>Do Estado</td>
+                                            </t>
+                                            <t t-elif="entries == '2000'">
+                                                <td>De outros Estados</td>
+                                            </t>
+                                            <t t-elif="entries == '3000'">
+                                                <td>Do Exterior</td>
+                                            </t>
+                                            <td t-esc="grouped_by_cfop_type_entry_notes[entries]['valor_bruto']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="grouped_by_cfop_type_entry_notes[entries]['icms_base_calculo']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="grouped_by_cfop_type_entry_notes[entries]['icms_valor']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="grouped_by_cfop_type_entry_notes[entries]['isento']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="grouped_by_cfop_type_entry_notes[entries]['outros']" t-options="{'widget': 'float', 'precision': 2}" />
+                                        </tr>
+                                    </t-foreach>
+                                </t>
+                                <!-- <t t-else="">
+                                    <h3>Não Existem Informações para Serem Mostradas</h3>
+                                </t> -->
+                            </tbody>
+                            <!-- ###################################### -->
+                            <!-- REALIZA A SOMATÓRIA GERAL -->
+                            <!-- ###################################### -->
+                            <tbody>
+                                <t t-if="total_entry_notes">
+                                    <tr>
+                                        <td colspan="2" class="text-center bg-dark text-light">TOTAIS</td>
+                                        <td t-esc="total_entry_notes['valor_bruto']" t-options="{'widget': 'float', 'precision': 2}"/>
+                                        <td t-esc="total_entry_notes['icms_base_calculo']" t-options="{'widget': 'float', 'precision': 2}"/>
+                                        <td t-esc="total_entry_notes['icms_valor']" t-options="{'widget': 'float', 'precision': 2}"/>
+                                        <td t-esc="total_entry_notes['isento']" t-options="{'widget': 'float', 'precision': 2}"/>
+                                        <td t-esc="total_entry_notes['outros']" t-options="{'widget': 'float', 'precision': 2}"/>
+                                    </tr>
+                                </t>
+                                <!-- <t t-else="">
+                                    <h3>Não Existem Informações para Serem Mostradas</h3>
+                                </t> -->
+                            </tbody>
+                        </table>
+
+                        <br />
+                        <!-- ###################################### -->
+                        <!-- ###################################### -->
+                        <!-- NOTA FISCAIS DE SAIDAS, CFOPS 5,6,7 -->
+                        <!-- ###################################### -->
+                        <!-- ###################################### -->
+
+                        <table class="table table-bordered table-sm">
+                            <thead class="">
+                                <tr>
+                                    <th colspan="7" class="text-center bg-dark text-light">Saídas</th>
+                                </tr>
+                                <tr>
+                                    <th colspan="2">Codificação</th>
+                                    <th colspan="1" rowspan="3">Valores Contábeis</th>
+                                    <th colspan="4">ICMS - Valores Fiscais</th>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" rowspan="2">Contábil</th>
+                                    <th colspan="1" rowspan="2">Fiscal</th>
+                                    <th colspan="2">Operações com Crédito de Imposto</th>
+                                    <th colspan="2">Operações sem Crédito de Imposto</th>
+                                </tr>
+                                <tr>
+                                    <th colspan="1">Base de Calculo</th>
+                                    <th colspan="1">Imposto Creditado</th>
+                                    <th colspan="1">Isentas ou não Tributadas</th>
+                                    <th colspan="1">Outras</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <!-- ###################################### -->
+                                <!-- REALIZADA A SOMATÓRIA POR CFOP, EX: 5102, 5404... -->
+                                <!-- ###################################### -->
+                                <t t-if="exit_notes_by_cfop">
+                                    <t t-foreach="exit_notes_by_cfop" t-as="entry">
+                                        <tr>
+                                            <td colspan="2" t-esc="entry"></td>
+                                            <td t-esc="exit_notes_by_cfop[entry]['valor_bruto']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="exit_notes_by_cfop[entry]['icms_base_calculo']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="exit_notes_by_cfop[entry]['icms_valor']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="exit_notes_by_cfop[entry]['isento']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="exit_notes_by_cfop[entry]['outros']" t-options="{'widget': 'float', 'precision': 2}" />
+                                        </tr>
+                                    </t>
+                                </t>
+                                <!-- <t t-else="">
+                                    <h3>Não Existem Informações para Serem Mostradas</h3>
+                                </t> -->
+                            </tbody>
+                            <!-- ###################################### -->
+                            <!-- REALIZA A SOMATÓRIA POR TIPO DE CFOP. EX: 5000, 6000, 7000 -->
+                            <!-- ###################################### -->
+                            <tbody>
+                                <tr>
+                                    <th colspan="3" class="text-center bg-dark text-light">Subtotais de Saída</th>
+                                </tr>
+                                <t t-if="grouped_by_cfop_type_exit_notes">
+                                    <t-foreach t-foreach="grouped_by_cfop_type_exit_notes" t-as="entries">
+                                        <tr>
+                                            <td t-esc="entries">
+                                            </td>
+                                            <t t-if="entries == '5000'">
+                                                <td>Do Estado</td>
+                                            </t>
+                                            <t t-elif="entries == '6000'">
+                                                <td>De outros Estados</td>
+                                            </t>
+                                            <t t-elif="entries == '7000'">
+                                                <td>Do Exterior</td>
+                                            </t>
+                                            <td t-esc="grouped_by_cfop_type_exit_notes[entries]['valor_bruto']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="grouped_by_cfop_type_exit_notes[entries]['icms_base_calculo']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="grouped_by_cfop_type_exit_notes[entries]['icms_valor']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="grouped_by_cfop_type_exit_notes[entries]['isento']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="grouped_by_cfop_type_exit_notes[entries]['outros']" t-options="{'widget': 'float', 'precision': 2}" />
+                                        </tr>
+                                    </t-foreach>
+                                </t>
+                                <!-- <t t-else="">
+                                    <h3>Não Existem Informações para Serem Mostradas</h3>
+                                </t> -->
+                            </tbody>
+                            <!-- ###################################### -->
+                            <!-- REALIZA A SOMATÓRIA GERAL -->
+                            <!-- ###################################### -->
+                            <tbody>
+                                <t t-if="total_exit_notes">
+                                    <tr>
+                                        <td colspan="2" class="text-center bg-dark text-light">TOTAIS</td>
+                                        <td t-esc="total_exit_notes['valor_bruto']" t-options="{'widget': 'float', 'precision': 2}"/>
+                                        <td t-esc="total_exit_notes['icms_base_calculo']" t-options="{'widget': 'float', 'precision': 2}" />
+                                        <td t-esc="total_exit_notes['icms_valor']" t-options="{'widget': 'float', 'precision': 2}"/>
+                                        <td t-esc="total_exit_notes['isento']" t-options="{'widget': 'float', 'precision': 2}"/>
+                                        <td t-esc="total_exit_notes['outros']" t-options="{'widget': 'float', 'precision': 2}" />
+                                    </tr>
+                                </t>
+                                <!-- <t t-else="">
+                                    <h3>Não Existem Informações para Serem Mostradas</h3>
+                                </t> -->
+                            </tbody>
+                        </table>
+
+
+                        <br />
+
+                        <!-- ###################################### -->
+                        <!-- CABEÇALHO -->
+                        <!-- ###################################### -->
+                        <!-- <div class="header border px-3 mt-3">
+                            <h3 class="text-center">Resumo da Apuração do Imposto</h3>
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <span>Empresa: ME de Sistemas e Operações de software LTDA</span>
+                                    <br />
+                                    <span>Inscrição Estadual: 055.136.400.650</span>
+                                    <br />
+                                    <span>CNPJ: 45.008.672/0001-81</span>
+                                </div>
+                                <div>
+                                    <br />
+                                    <br />
+                                    <span>Mês ou Período/Ano: 01/01/2022 à 31/01/2021</span>
+                                    <br />
+                                </div>
+                                <div>
+                                    <br />
+                                    <span>Livro: 001</span>
+                                    <br />
+                                    <span>Folha: 00101992</span>
+                                </div>
+                            </div>
+                        </div> -->
+                        <!-- ###################################### -->
+                        <!-- Resumo de Apuração do Imposto -->
+                        <!-- ###################################### -->
+                        <!-- <table class="table table-bordered table-sm table-striped">
+                            <thead>
+                                <tr>
+                                    <th colspan="1" rowspan="2">DÉBITO DO IMPOSTO</th>
+                                    <th colspan="3">Valores</th>
+                                </tr>
+                                <tr>
+                                    <th colspan="1">Coluna Auxiliar</th>
+                                    <th colspan="2">Somas</th>
+                                </tr>
+                            </thead>
+                            <tbody class="apuracao_imposto">
+                                <tr>
+                                    <td>001 POR SAIDAS/PRESTAÇÕES COM DÉBITO DO IMPOSTO</td>
+                                    <td></td>
+                                    <td>R$972,58</td>
+                                </tr>
+                                <tr>
+                                    <td>002 OUTROS DÉBITOS ( DISCRIMINAR ABAIXO) </td>
+                                    <td></td>
+                                    <td>R$11972,58</td>
+                                </tr>
+                                <tr>
+                                    <td> EST. BOL. ATA. ART.67 III RICMS 06/21 </td>
+                                    <td>0,00</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td> EST. DESTRUICAO ART.67 III RICMS 06/21 </td>
+                                    <td>0,00</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>003 ESTORNO DE CRÉDITO ( DISCRIMINAR ABAIXO ) </td>
+                                    <td>0,00</td>
+                                    <td>R$1972,58</td>
+                                </tr>
+                                <tr>
+                                    <td>004 SUBTOTAL </td>
+                                    <td>0,00</td>
+                                    <td>R$1972,58</td>
+                                </tr>
+                            </tbody>
+                            <tbody class="apuracao_imposto">
+                                <tr>
+                                    <th colspan="1" class="text-center">CRÉDITO DO IMPOSTO</th>
+                                    <th colspan=""></th>
+                                    <th colspan=""></th>
+                                </tr>
+                                <tr>
+                                    <td>005 POR ENTRADAS/AQUISIÇÕES COM CRÉDITO DO IMPOSTO</td>
+                                    <td></td>
+                                    <td>R$1972,58</td>
+                                </tr>
+                                <tr>
+                                    <td>006 OUTROS CRÉDITOS ( DISCRIMINAR ABAIXO) </td>
+                                    <td></td>
+                                    <td>R$11972,58</td>
+                                </tr>
+                                <tr>
+                                    <td>CRED.EC_87 06/21 </td>
+                                    <td>0,00</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>007 ESTORNO DE DÉBITOS ( DISCRIMINAR ABAIXO ) </td>
+                                    <td>0,00</td>
+                                    <td>R$1972,58</td>
+                                </tr>
+                                <tr>
+                                    <td>008 SUBTOTAL </td>
+                                    <td>0,00</td>
+                                    <td>R$1972,58</td>
+                                </tr>
+                            </tbody> -->
+                    </div>
+                </t>
+            </t>
+        </div>
+    </template>
+
+    <report id="ipi_book_report" model="wizard.ipi_book" string="Icms Book Report" report_type="qweb-html" name="l10n_br_eletronic_document.ipi_book" />
+</odoo>

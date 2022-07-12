@@ -1,0 +1,27 @@
+<odoo>
+    <record model="ir.ui.view" id="ipi_book_report">
+        <field name="model">wizard.ipi_book</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="date_start" required="1" />
+                        </group>
+                        <group>
+                            <field name="date_end" required="1" />
+                        </group>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="get_report" string="Generate Book" type="object" class="oe_highlight" />
+                    <button string="Cancel" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <act_window name="Ipi Book" id="action_ipi_book_report" res_model="wizard.ipi_book" view_mode="form" target="new" />
+    <menuitem name="Generate Ipi Book" action="action_ipi_book_report" id="menu_ipi_book" parent="account.account_account_menu" />
+</odoo>
