@@ -59,21 +59,27 @@ class ReportIpiBook(models.AbstractModel):
 
     def calculate_total_by_cfop(self, invoices: List, headers: List[str]) -> Dict[str, Dict[str, float]]:
         """Realiza o calculo do totalizador por cfop com a condição do tipo de imposto por cst"""
-        # SE O CST FOR 00, 10, 20, 51, 60, 70 SERÁ SOMADO E IRÁ PARA O CAMPO IMPOSTO CREDITADO "icms_valor"
-        # SE O CST FOR 40 OU 41 SERÃO SOMADOS E ADICIONADOS NO CAMPO "isento"
-        # SE O CST FOR 90 OU 50 SERÁ SOMADOS E ADICINADOS NO CAMPO "outros"
+        # Entrada: 00, 01, 02, 03, 04, 05, 49
+        # ipi: 00, 01, 
+        # outros: 49, 03
+        # isentos: 04, 05, 02
+
+        # Saida: 50, 51, 52, 53, 54, 55, 99
+        # ipi: 50, 51
+        # outros: 53, 54, 55
+        # isentos: 52, 99
         grouped_by_cfop = defaultdict(lambda: dict.fromkeys(headers, 0.0))
         invoices_lines = chain.from_iterable(
             map(lambda item: item.document_line_ids, invoices))
 
         ipi_cst = {
-            "icms": ["00", "01", "05", "60", "70"],
-            "outros": ["05", "99"],
-            "isento": ["52", "53", "02", "03"],
+            "ipi": ['00', '01', '50', '51'],
+            "outros": ['03', '49', '53', '54', '55'],
+            "isento": ['02', '04', '05', '52', '99'],
         }
 
         for invoice in invoices_lines:
-            if invoice.ipi_cst in ipi_cst["icms"]:
+            if invoice.ipi_cst in ipi_cst["ipi"]:
                 grouped_by_cfop[invoice.cfop]["ipi_valor"] += invoice.ipi_valor
             elif invoice.ipi_cst in ipi_cst["outros"]:
                 grouped_by_cfop[invoice.cfop]["outros"] += invoice.valor_bruto
