@@ -87,7 +87,7 @@
                                             <td t-esc="entry_notes_by_cfop[entry]['valor_bruto']" t-options="{'widget': 'float', 'precision': 2}" />
                                             <td t-esc="entry_notes_by_cfop[entry]['ipi_base_calculo']" t-options="{'widget': 'float', 'precision': 2}" />
                                             <td t-esc="entry_notes_by_cfop[entry]['ipi_valor']" t-options="{'widget': 'float', 'precision': 2}" />
-                                            <td t-esc="entry_notes_by_cfop[entry]['isento']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="entry_notes_by_cfop[entry]['isentos']" t-options="{'widget': 'float', 'precision': 2}" />
                                             <td t-esc="entry_notes_by_cfop[entry]['outros']" t-options="{'widget': 'float', 'precision': 2}" />
                                         </tr>
                                     </t>
@@ -120,7 +120,7 @@
                                             <td t-esc="grouped_by_cfop_type_entry_notes[entries]['valor_bruto']" t-options="{'widget': 'float', 'precision': 2}" />
                                             <td t-esc="grouped_by_cfop_type_entry_notes[entries]['ipi_base_calculo']" t-options="{'widget': 'float', 'precision': 2}" />
                                             <td t-esc="grouped_by_cfop_type_entry_notes[entries]['ipi_valor']" t-options="{'widget': 'float', 'precision': 2}" />
-                                            <td t-esc="grouped_by_cfop_type_entry_notes[entries]['isento']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="grouped_by_cfop_type_entry_notes[entries]['isentos']" t-options="{'widget': 'float', 'precision': 2}" />
                                             <td t-esc="grouped_by_cfop_type_entry_notes[entries]['outros']" t-options="{'widget': 'float', 'precision': 2}" />
                                         </tr>
                                     </t-foreach>
@@ -139,7 +139,7 @@
                                         <td t-esc="total_entry_notes['valor_bruto']" t-options="{'widget': 'float', 'precision': 2}"/>
                                         <td t-esc="total_entry_notes['ipi_base_calculo']" t-options="{'widget': 'float', 'precision': 2}"/>
                                         <td t-esc="total_entry_notes['ipi_valor']" t-options="{'widget': 'float', 'precision': 2}"/>
-                                        <td t-esc="total_entry_notes['isento']" t-options="{'widget': 'float', 'precision': 2}"/>
+                                        <td t-esc="total_entry_notes['isentos']" t-options="{'widget': 'float', 'precision': 2}"/>
                                         <td t-esc="total_entry_notes['outros']" t-options="{'widget': 'float', 'precision': 2}"/>
                                     </tr>
                                 </t>
@@ -191,7 +191,7 @@
                                             <td t-esc="exit_notes_by_cfop[entry]['valor_bruto']" t-options="{'widget': 'float', 'precision': 2}" />
                                             <td t-esc="exit_notes_by_cfop[entry]['ipi_base_calculo']" t-options="{'widget': 'float', 'precision': 2}" />
                                             <td t-esc="exit_notes_by_cfop[entry]['ipi_valor']" t-options="{'widget': 'float', 'precision': 2}" />
-                                            <td t-esc="exit_notes_by_cfop[entry]['isento']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="exit_notes_by_cfop[entry]['isentos']" t-options="{'widget': 'float', 'precision': 2}" />
                                             <td t-esc="exit_notes_by_cfop[entry]['outros']" t-options="{'widget': 'float', 'precision': 2}" />
                                         </tr>
                                     </t>
@@ -224,7 +224,7 @@
                                             <td t-esc="grouped_by_cfop_type_exit_notes[entries]['valor_bruto']" t-options="{'widget': 'float', 'precision': 2}" />
                                             <td t-esc="grouped_by_cfop_type_exit_notes[entries]['ipi_base_calculo']" t-options="{'widget': 'float', 'precision': 2}" />
                                             <td t-esc="grouped_by_cfop_type_exit_notes[entries]['ipi_valor']" t-options="{'widget': 'float', 'precision': 2}" />
-                                            <td t-esc="grouped_by_cfop_type_exit_notes[entries]['isento']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="grouped_by_cfop_type_exit_notes[entries]['isentos']" t-options="{'widget': 'float', 'precision': 2}" />
                                             <td t-esc="grouped_by_cfop_type_exit_notes[entries]['outros']" t-options="{'widget': 'float', 'precision': 2}" />
                                         </tr>
                                     </t-foreach>
@@ -243,7 +243,7 @@
                                         <td t-esc="total_exit_notes['valor_bruto']" t-options="{'widget': 'float', 'precision': 2}"/>
                                         <td t-esc="total_exit_notes['ipi_base_calculo']" t-options="{'widget': 'float', 'precision': 2}" />
                                         <td t-esc="total_exit_notes['ipi_valor']" t-options="{'widget': 'float', 'precision': 2}"/>
-                                        <td t-esc="total_exit_notes['isento']" t-options="{'widget': 'float', 'precision': 2}"/>
+                                        <td t-esc="total_exit_notes['isentos']" t-options="{'widget': 'float', 'precision': 2}"/>
                                         <td t-esc="total_exit_notes['outros']" t-options="{'widget': 'float', 'precision': 2}" />
                                     </tr>
                                 </t>
