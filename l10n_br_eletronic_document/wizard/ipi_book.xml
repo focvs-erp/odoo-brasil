@@ -23,5 +23,5 @@
     </record>
 
     <act_window name="Ipi Book" id="action_ipi_book_report" res_model="wizard.ipi_book" view_mode="form" target="new" />
-    <menuitem name="Generate Ipi Book" action="action_ipi_book_report" id="menu_ipi_book" parent="account.account_account_menu" />
+    <menuitem name="Ipi Calculation Book" action="action_ipi_book_report" id="menu_ipi_book" parent="account.account_account_menu" />
 </odoo>
