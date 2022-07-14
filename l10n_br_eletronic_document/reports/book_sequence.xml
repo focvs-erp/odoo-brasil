@@ -9,4 +9,13 @@
         <field name="number_next">1</field>
         <field name="number_increment">1</field>
     </record>
+
+    <record model="ir.sequence" id="ipi_book_sequence">
+        <field name="name">Calculate Ipi Book</field>
+        <field name="code">l10n_br_eletronic_document.ipi_book_sequece_report</field>
+        <field name="prefix"></field>
+        <field name="suffix"></field>
+        <field name="number_next">1</field>
+        <field name="padding">7</field>
+    </record>
 </odoo>
