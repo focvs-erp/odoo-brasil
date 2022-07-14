@@ -48,7 +48,7 @@
         'reports/danfe_report.xml',
         'reports/icms_book.xml',
         'reports/ipi_book.xml',
-        'reports/book_sequence.xml',
+        'reports/sequences.xml',
 
         'views/static_template.xml',  # CSS para relátorio de icms e ipi
     ],
