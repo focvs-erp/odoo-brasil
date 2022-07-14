@@ -7,8 +7,8 @@ class IpiBook(models.TransientModel):
     _name = 'wizard.ipi_book'
     _description = "Responsável pelo formulário de consulta do relátorio do Ipi"
 
-    date_start = fields.Date(string="Date Start", default=date(2021, 1, 1))
-    date_end = fields.Date(string="Date End", default=date(2022, 12, 31))
+    date_start = fields.Date(string="Date Start")
+    date_end = fields.Date(string="Date End")
 
     def get_report(self):
         data = {
