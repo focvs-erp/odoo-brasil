@@ -85,7 +85,7 @@ class ReportCalculationBook(models.AbstractModel):
              ('code_related', '=', '55'),
              ('codigo_retorno', '=', '100'),
              ('company_id', '=', self.env.user.company_id.id),
-             ('numero', '!=', False)])
+             ('numero', '!=', False)], order='numero')
 
         entry_notes_by_cfop = self.calculate_total_grouped_by_cfop(
             invoices=self.get_invoices_by_operation_type(docs=docs, operation_type='entrada'))
