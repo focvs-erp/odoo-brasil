@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <record id="l10n_br_eletronic_document_icms_book_sequence" model="ir.sequence">
-        <field name="name">Livro Sequêncial</field>
-        <field name="code">l10n_br_eletronic_document.icms_book_sequence</field>
+        <field name="name">Calculate Icms Book</field>
+        <field name="code">l10n_br_eletronic_document.icms_book_sequence_report</field>
         <field name="active">1</field>
         <field name="prefix"></field>
         <field name="padding">7</field>

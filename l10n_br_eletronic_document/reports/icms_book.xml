@@ -17,18 +17,18 @@
                                     <span>
                                         Empresa:
                                         <b>
-                                            <span t-esc="docs.company_id.name"></span>
+                                            <span t-esc="company.name"></span>
                                         </b>
                                     </span>
                                     <br />
                                     <span>
                                         Insc. Estadual:
-                                        <span t-esc="docs.company_id.l10n_br_inscr_est"></span>
+                                        <span t-esc="company.l10n_br_inscr_est"></span>
                                     </span>
                                     <br />
                                     <span>
                                         CNPJ:
-                                        <span t-esc="docs.company_id.l10n_br_cnpj_cpf"></span>
+                                        <span t-esc="company.l10n_br_cnpj_cpf"></span>
                                     </span>
                                 </div>
                                 <div>

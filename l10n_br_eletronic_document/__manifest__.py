@@ -24,8 +24,6 @@
         'security/ir.model.access.csv',
         'security/eletronic_security.xml',
 
-        'views/icms_book_sequece.xml',
-
         'views/res_company.xml',
         'views/account_move.xml',
         'views/eletronic_document.xml',
@@ -49,7 +47,10 @@
         'reports/danfse_bh.xml',
         'reports/danfe_report.xml',
         'reports/icms_book.xml',
+        'reports/icms_book_sequece.xml',
         'reports/ipi_book.xml',
-        'views/static_template.xml',
+        'reports/ipi_book_sequence.xml',
+
+        'views/static_template.xml',  # CSS para relátorio de icms e ipi
     ],
 }
