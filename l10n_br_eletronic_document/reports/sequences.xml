@@ -10,7 +10,7 @@
         <field name="number_increment">1</field>
     </record>
 
-    <record model="ir.sequence" id="ipi_book_sequence">
+    <record id="l10n_br_eletronic_document_ipi_book_sequence" model="ir.sequence">
         <field name="name">Calculate Ipi Book</field>
         <field name="code">l10n_br_eletronic_document.ipi_book_sequece_report</field>
         <field name="prefix"></field>

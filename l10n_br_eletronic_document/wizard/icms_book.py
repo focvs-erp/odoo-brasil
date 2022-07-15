@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
-
-from datetime import date, datetime
-from odoo import api, fields, models
+from odoo import fields, models
 
 
 class IcmsBook(models.TransientModel):
