@@ -2,8 +2,11 @@
 from collections import defaultdict
 from datetime import date
 from itertools import chain, product
-from typing import Dict, Iterable, List
+from typing import Dict, Iterable, List, TypeVar
 from odoo import api, models
+
+
+EletronicDocument = TypeVar('EletronicDocument')
 
 
 class ReportCalculationBook(models.AbstractModel):
@@ -61,7 +64,7 @@ class ReportCalculationBook(models.AbstractModel):
 
         return grouped_by_cfop
 
-    def calculate_total_grouped_by_cfop(self, invoices: List) -> Dict[str, Dict[str, float]]:
+    def calculate_total_grouped_by_cfop(self, invoices: List[EletronicDocument]) -> Dict[str, Dict[str, float]]:
         """Este metodo implementa a base para gerar os calculos do produto por cfop.
             porem falta a funcionalidade para que seja calculado o cst onde deve adicionar se é ipi, icms, isento ou outros."""
 

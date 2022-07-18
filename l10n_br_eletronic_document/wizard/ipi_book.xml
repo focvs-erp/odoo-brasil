@@ -7,6 +7,8 @@
                 <sheet>
                     <group>
                         <field name="date_start" required="1" />
+                    </group>
+                    <group>
                         <field name="date_end" required="1" />
                     </group>
                 </sheet>
@@ -19,5 +21,5 @@
     </record>
 
     <act_window name="Ipi Book" id="action_ipi_book_report" res_model="wizard.ipi_book" view_mode="form" target="new" />
-    <menuitem name="Ipi Calculation Book" action="action_ipi_book_report" id="menu_ipi_book" parent="account.account_account_menu" />
+    <menuitem name="Ipi Calculation Book" action="action_ipi_book_report" id="menu_ipi_book" parent="ax4b_fiscal.fiscal_books" />
 </odoo>

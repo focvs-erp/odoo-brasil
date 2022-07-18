@@ -102,7 +102,7 @@
                             <!-- ###################################### -->
                             <tbody>
                                 <tr>
-                                    <th colspan="3" class="text-center bg-dark text-light">Subtotáis de Entrada</th>
+                                    <th colspan="3" class="text-center bg-dark text-light">Subtotais de Entrada</th>
                                 </tr>
                                 <t t-if="grouped_by_cfop_type_entry_notes">
                                     <t-foreach t-foreach="grouped_by_cfop_type_entry_notes" t-as="entries">
