@@ -2,7 +2,6 @@
 
 from datetime import date, datetime
 from odoo import api, fields, models
-from traitlets import default
 
 
 class IcmsBook(models.TransientModel):
