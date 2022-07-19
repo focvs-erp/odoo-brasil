@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0+ec-20220622\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-08 16:58+0000\n"
-"PO-Revision-Date: 2022-07-08 16:58+0000\n"
+"POT-Creation-Date: 2022-07-15 19:29+0000\n"
+"PO-Revision-Date: 2022-07-15 19:29+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -1450,7 +1450,8 @@ msgstr ""
 
 #. module: l10n_br_eletronic_document
 #: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.icms_book
-msgid "Base de Calculo"
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.ipi_book
+msgid "Base de Cálculo"
 msgstr ""
 
 #. module: l10n_br_eletronic_document
@@ -1574,6 +1575,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template
 #: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template_bh_body
 #: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.icms_book
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.ipi_book
 msgid "CNPJ:"
 msgstr ""
 
@@ -1657,6 +1659,11 @@ msgstr ""
 #. module: l10n_br_eletronic_document
 #: model:ir.ui.menu,name:l10n_br_eletronic_document.menu_br_account_fiscal_manager
 msgid "Cadastros"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_ipi_book_report
+msgid "Cancel"
 msgstr ""
 
 #. module: l10n_br_eletronic_document
@@ -1794,6 +1801,7 @@ msgstr ""
 
 #. module: l10n_br_eletronic_document
 #: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.icms_book
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.ipi_book
 msgid "Codificação"
 msgstr ""
 
@@ -1875,6 +1883,7 @@ msgstr ""
 
 #. module: l10n_br_eletronic_document
 #: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.icms_book
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.ipi_book
 msgid "Contábil"
 msgstr ""
 
@@ -1899,11 +1908,13 @@ msgstr ""
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_related_document__create_uid
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_volume__create_uid
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_company_iest__create_uid
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_base_calculation_book__create_uid
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_cancel_nfe__create_uid
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_carta_correcao_eletronica__create_uid
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_export_nfe__create_uid
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_icms_book__create_uid
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_inutilization_nfe_numeration__create_uid
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_ipi_book__create_uid
 msgid "Created by"
 msgstr ""
 
@@ -1922,11 +1933,13 @@ msgstr ""
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_related_document__create_date
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_volume__create_date
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_company_iest__create_date
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_base_calculation_book__create_date
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_cancel_nfe__create_date
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_carta_correcao_eletronica__create_date
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_export_nfe__create_date
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_icms_book__create_date
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_inutilization_nfe_numeration__create_date
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_ipi_book__create_date
 msgid "Created on"
 msgstr ""
 
@@ -2137,17 +2150,22 @@ msgid "Data para saída/entrada das mercadorias"
 msgstr ""
 
 #. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_base_calculation_book__date_end
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_icms_book__date_end
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_ipi_book__date_end
 msgid "Date End"
 msgstr "Data Final"
 
 #. module: l10n_br_eletronic_document
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_base_calculation_book__date_start
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_icms_book__date_start
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_ipi_book__date_start
 msgid "Date Start"
 msgstr "Data Inicial"
 
 #. module: l10n_br_eletronic_document
 #: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.icms_book
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.ipi_book
 msgid "De outros Estados"
 msgstr ""
 
@@ -2260,26 +2278,32 @@ msgstr ""
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_reboque__display_name
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_related_document__display_name
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_volume__display_name
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_report_l10n_br_eletronic_document_calculation_book__display_name
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_report_l10n_br_eletronic_document_icms_book__display_name
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_report_l10n_br_eletronic_document_ipi_book__display_name
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_company__display_name
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_company_iest__display_name
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_config_settings__display_name
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_partner__display_name
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_base_calculation_book__display_name
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_cancel_nfe__display_name
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_carta_correcao_eletronica__display_name
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_export_nfe__display_name
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_icms_book__display_name
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_inutilization_nfe_numeration__display_name
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_ipi_book__display_name
 msgid "Display Name"
 msgstr "Nome exibido"
 
 #. module: l10n_br_eletronic_document
 #: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.icms_book
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.ipi_book
 msgid "Do Estado"
 msgstr ""
 
 #. module: l10n_br_eletronic_document
 #: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.icms_book
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.ipi_book
 msgid "Do Exterior"
 msgstr ""
 
@@ -2405,6 +2429,7 @@ msgstr ""
 
 #. module: l10n_br_eletronic_document
 #: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.icms_book
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.ipi_book
 msgid "Empresa:"
 msgstr ""
 
@@ -2424,6 +2449,7 @@ msgstr ""
 
 #. module: l10n_br_eletronic_document
 #: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.icms_book
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.ipi_book
 msgid "Entradas"
 msgstr ""
 
@@ -2563,6 +2589,7 @@ msgstr ""
 
 #. module: l10n_br_eletronic_document
 #: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.icms_book
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.ipi_book
 msgid "Fiscal"
 msgstr ""
 
@@ -2583,6 +2610,7 @@ msgstr ""
 
 #. module: l10n_br_eletronic_document
 #: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.icms_book
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.ipi_book
 msgid "Folha:"
 msgstr ""
 
@@ -2617,9 +2645,9 @@ msgid "Frete"
 msgstr ""
 
 #. module: l10n_br_eletronic_document
-#: model:ir.ui.menu,name:l10n_br_eletronic_document.menu_icms_book
-msgid "Generate Icms Book"
-msgstr "Livro de Apuração de ICMS"
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_ipi_book_report
+msgid "Generate Book"
+msgstr ""
 
 #. module: l10n_br_eletronic_document
 #: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.view_br_nfse_floripa_res_company_form
@@ -2702,16 +2730,20 @@ msgstr ""
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_reboque__id
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_related_document__id
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_volume__id
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_report_l10n_br_eletronic_document_calculation_book__id
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_report_l10n_br_eletronic_document_icms_book__id
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_report_l10n_br_eletronic_document_ipi_book__id
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_company__id
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_company_iest__id
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_config_settings__id
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_partner__id
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_base_calculation_book__id
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_cancel_nfe__id
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_carta_correcao_eletronica__id
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_export_nfe__id
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_icms_book__id
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_inutilization_nfe_numeration__id
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_ipi_book__id
 msgid "ID"
 msgstr "Identificação"
 
@@ -2751,6 +2783,11 @@ msgid "IPI"
 msgstr ""
 
 #. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.ipi_book
+msgid "IPI - Valores Fiscais"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
 #: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.danfse_report_template
 msgid "IR("
 msgstr ""
@@ -2773,12 +2810,22 @@ msgstr ""
 #. module: l10n_br_eletronic_document
 #: model:ir.actions.act_window,name:l10n_br_eletronic_document.action_icms_book_report
 msgid "Icms Book"
-msgstr ""
+msgstr "Apuração de ICMS"
 
 #. module: l10n_br_eletronic_document
 #: model:ir.actions.report,name:l10n_br_eletronic_document.icms_book_report
 msgid "Icms Book Report"
-msgstr ""
+msgstr "Livro de Apuração de ICMS"
+
+#. module: l10n_br_eletronic_document
+#: model:ir.actions.report,name:l10n_br_eletronic_document.ipi_book_report
+msgid "Ipi Book Report"
+msgstr "Livro de Apuração de IPI"
+
+#. module: l10n_br_eletronic_document
+#: model:ir.ui.menu,name:l10n_br_eletronic_document.menu_icms_book
+msgid "Icms Calculation Book"
+msgstr "Livro de Apuração de ICMS"
 
 #. module: l10n_br_eletronic_document
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__activity_exception_icon
@@ -2829,6 +2876,7 @@ msgstr ""
 
 #. module: l10n_br_eletronic_document
 #: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.icms_book
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.ipi_book
 msgid "Imposto Creditado"
 msgstr ""
 
@@ -2913,6 +2961,7 @@ msgstr ""
 
 #. module: l10n_br_eletronic_document
 #: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.icms_book
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.ipi_book
 msgid "Insc. Estadual:"
 msgstr ""
 
@@ -2971,12 +3020,23 @@ msgid "Invoice Transmission"
 msgstr "Transmissão de NF"
 
 #. module: l10n_br_eletronic_document
+#: model:ir.actions.act_window,name:l10n_br_eletronic_document.action_ipi_book_report
+msgid "Ipi Book"
+msgstr "Apuração de IPI"
+
+#. module: l10n_br_eletronic_document
+#: model:ir.ui.menu,name:l10n_br_eletronic_document.menu_ipi_book
+msgid "Ipi Calculation Book"
+msgstr "Livro de Apuração de IPI"
+
+#. module: l10n_br_eletronic_document
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_eletronic_document__message_is_follower
 msgid "Is Follower"
 msgstr ""
 
 #. module: l10n_br_eletronic_document
 #: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.icms_book
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.ipi_book
 msgid "Isentas ou não Tributadas"
 msgstr ""
 
@@ -3048,16 +3108,20 @@ msgstr ""
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_reboque____last_update
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_related_document____last_update
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_volume____last_update
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_report_l10n_br_eletronic_document_calculation_book____last_update
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_report_l10n_br_eletronic_document_icms_book____last_update
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_report_l10n_br_eletronic_document_ipi_book____last_update
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_company____last_update
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_company_iest____last_update
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_config_settings____last_update
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_partner____last_update
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_base_calculation_book____last_update
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_cancel_nfe____last_update
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_carta_correcao_eletronica____last_update
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_export_nfe____last_update
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_icms_book____last_update
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_inutilization_nfe_numeration____last_update
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_ipi_book____last_update
 msgid "Last Modified on"
 msgstr "Última modificação em"
 
@@ -3076,11 +3140,13 @@ msgstr "Última modificação em"
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_related_document__write_uid
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_volume__write_uid
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_company_iest__write_uid
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_base_calculation_book__write_uid
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_cancel_nfe__write_uid
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_carta_correcao_eletronica__write_uid
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_export_nfe__write_uid
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_icms_book__write_uid
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_inutilization_nfe_numeration__write_uid
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_ipi_book__write_uid
 msgid "Last Updated by"
 msgstr ""
 
@@ -3099,11 +3165,13 @@ msgstr ""
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_related_document__write_date
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_nfe_volume__write_date
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_res_company_iest__write_date
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_base_calculation_book__write_date
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_cancel_nfe__write_date
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_carta_correcao_eletronica__write_date
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_export_nfe__write_date
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_icms_book__write_date
 #: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_inutilization_nfe_numeration__write_date
+#: model:ir.model.fields,field_description:l10n_br_eletronic_document.field_wizard_ipi_book__write_date
 msgid "Last Updated on"
 msgstr ""
 
@@ -3133,8 +3201,18 @@ msgid "Livro de Apuração de ICMS"
 msgstr ""
 
 #. module: l10n_br_eletronic_document
+#: model:ir.model,name:l10n_br_eletronic_document.model_report_l10n_br_eletronic_document_ipi_book
+msgid "Livro de Apuração de IPI"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
 #: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.icms_book
 msgid "Livro de Registro de Apuração do ICMS - RAICMS - Modelo P9"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.ipi_book
+msgid "Livro de Registro de Apuração do IPI - Modelo P8"
 msgstr ""
 
 #. module: l10n_br_eletronic_document
@@ -3253,6 +3331,11 @@ msgid "Modelo"
 msgstr ""
 
 #. module: l10n_br_eletronic_document
+#: model:ir.model,name:l10n_br_eletronic_document.model_report_l10n_br_eletronic_document_calculation_book
+msgid "Modelo Base para uso em livros de apuração e Cálculos no Odoo"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
 #: model:ir.model.fields.selection,name:l10n_br_eletronic_document.selection__res_company__l10n_br_cabecalho_danfe__horizontal
 msgid "Modelo Horizontal"
 msgstr ""
@@ -3321,6 +3404,7 @@ msgstr ""
 
 #. module: l10n_br_eletronic_document
 #: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.icms_book
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.ipi_book
 msgid "Mês ou Período/Ano:"
 msgstr ""
 
@@ -3726,11 +3810,13 @@ msgstr ""
 
 #. module: l10n_br_eletronic_document
 #: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.icms_book
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.ipi_book
 msgid "Operações com Crédito de Imposto"
 msgstr ""
 
 #. module: l10n_br_eletronic_document
 #: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.icms_book
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.ipi_book
 msgid "Operações sem Crédito de Imposto"
 msgstr ""
 
@@ -3741,6 +3827,7 @@ msgstr ""
 
 #. module: l10n_br_eletronic_document
 #: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.icms_book
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.ipi_book
 msgid "Outras"
 msgstr ""
 
@@ -3961,6 +4048,16 @@ msgid "Responsável Técnico"
 msgstr ""
 
 #. module: l10n_br_eletronic_document
+#: model:ir.model,name:l10n_br_eletronic_document.model_wizard_base_calculation_book
+msgid "Responsável pelo form de consulta para livros de apuração"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
+#: model:ir.model,name:l10n_br_eletronic_document.model_wizard_ipi_book
+msgid "Responsável pelo formulário de consulta do relátorio do Ipi"
+msgstr ""
+
+#. module: l10n_br_eletronic_document
 #: model:ir.model,name:l10n_br_eletronic_document.model_wizard_icms_book
 msgid "Responsável pelo formulário de consulta do relátorio do icms"
 msgstr ""
@@ -4040,6 +4137,7 @@ msgstr ""
 
 #. module: l10n_br_eletronic_document
 #: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.icms_book
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.ipi_book
 msgid "Saídas"
 msgstr ""
 
@@ -4176,11 +4274,13 @@ msgstr ""
 
 #. module: l10n_br_eletronic_document
 #: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.icms_book
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.ipi_book
 msgid "Subtotais de Entrada"
 msgstr ""
 
 #. module: l10n_br_eletronic_document
 #: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.icms_book
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.ipi_book
 msgid "Subtotais de Saída"
 msgstr ""
 
@@ -4211,6 +4311,7 @@ msgstr ""
 
 #. module: l10n_br_eletronic_document
 #: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.icms_book
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.ipi_book
 msgid "TOTAIS"
 msgstr ""
 
@@ -4710,6 +4811,7 @@ msgstr ""
 
 #. module: l10n_br_eletronic_document
 #: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.icms_book
+#: model_terms:ir.ui.view,arch_db:l10n_br_eletronic_document.ipi_book
 msgid "Valores Contábeis"
 msgstr ""
 

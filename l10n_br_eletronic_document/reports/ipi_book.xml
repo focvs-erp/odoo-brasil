@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <template id="l10n_br_eletronic_document.icms_book">
+    <template id="l10n_br_eletronic_document.ipi_book">
         <div class="container-fluid">
             <t t-set="full_width" t-value="True" />
             <t t-call="web.html_container">
@@ -11,7 +11,7 @@
                         <!-- ############ CABEÇALHO ###############-->
                         <!-- ###################################### -->
                         <header class=" header border px-3 mt-3">
-                            <h3 class="text-center">Livro de Registro de Apuração do ICMS - RAICMS - Modelo P9</h3>
+                            <h3 class="text-center">Livro de Registro de Apuração do IPI - Modelo P8</h3>
                             <div class="d-flex justify-content-between">
                                 <div>
                                     <span>
@@ -60,7 +60,7 @@
                                 <tr>
                                     <th colspan="2">Codificação</th>
                                     <th colspan="1" rowspan="3">Valores Contábeis</th>
-                                    <th colspan="4">ICMS - Valores Fiscais</th>
+                                    <th colspan="4">IPI - Valores Fiscais</th>
                                 </tr>
                                 <tr>
                                     <th colspan="1" rowspan="2">Contábil</th>
@@ -85,9 +85,9 @@
                                         <tr>
                                             <td colspan="2" t-esc="entry"></td>
                                             <td t-esc="entry_notes_by_cfop[entry]['valor_bruto']" t-options="{'widget': 'float', 'precision': 2}" />
-                                            <td t-esc="entry_notes_by_cfop[entry]['icms_base_calculo']" t-options="{'widget': 'float', 'precision': 2}" />
-                                            <td t-esc="entry_notes_by_cfop[entry]['icms_valor']" t-options="{'widget': 'float', 'precision': 2}" />
-                                            <td t-esc="entry_notes_by_cfop[entry]['isento']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="entry_notes_by_cfop[entry]['ipi_base_calculo']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="entry_notes_by_cfop[entry]['ipi_valor']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="entry_notes_by_cfop[entry]['isentos']" t-options="{'widget': 'float', 'precision': 2}" />
                                             <td t-esc="entry_notes_by_cfop[entry]['outros']" t-options="{'widget': 'float', 'precision': 2}" />
                                         </tr>
                                     </t>
@@ -118,9 +118,9 @@
                                                 <td>Do Exterior</td>
                                             </t>
                                             <td t-esc="grouped_by_cfop_type_entry_notes[entries]['valor_bruto']" t-options="{'widget': 'float', 'precision': 2}" />
-                                            <td t-esc="grouped_by_cfop_type_entry_notes[entries]['icms_base_calculo']" t-options="{'widget': 'float', 'precision': 2}" />
-                                            <td t-esc="grouped_by_cfop_type_entry_notes[entries]['icms_valor']" t-options="{'widget': 'float', 'precision': 2}" />
-                                            <td t-esc="grouped_by_cfop_type_entry_notes[entries]['isento']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="grouped_by_cfop_type_entry_notes[entries]['ipi_base_calculo']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="grouped_by_cfop_type_entry_notes[entries]['ipi_valor']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="grouped_by_cfop_type_entry_notes[entries]['isentos']" t-options="{'widget': 'float', 'precision': 2}" />
                                             <td t-esc="grouped_by_cfop_type_entry_notes[entries]['outros']" t-options="{'widget': 'float', 'precision': 2}" />
                                         </tr>
                                     </t-foreach>
@@ -137,9 +137,9 @@
                                     <tr>
                                         <td colspan="2" class="text-center bg-dark text-light">TOTAIS</td>
                                         <td t-esc="total_entry_notes['valor_bruto']" t-options="{'widget': 'float', 'precision': 2}"/>
-                                        <td t-esc="total_entry_notes['icms_base_calculo']" t-options="{'widget': 'float', 'precision': 2}"/>
-                                        <td t-esc="total_entry_notes['icms_valor']" t-options="{'widget': 'float', 'precision': 2}"/>
-                                        <td t-esc="total_entry_notes['isento']" t-options="{'widget': 'float', 'precision': 2}"/>
+                                        <td t-esc="total_entry_notes['ipi_base_calculo']" t-options="{'widget': 'float', 'precision': 2}"/>
+                                        <td t-esc="total_entry_notes['ipi_valor']" t-options="{'widget': 'float', 'precision': 2}"/>
+                                        <td t-esc="total_entry_notes['isentos']" t-options="{'widget': 'float', 'precision': 2}"/>
                                         <td t-esc="total_entry_notes['outros']" t-options="{'widget': 'float', 'precision': 2}"/>
                                     </tr>
                                 </t>
@@ -164,7 +164,7 @@
                                 <tr>
                                     <th colspan="2">Codificação</th>
                                     <th colspan="1" rowspan="3">Valores Contábeis</th>
-                                    <th colspan="4">ICMS - Valores Fiscais</th>
+                                    <th colspan="4">IPI - Valores Fiscais</th>
                                 </tr>
                                 <tr>
                                     <th colspan="1" rowspan="2">Contábil</th>
@@ -189,9 +189,9 @@
                                         <tr>
                                             <td colspan="2" t-esc="entry"></td>
                                             <td t-esc="exit_notes_by_cfop[entry]['valor_bruto']" t-options="{'widget': 'float', 'precision': 2}" />
-                                            <td t-esc="exit_notes_by_cfop[entry]['icms_base_calculo']" t-options="{'widget': 'float', 'precision': 2}" />
-                                            <td t-esc="exit_notes_by_cfop[entry]['icms_valor']" t-options="{'widget': 'float', 'precision': 2}" />
-                                            <td t-esc="exit_notes_by_cfop[entry]['isento']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="exit_notes_by_cfop[entry]['ipi_base_calculo']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="exit_notes_by_cfop[entry]['ipi_valor']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="exit_notes_by_cfop[entry]['isentos']" t-options="{'widget': 'float', 'precision': 2}" />
                                             <td t-esc="exit_notes_by_cfop[entry]['outros']" t-options="{'widget': 'float', 'precision': 2}" />
                                         </tr>
                                     </t>
@@ -222,9 +222,9 @@
                                                 <td>Do Exterior</td>
                                             </t>
                                             <td t-esc="grouped_by_cfop_type_exit_notes[entries]['valor_bruto']" t-options="{'widget': 'float', 'precision': 2}" />
-                                            <td t-esc="grouped_by_cfop_type_exit_notes[entries]['icms_base_calculo']" t-options="{'widget': 'float', 'precision': 2}" />
-                                            <td t-esc="grouped_by_cfop_type_exit_notes[entries]['icms_valor']" t-options="{'widget': 'float', 'precision': 2}" />
-                                            <td t-esc="grouped_by_cfop_type_exit_notes[entries]['isento']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="grouped_by_cfop_type_exit_notes[entries]['ipi_base_calculo']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="grouped_by_cfop_type_exit_notes[entries]['ipi_valor']" t-options="{'widget': 'float', 'precision': 2}" />
+                                            <td t-esc="grouped_by_cfop_type_exit_notes[entries]['isentos']" t-options="{'widget': 'float', 'precision': 2}" />
                                             <td t-esc="grouped_by_cfop_type_exit_notes[entries]['outros']" t-options="{'widget': 'float', 'precision': 2}" />
                                         </tr>
                                     </t-foreach>
@@ -241,9 +241,9 @@
                                     <tr>
                                         <td colspan="2" class="text-center bg-dark text-light">TOTAIS</td>
                                         <td t-esc="total_exit_notes['valor_bruto']" t-options="{'widget': 'float', 'precision': 2}"/>
-                                        <td t-esc="total_exit_notes['icms_base_calculo']" t-options="{'widget': 'float', 'precision': 2}" />
-                                        <td t-esc="total_exit_notes['icms_valor']" t-options="{'widget': 'float', 'precision': 2}"/>
-                                        <td t-esc="total_exit_notes['isento']" t-options="{'widget': 'float', 'precision': 2}"/>
+                                        <td t-esc="total_exit_notes['ipi_base_calculo']" t-options="{'widget': 'float', 'precision': 2}" />
+                                        <td t-esc="total_exit_notes['ipi_valor']" t-options="{'widget': 'float', 'precision': 2}"/>
+                                        <td t-esc="total_exit_notes['isentos']" t-options="{'widget': 'float', 'precision': 2}"/>
                                         <td t-esc="total_exit_notes['outros']" t-options="{'widget': 'float', 'precision': 2}" />
                                     </tr>
                                 </t>
@@ -360,12 +360,13 @@
                                     <td>0,00</td>
                                     <td>R$1972,58</td>
                                 </tr>
-                            </tbody> -->
+                            </tbody>
+                            </table> -->
                     </div>
                 </t>
             </t>
         </div>
     </template>
 
-    <report id="icms_book_report" model="wizard.icms_book" string="Icms Book Report" report_type="qweb-html" name="l10n_br_eletronic_document.icms_book" />
+    <report id="ipi_book_report" model="wizard.ipi_book" string="Icms Book Report" report_type="qweb-html" name="l10n_br_eletronic_document.ipi_book" />
 </odoo>

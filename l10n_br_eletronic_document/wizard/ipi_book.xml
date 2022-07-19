@@ -1,9 +1,9 @@
 <odoo>
-    <record model="ir.ui.view" id="view_icms_book_report">
-        <field name="model">wizard.icms_book</field>
+    <record model="ir.ui.view" id="view_ipi_book_report">
+        <field name="model">wizard.ipi_book</field>
         <field name="type">form</field>
         <field name="arch" type="xml">
-            <form string="Icms Book">
+            <form>
                 <sheet>
                     <group>
                         <field name="date_start" required="1" />
@@ -20,6 +20,6 @@
         </field>
     </record>
 
-    <act_window name="Icms Book" id="action_icms_book_report" res_model="wizard.icms_book" view_mode="form" target="new" />
-    <menuitem name="Icms Calculation Book" action="action_icms_book_report" id="menu_icms_book" parent="ax4b_fiscal.fiscal_books" />
+    <act_window name="Ipi Book" id="action_ipi_book_report" res_model="wizard.ipi_book" view_mode="form" target="new" />
+    <menuitem name="Ipi Calculation Book" action="action_ipi_book_report" id="menu_ipi_book" parent="ax4b_fiscal.fiscal_books" />
 </odoo>
