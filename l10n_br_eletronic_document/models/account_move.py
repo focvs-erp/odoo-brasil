@@ -10,8 +10,10 @@ TYPE2EDOC = {
     'in_invoice': 'entrada',  # Vendor Bill
     'out_refund': 'entrada',  # Customer Refund
     'in_refund': 'saida',  # Vendor Refund
+    'entry': 'saida',
+    'out_receipt': 'saida',
+    'in_receipt': 'entrada'
 }
-
 
 class AccountMove(models.Model):
     _inherit = 'account.move'
