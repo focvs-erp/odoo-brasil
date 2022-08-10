@@ -10,15 +10,19 @@ from odoo.http import request
 from requests.auth import HTTPBasicAuth
 from werkzeug import urls
 
+from pathlib import Path
+
 _logger = logging.getLogger(__name__)
 odoo_request = request
+
+APPSETTINGS_FILE: Path = Path(__file__).parent / 'appsettings.json'
 
 try:
     import iugu
 except ImportError:
     _logger.exception("Não é possível importar iugu")
 
-with open('/mnt/extras_addons/odoo-brasil/payment_trustcode/models/appsettings.json') as file:
+with open(APPSETTINGS_FILE) as file:
     appsettings = json.load(file)
 
 
