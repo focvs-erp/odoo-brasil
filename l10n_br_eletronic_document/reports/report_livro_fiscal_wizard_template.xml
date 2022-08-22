@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="ax4b_fiscal.report_livro_fiscal">
+        <div class="container-fluid">
+            <t t-set="full_width" t-value="True" />
+            <t t-call="web.html_container">
+                <t t-call="web.basic_layout">
+                    <!-- MAIN ENTRACE FISCAL BOOK -->
+                    <div class="page text-fiscal text-center table-report">
+                        <div style="">
+                            <div class="text-left mt-3">
+                                EMPRESA:
+                                <span t-field="docs.company_id.name" />
+                                <br />
+                                ENDEREÇO:
+                                <span t-field="docs.company_id.street" />
+                                NÚMERO:
+                                <span t-field="docs.company_id.l10n_br_number" />
+                                <br />
+                                PAÍS:
+                                <span t-field="docs.company_id.country_id" />
+                                <br />
+                                ESTADO:
+                                <span t-field="docs.company_id.state_id" />
+                                <br />
+                                DATA DA IMPRESSÃO:
+                                <span t-esc="date" />
+                            </div>
+                            <div>
+                                <h4 class="text-center">
+                                    DE:
+                                    <span style="color: #1c1c1c;" t-esc="date_start" />
+                                    ATÉ
+                                    <span style="color: #1c1c1c;" t-esc="date_end" />
+                                </h4>
+                            </div>
+                        </div>
+                        <t t-if="book_type == 'p1'">
+                            <h3>
+                                LIVRO DE ENTRADAS DE NOTAS FÍSCAIS - TIPO 
+                                <span t-esc="book_type.upper()" />
+                            </h3>
+                        </t>
+                        <t t-if="book_type == 'p2'">
+                            <h2 class="text-center">OUTPUT FISCAL BOOK</h2>
+                        </t>
+                        <br />
+
+                        <table class="table table-sm table-striped table-report">
+                            <tr class="thead-dark">
+                                <th>EMISSÃO</th>
+                                <th>ENTRADA</th>
+                                <th>TIPO</th>
+                                <th>SÉRIE</th>
+                                <th>Nº DA NOTA</th>
+                                <th>ORIGEM</th>
+                                <th>VALOR FÍSCAL</th>
+                                <th>CFOP</th>
+                                <th>BASE DE ICMS</th>
+                                <th>ALÍQUOTA</th>
+                                <th>VALOR DO IMPOSTO</th>
+                                <t t-if="book_type == 'p2'">
+                                    <th>ISENTO OU NÃO TRIBUTADO</th>
+                                </t>
+                                <t t-else="">
+                                    <th></th>
+                                </t>
+                                <th>ISENTO</th>
+                                <th>OUTROS</th>
+                            </tr>
+
+                            <t t-foreach="docs" t-as="o">
+                                <t t-foreach="o.document_line_ids" t-as="item">
+                                    <tr>
+                                        <td>
+                                            <!-- ISSUE DATE -->
+                                            <span t-esc="o.data_emissao.strftime('%d/%m/%Y')" />
+                                        </td>
+                                        <t t-if="o.data_entrada_saida != False">
+                                            <!-- ENTRY DATE -->
+                                            <td>
+                                                <span t-esc="o.data_entrada_saida.strftime('%d/%m/%Y')" />
+                                            </td>
+                                        </t>
+                                        <t t-else="">
+                                            <td>
+                                                <span>Sem Data</span>
+                                            </td>
+                                        </t>
+                                        <td>
+                                            <!-- DOCUMENT TYPE -->
+                                            <span t-field="o.document_template_id.code" />
+                                        </td>
+                                        <td>
+                                            <!-- SERIE -->
+                                            <span t-field="o.serie_documento" />
+                                        </td>
+                                        <td>
+                                            <!-- Nº DOCUMENT -->
+                                            <span t-esc="o.numero" />
+                                        </td>
+                                        <td>
+                                            <!-- STATE OF ORIGIN -->
+                                            <span t-field="o.company_id.state_id.code" />
+                                        </td>
+                                        <td>
+                                            <!-- FISCAL VALUE -->
+                                            <span t-field="item.valor_bruto" />
+                                        </td>
+                                        <td>
+                                            <!-- CFOP -->
+                                            <span t-field="item.cfop" />
+                                        </td>
+                                        <td>
+                                            <!-- ICMS BASE -->
+                                            <span t-esc="item.icms_base_calculo"/>
+                                        </td>
+                                        <td>
+                                            <!-- ALIQUOT -->
+                                            <span t-esc="item.icms_aliquota" />%
+                                        </td>
+                                        <td>
+                                            <!-- TAX AMOUNT -->
+                                            <span t-field="item.icms_valor"/>
+                                        </td>
+
+                                        <!-- VERIFY IF THE BOOK TYPE IS OUTPUT OR NOT TO ADD A SPECIFIC FIELD -->
+                                        <div t-if="book_type == 'p2'">
+                                            <t t-if="item.icms_base_calculo">
+                                                <td>
+                                                    <span>0</span>
+                                                </td>
+                                            </t>
+                                            <t t-else="">
+                                                <td>
+                                                    <span t-field="item.icms_valor" />
+                                                </td>
+                                            </t>
+                                        </div>
+                                        <div t-else="">
+                                            <td></td>
+                                        </div>
+
+                                        <!-- VERIFY THE TYPE OF ICMS ( FREE OR OTHERS ) -->
+                                        <t t-if="item.icms_cst == '40'">
+                                            <td>
+                                                <!-- FREE -->
+                                                <span t-field="item.valor_bruto"  />
+                                            </td>
+                                        </t>
+                                        <t t-else="">
+                                            <td>
+                                                <span>R$ 0.00</span>
+                                            </td>
+                                        </t>
+                                        <t t-if="item.icms_cst == '41'">
+                                            <td>
+                                                <!-- OTHERS -->
+                                                <span t-field="item.valor_bruto"  />
+                                            </td>
+                                        </t>
+                                        <t t-else="">
+                                            <td>
+                                                <span>R$ 0.00</span>
+                                            </td>
+                                        </t>
+                                        <!-- END OF VERIFY THE TYPE OF ICMS ( FREE OR OTHERS ) -->
+                                    </tr>
+                                </t>
+                            </t>
+                        </table>
+                        <!-- END OF MAIN ENTRACE FISCAL BOOK -->
+                        <!-- ###################################### -->
+                        <!-- TOTAL -->
+                        <h4>TOTAL</h4>
+                        <table class="table table-sm table-striped table-report">
+                            <tr class="thead-dark">
+                                <th>TOTAL</th>
+                                <th>ALÍQUOTA</th>
+                                <th>VALOR FISCAL</th>
+                                <th>BASE DE ICMS</th>
+                                <th>VALRO DO IMPOSTO</th>
+                                <th>ISENTO</th>
+                                <th>OUTROS</th>
+                                <t t-if="book_type == 'p2'">
+                                    <th>ISENTO OU NÃO TRIBUTADO</th>
+                                </t>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span>TOTAL</span>
+                                </td>
+                                <td>
+                                    <span>-</span>
+                                </td>
+                                <td>
+                                    <t t-esc="total_value['valor_bruto']"  />
+                                </td>
+                                <td>
+                                    <t t-esc="total_value['icms_base_calculo']"  />
+                                </td>
+                                <td>
+                                    <t t-esc="total_value['icms_valor']" />
+                                </td>
+                                <td>
+                                    <span>-</span>
+                                </td>
+                                <td>
+                                    <span>-</span>
+                                </td>
+
+                                <div t-if="book_type == 'p2'">
+                                    <t t-if="total_value['icms_base_calculo']">
+                                        <td>
+                                            <span>R$ 0.00</span>
+                                        </td>
+                                    </t>
+                                    <t t-else="">
+                                        <td>
+                                            <t t-esc="total_value['icms_valor']"  />
+                                        </td>
+                                    </t>
+                                </div>
+                            </tr>
+                        </table>
+                        <!-- END OF TOTAL -->
+
+                        <!-- ###################################### -->
+                        <!-- AGRUPADOR TOTAL POR CFOP E ALIQUOTA -->
+                        <h4>TOTALIZADOR POR CFOP E ALÍQUOTA</h4>
+                        <table class="table table-sm table-striped table-report">
+                            <tr class="thead-dark">
+                                <th>CFOP</th>
+                                <th>ALÍQUOTA</th>
+                                <th>VALOR FISCAL</th>
+                                <th>BASE DE ICMS</th>
+                                <th>VALOR DO IMPOSTO</th>
+                                <th>ISENTO</th>
+                                <th>OUTROS</th>
+                            </tr>
+                            <t t-foreach="calculate_total_by_cfop_and_aliquot" t-as="a">
+                                <tr>
+                                    <td>
+                                        <t t-esc="a['cfop']" />
+                                    </td>
+                                    <td>
+                                        <t t-esc="a['icms_aliquota']" />%
+                                    </td>
+                                    <td>
+                                        <t t-esc="a['group']['valor_bruto']"  />
+                                    </td>
+                                    <td>
+                                        <t t-esc="a['group']['icms_base_calculo']"  />
+                                    </td>
+                                    <td>
+                                        <t t-esc="a['group']['icms_valor']"  />
+                                    </td>
+                                    <t t-if="a['group']['others']">
+                                        <td>
+                                            <t t-esc="a['group']['others']"  />
+                                        </td>
+                                    </t>
+                                    <t t-else="">
+                                        <td>
+                                            <span>R$ 0.00</span>
+                                        </td>
+                                    </t>
+                                    <t t-if="a['group']['free']">
+                                        <td>
+                                            <t t-esc="a['group']['free']"  />
+                                        </td>
+                                    </t>
+                                    <t t-else="">
+                                        <td>
+                                            <span>R$ 0.00</span>
+                                        </td>
+                                    </t>
+
+                                </tr>
+                            </t>
+                        </table>
+                         <!-- END OF AGRUPADOR TOTAL POR CFOP E ALIQUOTA -->
+
+                        <!-- ###################################### -->
+                        <!-- AGRUPADOR TOTAL POR CFOP -->
+                        <h4>TOTALIZADOR POR CFOP</h4>
+                        <table class="table table-sm table-striped table-report">
+                            <tr class="thead-dark">
+                                <th>CFOP</th>
+                                <th>ALÍQUOTA</th>
+                                <th>VALOR FISCAL</th>
+                                <th>BASE DE ICMS</th>
+                                <th>VALOR DO IMPOSTO</th>
+                                <t t-if="book_type == 'p2'">
+                                    <th>ISENTO OU NÃO TRIBUTADO</th>
+                                </t>
+                                <th>ISENTO</th>
+                                <th>OUTROS</th>
+                            </tr>
+                            <t t-foreach="total_by_cfop" t-as="a">
+                                <tr>
+                                    <td>
+                                        <t t-esc="a" />
+                                    </td>
+                                    <td>
+                                        <span>-</span>
+                                    </td>
+                                    <td>
+                                        <t t-esc="total_by_cfop[a]['valor_bruto']" />
+                                    </td>
+                                    <td>
+                                        <t t-esc="total_by_cfop[a]['icms_base_calculo']"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="total_by_cfop[a]['icms_valor']" />
+                                    </td>
+                                    
+                                    <td>
+                                        <span>-</span>
+                                    </td>
+                                    <td>
+                                        <span>-</span>
+                                    </td>
+
+                                </tr>
+                            </t>
+                        </table>
+                        <!-- END OF AGRUPADOR TOTAL POR CFOP -->
+
+                        <br />
+                    </div>
+                </t>
+            </t>
+        </div>
+    </template>
+
+    <report id="report_id" model="account.report_livro_fiscal_wizard" string="Fiscal Book" report_type="qweb-html" name="eletronic_document.report_livro_fiscal" />
+</odoo>

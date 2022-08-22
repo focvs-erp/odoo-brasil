@@ -1387,3 +1387,11 @@ class EletronicDocumentLine(models.Model):
         "% ST Retido", readonly=True, states=STATE)
     icms_st_retido = fields.Monetary(
         "ICMS ST Ret.", readonly=True, states=STATE)
+
+    # AX4B - Melhoria focvs Community
+    @api.onchange('fiscal_position_id')
+    def _onchange_fiscal_position(self):
+        self.informacoes_legais = ''
+        for record in self.fiscal_position_id.fiscal_observation_ids:
+            self.informacoes_legais += record.message+'\n'
+    # AX4B - Melhoria focvs Community

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="tax_determination_iss">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <h2>Service Tax Determination Report</h2>
+                    <div style="float:left;">
+                        <table class='table table-striped' style="text-align: right;">
+                            <tr>
+                                <th>Period Start</th>
+                                <th>Period End</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span t-esc='period_start'/>
+                                </td>
+                                <td>
+                                    <span t-esc="period_end"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <table class="table table-striped">
+                        <tr>
+                            <th>Date</th>
+                            <th>Note</th>
+                            <th>Client</th>
+                            <th>Note Value</th>
+                            <th>Deductions</th>
+                            <th>ISS Base</th>
+                            <th>%ISS</th>
+                            <th>ISS Value</th>
+                        </tr>
+                        <t t-foreach="docs" t-as="o">
+                            <tr>
+                                <td>
+                                    <span t-field='o.data_emissao'/>
+                                </td>
+                                <td>
+                                    <span t-field='o.numero'/>
+                                </td>
+                                <td>
+                                    <span t-field='o.partner_id.l10n_br_legal_name'/>
+                                </td>
+                                <td>
+                                    R$ <span t-esc='o.valor_final' t-options='{"widget": "float", "precision": 2}'/>
+                                </td>
+                                <td>
+                                    R$ <span t-esc='o.iss_valor_retencao' t-options='{"widget": "float", "precision": 2}'/>
+                                </td>
+                                <td>
+                                    R$ <span t-esc='o.valor_final' t-options='{"widget": "float", "precision": 2}'/>
+                                </td>
+                                <td>
+                                    <t t-foreach="o.document_line_ids" t-as="i">
+                                        <span t-esc='i.iss_aliquota' /><br/>
+                                    </t>
+                                </td>
+                                <td>
+                                    R$ <span t-esc='o.iss_valor' t-options='{"widget": "float", "precision": 2}'/>
+                                </td>
+                            </tr>
+                        </t>
+                    </table>
+
+                    <div style="float:right;">
+                        <table class="table table-striped" style="text-align: right;">
+                            <tr>
+                                <th>Total Note Value</th>
+                                <th>Total Deductions</th>
+                                <th>Total ISS Base</th>
+                                <th>Total ISS Value</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    R$ <span t-esc="total['note_value']" t-options='{"widget": "float", "precision": 2}'/>
+                                </td>
+                                <td>
+                                    R$ <span t-esc="total['deductions']" t-options='{"widget": "float", "precision": 2}'/>
+                                </td>
+                                <td>
+                                    R$ <span t-esc="total['iss_base']" t-options='{"widget": "float", "precision": 2}'/>
+                                </td>
+                                <td>
+                                    R$ <span t-esc="total['iss_value']" t-options='{"widget": "float", "precision": 2}'/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+
+    <record id="report_tax_determination_iss" model="ir.actions.report">
+        <field name="name">Service Tax Determination Report</field>
+        <field name="model">eletronic_document.tax_determination_iss_wizard</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">eletronic_document.tax_determination_iss</field>
+        <field name="report_file">eletronic_document.tax_determination_iss</field>
+        <field name="binding_model_id" ref="model_eletronic_document_tax_determination_iss_wizard" />
+    </record>
+
+</odoo>

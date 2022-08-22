@@ -34,6 +34,7 @@
         'views/fiscal_position.xml',
         'views/account_config_settings.xml',
         'views/res_partner.xml',
+    
 
         'wizard/cancel_nfe.xml',
         'wizard/carta_correcao_eletronica.xml',
@@ -49,6 +50,8 @@
         'reports/icms_book.xml',
         'reports/ipi_book.xml',
         'reports/sequences.xml',
+        'report/tax_determination_iss_report_view.xml',
+        'report/iss_report_view.xml',
 
         'views/static_template.xml',  # CSS para relátorio de icms e ipi
     ],

@@ -15,3 +15,7 @@ class ResPartner(models.Model):
         cadastrada\n2 - para pessoa jurídica sem IE cadastrada ou 9 \
         caso o estado de destino for AM, BA, CE, GO, MG, MS, MT, PE, RN, SP"
     )
+    # AX4B - Melhoria focvs Community
+    document_counter = fields.Char(string="RG")
+    registry_counter = fields.Char(string="CRC")
+    # AX4B - Melhoria focvs Community

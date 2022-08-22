@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="iss">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <t t-if="service_type == 'entrada'">
+                        <h2>Taken Iss Report</h2>
+                    </t>
+                    <t t-if="service_type == 'saida'">
+                        <h2>Provided Iss Report</h2> 
+                    </t>
+                    <h2></h2>
+                    <div style="float:left;">
+                        <table class='table table-striped' style="text-align: right;">
+                            <tr>
+                                <th>Period Start</th>
+                                <th>Period End</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span t-esc='period_start'/>
+                                </td>
+                                <td>
+                                    <span t-esc="period_end"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <table class="table table-striped">
+                        <tr>
+                            <th>Legal Name</th>
+                            <th>CNPJ</th>
+                            <th>Transaction Date</th>
+                            <th>Document Serial</th>
+                            <th>NF Number</th>
+                            <th>RPS</th>
+                            <th>CNPJ and Name Taker</th>
+                            <th>Service Code</th>
+                            <th>Alíquota</th>
+                            <th>Total Value</th>
+                            <th>ISS Own</th>
+                            <th>ISS Retained</th>
+                        </tr>
+                        <t t-foreach="docs" t-as="o">
+                            <tr>
+                                <td>
+                                    <span t-field='o.company_id.l10n_br_legal_name'/>
+                                </td>
+                                <td>
+                                    <span t-field='o.company_id.l10n_br_cnpj_cpf'/>
+                                </td>
+                                <td>
+                                    <span t-field='o.data_emissao'/>
+                                </td>
+                                <td>
+                                    <span t-field='o.document_template_id.name'/>
+                                </td>
+                                <td>
+                                    <span t-field='o.numero'/>
+                                </td>
+                                <td>
+                                    <span t-field='o.numero_rps'/>
+                                </td>
+                                <td>
+                                    <span t-field='o.partner_id.l10n_br_legal_name'> - </span>
+                                    <span t-field='o.partner_id.l10n_br_cnpj_cpf'/>
+                                </td>
+                                <td>
+                                    <t t-foreach="o.document_line_ids" t-as="i">
+                                        <span t-esc='i.item_lista_servico'/><br/>
+                                    </t>
+                                </td>
+                                <td>
+                                    <t t-foreach="o.document_line_ids" t-as="i">
+                                        <span t-esc='i.iss_aliquota' /><br/>
+                                    </t>
+                                </td>
+                                <td>
+                                    R$ <span t-esc='o.valor_final' t-options='{"widget": "float", "precision": 2}'/>
+                                </td>
+                                <td>
+                                    R$ <span t-esc='o.iss_valor' t-options='{"widget": "float", "precision": 2}'/>
+                                </td>
+                                <td>
+                                    R$ <span t-esc='o.iss_valor_retencao' t-options='{"widget": "float", "precision": 2}'/>
+                                </td>
+                            </tr>
+                        </t>
+                    </table>
+
+                    <div style="float:right;">
+                        <table class="table table-striped" style="text-align: right;">
+                            <tr>
+                                <th>Total Value</th>
+                                <th>Own Total ISS</th>
+                                <th>Retained Total ISS</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    R$ <span t-esc="total['total_value']" t-options='{"widget": "float", "precision": 2}'/>
+                                </td>
+                                <td>
+                                    R$ <span t-esc="total['total_own']" t-options='{"widget": "float", "precision": 2}'/>
+                                </td>
+                                <td>
+                                    R$ <span t-esc="total['total_retained']" t-options='{"widget": "float", "precision": 2}'/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+
+    <record id="report_iss" model="ir.actions.report">
+        <field name="name">Iss Report</field>
+        <field name="model">eletronic_document.iss_wizard</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">eletronic_document.iss</field>
+        <field name="report_file">eletronic_document.iss</field>
+        <field name="binding_model_id" ref="model_eletronic_document_iss_wizard" />
+    </record>
+
+</odoo>
