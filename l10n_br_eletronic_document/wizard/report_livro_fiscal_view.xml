@@ -1,0 +1,28 @@
+<odoo>
+    <record model="ir.ui.view" id="view_report_wizard_form">
+        <field name="name">Accounting - Tax Book</field>
+        <field name="model">account.report_livro_fiscal_wizard</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Fiscal Book">
+                <group>
+                    <group>
+                        <field name="book_type" required="1" />
+                    </group>
+                    <group>
+                        <field name="date_start" required="1" />
+                        <field name="date_end" required="1" />
+                    </group>
+                </group>
+                <footer>
+                    <button name="get_report" string="Generate Book" type="object" class="oe_highlight" />
+                    <button string="Cancel" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <act_window name="Fiscal Book" id="action_fiscal_book" res_model="account.report_livro_fiscal_wizard" view_mode="form" target="new" />
+
+    <menuitem name="Fiscal Book" action="action_fiscal_book" id="menu_attendance_report_wizard_id" parent="ax4b_invoice.report_tax_fiscal_wizard_menu_root" />
+</odoo>

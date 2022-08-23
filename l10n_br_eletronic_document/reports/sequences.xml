@@ -18,4 +18,14 @@
         <field name="number_next">1</field>
         <field name="padding">7</field>
     </record>
+    <!-- AX4B - sequence-->
+    <record model="ir.sequence" id="eletronic_document_book_reports_report_sequence">
+        <field name="name">Report Fiscal Book</field>
+        <field name="code">eletronic_document_report_livro_fiscal_code</field>
+        <field name="prefix"></field>
+        <field name="suffix"></field>
+        <field name="number_next">1</field>
+        <field name="padding">12</field>
+    </record>
+    <!-- AX4B - sequence-->
 </odoo>

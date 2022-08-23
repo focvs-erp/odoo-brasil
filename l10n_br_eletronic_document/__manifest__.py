@@ -24,6 +24,7 @@
         'security/ir.model.access.csv',
         'security/eletronic_security.xml',
 
+        'views/template_static.xml',
         'views/res_company.xml',
         'views/account_move.xml',
         'views/eletronic_document.xml',
@@ -35,13 +36,15 @@
         'views/account_config_settings.xml',
         'views/res_partner.xml',
     
-
+        'wizard/iss_wizard_view.xml',
         'wizard/cancel_nfe.xml',
         'wizard/carta_correcao_eletronica.xml',
         'wizard/export_nfe.xml',
         'wizard/inutilize_nfe_numeration.xml',
         'wizard/icms_book.xml',
         'wizard/ipi_book.xml',
+        'wizard/tax_determination_iss_wizard_view.xml',
+        'wizard/report_livro_fiscal_view.xml',
 
         'reports/danfse_sao_paulo.xml',
         'reports/danfse_florianopolis.xml',
@@ -50,8 +53,9 @@
         'reports/icms_book.xml',
         'reports/ipi_book.xml',
         'reports/sequences.xml',
-        'report/tax_determination_iss_report_view.xml',
-        'report/iss_report_view.xml',
+        'reports/tax_determination_iss_report_view.xml',
+        'reports/iss_report_view.xml',
+        'reports/report_livro_fiscal_wizard_template.xml',
 
         'views/static_template.xml',  # CSS para relátorio de icms e ipi
     ],

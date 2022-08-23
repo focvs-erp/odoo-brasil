@@ -1,0 +1,29 @@
+<odoo>
+    <record model="ir.ui.view" id="iss_wizard_form">
+        <field name="name">ISS Book</field>
+        <field name="model">eletronic_document.iss_wizard</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="ISS Book">
+                <group>
+                    <group>
+                        <field name="service_type" required="1" />
+                        <field name="period_start" required="1" />
+                        <field name="period_end" required="1" />
+                    </group>
+                </group>
+                <footer>
+                    <button name="generate_report" string="Generate Report" type="object" class="oe_highlight" />
+                    <button string="Cancel" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <menuitem name="Fiscal Books" id="l10n_br_eletronic_document.fiscal_books" parent="account.menu_finance_entries" sequence="4"/>
+
+    <act_window name="ISS Book" id="action_iss_wizard_form" res_model="eletronic_document.iss_wizard" view_mode="form" target="new" />
+
+    <menuitem name="ISS Book" action="action_iss_wizard_form" id="menu_iss_wizard" parent="l10n_br_eletronic_document.fiscal_books" />
+
+</odoo>

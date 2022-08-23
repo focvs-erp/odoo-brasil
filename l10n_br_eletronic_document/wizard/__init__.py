@@ -6,3 +6,6 @@ from . import export_nfe
 from . import abstract_calculation_book
 from . import icms_book
 from . import ipi_book
+from . import report_livro_fiscal_wizard
+from . import tax_determination_iss_wizard
+from . import iss_wizard

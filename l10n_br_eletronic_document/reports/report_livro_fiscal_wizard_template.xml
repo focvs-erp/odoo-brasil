@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <template id="ax4b_fiscal.report_livro_fiscal">
+    <template id="l10n_br_eletronic_document.report_livro_fiscal">
         <div class="container-fluid">
             <t t-set="full_width" t-value="True" />
             <t t-call="web.html_container">
