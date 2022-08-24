@@ -5,7 +5,7 @@ from odoo.exceptions import UserError
 
 
 class TaxDeterminationIss(models.TransientModel):
-    _name = "eletronic_document.tax_determination_iss_wizard"
+    _name = "l10n_br_eletronic_document.tax_determination_iss_wizard"
     _description = "Tax Determination ISS Book Wizard"
 
     number = fields.Char(string='Number')

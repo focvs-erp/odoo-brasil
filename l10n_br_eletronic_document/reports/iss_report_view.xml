@@ -116,11 +116,11 @@
 
     <record id="report_iss" model="ir.actions.report">
         <field name="name">Iss Report</field>
-        <field name="model">eletronic_document.iss_wizard</field>
+        <field name="model">l10n_br_eletronic_document.iss_wizard</field>
         <field name="report_type">qweb-pdf</field>
-        <field name="report_name">eletronic_document.iss</field>
-        <field name="report_file">eletronic_document.iss</field>
-        <field name="binding_model_id" ref="model_eletronic_document_iss_wizard" />
+        <field name="report_name">l10n_br_eletronic_document.iss</field>
+        <field name="report_file">l10n_br_eletronic_document.iss</field>
+        <field name="binding_model_id" ref="model_l10n_br_eletronic_document_iss_wizard" />
     </record>
 
 </odoo>

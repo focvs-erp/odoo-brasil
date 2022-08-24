@@ -1,7 +1,7 @@
 <odoo>
     <record model="ir.ui.view" id="tax_determination_iss_wizard_form">
         <field name="name">Tax Determination ISS Book</field>
-        <field name="model">eletronic_document.tax_determination_iss_wizard</field>
+        <field name="model">l10n_br_eletronic_document.tax_determination_iss_wizard</field>
         <field name="type">form</field>
         <field name="arch" type="xml">
             <form string="Tax Determination ISS Book">
@@ -20,7 +20,7 @@
         </field>
     </record>
 
-    <act_window name="Tax Determination ISS Book" id="action_tax_determination_iss_wizard_form" res_model="eletronic_document.tax_determination_iss_wizard" view_mode="form" target="new" />
+    <act_window name="Tax Determination ISS Book" id="action_tax_determination_iss_wizard_form" res_model="l10n_br_eletronic_document.tax_determination_iss_wizard" view_mode="form" target="new" />
 
     <menuitem name="Tax Determination ISS Book" action="action_tax_determination_iss_wizard_form" id="menu_tax_determination_iss_wizard" parent="l10n_br_eletronic_document.fiscal_books" />
 

@@ -53,8 +53,8 @@
         'reports/icms_book.xml',
         'reports/ipi_book.xml',
         'reports/sequences.xml',
-        'reports/tax_determination_iss_report_view.xml',
         'reports/iss_report_view.xml',
+        'reports/tax_determination_iss_report_view.xml',
         'reports/report_livro_fiscal_wizard_template.xml',
 
         'views/static_template.xml',  # CSS para relátorio de icms e ipi

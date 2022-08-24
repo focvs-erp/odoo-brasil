@@ -5,7 +5,7 @@ from odoo.exceptions import UserError
 
 
 class Iss(models.TransientModel):
-    _name = "eletronic_document.iss_wizard"
+    _name = "l10n_br_eletronic_document.iss_wizard"
     _description = "ISS Book Wizard"
 
     service_type = fields.Selection([

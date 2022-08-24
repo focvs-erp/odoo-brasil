@@ -49,8 +49,10 @@ access_wizard_icms_book,l10n_br_eletronic_document.wizard.icms_book,model_wizard
 access_report_l10n_br_eletronic_document_icms_book,l10n_br_eletronic_document.report.l10n_br_eletronic_document.icms_book,model_report_l10n_br_eletronic_document_icms_book,,1,1,1,1
 access_report_l10n_br_eletronic_document_ipi_book,l10n_br_eletronic_document.report.l10n_br_eletronic_document.ipi_book,model_report_l10n_br_eletronic_document_ipi_book,,1,1,1,1
 access_wizard_ipi_book,l10n_br_eletronic_document.wizard.ipi_book,model_wizard_ipi_book,,1,1,1,1
-access_report_eletronic_document_iss,report.eletronic_document.iss,model_report_eletronic_document_iss,,1,1,1,1
-"access_report_eletronic_document_tax_determination_iss","report.eletronic_document.tax_determination_iss","model_report_eletronic_document_tax_determination_iss","base.group_user","1","1","1","1"
-access_iss_wizard,eletronic_document.iss_wizard,model_eletronic_document_iss_wizard,,1,1,1,1
-"access_iss_wizard","eletronic_document.iss_wizard","model_eletronic_document_iss_wizard","base.group_user","1","1","1","1"
-"access_tax_determination_iss_wizard","eletronic_document.tax_determination_iss_wizard","model_eletronic_document_tax_determination_iss_wizard","base.group_user","1","1","1","1"
+
+"access_iss_wizard","l10n_br_eletronic_document.iss_wizard","model_l10n_br_eletronic_document_iss_wizard","base.group_user","1","1","1","1"
+access_report_l10n_br_eletronic_document_iss,report.l10n_br_eletronic_document.iss,model_report_l10n_br_eletronic_document_iss,,1,1,1,1
+
+"access_report_eletronic_document_tax_determination_iss","report.l10n_br_eletronic_document.tax_determination_iss","model_report_eletronic_document_tax_determination_iss","base.group_user","1","1","1","1"
+
+"access_tax_determination_iss_wizard","l10n_br_eletronic_document.tax_determination_iss_wizard","model_l10n_br_eletronic_document_tax_determination_iss_wizard","base.group_user","1","1","1","1"
