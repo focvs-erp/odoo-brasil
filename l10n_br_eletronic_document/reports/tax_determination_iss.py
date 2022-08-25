@@ -4,7 +4,7 @@ from odoo import models, fields, api, _
 
 
 class ReportTaxDeterminationISS(models.AbstractModel):
-    _name = "report.eletronic_document.tax_determination_iss"
+    _name = "report.l10n_br_eletronic_document.tax_determination_iss"
     _description = "Tax Determination ISS"
 
     def calculate_total(self, docs):
