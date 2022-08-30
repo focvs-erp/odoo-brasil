@@ -1,9 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from datetime import date, datetime
-from email.policy import default
-
-from odoo import api, fields, models
+from odoo import fields, models
 
 
 class ReportLivroFiscalWizard(models.TransientModel):
@@ -13,7 +10,6 @@ class ReportLivroFiscalWizard(models.TransientModel):
         ('p1', 'Entry Book'),
         ('p2', 'Output Register Book'),
     ]
-
     book_type = fields.Selection(MODELO, string="Book Type")
     date_start = fields.Date(string="Date Start")
     date_end = fields.Date(string="Date End")
@@ -27,5 +23,4 @@ class ReportLivroFiscalWizard(models.TransientModel):
                 'date_end': self.date_end,
             },
         }
-
         return self.env.ref('l10n_br_eletronic_document.report_id').report_action(self, data=data)

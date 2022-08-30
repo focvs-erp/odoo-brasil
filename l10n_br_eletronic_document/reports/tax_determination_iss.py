@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields, api, _
+from odoo import models, api
 
 
 class ReportTaxDeterminationISS(models.AbstractModel):
@@ -14,14 +14,11 @@ class ReportTaxDeterminationISS(models.AbstractModel):
             'iss_base': 0,
             'iss_value': 0
         }
-
         for item in docs:
             values['note_value'] += item.valor_final
             values['deductions'] += item.iss_valor_retencao
             values['iss_value'] += item.iss_valor
-
         values['iss_base'] = values['note_value']
-
         return values
 
     def verify_fields(self, docs):
@@ -35,17 +32,11 @@ class ReportTaxDeterminationISS(models.AbstractModel):
         period_end = data['form']['period_end']
         period_start = data['form']['period_start']
         number = data['form']['number']
-
         domain = [('document_template_id.model_code','=', 'nfse'), ('data_emissao', '>=', period_start), ('data_emissao', '<=', period_end)]
-
         if number:
-            domain.append(('numero','=', number)) 
-        
+            domain.append(('numero','=', number))
         docs = self.env['eletronic.document'].search(domain)
-
-            
         self.verify_fields(docs)
-
         return {
             'number': number,
             'period_start': '{2}/{1}/{0}'.format(*period_start.split('-')),

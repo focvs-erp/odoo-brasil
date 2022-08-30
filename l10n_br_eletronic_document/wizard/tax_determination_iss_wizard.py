@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields, api, _
+from odoo import models, fields, _
 from odoo.exceptions import UserError
 
 
@@ -15,7 +15,6 @@ class TaxDeterminationIss(models.TransientModel):
     def generate_report(self):
         if self.period_end < self.period_start:
             raise UserError(_('End date cannot be less than start date'))
-
         data = {
             'model': self._name,
             'form': {
@@ -24,5 +23,4 @@ class TaxDeterminationIss(models.TransientModel):
                 'period_end': self.period_end
             },
         }
-
         return self.env.ref('l10n_br_eletronic_document.report_tax_determination_iss').report_action(None, data=data)

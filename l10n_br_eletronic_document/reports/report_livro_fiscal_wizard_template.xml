@@ -9,35 +9,35 @@
                     <div class="page text-fiscal text-center table-report">
                         <div style="">
                             <div class="text-left mt-3">
-                                EMPRESA:
+                                COMPANY:
                                 <span t-field="docs.company_id.name" />
                                 <br />
-                                ENDEREÇO:
+                                ADDRESS:
                                 <span t-field="docs.company_id.street" />
-                                NÚMERO:
+                                NUMBER:
                                 <span t-field="docs.company_id.l10n_br_number" />
                                 <br />
-                                PAÍS:
+                                COUNTRY:
                                 <span t-field="docs.company_id.country_id" />
                                 <br />
-                                ESTADO:
+                                STATE:
                                 <span t-field="docs.company_id.state_id" />
                                 <br />
-                                DATA DA IMPRESSÃO:
+                                PRINTING DATE:
                                 <span t-esc="date" />
                             </div>
                             <div>
                                 <h4 class="text-center">
-                                    DE:
+                                    FROM:
                                     <span style="color: #1c1c1c;" t-esc="date_start" />
-                                    ATÉ
+                                    UNTIL
                                     <span style="color: #1c1c1c;" t-esc="date_end" />
                                 </h4>
                             </div>
                         </div>
                         <t t-if="book_type == 'p1'">
                             <h3>
-                                LIVRO DE ENTRADAS DE NOTAS FÍSCAIS - TIPO 
+                                BOOK OF ENTRIES OF PHYSICAL NOTES - TYPE 
                                 <span t-esc="book_type.upper()" />
                             </h3>
                         </t>
@@ -48,25 +48,25 @@
 
                         <table class="table table-sm table-striped table-report">
                             <tr class="thead-dark">
-                                <th>EMISSÃO</th>
-                                <th>ENTRADA</th>
-                                <th>TIPO</th>
-                                <th>SÉRIE</th>
-                                <th>Nº DA NOTA</th>
-                                <th>ORIGEM</th>
-                                <th>VALOR FÍSCAL</th>
+                                <th>ISSUE</th>
+                                <th>ENTRANCE</th>
+                                <th>TYPE</th>
+                                <th>SERIES</th>
+                                <th>NOTE NO.</th>
+                                <th>ORIGIN</th>
+                                <th>PHYSICAL VALUE</th>
                                 <th>CFOP</th>
-                                <th>BASE DE ICMS</th>
-                                <th>ALÍQUOTA</th>
-                                <th>VALOR DO IMPOSTO</th>
+                                <th>ICMS BASE</th>
+                                <th>ALIQUOT</th>
+                                <th>TAX AMOUNT</th>
                                 <t t-if="book_type == 'p2'">
-                                    <th>ISENTO OU NÃO TRIBUTADO</th>
+                                    <th>EXEMPT OR NON-TAXED</th>
                                 </t>
                                 <t t-else="">
                                     <th></th>
                                 </t>
-                                <th>ISENTO</th>
-                                <th>OUTROS</th>
+                                <th>EXEMPT</th>
+                                <th>OTHERS</th>
                             </tr>
 
                             <t t-foreach="docs" t-as="o">
@@ -84,7 +84,7 @@
                                         </t>
                                         <t t-else="">
                                             <td>
-                                                <span>Sem Data</span>
+                                                <span>No Date</span>
                                             </td>
                                         </t>
                                         <td>
@@ -176,14 +176,14 @@
                         <table class="table table-sm table-striped table-report">
                             <tr class="thead-dark">
                                 <th>TOTAL</th>
-                                <th>ALÍQUOTA</th>
-                                <th>VALOR FISCAL</th>
-                                <th>BASE DE ICMS</th>
-                                <th>VALRO DO IMPOSTO</th>
-                                <th>ISENTO</th>
-                                <th>OUTROS</th>
+                                <th>ALIQUOT</th>
+                                <th>FISCAL VALUE</th>
+                                <th>ICMS BASE</th>
+                                <th>TAX AMOUNT</th>
+                                <th>EXEMPT</th>
+                                <th>OTHERS</th>
                                 <t t-if="book_type == 'p2'">
-                                    <th>ISENTO OU NÃO TRIBUTADO</th>
+                                    <th>EXEMPT OR NON-TAXED</th>
                                 </t>
                             </tr>
                             <tr>
@@ -227,16 +227,16 @@
 
                         <!-- ###################################### -->
                         <!-- AGRUPADOR TOTAL POR CFOP E ALIQUOTA -->
-                        <h4>TOTALIZADOR POR CFOP E ALÍQUOTA</h4>
+                        <h4>TOTALIZER PER CFOP AND ALIQUOT</h4>
                         <table class="table table-sm table-striped table-report">
                             <tr class="thead-dark">
                                 <th>CFOP</th>
-                                <th>ALÍQUOTA</th>
-                                <th>VALOR FISCAL</th>
-                                <th>BASE DE ICMS</th>
-                                <th>VALOR DO IMPOSTO</th>
-                                <th>ISENTO</th>
-                                <th>OUTROS</th>
+                                <th>ALIQUOT</th>
+                                <th>FISCAL VALUE</th>
+                                <th>ICMS BASE</th>
+                                <th>TAX AMOUNT</th>
+                                <th>EXEMPT</th>
+                                <th>OTHERS</th>
                             </tr>
                             <t t-foreach="calculate_total_by_cfop_and_aliquot" t-as="a">
                                 <tr>
@@ -283,19 +283,19 @@
 
                         <!-- ###################################### -->
                         <!-- AGRUPADOR TOTAL POR CFOP -->
-                        <h4>TOTALIZADOR POR CFOP</h4>
+                        <h4>TOTALIZER BY CFOP</h4>
                         <table class="table table-sm table-striped table-report">
                             <tr class="thead-dark">
                                 <th>CFOP</th>
-                                <th>ALÍQUOTA</th>
-                                <th>VALOR FISCAL</th>
-                                <th>BASE DE ICMS</th>
-                                <th>VALOR DO IMPOSTO</th>
+                                <th>ALIQUOT</th>
+                                <th>FISCAL VALUE</th>
+                                <th>ICMS BASE</th>
+                                <th>TAX AMOUNT</th>
                                 <t t-if="book_type == 'p2'">
-                                    <th>ISENTO OU NÃO TRIBUTADO</th>
+                                    <th>EXEMPT OR UNTAXED</th>
                                 </t>
-                                <th>ISENTO</th>
-                                <th>OUTROS</th>
+                                <th>EXEMPT</th>
+                                <th>OTHERS</th>
                             </tr>
                             <t t-foreach="total_by_cfop" t-as="a">
                                 <tr>

@@ -2,13 +2,10 @@
 
 from collections import OrderedDict, defaultdict
 from datetime import date, datetime
-from functools import reduce
 from itertools import chain, groupby, product
-from operator import attrgetter, itemgetter
-from typing import AnyStr, Callable, Dict, List
-
-from odoo import api, fields, models
-from odoo.exceptions import ValidationError
+from operator import attrgetter
+from typing import Dict, List
+from odoo import api, models
 from pytz import timezone
 
 TIMEZONE = timezone('America/Sao_Paulo')
@@ -27,33 +24,27 @@ class ReportLivroFiscal(models.AbstractModel):
         '''Valida se o produto está com cfop preenchido'''
         cfops = {'p1': ['1', '2', '3'], 'p2': ['5', '6', '7']}
         invoices_with_cfop = []
-
         for invoice in self.filter_lines_in_invoices(docs):
             for line in invoice.document_line_ids:
                 if line.cfop and line.cfop[0] in cfops[book_type]:
                     invoices_with_cfop.append(invoice.id)
-
         return invoices_with_cfop
 
     def calculate_total_by_cfop(self, invoices: List[object], headers: Dict[str, float]) -> Dict[str, Dict[str, float]]:
         '''Agrupa as notas com o mesmo CFOP'''
         grouped_by_cfop: Dict[str, Dict[str, float]] = defaultdict(
             lambda v=0.0: dict.fromkeys(headers, v))
-        
         for invoice in invoices:
             for item in product(invoice.document_line_ids, headers):
                 grouped_by_cfop[item[0].cfop][item[1]] += getattr(item[0], item[1], 0.0)
-
         return grouped_by_cfop
 
     def calculate_total_values(self, invoices: List[object], headers: Dict[str, float]) -> Dict[str, float]:
         '''Realiza a soma total de todas as notas. produtos'''
         total_values: Dict[str, float] = defaultdict(float)
-
         for invoice in invoices:
             for item in product(invoice.document_line_ids, headers):
                 total_values[item[1]] += getattr(item[0], item[1], 0.0)
-
         return total_values
 
     def calculate_grouped_values_at_lines(self, line_ids: List[object], headers: Dict[str, float]) -> Dict[str, float]:
@@ -61,7 +52,6 @@ class ReportLivroFiscal(models.AbstractModel):
         total_values: Dict[str, float] = defaultdict(float)
         # free = isento, others = outros
         cst = {'free': '41', 'others': '40'}
-
         for line in line_ids:
             if line.icms_cst == cst['free']:
                 total_values['free'] += getattr(line, 'valor_bruto', 0.0)
@@ -70,7 +60,6 @@ class ReportLivroFiscal(models.AbstractModel):
 
             for header in headers:
                 total_values[header] += getattr(line, header, 0.0)
-
         return total_values
 
     def calculate_total_by_cfop_and_aliquot(self, invoices: List[object], headers: List[str]) -> Dict[str, Dict[str, float]]:
@@ -78,16 +67,13 @@ class ReportLivroFiscal(models.AbstractModel):
         res = []
         invoices_lines = chain.from_iterable(
             [item.document_line_ids for item in invoices])
-
         key = attrgetter('cfop', 'icms_aliquota')
-
         group = groupby(sorted(invoices_lines, key=key), key=key)
         for k, g in group:
             temp_dict = OrderedDict(zip(["cfop", "icms_aliquota"], k))
             temp_dict['group'] = self.calculate_grouped_values_at_lines(
                 line_ids=list(g), headers=headers)
             res.append(temp_dict)
-
         return res
 
     @api.model
@@ -99,15 +85,12 @@ class ReportLivroFiscal(models.AbstractModel):
         docs = self.env['eletronic.document'].search(
             ['&', ('data_emissao', '>=', date_start),
              ('data_emissao', '<=', date_end),
-            #  ('code_related', '=', 55),
              ('company_id', '=', self.env.user.company_id.id),
              ('numero', '!=', False)],
             order='data_emissao')
-
         docs_invoices = docs.browse(set(self.get_cfop_type(
             docs=docs, book_type=book_type))
         )
-
         return {
             'doc_ids': docs_invoices.ids,
             'docs': docs_invoices,

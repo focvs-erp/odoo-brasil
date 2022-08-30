@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields, api, _
+from odoo import models, api
 
 
 class ReportIss(models.AbstractModel):
@@ -23,20 +23,20 @@ class ReportIss(models.AbstractModel):
 
     def verify_fields(self, docs):
         for item in docs:
-            if item.valor_final == '': item.valor_final = 0
-            if item.iss_valor == '': item.iss_valor = 0
-            if item.iss_valor_retencao == '': item.iss_valor_retencao = 0
+            if item.valor_final == '':
+                item.valor_final = 0
+            if item.iss_valor == '':
+                item.iss_valor = 0
+            if item.iss_valor_retencao == '':
+                item.iss_valor_retencao = 0
 
     @api.model
     def _get_report_values(self, docids, data=None):
         service_type = data['form']['service_type']
         period_start = data['form']['period_start']
         period_end = data['form']['period_end']
-
-        docs = self.env['eletronic.document'].search([('document_template_id.model_code','=', 'nfse'), ('data_emissao', '>=', period_start), ('data_emissao', '<=', period_end), ('tipo_operacao', '=', service_type)])
-
+        docs = self.env['eletronic.document'].search([('document_template_id.model_code', '=', 'nfse'), ('data_emissao', '>=', period_start), ('data_emissao', '<=', period_end), ('tipo_operacao', '=', service_type)])
         self.verify_fields(docs)
-
         return {
             'service_type': service_type,
             'period_start': '{2}/{1}/{0}'.format(*period_start.split('-')),
