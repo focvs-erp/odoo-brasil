@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <template id="l10n_br_eletronic_document.report_livro_fiscal">
+    <template id="report_livro_fiscal">
         <div class="container-fluid">
             <t t-set="full_width" t-value="True" />
             <t t-call="web.html_container">
@@ -211,7 +211,6 @@
                                 <td>
                                     <span>-</span>
                                 </td>
-
                                 <div t-if="book_type == 'p2'">
                                     <t t-if="total_value['icms_base_calculo']">
                                         <td>

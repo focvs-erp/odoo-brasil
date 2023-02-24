@@ -13,7 +13,7 @@ HEADERS = ['valor_bruto', 'icms_base_calculo', 'icms_valor', 'ipi_valor']
 
 
 class ReportLivroFiscal(models.AbstractModel):
-    _name = 'report.eletronic_document.report_livro_fiscal'
+    _name = 'report.l10n_br_eletronic_document.report_livro_fiscal'
     _description = 'Livro Fiscal'
 
     def filter_lines_in_invoices(self, docs: List[object]) -> List[object]:

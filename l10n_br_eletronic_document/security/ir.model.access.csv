@@ -57,3 +57,4 @@ access_report_l10n_br_eletronic_document_iss,report.l10n_br_eletronic_document.i
 
 "access_tax_determination_iss_wizard","l10n_br_eletronic_document.tax_determination_iss_wizard","model_l10n_br_eletronic_document_tax_determination_iss_wizard","base.group_user","1","1","1","1"
 "access_report_livro_fiscal_wizard","account.report_livro_fiscal_wizard","model_account_report_livro_fiscal_wizard","base.group_user","1","1","1","1"
+access_report_l10n_br_eletronic_document_report_livro_fiscal,report.l10n_br_eletronic_document.report_livro_fiscal,model_report_l10n_br_eletronic_document_report_livro_fiscal,,1,1,1,1
