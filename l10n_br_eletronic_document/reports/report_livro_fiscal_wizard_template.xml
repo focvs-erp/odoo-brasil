@@ -6,9 +6,11 @@
             <t t-call="web.html_container">
                 <t t-call="web.basic_layout">
                     <!-- MAIN ENTRACE FISCAL BOOK -->
+                    
                     <div class="page text-fiscal text-center table-report">
                         <div style="">
                             <div class="text-left mt-3">
+                                <t t-foreach="docs" t-as="docs">
                                 COMPANY:
                                 <span t-field="docs.company_id.name" />
                                 <br />
@@ -25,6 +27,7 @@
                                 <br />
                                 PRINTING DATE:
                                 <span t-esc="date" />
+                                </t>
                             </div>
                             <div>
                                 <h4 class="text-center">
@@ -334,5 +337,5 @@
         </div>
     </template>
 
-    <report id="report_id" model="account.report_livro_fiscal_wizard" string="Fiscal Book" report_type="qweb-html" name="eletronic_document.report_livro_fiscal" />
+    <report id="report_id" model="account.report_livro_fiscal_wizard" string="Fiscal Book" report_type="qweb-html" name="l10n_br_eletronic_document.report_livro_fiscal" />
 </odoo>
