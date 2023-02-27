@@ -3053,8 +3053,12 @@ msgstr ""
 
 #. module: l10n_br_eletronic_document
 #: model:ir.actions.report,name:l10n_br_eletronic_document.icms_book_report
-#: model:ir.actions.report,name:l10n_br_eletronic_document.ipi_book_report
 msgid "Icms Book Report"
+msgstr "Livro de Apuração de Icms"
+
+#. module: l10n_br_eletronic_document
+#: model:ir.actions.report,name:l10n_br_eletronic_document.ipi_book_report
+msgid "Ipi Book Report"
 msgstr "Livro de Apuração de IPI"
 
 #. module: l10n_br_eletronic_document

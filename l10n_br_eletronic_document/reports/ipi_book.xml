@@ -368,5 +368,5 @@
         </div>
     </template>
 
-    <report id="ipi_book_report" model="wizard.ipi_book" string="Icms Book Report" report_type="qweb-html" name="l10n_br_eletronic_document.ipi_book" />
+    <report id="ipi_book_report" model="wizard.ipi_book" string="Ipi Book Report" report_type="qweb-html" name="l10n_br_eletronic_document.ipi_book" />
 </odoo>
